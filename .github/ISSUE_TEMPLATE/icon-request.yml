@@ -1,0 +1,27 @@
+name: Icon request
+description: Request a missing icon without modifying raw SVG assets.
+title: "[Icon]: "
+labels: [icon-request]
+body:
+  - type: markdown
+    attributes:
+      value: Raw SVG files are supplied or explicitly approved by the maintainer. Describe the need instead of changing `packages/icons/raw`.
+  - type: input
+    id: name
+    attributes:
+      label: Suggested name
+      placeholder: calendar
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Product use case
+      description: Explain where the icon is needed and what it should communicate.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Optional context only, not approved source artwork.

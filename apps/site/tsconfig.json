@@ -11,6 +11,12 @@
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "uplus-icon": ["../../packages/icons/src/index.ts"],
+      "uplus-icon/dynamic": ["../../packages/icons/src/dynamic.ts"],
+      "uplus-icon/metadata": ["../../packages/icons/src/metadata.ts"]
+    },
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,

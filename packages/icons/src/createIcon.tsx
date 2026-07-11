@@ -1,14 +1,14 @@
 import { forwardRef, type ComponentPropsWithoutRef } from 'react'
-import { Icon } from './Icon'
-import type { IconName } from './generated/icons'
+import { IconBase } from './IconBase.js'
+import type { IconDefinition } from './types.js'
 
-export function createIcon(name: IconName) {
-  const Component = forwardRef<SVGSVGElement, Omit<ComponentPropsWithoutRef<typeof Icon>, 'name'>>(
+export function createIcon(icon: IconDefinition) {
+  const Component = forwardRef<SVGSVGElement, Omit<ComponentPropsWithoutRef<typeof IconBase>, 'icon'>>(
     function UplusIcon(props, ref) {
-      return <Icon ref={ref} name={name} {...props} />
+      return <IconBase ref={ref} icon={icon} {...props} />
     },
   )
-  Component.displayName = `${name.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}Icon`
+  Component.displayName = `${icon.name.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}Icon`
   return Component
 }
 

@@ -4,9 +4,19 @@
   "version": "0.1.0",
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
-    "dev": "npm run dev -w @uplus/icons-site",
-    "build": "npm run build -w @uplus/icons && npm run build -w @uplus/icons-site",
-    "build:icons": "npm run build -w @uplus/icons",
-    "typecheck": "npm run typecheck -w @uplus/icons && npm run typecheck -w @uplus/icons-site"
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish",
+    "generate": "npm run generate -w uplus-icon",
+    "dev": "npm run dev -w uplus-icon-site",
+    "build": "npm run build -w uplus-icon && npm run build -w uplus-icon-site",
+    "build:icons": "npm run build -w uplus-icon",
+    "typecheck": "npm run typecheck -w uplus-icon && npm run typecheck -w uplus-icon-site",
+    "check:generated": "npm run generate && git diff --exit-code -- packages/icons/src/generated packages/icons/src/icons",
+    "check:raw": "npm run generate && git diff --exit-code -- packages/icons/raw",
+    "check": "npm run typecheck && npm run build && npm run test:package -w uplus-icon && npm run test:fidelity -w uplus-icon && npm run test:size -w uplus-icon && npm run test:consumer -w uplus-icon && npm run check:generated && npm run check:raw"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.0"
   }
 }

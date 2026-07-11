@@ -1,5 +1,5 @@
 {
-  "name": "@uplus/icons-site",
+  "name": "uplus-icon-site",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "typecheck": "tsc -b --pretty false"
   },
   "dependencies": {
-    "@uplus/icons": "*",
+    "uplus-icon": "*",
     "gsap": "^3.13.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

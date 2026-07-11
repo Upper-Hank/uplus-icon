@@ -32,7 +32,9 @@ Uplus Icon 是 Uplus 的官方图标系统，包含 React 图标组件库和配�
 ## 目录职责
 
 - `packages/icons/raw`：负责人提供的正式 SVG 源文件，只读资产。
+- `packages/icons/metadata`：与 SVG 分离维护的分类、标签、别名等数据。
 - `packages/icons/src/generated`：由生成脚本产生的代码，不手工编辑。
+- `packages/icons/src/icons`：由生成脚本产生的单图标组件，不手工编辑。
 - `packages/icons/src`：React 组件、类型和公共 API。
 - `packages/icons/scripts`：只读处理 SVG 并生成代码的工具。
 - `packages/icons/dist`：构建产物，不作为源代码直接维护。
@@ -45,7 +47,7 @@ Uplus Icon 是 Uplus 的官方图标系统，包含 React 图标组件库和配�
 - 支持具名 React 组件，例如 `SearchIcon`。
 - 支持通过名称渲染，例如 `<Icon name="search" />`。
 - 提供完整的 TypeScript 类型。
-- 支持标准 SVG 属性、`ref`、尺寸和 `currentColor`。
+- 支持标准 SVG 属性、`ref` 和尺寸，并忠实保留负责人提供的 SVG 渲染内容。
 - 保持 API 简洁、行为明确并兼容服务端渲染。
 - 确保单个图标可以真正按需打包，避免导入一个图标时包含完整图标集。
 - 生成代码必须稳定、可复现，不依赖手工修补。

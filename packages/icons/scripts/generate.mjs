@@ -1,38 +1,92 @@
-import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises'
+import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises'
 import { basename, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const rawDir = join(root, 'raw')
-const outputDir = join(root, 'src', 'generated')
+const metadataFile = join(root, 'metadata', 'icons.json')
+const generatedDir = join(root, 'src', 'generated')
+const iconDir = join(root, 'src', 'icons')
 const toPascal = (name) => name.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')
 
-await mkdir(outputDir, { recursive: true })
+await rm(generatedDir, { recursive: true, force: true })
+await mkdir(generatedDir, { recursive: true })
+await rm(iconDir, { recursive: true, force: true })
+await mkdir(iconDir, { recursive: true })
+
 const files = (await readdir(rawDir)).filter((file) => file.endsWith('.svg')).sort()
+const metadata = JSON.parse(await readFile(metadataFile, 'utf8'))
+const names = files.map((file) => basename(file, '.svg'))
+const nameSet = new Set(names)
+const unknownMetadata = Object.keys(metadata).filter((name) => !nameSet.has(name))
+
+if (unknownMetadata.length > 0) {
+  throw new Error(`Metadata references missing icons: ${unknownMetadata.join(', ')}`)
+}
+
 const icons = []
 
 for (const file of files) {
   const name = basename(file, '.svg')
-  let svg = await readFile(join(rawDir, file), 'utf8')
-  const viewBox = svg.match(/viewBox="([^"]+)"/)?.[1] ?? '0 0 24 24'
-  const idPrefix = `uplus-${name}-`
-  const body = svg
-    .replace(/^<svg[^>]*>/, '')
-    .replace(/<\/svg>\s*$/, '')
-    .replace(/\sclip-path="url\(#[^)]+\)"/g, '')
-    .replace(/<defs>[\s\S]*?<\/defs>/g, '')
-    .replaceAll('fill="black"', 'fill="currentColor"')
-    .replaceAll('stroke="black"', 'stroke="currentColor"')
-    .replaceAll('fill="white"', 'fill="currentColor"')
-    .replace(/id="([^"]+)"/g, `id="${idPrefix}$1"`)
-    .replace(/url\(#([^)]*)\)/g, `url(#${idPrefix}$1)`)
-    .replace(/(?:href|xlink:href)="#([^"]+)"/g, (match, id) => match.replace(`#${id}`, `#${idPrefix}${id}`))
-    .replace(/\s(?:width|height)="[^"]*"/g, '')
-  icons.push({ name, component: `${toPascal(name)}Icon`, viewBox, body })
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name)) throw new Error(`Invalid icon filename: ${file}`)
+
+  const svg = await readFile(join(rawDir, file), 'utf8')
+  const match = svg.match(/^\s*<svg\b([^>]*)>([\s\S]*)<\/svg>\s*$/)
+  if (!match) throw new Error(`${file} must contain exactly one root <svg> element`)
+
+  const [, attributes, body] = match
+  const viewBoxMatches = [...attributes.matchAll(/\bviewBox\s*=\s*(["'])(.*?)\1/g)]
+  if (viewBoxMatches.length !== 1) throw new Error(`${file} must contain exactly one viewBox attribute`)
+  const parsedAttributes = [...attributes.matchAll(/([:\w-]+)\s*=\s*(["'])(.*?)\2/g)]
+  const remainingAttributes = parsedAttributes.reduce((remaining, attribute) => remaining.replace(attribute[0], ''), attributes).trim()
+  if (remainingAttributes) throw new Error(`${file} contains an unsupported or malformed root SVG attribute: ${remainingAttributes}`)
+  const rootAttributes = Object.fromEntries(parsedAttributes.map((attribute) => [attribute[1], attribute[3]]))
+  const allowedRootAttributes = new Set(['xmlns', 'width', 'height', 'viewBox', 'fill'])
+  const unsupportedRootAttributes = Object.keys(rootAttributes).filter((attribute) => !allowedRootAttributes.has(attribute))
+  if (unsupportedRootAttributes.length > 0) throw new Error(`${file} uses unsupported root SVG attributes: ${unsupportedRootAttributes.join(', ')}`)
+  if (rootAttributes.xmlns && rootAttributes.xmlns !== 'http://www.w3.org/2000/svg') throw new Error(`${file} uses an unsupported SVG namespace`)
+  if (rootAttributes.fill && rootAttributes.fill !== 'none') throw new Error(`${file} root fill must be "none" so it can be preserved by the component runtime`)
+
+  const details = metadata[name] ?? {}
+  const allowedMetadata = ['title', 'titleZh', 'categories', 'tags', 'aliases', 'deprecated', 'publishedIn', 'updatedIn']
+  const unknownFields = Object.keys(details).filter((field) => !allowedMetadata.includes(field))
+  if (unknownFields.length > 0) throw new Error(`Unsupported metadata for ${name}: ${unknownFields.join(', ')}`)
+  for (const field of ['categories', 'tags', 'aliases']) {
+    if (details[field] !== undefined && !Array.isArray(details[field])) {
+      throw new Error(`Metadata field ${name}.${field} must be an array`)
+    }
+  }
+
+  icons.push({
+    name,
+    componentName: `${toPascal(name)}Icon`,
+    viewBox: viewBoxMatches[0][2],
+    body,
+    title: details.title ?? name,
+    titleZh: details.titleZh ?? '',
+    categories: details.categories ?? [],
+    tags: details.tags ?? [],
+    aliases: details.aliases ?? [],
+    deprecated: details.deprecated ?? false,
+    publishedIn: details.publishedIn ?? null,
+    updatedIn: details.updatedIn ?? null,
+  })
 }
 
-const source = `// Generated by scripts/generate.mjs. Do not edit directly.\nexport const iconData = ${JSON.stringify(icons, null, 2)} as const\n\nexport type IconName = typeof iconData[number]['name']\n`
-await writeFile(join(outputDir, 'icons.ts'), source)
-const components = `// Generated by scripts/generate.mjs. Do not edit directly.\nimport { createIcon } from '../createIcon'\n${icons.map(({ name, component }) => `export const ${component} = createIcon('${name}')`).join('\n')}\n`
-await writeFile(join(outputDir, 'components.ts'), components)
-console.log(`Generated ${icons.length} icons`)
+const iconNameType = names.map((name) => `  | '${name}'`).join('\n')
+await writeFile(join(generatedDir, 'names.ts'), `// Generated by scripts/generate.mjs. Do not edit directly.\nexport type IconName =\n${iconNameType}\n`)
+
+const definitions = icons.map(({ name, viewBox, body }) => ({ name, viewBox, body }))
+await writeFile(join(generatedDir, 'definitions.ts'), `// Generated by scripts/generate.mjs. Do not edit directly.\nimport type { IconDefinition } from '../types.js'\n\nexport const iconDefinitions: readonly IconDefinition[] = ${JSON.stringify(definitions, null, 2)}\n`)
+
+const catalog = icons.map(({ body: _body, viewBox: _viewBox, ...entry }) => entry)
+await writeFile(join(generatedDir, 'metadata.ts'), `// Generated by scripts/generate.mjs. Do not edit directly.\nimport type { IconMeta } from '../types.js'\n\nexport const iconMeta: readonly IconMeta[] = ${JSON.stringify(catalog, null, 2)}\n`)
+
+await writeFile(join(generatedDir, 'components.ts'), `// Generated by scripts/generate.mjs. Do not edit directly.\n${icons.map(({ name, componentName }) => `export { ${componentName} } from '../icons/${name}.js'`).join('\n')}\n`)
+
+for (const { name, componentName, viewBox, body } of icons) {
+  const definition = JSON.stringify({ name, viewBox, body }, null, 2)
+  await writeFile(join(iconDir, `${name}.tsx`), `// Generated by scripts/generate.mjs. Do not edit directly.\nimport { createIcon } from '../createIcon.js'\n\nconst icon = ${definition}\n\nexport const ${componentName} = createIcon(icon)\nexport default ${componentName}\n`)
+}
+
+console.log(`Generated ${icons.length} icons without altering SVG content`)

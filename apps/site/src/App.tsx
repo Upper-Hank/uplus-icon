@@ -1,35 +1,12 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import { gsap } from 'gsap'
-import { Icon, iconData, type IconName } from '@uplus/icons'
+import { Icon, type IconName } from 'uplus-icon/dynamic'
+import { iconMeta } from 'uplus-icon/metadata'
 import { I18nProvider, useI18n, type Language } from './i18n'
-
-type Route = { page: 'home' | 'icons' | 'docs' } | { page: 'detail'; name: IconName }
-
-function readRoute(): Route {
-  const path = window.location.pathname.replace(/\/$/, '')
-  if (path.startsWith('/icons/')) {
-    const name = decodeURIComponent(path.slice(7)) as IconName
-    if (iconData.some((icon) => icon.name === name)) return { page: 'detail', name }
-  }
-  if (path === '/icons') return { page: 'icons' }
-  if (path === '/docs') return { page: 'docs' }
-  return { page: 'home' }
-}
-
-function useRoute() {
-  const [route, setRoute] = useState(readRoute)
-  useEffect(() => {
-    const onPopState = () => setRoute(readRoute())
-    window.addEventListener('popstate', onPopState)
-    return () => window.removeEventListener('popstate', onPopState)
-  }, [])
-  const navigate = (path: string) => {
-    window.history.pushState({}, '', path)
-    setRoute(readRoute())
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-  return [route, navigate] as const
-}
+import { useRoute } from './app/router'
+import { Header, Footer } from './components/SiteChrome'
+import { IconsPage, IconDetailPage } from './pages/IconsPage'
+import { DocsPage } from './pages/DocsPage'
 
 export function App() {
   const [route, navigate] = useRoute()
@@ -56,49 +33,13 @@ export function App() {
       <Header route={route} navigate={navigate} />
       <main ref={mainRef}>
         {route.page === 'home' && <Home navigate={navigate} />}
-        {route.page === 'icons' && <Library navigate={navigate} />}
-        {route.page === 'docs' && <Docs />}
-        {route.page === 'detail' && <Detail name={route.name} navigate={navigate} />}
+        {route.page === 'icons' && <IconsPage navigate={navigate} />}
+        {route.page === 'docs' && <DocsPage />}
+        {route.page === 'detail' && <IconDetailPage name={route.name} navigate={navigate} />}
       </main>
       <Footer />
     </div>
   </I18nProvider>
-}
-
-function Header({ route, navigate }: { route: Route; navigate: (path: string) => void }) {
-  const { language, setLanguage, t } = useI18n()
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const saved = localStorage.getItem('uplus-theme')
-    if (saved === 'light' || saved === 'dark') return saved
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  })
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-    localStorage.setItem('uplus-theme', theme)
-  }, [theme])
-
-  return (
-    <header className="header">
-      <button className="wordmark" onClick={() => navigate('/')} aria-label="Uplus Icon home">
-        <span className="mark"><img src="/favicon.svg" alt="" /></span>
-        <span>Uplus Icon</span>
-      </button>
-      <nav aria-label="Main navigation">
-        <button className={route.page === 'home' ? 'active' : ''} onClick={() => navigate('/')}>{t('home')}</button>
-        <button className={route.page === 'icons' || route.page === 'detail' ? 'active' : ''} onClick={() => navigate('/icons')}>{t('icons')} <span className="count">{iconData.length}</span></button>
-        <button className={route.page === 'docs' ? 'active' : ''} onClick={() => navigate('/docs')}>{t('docs')}</button>
-      </nav>
-      <div className="header-tools">
-        <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} title="Appearance">
-          <Icon name={theme === 'light' ? 'moon' : 'sun'} size={17} />
-        </button>
-        <button className="language-toggle" onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')} aria-label="Switch language" title="Language">
-          <Icon name="globe" size={16} /><span>{language === 'en' ? 'EN' : '中文'}</span>
-        </button>
-      </div>
-    </header>
-  )
 }
 
 function Home({ navigate }: { navigate: (path: string) => void }) {
@@ -113,7 +54,7 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
           <p className="intro" data-reveal>{t('heroIntro')}</p>
           <div className="hero-actions" data-reveal>
             <button className="primary" onClick={() => navigate('/icons')}>{t('explore')} <Icon name="arrow-right" size={18} /></button>
-            <code>npm i @uplus/icons</code>
+            <code>npm i uplus-icon</code>
           </div>
         </div>
         <div className="hero-visual" data-reveal aria-hidden="true">
@@ -144,7 +85,7 @@ type Particle = {
   angularVelocity: number
 }
 
-const particleIcons: IconName[] = iconData.map(({ name }) => name)
+const particleIcons: IconName[] = iconMeta.map(({ name }) => name as IconName)
 
 function PhysicsShowcase() {
   const { t } = useI18n()
@@ -465,145 +406,7 @@ function PhysicsShowcase() {
           <Icon name={name} size={32} />
         </span>
       ))}
-      <span className="showcase-meta">Physics / {iconData.length}</span>
+      <span className="showcase-meta">Physics / {iconMeta.length}</span>
     </div>
   )
-}
-
-function Library({ navigate }: { navigate: (path: string) => void }) {
-  const { t } = useI18n()
-  const [query, setQuery] = useState('')
-  const filtered = useMemo(() => iconData.filter(({ name }) => name.includes(query.trim().toLowerCase())), [query])
-  return (
-    <section className="library-page">
-      <div className="library-head">
-        <div><p className="eyebrow" data-reveal>{t('library')} / {iconData.length}</p><h1 data-reveal>{t('findShape')}</h1></div>
-        <label className="search" data-reveal>
-          <Icon name="search" size={19} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t('search')} autoFocus /><kbd>⌘ K</kbd>
-        </label>
-      </div>
-      <div className="result-bar" data-reveal><span>{filtered.length} icons</span><span>24 × 24</span></div>
-      {filtered.length ? (
-        <div className="icon-grid">
-          {filtered.map(({ name }) => <IconCard key={name} name={name} navigate={navigate} />)}
-        </div>
-      ) : <div className="empty"><Icon name="search" size={32} /><h2>{t('noIcon')}</h2><p>{t('noIconText')}</p></div>}
-    </section>
-  )
-}
-
-function IconCard({ name, navigate }: { name: IconName; navigate: (path: string) => void }) {
-  const cardRef = useRef<HTMLButtonElement>(null)
-  const onEnter = () => gsap.to(cardRef.current?.querySelector('svg') ?? null, { scale: 1.18, rotate: -5, duration: 0.35, ease: 'back.out(2)' })
-  const onLeave = () => gsap.to(cardRef.current?.querySelector('svg') ?? null, { scale: 1, rotate: 0, duration: 0.3, ease: 'power2.out' })
-  return (
-    <button ref={cardRef} className="icon-card" data-reveal onMouseEnter={onEnter} onMouseLeave={onLeave} onClick={() => navigate(`/icons/${name}`)}>
-      <span className="icon-stage"><Icon name={name} size={32} /></span><span className="icon-name">{name}</span><Icon name="arrow-right" size={15} className="card-arrow" />
-    </button>
-  )
-}
-
-function Detail({ name, navigate }: { name: IconName; navigate: (path: string) => void }) {
-  const { t } = useI18n()
-  const [size, setSize] = useState(96)
-  const [copied, setCopied] = useState(false)
-  const component = `${name.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}Icon`
-  const snippet = `import { ${component} } from '@uplus/icons'`
-  const copy = async () => {
-    await navigator.clipboard.writeText(snippet)
-    setCopied(true)
-    window.setTimeout(() => setCopied(false), 1600)
-  }
-  return (
-    <section className="detail-page">
-      <button className="back" onClick={() => navigate('/icons')} data-reveal><Icon name="arrow-left" size={17} /> {t('allIcons')}</button>
-      <div className="detail-title" data-reveal><div><p className="eyebrow">Icon / 24px</p><h1>{name}</h1></div><span className="status">{t('ready')}</span></div>
-      <div className="detail-layout">
-        <div className="preview-panel" data-reveal>
-          <div className="preview-grid"><Icon name={name} size={size} /></div>
-          <div className="size-control"><span>{t('size')}</span><input type="range" min="24" max="160" value={size} onChange={(event) => setSize(Number(event.target.value))} /><output>{size}px</output></div>
-        </div>
-        <aside className="usage-panel" data-reveal>
-          <p className="eyebrow">React</p><h2>{t('useIcon')}</h2><p>{t('useText')}</p>
-          <button className="code-block" onClick={copy}><code>{snippet}</code><span>{copied ? t('copied') : <Icon name="copy" size={17} />}</span></button>
-          <div className="api-list"><div><span>size</span><code>number | string</code></div><div><span>color</span><code>currentColor</code></div><div><span>title</span><code>string</code></div></div>
-        </aside>
-      </div>
-    </section>
-  )
-}
-
-function Docs() {
-  const { t } = useI18n()
-  const sections = [
-    { id: 'principles', label: t('principles') },
-    { id: 'drawing', label: t('drawing') },
-    { id: 'usage', label: t('using') },
-    { id: 'workflow', label: t('workflow') },
-  ]
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id)
-    if (!section) return
-    const headerOffset = 96
-    const top = section.getBoundingClientRect().top + window.scrollY - headerOffset
-    window.scrollTo({ top, behavior: 'smooth' })
-    window.history.replaceState({}, '', `/docs#${id}`)
-  }
-  return (
-    <section className="docs-page">
-      <div className="docs-hero">
-        <p className="eyebrow" data-reveal>{t('docLabel')}</p>
-        <h1 data-reveal>{t('docTitle').split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</h1>
-        <p data-reveal>{t('docIntro')}</p>
-      </div>
-      <div className="docs-layout">
-        <aside className="docs-nav" data-reveal>
-          <span>{t('onPage')}</span>
-          {sections.map((section, index) => <button type="button" onClick={() => scrollToSection(section.id)} key={section.id}><b>0{index + 1}</b>{section.label}</button>)}
-        </aside>
-        <div className="docs-content">
-          <article id="principles" data-reveal>
-            <p className="doc-number">01 / {t('principles')}</p>
-            <h2>{t('quiet')}</h2>
-            <p>{t('quietText')}</p>
-            <div className="doc-cards">
-              <div><Icon name="grid" size={28} /><h3>{t('gridFirst')}</h3><p>{t('gridFirstText')}</p></div>
-              <div><Icon name="eye" size={28} /><h3>{t('optical')}</h3><p>{t('opticalText')}</p></div>
-              <div><Icon name="minus" size={28} /><h3>{t('reduce')}</h3><p>{t('reduceText')}</p></div>
-            </div>
-          </article>
-          <article id="drawing" data-reveal>
-            <p className="doc-number">02 / {t('drawing')}</p>
-            <h2>{t('built24')}</h2>
-            <p>{t('built24Text')}</p>
-            <div className="spec-row"><span>{t('canvas')}</span><strong>24 × 24 px</strong></div>
-            <div className="spec-row"><span>{t('color')}</span><strong>currentColor</strong></div>
-            <div className="spec-row"><span>{t('format')}</span><strong>{t('optimized')}</strong></div>
-          </article>
-          <article id="usage" data-reveal>
-            <p className="doc-number">03 / {t('using')}</p>
-            <h2>{t('familiar')}</h2>
-            <p>{t('familiarText')}</p>
-            <div className="docs-code"><span>React</span><pre><code>{`import { SearchIcon } from '@uplus/icons'\n\n<SearchIcon size={24} />\n<SearchIcon size={20} color="var(--text)" />\n<SearchIcon title="Search" aria-label="Search" />`}</code></pre></div>
-            <p>{t('dynamicText')}</p>
-            <div className="docs-code"><span>Dynamic</span><pre><code>{`import { Icon } from '@uplus/icons'\n\n<Icon name="search" size={24} />`}</code></pre></div>
-          </article>
-          <article id="workflow" data-reveal>
-            <p className="doc-number">04 / {t('workflow')}</p>
-            <h2>{t('oneSource')}</h2>
-            <p>{t('oneSourceText')}</p>
-            <ol className="workflow-list">
-              <li><span>01</span><div><h3>{t('addSvg')}</h3><p>{t('addSvgText')}</p></div></li>
-              <li><span>02</span><div><h3>{t('generate')}</h3><p>{t('generateText')}</p></div></li>
-              <li><span>03</span><div><h3>{t('release')}</h3><p>{t('releaseText')}</p></div></li>
-            </ol>
-          </article>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function Footer() {
-  return <footer><span>v0.1.0</span><span>@2026</span></footer>
 }

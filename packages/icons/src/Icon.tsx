@@ -1,36 +1,20 @@
-import { forwardRef, type SVGProps } from 'react'
-import { iconData, type IconName } from './generated/icons'
+import { forwardRef } from 'react'
+import { iconDefinitions } from './generated/definitions.js'
+import type { IconName } from './generated/names.js'
+import { IconBase } from './IconBase.js'
+import type { IconBaseProps } from './types.js'
 
-export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
+export interface IconProps extends Omit<IconBaseProps, 'name'> {
   name: IconName
-  size?: number | string
-  title?: string
 }
 
-const iconMap = new Map(iconData.map((icon) => [icon.name, icon]))
+const iconMap = new Map(iconDefinitions.map((icon) => [icon.name, icon]))
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
-  { name, size = 24, title, 'aria-label': ariaLabel, ...props },
+  { name, ...props },
   ref,
 ) {
   const icon = iconMap.get(name)
   if (!icon) return null
-
-  return (
-    <svg
-      ref={ref}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox={icon.viewBox}
-      width={size}
-      height={size}
-      fill="none"
-      aria-hidden={title || ariaLabel ? undefined : true}
-      aria-label={ariaLabel}
-      role={title || ariaLabel ? 'img' : undefined}
-      {...props}
-    >
-      {title ? <title>{title}</title> : null}
-      <g dangerouslySetInnerHTML={{ __html: icon.body }} />
-    </svg>
-  )
+  return <IconBase ref={ref} icon={icon} {...props} />
 })
