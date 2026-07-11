@@ -1,0 +1,9 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "uplus-icon-site": "0.1.0",
+    "uplus-icon": "0.1.0"
+  },
+  "changesets": []
+}
