@@ -1,0 +1,12 @@
+{
+  "name": "uplus-icon-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "npm run dev -w @uplus/icons-site",
+    "build": "npm run build -w @uplus/icons && npm run build -w @uplus/icons-site",
+    "build:icons": "npm run build -w @uplus/icons",
+    "typecheck": "npm run typecheck -w @uplus/icons && npm run typecheck -w @uplus/icons-site"
+  }
+}

@@ -1,0 +1,609 @@
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import { gsap } from 'gsap'
+import { Icon, iconData, type IconName } from '@uplus/icons'
+import { I18nProvider, useI18n, type Language } from './i18n'
+
+type Route = { page: 'home' | 'icons' | 'docs' } | { page: 'detail'; name: IconName }
+
+function readRoute(): Route {
+  const path = window.location.pathname.replace(/\/$/, '')
+  if (path.startsWith('/icons/')) {
+    const name = decodeURIComponent(path.slice(7)) as IconName
+    if (iconData.some((icon) => icon.name === name)) return { page: 'detail', name }
+  }
+  if (path === '/icons') return { page: 'icons' }
+  if (path === '/docs') return { page: 'docs' }
+  return { page: 'home' }
+}
+
+function useRoute() {
+  const [route, setRoute] = useState(readRoute)
+  useEffect(() => {
+    const onPopState = () => setRoute(readRoute())
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
+  }, [])
+  const navigate = (path: string) => {
+    window.history.pushState({}, '', path)
+    setRoute(readRoute())
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+  return [route, navigate] as const
+}
+
+export function App() {
+  const [route, navigate] = useRoute()
+  const mainRef = useRef<HTMLElement>(null)
+  const [language, setLanguage] = useState<Language>(() => localStorage.getItem('uplus-language') === 'zh' ? 'zh' : 'en')
+
+  useEffect(() => {
+    document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'
+    localStorage.setItem('uplus-language', language)
+  }, [language])
+
+  useLayoutEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const context = gsap.context(() => {
+      gsap.fromTo('[data-reveal]', { y: 20, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.75, stagger: 0.06, ease: 'power3.out', clearProps: 'transform',
+      })
+    }, mainRef)
+    return () => context.revert()
+  }, [route])
+
+  return <I18nProvider value={{ language, setLanguage }}>
+    <div className="shell">
+      <Header route={route} navigate={navigate} />
+      <main ref={mainRef}>
+        {route.page === 'home' && <Home navigate={navigate} />}
+        {route.page === 'icons' && <Library navigate={navigate} />}
+        {route.page === 'docs' && <Docs />}
+        {route.page === 'detail' && <Detail name={route.name} navigate={navigate} />}
+      </main>
+      <Footer />
+    </div>
+  </I18nProvider>
+}
+
+function Header({ route, navigate }: { route: Route; navigate: (path: string) => void }) {
+  const { language, setLanguage, t } = useI18n()
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('uplus-theme')
+    if (saved === 'light' || saved === 'dark') return saved
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem('uplus-theme', theme)
+  }, [theme])
+
+  return (
+    <header className="header">
+      <button className="wordmark" onClick={() => navigate('/')} aria-label="Uplus Icon home">
+        <span className="mark"><img src="/favicon.svg" alt="" /></span>
+        <span>Uplus Icon</span>
+      </button>
+      <nav aria-label="Main navigation">
+        <button className={route.page === 'home' ? 'active' : ''} onClick={() => navigate('/')}>{t('home')}</button>
+        <button className={route.page === 'icons' || route.page === 'detail' ? 'active' : ''} onClick={() => navigate('/icons')}>{t('icons')} <span className="count">{iconData.length}</span></button>
+        <button className={route.page === 'docs' ? 'active' : ''} onClick={() => navigate('/docs')}>{t('docs')}</button>
+      </nav>
+      <div className="header-tools">
+        <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`} title="Appearance">
+          <Icon name={theme === 'light' ? 'moon' : 'sun'} size={17} />
+        </button>
+        <button className="language-toggle" onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')} aria-label="Switch language" title="Language">
+          <Icon name="globe" size={16} /><span>{language === 'en' ? 'EN' : '中文'}</span>
+        </button>
+      </div>
+    </header>
+  )
+}
+
+function Home({ navigate }: { navigate: (path: string) => void }) {
+  const heroRef = useRef<HTMLDivElement>(null)
+  const { t } = useI18n()
+  return (
+    <>
+      <section className="hero" ref={heroRef}>
+        <div className="hero-copy">
+          <p className="eyebrow" data-reveal>{t('official')}</p>
+          <h1 data-reveal>{t('heroTitle').split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</h1>
+          <p className="intro" data-reveal>{t('heroIntro')}</p>
+          <div className="hero-actions" data-reveal>
+            <button className="primary" onClick={() => navigate('/icons')}>{t('explore')} <Icon name="arrow-right" size={18} /></button>
+            <code>npm i @uplus/icons</code>
+          </div>
+        </div>
+        <div className="hero-visual" data-reveal aria-hidden="true">
+          <PhysicsShowcase />
+        </div>
+      </section>
+      <section className="principles">
+        <div className="section-heading" data-reveal><p className="eyebrow">{t('system')}</p><h2>{t('consistent')}</h2></div>
+        <div className="principle-grid">
+          <article data-reveal><span>01</span><h3>{t('gridTitle')}</h3><p>{t('gridText')}</p></article>
+          <article data-reveal><span>02</span><h3>{t('colorTitle')}</h3><p>{t('colorText')}</p></article>
+          <article data-reveal><span>03</span><h3>{t('reactTitle')}</h3><p>{t('reactText')}</p></article>
+        </div>
+      </section>
+    </>
+  )
+}
+
+type Particle = {
+  active: boolean
+  retiring: boolean
+  supported: boolean
+  x: number
+  y: number
+  vx: number
+  vy: number
+  angle: number
+  angularVelocity: number
+}
+
+const particleIcons: IconName[] = iconData.map(({ name }) => name)
+
+function PhysicsShowcase() {
+  const { t } = useI18n()
+  const boxRef = useRef<HTMLDivElement>(null)
+  const nodesRef = useRef<(HTMLSpanElement | null)[]>([])
+  const particlesRef = useRef<Particle[]>(particleIcons.map(() => ({
+    active: false, retiring: false, supported: false, x: 0, y: 0, vx: 0, vy: 0, angle: 0, angularVelocity: 0,
+  })))
+  const queueRef = useRef<number[]>([])
+  const dragRef = useRef<{ index: number; pointerId: number; startX: number; startY: number; lastX: number; lastY: number; lastTime: number; dragging: boolean } | null>(null)
+
+  useEffect(() => {
+    let frame = 0
+    let previous = performance.now()
+    const radius = 20
+
+    const tick = (now: number) => {
+      const box = boxRef.current
+      if (!box) return
+      const dt = Math.min((now - previous) / 16.667, 2)
+      previous = now
+      const width = box.clientWidth
+      const height = box.clientHeight
+      const cornerRadius = parseFloat(getComputedStyle(box).borderTopLeftRadius) || 0
+      const particles = particlesRef.current
+      const draggedIndex = dragRef.current?.dragging ? dragRef.current.index : -1
+
+      for (const [index, particle] of particles.entries()) {
+        if (!particle.active) continue
+        if (index === draggedIndex) continue
+        particle.supported = false
+        particle.vy += 0.42 * dt
+        particle.vx *= Math.pow(0.995, dt)
+        particle.vy *= Math.pow(0.998, dt)
+        particle.x += particle.vx * dt
+        particle.y += particle.vy * dt
+        particle.angle += particle.angularVelocity * dt
+
+        if (particle.x < radius) { particle.x = radius; particle.vx = Math.abs(particle.vx) * 0.68 }
+        if (particle.x > width - radius) { particle.x = width - radius; particle.vx = -Math.abs(particle.vx) * 0.68 }
+        if (particle.y < radius) { particle.y = radius; particle.vy = Math.abs(particle.vy) * 0.55 }
+        if (particle.y > height - radius) {
+          particle.y = height - radius
+          particle.supported = true
+          particle.vy = -Math.abs(particle.vy) * 0.48
+          particle.vx *= 0.92
+          particle.angularVelocity *= 0.9
+          if (Math.abs(particle.vy) < 0.7) particle.vy = 0
+        }
+
+        const innerCornerRadius = Math.max(0, cornerRadius - radius)
+        if (innerCornerRadius > 0) {
+          const cornerX = particle.x < cornerRadius ? cornerRadius : particle.x > width - cornerRadius ? width - cornerRadius : null
+          const cornerY = particle.y < cornerRadius ? cornerRadius : particle.y > height - cornerRadius ? height - cornerRadius : null
+          if (cornerX !== null && cornerY !== null) {
+            const dx = particle.x - cornerX
+            const dy = particle.y - cornerY
+            const distance = Math.hypot(dx, dy) || 0.01
+            if (distance > innerCornerRadius) {
+              const nx = dx / distance
+              const ny = dy / distance
+              particle.x = cornerX + nx * innerCornerRadius
+              particle.y = cornerY + ny * innerCornerRadius
+              const outwardVelocity = particle.vx * nx + particle.vy * ny
+              if (outwardVelocity > 0) {
+                particle.vx -= outwardVelocity * nx * 1.55
+                particle.vy -= outwardVelocity * ny * 1.55
+              }
+            }
+          }
+        }
+      }
+
+      const active = particles.filter((particle) => particle.active)
+      for (let i = 0; i < active.length; i += 1) {
+        for (let j = i + 1; j < active.length; j += 1) {
+          const a = active[i]
+          const b = active[j]
+          const aIndex = particles.indexOf(a)
+          const bIndex = particles.indexOf(b)
+          const dx = b.x - a.x
+          const dy = b.y - a.y
+          const distance = Math.hypot(dx, dy) || 0.01
+          const overlap = radius * 2 - distance
+          if (overlap <= 0) continue
+          const nx = dx / distance
+          const ny = dy / distance
+          const aWeight = aIndex === draggedIndex ? 0 : bIndex === draggedIndex ? 1 : 0.5
+          const bWeight = bIndex === draggedIndex ? 0 : aIndex === draggedIndex ? 1 : 0.5
+          a.x -= nx * overlap * aWeight
+          a.y -= ny * overlap * aWeight
+          b.x += nx * overlap * bWeight
+          b.y += ny * overlap * bWeight
+          const relativeVelocity = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny
+          if (relativeVelocity < 0) {
+            const impulse = -(1.45 * relativeVelocity) / 2
+            if (aIndex !== draggedIndex) { a.vx -= impulse * nx; a.vy -= impulse * ny }
+            if (bIndex !== draggedIndex) { b.vx += impulse * nx; b.vy += impulse * ny }
+          }
+          if (ny < -0.45) b.supported = true
+          if (ny > 0.45) a.supported = true
+        }
+      }
+
+      for (const particle of active) {
+        if (!particle.supported) continue
+        particle.vx *= Math.pow(0.78, dt)
+        particle.angularVelocity *= Math.pow(0.72, dt)
+        if (Math.abs(particle.vx) < 0.12) particle.vx = 0
+        if (Math.abs(particle.vy) < 0.9) particle.vy = 0
+        if (Math.abs(particle.angularVelocity) < 0.08) particle.angularVelocity = 0
+      }
+
+      particles.forEach((particle, index) => {
+        const node = nodesRef.current[index]
+        if (!node || !particle.active) return
+        node.style.opacity = '1'
+        node.style.transform = `translate3d(${particle.x - radius}px, ${particle.y - radius}px, 0) rotate(${particle.angle}deg)`
+      })
+      frame = requestAnimationFrame(tick)
+    }
+
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+  }, [])
+
+  useEffect(() => {
+    let previousScrollY = window.scrollY
+    let previousTime = performance.now()
+
+    const reactToScroll = () => {
+      const now = performance.now()
+      const delta = window.scrollY - previousScrollY
+      const elapsed = Math.max(now - previousTime, 8)
+      previousScrollY = window.scrollY
+      previousTime = now
+      if (!delta || dragRef.current?.dragging || !boxRef.current) return
+
+      const rect = boxRef.current.getBoundingClientRect()
+      if (rect.bottom < -80 || rect.top > window.innerHeight + 80) return
+      const impulse = Math.max(-2.4, Math.min(2.4, (delta / elapsed) * 3.2))
+      for (const particle of particlesRef.current) {
+        if (!particle.active) continue
+        particle.vy -= impulse
+        particle.vx += (Math.random() - 0.5) * Math.abs(impulse) * 0.12
+        particle.angularVelocity += (Math.random() - 0.5) * Math.abs(impulse) * 0.1
+      }
+    }
+
+    window.addEventListener('scroll', reactToScroll, { passive: true })
+    return () => window.removeEventListener('scroll', reactToScroll)
+  }, [])
+
+  const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    const box = boxRef.current
+    if (!box) return
+    const rect = box.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    const particles = particlesRef.current
+    let grabbedIndex = -1
+    let closestDistance = 26
+    particles.forEach((particle, index) => {
+      if (!particle.active) return
+      const distance = Math.hypot(particle.x - x, particle.y - y)
+      if (distance >= closestDistance) return
+      closestDistance = distance
+      grabbedIndex = index
+    })
+
+    if (grabbedIndex >= 0) {
+      dragRef.current = {
+        index: grabbedIndex, pointerId: event.pointerId, startX: x, startY: y,
+        lastX: x, lastY: y, lastTime: performance.now(), dragging: false,
+      }
+      box.setPointerCapture(event.pointerId)
+      return
+    }
+
+    spawnAt(x, y)
+  }
+
+  const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current
+    const box = boxRef.current
+    if (!drag || !box || drag.pointerId !== event.pointerId) return
+    event.preventDefault()
+    const rect = box.getBoundingClientRect()
+    let x = Math.max(20, Math.min(rect.width - 20, event.clientX - rect.left))
+    let y = Math.max(20, Math.min(rect.height - 20, event.clientY - rect.top))
+    const cornerRadius = parseFloat(getComputedStyle(box).borderTopLeftRadius) || 0
+    const innerCornerRadius = Math.max(0, cornerRadius - 20)
+    const cornerX = x < cornerRadius ? cornerRadius : x > rect.width - cornerRadius ? rect.width - cornerRadius : null
+    const cornerY = y < cornerRadius ? cornerRadius : y > rect.height - cornerRadius ? rect.height - cornerRadius : null
+    if (innerCornerRadius > 0 && cornerX !== null && cornerY !== null) {
+      const dx = x - cornerX
+      const dy = y - cornerY
+      const distance = Math.hypot(dx, dy) || 0.01
+      if (distance > innerCornerRadius) {
+        x = cornerX + (dx / distance) * innerCornerRadius
+        y = cornerY + (dy / distance) * innerCornerRadius
+      }
+    }
+    if (!drag.dragging) {
+      if (Math.hypot(x - drag.startX, y - drag.startY) < 7) return
+      drag.dragging = true
+      box.classList.add('is-dragging')
+      const grabbed = particlesRef.current[drag.index]
+      grabbed.supported = false
+      grabbed.vx = 0
+      grabbed.vy = 0
+    }
+    const particle = particlesRef.current[drag.index]
+    const now = performance.now()
+    const frameScale = 16.667 / Math.max(now - drag.lastTime, 8)
+    particle.x = x
+    particle.y = y
+    particle.vx = (x - drag.lastX) * frameScale
+    particle.vy = (y - drag.lastY) * frameScale
+    particle.angularVelocity = Math.max(-5, Math.min(5, particle.vx * 0.16))
+    drag.lastX = x
+    drag.lastY = y
+    drag.lastTime = now
+  }
+
+  const releaseDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current
+    const box = boxRef.current
+    if (!drag || drag.pointerId !== event.pointerId) return
+    if (!drag.dragging) spawnAt(drag.startX, drag.startY)
+    dragRef.current = null
+    box?.classList.remove('is-dragging')
+    if (box?.hasPointerCapture(event.pointerId)) box.releasePointerCapture(event.pointerId)
+  }
+
+  const spawnAt = (x: number, y: number) => {
+    const queue = queueRef.current
+    const particles = particlesRef.current
+    const nextIndex = particles.findIndex((particle, index) => !particle.active && !particle.retiring && !queue.includes(index))
+    if (nextIndex < 0) return
+
+    const particle = particles[nextIndex]
+    particle.active = true
+    particle.retiring = false
+    particle.supported = false
+    particle.x = x
+    particle.y = y
+    particle.vx = (Math.random() - 0.5) * 3.5
+    particle.vy = -2.5 - Math.random() * 2
+    particle.angle = Math.random() * 30 - 15
+    particle.angularVelocity = (Math.random() - 0.5) * 4
+    const nextNode = nodesRef.current[nextIndex]
+    const nextSvg = nextNode?.querySelector('svg')
+    if (nextNode) {
+      nextNode.style.transform = `translate3d(${x - 20}px, ${y - 20}px, 0) rotate(${particle.angle}deg)`
+      nextNode.style.opacity = '1'
+    }
+    if (nextSvg) {
+      gsap.killTweensOf(nextSvg)
+      gsap.set(nextSvg, { opacity: 1, scale: 1, transformOrigin: '50% 50%' })
+    }
+    queue.push(nextIndex)
+
+    if (queue.length > 36) retireOldest()
+  }
+
+  const retireOldest = () => {
+    const oldestIndex = queueRef.current.shift()!
+    const oldest = particlesRef.current[oldestIndex]
+    const oldestNode = nodesRef.current[oldestIndex]
+    const oldestSvg = oldestNode?.querySelector('svg')
+    oldest.active = false
+    oldest.retiring = true
+    if (!oldestSvg) { oldest.retiring = false; return }
+    gsap.to(oldestSvg, {
+      opacity: 0, scale: 0, duration: 0.55, ease: 'power2.inOut',
+      onComplete: () => {
+        if (oldestNode) { oldestNode.style.opacity = '0'; oldestNode.style.transform = '' }
+        gsap.set(oldestSvg, { clearProps: 'opacity,transform' })
+        oldest.retiring = false
+      },
+    })
+  }
+
+  const moveCrosshair = (event: ReactPointerEvent<HTMLDivElement>) => {
+    onPointerMove(event)
+    const box = boxRef.current
+    if (!box) return
+    const rect = box.getBoundingClientRect()
+    box.style.setProperty('--cross-x', `${event.clientX - rect.left}px`)
+    box.style.setProperty('--cross-y', `${event.clientY - rect.top}px`)
+  }
+
+  const enterShowcase = () => boxRef.current?.classList.add('has-entered', 'is-tracking')
+  const leaveShowcase = () => {
+    const box = boxRef.current
+    if (!box || dragRef.current?.dragging) return
+    box.classList.remove('is-tracking')
+    box.style.removeProperty('--cross-x')
+    box.style.removeProperty('--cross-y')
+  }
+
+  return (
+    <div
+      className="icon-showcase physics-showcase"
+      ref={boxRef}
+      onPointerDown={onPointerDown}
+      onPointerMove={moveCrosshair}
+      onPointerUp={releaseDrag}
+      onPointerCancel={releaseDrag}
+      onPointerEnter={enterShowcase}
+      onPointerLeave={leaveShowcase}
+    >
+      <span className="showcase-hint">{t('clickAnywhere')}</span>
+      {particleIcons.map((name, index) => (
+        <span className="physics-icon" key={name} ref={(node) => { nodesRef.current[index] = node }}>
+          <Icon name={name} size={32} />
+        </span>
+      ))}
+      <span className="showcase-meta">Physics / {iconData.length}</span>
+    </div>
+  )
+}
+
+function Library({ navigate }: { navigate: (path: string) => void }) {
+  const { t } = useI18n()
+  const [query, setQuery] = useState('')
+  const filtered = useMemo(() => iconData.filter(({ name }) => name.includes(query.trim().toLowerCase())), [query])
+  return (
+    <section className="library-page">
+      <div className="library-head">
+        <div><p className="eyebrow" data-reveal>{t('library')} / {iconData.length}</p><h1 data-reveal>{t('findShape')}</h1></div>
+        <label className="search" data-reveal>
+          <Icon name="search" size={19} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t('search')} autoFocus /><kbd>⌘ K</kbd>
+        </label>
+      </div>
+      <div className="result-bar" data-reveal><span>{filtered.length} icons</span><span>24 × 24</span></div>
+      {filtered.length ? (
+        <div className="icon-grid">
+          {filtered.map(({ name }) => <IconCard key={name} name={name} navigate={navigate} />)}
+        </div>
+      ) : <div className="empty"><Icon name="search" size={32} /><h2>{t('noIcon')}</h2><p>{t('noIconText')}</p></div>}
+    </section>
+  )
+}
+
+function IconCard({ name, navigate }: { name: IconName; navigate: (path: string) => void }) {
+  const cardRef = useRef<HTMLButtonElement>(null)
+  const onEnter = () => gsap.to(cardRef.current?.querySelector('svg') ?? null, { scale: 1.18, rotate: -5, duration: 0.35, ease: 'back.out(2)' })
+  const onLeave = () => gsap.to(cardRef.current?.querySelector('svg') ?? null, { scale: 1, rotate: 0, duration: 0.3, ease: 'power2.out' })
+  return (
+    <button ref={cardRef} className="icon-card" data-reveal onMouseEnter={onEnter} onMouseLeave={onLeave} onClick={() => navigate(`/icons/${name}`)}>
+      <span className="icon-stage"><Icon name={name} size={32} /></span><span className="icon-name">{name}</span><Icon name="arrow-right" size={15} className="card-arrow" />
+    </button>
+  )
+}
+
+function Detail({ name, navigate }: { name: IconName; navigate: (path: string) => void }) {
+  const { t } = useI18n()
+  const [size, setSize] = useState(96)
+  const [copied, setCopied] = useState(false)
+  const component = `${name.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}Icon`
+  const snippet = `import { ${component} } from '@uplus/icons'`
+  const copy = async () => {
+    await navigator.clipboard.writeText(snippet)
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1600)
+  }
+  return (
+    <section className="detail-page">
+      <button className="back" onClick={() => navigate('/icons')} data-reveal><Icon name="arrow-left" size={17} /> {t('allIcons')}</button>
+      <div className="detail-title" data-reveal><div><p className="eyebrow">Icon / 24px</p><h1>{name}</h1></div><span className="status">{t('ready')}</span></div>
+      <div className="detail-layout">
+        <div className="preview-panel" data-reveal>
+          <div className="preview-grid"><Icon name={name} size={size} /></div>
+          <div className="size-control"><span>{t('size')}</span><input type="range" min="24" max="160" value={size} onChange={(event) => setSize(Number(event.target.value))} /><output>{size}px</output></div>
+        </div>
+        <aside className="usage-panel" data-reveal>
+          <p className="eyebrow">React</p><h2>{t('useIcon')}</h2><p>{t('useText')}</p>
+          <button className="code-block" onClick={copy}><code>{snippet}</code><span>{copied ? t('copied') : <Icon name="copy" size={17} />}</span></button>
+          <div className="api-list"><div><span>size</span><code>number | string</code></div><div><span>color</span><code>currentColor</code></div><div><span>title</span><code>string</code></div></div>
+        </aside>
+      </div>
+    </section>
+  )
+}
+
+function Docs() {
+  const { t } = useI18n()
+  const sections = [
+    { id: 'principles', label: t('principles') },
+    { id: 'drawing', label: t('drawing') },
+    { id: 'usage', label: t('using') },
+    { id: 'workflow', label: t('workflow') },
+  ]
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id)
+    if (!section) return
+    const headerOffset = 96
+    const top = section.getBoundingClientRect().top + window.scrollY - headerOffset
+    window.scrollTo({ top, behavior: 'smooth' })
+    window.history.replaceState({}, '', `/docs#${id}`)
+  }
+  return (
+    <section className="docs-page">
+      <div className="docs-hero">
+        <p className="eyebrow" data-reveal>{t('docLabel')}</p>
+        <h1 data-reveal>{t('docTitle').split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</h1>
+        <p data-reveal>{t('docIntro')}</p>
+      </div>
+      <div className="docs-layout">
+        <aside className="docs-nav" data-reveal>
+          <span>{t('onPage')}</span>
+          {sections.map((section, index) => <button type="button" onClick={() => scrollToSection(section.id)} key={section.id}><b>0{index + 1}</b>{section.label}</button>)}
+        </aside>
+        <div className="docs-content">
+          <article id="principles" data-reveal>
+            <p className="doc-number">01 / {t('principles')}</p>
+            <h2>{t('quiet')}</h2>
+            <p>{t('quietText')}</p>
+            <div className="doc-cards">
+              <div><Icon name="grid" size={28} /><h3>{t('gridFirst')}</h3><p>{t('gridFirstText')}</p></div>
+              <div><Icon name="eye" size={28} /><h3>{t('optical')}</h3><p>{t('opticalText')}</p></div>
+              <div><Icon name="minus" size={28} /><h3>{t('reduce')}</h3><p>{t('reduceText')}</p></div>
+            </div>
+          </article>
+          <article id="drawing" data-reveal>
+            <p className="doc-number">02 / {t('drawing')}</p>
+            <h2>{t('built24')}</h2>
+            <p>{t('built24Text')}</p>
+            <div className="spec-row"><span>{t('canvas')}</span><strong>24 × 24 px</strong></div>
+            <div className="spec-row"><span>{t('color')}</span><strong>currentColor</strong></div>
+            <div className="spec-row"><span>{t('format')}</span><strong>{t('optimized')}</strong></div>
+          </article>
+          <article id="usage" data-reveal>
+            <p className="doc-number">03 / {t('using')}</p>
+            <h2>{t('familiar')}</h2>
+            <p>{t('familiarText')}</p>
+            <div className="docs-code"><span>React</span><pre><code>{`import { SearchIcon } from '@uplus/icons'\n\n<SearchIcon size={24} />\n<SearchIcon size={20} color="var(--text)" />\n<SearchIcon title="Search" aria-label="Search" />`}</code></pre></div>
+            <p>{t('dynamicText')}</p>
+            <div className="docs-code"><span>Dynamic</span><pre><code>{`import { Icon } from '@uplus/icons'\n\n<Icon name="search" size={24} />`}</code></pre></div>
+          </article>
+          <article id="workflow" data-reveal>
+            <p className="doc-number">04 / {t('workflow')}</p>
+            <h2>{t('oneSource')}</h2>
+            <p>{t('oneSourceText')}</p>
+            <ol className="workflow-list">
+              <li><span>01</span><div><h3>{t('addSvg')}</h3><p>{t('addSvgText')}</p></div></li>
+              <li><span>02</span><div><h3>{t('generate')}</h3><p>{t('generateText')}</p></div></li>
+              <li><span>03</span><div><h3>{t('release')}</h3><p>{t('releaseText')}</p></div></li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Footer() {
+  return <footer><span>v0.1.0</span><span>@2026</span></footer>
+}
