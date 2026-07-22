@@ -1,4 +1,10 @@
 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4.45312 19.1478C4.45312 19.1478 22.8456 13.9779 25.24 20.3474C26.8957 24.7518 21.4786 26.7049 17.9123 24.8457C10.8645 21.1717 17.6132 4.45312 17.6132 4.45312" stroke="black" stroke-width="2.34375" stroke-linecap="round"/>
-<path d="M11.6313 7.30209L17.6132 4.45312L20.9032 10.4509" stroke="black" stroke-width="2.34375" stroke-linecap="round" stroke-linejoin="round"/>
+<style>
+  path { stroke: #000; }
+  @media (prefers-color-scheme: dark) {
+    path { stroke: #fff; }
+  }
+</style>
+<path d="M4.45312 19.1478C4.45312 19.1478 22.8456 13.9779 25.24 20.3474C26.8957 24.7518 21.4786 26.7049 17.9123 24.8457C10.8645 21.1717 17.6132 4.45312 17.6132 4.45312" stroke-width="2.34375" stroke-linecap="round"/>
+<path d="M11.6313 7.30209L17.6132 4.45312L20.9032 10.4509" stroke-width="2.34375" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

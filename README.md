@@ -16,14 +16,16 @@ Consistent SVG icons, type-safe React components, and a focused browser for find
 
 ## About
 
-Uplus Icon is an open-source icon system for modern products. It brings carefully selected SVG assets, a small React API, searchable metadata, and a documentation site into one repository.
+Uplus Icon is an open-source icon system for modern products. It brings carefully selected SVG assets, framework-neutral icon data, React components, native Web APIs, and a documentation site into one repository.
 
 The project values clarity, visual consistency, accessibility, and predictable production behavior. Raw SVG assets are reviewed and supplied by the maintainer; the build pipeline reads them without rewriting their visual data.
 
 ## Features
 
 - Modern, consistent SVG icons for user interfaces
+- Framework-neutral SVG definitions and searchable metadata
 - Type-safe React components with ref forwarding
+- Native DOM helpers and an optional Web Component
 - Static per-icon imports for small production bundles
 - Dynamic rendering by a typed icon name
 - Standard SVG props with source-faithful rendering
@@ -34,7 +36,7 @@ The project values clarity, visual consistency, accessibility, and predictable p
 
 ## Project status
 
-Uplus Icon is currently in preview. The icon set, package API, and website are under active development. The `uplus-icon` package is used internally and has not been published publicly to npm yet. The future documentation site will be available at `icon.upper.website`.
+Uplus Icon is currently in preview. The icon set, package APIs, and website are under active development. The `@uplus-icon/core`, `@uplus-icon/react`, and `@uplus-icon/web` packages have not been published publicly to npm yet. The future documentation site will be available at `icon.upper.website`.
 
 Until the first public release, install the repository locally for development:
 
@@ -48,7 +50,7 @@ npm run build
 The public package will use the following installation command when released:
 
 ```bash
-npm install uplus-icon
+npm install @uplus-icon/react
 ```
 
 ## Usage
@@ -56,12 +58,12 @@ npm install uplus-icon
 ### React component
 
 ```tsx
-import { SearchIcon } from 'uplus-icon'
+import { CheckIcon } from '@uplus-icon/react'
 
 export function SearchButton() {
   return (
     <button type="button">
-      <SearchIcon size={20} />
+      <CheckIcon size={20} />
       Search
     </button>
   )
@@ -73,9 +75,9 @@ export function SearchButton() {
 Use the per-icon entry when you want the smallest explicit import path:
 
 ```tsx
-import SearchIcon from 'uplus-icon/icons/search'
+import CheckIcon from '@uplus-icon/react/icons/check'
 
-<SearchIcon size={24} />
+<CheckIcon size={24} />
 ```
 
 ### Dynamic icon
@@ -83,14 +85,34 @@ import SearchIcon from 'uplus-icon/icons/search'
 Use the dynamic component when an icon name comes from configuration or data:
 
 ```tsx
-import { Icon, type IconName } from 'uplus-icon/dynamic'
+import { Icon, type IconName } from '@uplus-icon/react/dynamic'
 
-const name: IconName = 'search'
+const name: IconName = 'check'
 
 <Icon name={name} size={24} />
 ```
 
-Dynamic rendering includes the icon registry. Prefer static component imports for fixed application icons. Searchable catalog data is available separately from `uplus-icon/metadata` and does not contain SVG bodies.
+Dynamic rendering includes the icon registry. Prefer static component imports for fixed application icons. Searchable catalog data is available from `@uplus-icon/core/metadata` and does not contain SVG bodies.
+
+### Native Web
+
+Use a per-icon DOM factory when React is not present:
+
+```ts
+import { CheckIcon } from '@uplus-icon/web'
+
+document.body.append(CheckIcon({ size: 24, ariaLabel: 'Complete' }))
+```
+
+An explicit side-effect entry registers the optional custom element:
+
+```ts
+import '@uplus-icon/web/element'
+```
+
+```html
+<uplus-icon name="check" size="24" aria-label="Complete"></uplus-icon>
+```
 
 ## Props
 
@@ -99,6 +121,8 @@ Every icon accepts standard React SVG attributes in addition to the following pr
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `size` | `number \| string` | `24` | Sets both width and height. |
+| `strokeWidth` | `number` | SVG source | Overrides source strokes and is clamped to `0.5–2`. |
+| `absoluteStrokeWidth` | `boolean` | `false` | Keeps the stroke width in CSS pixels instead of scaling with `size`. |
 | `title` | `string` | — | Adds an SVG title and exposes the icon as an image. |
 | `color` | `string` | — | Standard SVG color prop; its effect follows the supplied SVG source. |
 | `aria-label` | `string` | — | Gives a meaningful icon an accessible name. |
@@ -110,7 +134,7 @@ Refs are forwarded to the underlying `<svg>` element.
 Icons without `title` or `aria-label` are treated as decorative and receive `aria-hidden="true"`. If an icon carries meaning by itself, provide an accessible label:
 
 ```tsx
-<SearchIcon aria-label="Search" />
+<CheckIcon aria-label="Complete" />
 ```
 
 When an icon appears beside visible button text, it should normally remain decorative.
@@ -122,17 +146,19 @@ uplus-icon/
 ├── apps/
 │   └── site/                 Documentation and icon browser
 ├── packages/
-│   └── icons/
-│       ├── raw/              Maintainer-approved SVG sources (read-only)
-│       ├── metadata/         Search and classification metadata
-│       ├── scripts/          Code generation
-│       └── src/              React runtime and generated components
+│   ├── icons/                Private source and generation tools
+│   │   ├── raw/              Maintainer-approved SVG sources (read-only)
+│   │   ├── metadata/         Search and classification metadata
+│   │   └── scripts/          Unified code generation
+│   ├── core/                 Framework-neutral definitions and metadata
+│   ├── react/                React components
+│   └── web/                  Native DOM API and Web Component
 ├── .github/workflows/        Continuous integration
 ├── CONTRIBUTING.md
 └── LICENSE
 ```
 
-This is an npm workspaces monorepo. The website consumes the local icon package, so documentation and package behavior stay aligned.
+This is an npm workspaces monorepo. All public packages and the website are generated from the same approved SVG sources.
 
 ## Development
 
@@ -150,7 +176,7 @@ Useful commands:
 | `npm run dev` | Start the documentation site. |
 | `npm run generate` | Generate components from approved SVG sources. |
 | `npm run typecheck` | Check the package and site with TypeScript. |
-| `npm run build` | Build the package and documentation site. |
+| `npm run build` | Build all packages and the documentation site. |
 | `npm run check` | Run the complete CI validation. |
 
 Generated files must not be edited manually. The generator may read from `packages/icons/raw`, but it must never write to or optimize those SVG files.
@@ -158,12 +184,12 @@ Generated files must not be edited manually. The generator may read from `packag
 ## Roadmap
 
 - Expand the core interface icon set
-- Add categories, aliases, and multilingual search metadata
+- Expand the category taxonomy and multilingual search metadata as the library grows
 - Improve the icon browser and copy workflows
 - Add package tests and bundle-size budgets
-- Publish `uplus-icon` to npm
+- Publish the `@uplus-icon` packages to npm
 - Launch the public documentation website
-- Explore additional framework packages after the React API stabilizes
+- Add framework packages when a real consumer requires them
 
 The roadmap intentionally prioritizes a small, dependable core over adding frameworks or variants prematurely.
 

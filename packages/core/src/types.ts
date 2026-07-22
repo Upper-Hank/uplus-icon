@@ -1,0 +1,49 @@
+import type { IconCategoryId } from './generated/category-names.js'
+
+export interface IconDefinition {
+  name: string
+  viewBox: string
+  body: string
+}
+
+export interface IconCategory {
+  id: IconCategoryId
+  title: string
+  titleZh: string
+  description: string
+}
+
+export interface LocalizedText {
+  en: string
+  zh: string
+}
+
+export interface IconMotionTransition {
+  to: string
+  name: string
+}
+
+export interface IconMotionCapabilities {
+  generic: readonly string[]
+  semantic: readonly string[]
+  transitions: readonly IconMotionTransition[]
+}
+
+export interface IconMeta {
+  name: string
+  componentName: string
+  title: string
+  titleZh: string
+  categories: readonly IconCategoryId[]
+  tags: readonly string[]
+  aliases: readonly string[]
+  description?: LocalizedText
+  related?: readonly string[]
+  variants?: readonly string[]
+  parts?: readonly string[]
+  motion?: IconMotionCapabilities
+  contributors?: readonly string[]
+  deprecated: boolean
+  publishedIn: string | null
+  updatedIn: string | null
+}

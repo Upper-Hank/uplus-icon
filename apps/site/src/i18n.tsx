@@ -5,7 +5,7 @@ export type Language = 'en' | 'zh'
 const messages = {
   en: {
     home: 'Home', icons: 'Icons', docs: 'Docs', official: 'Uplus official icon library',
-    heroTitle: 'Small shapes.\nClear ideas.', heroIntro: 'A quiet, carefully drawn icon set for digital products. Built for React, designed to stay out of the way.',
+    heroTitle: 'Good enough icons', heroIntro: 'Linear icons. Completely free.',
     explore: 'Explore all icons', system: 'The system', consistent: 'Consistent by default.',
     gridTitle: '24 pixel grid', gridText: 'Built on a shared canvas for predictable alignment in every interface.',
     colorTitle: 'Source faithful', colorText: 'Every icon preserves the visual content supplied in its approved SVG source.',
@@ -24,7 +24,7 @@ const messages = {
   },
   zh: {
     home: '首页', icons: '图标', docs: '文档', official: 'Uplus 官方图标库',
-    heroTitle: '小巧形状，\n清晰表达。', heroIntro: '一套安静、精心绘制的数字产品图标。为 React 构建，克制地服务于界面。',
+    heroTitle: '足够好的图标', heroIntro: '线性图标，完全免费',
     explore: '浏览全部图标', system: '设计系统', consistent: '默认保持一致。',
     gridTitle: '24 像素网格', gridText: '基于统一画布构建，让图标在不同界面中保持稳定对齐。',
     colorTitle: '忠于源文件', colorText: '每个图标都完整保留已审核 SVG 中提供的视觉内容。',

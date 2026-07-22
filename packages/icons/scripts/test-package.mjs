@@ -2,26 +2,34 @@ import { access, readdir } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const root = dirname(dirname(fileURLToPath(import.meta.url)))
-const dist = join(root, 'dist')
-const distFiles = await readdir(dist)
-const iconFiles = (await readdir(join(dist, 'icons'))).filter((file) => file.endsWith('.js'))
+const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
+const packagesRoot = dirname(sourceRoot)
+const dist = (name) => join(packagesRoot, name, 'dist')
 
-if (iconFiles.length === 0) throw new Error('No per-icon JavaScript entries were built')
-if (distFiles.some((file) => /^chunk-/.test(file))) throw new Error('Build contains unpredictable hashed chunks')
+for (const name of ['core', 'react', 'web']) {
+  await access(join(dist(name), 'index.js'))
+  await access(join(dist(name), 'index.d.ts'))
+}
 
-await access(join(dist, 'index.js'))
-await access(join(dist, 'index.d.ts'))
+const coreIconFiles = (await readdir(join(dist('core'), 'generated', 'icons'))).filter((file) => file.endsWith('.js'))
+const reactIconFiles = (await readdir(join(dist('react'), 'generated', 'icons'))).filter((file) => file.endsWith('.js'))
+const webIconFiles = (await readdir(join(dist('web'), 'generated', 'icons'))).filter((file) => file.endsWith('.js'))
 
-const main = await import(join(dist, 'index.js'))
-const dynamic = await import(join(dist, 'dynamic.js'))
-const metadata = await import(join(dist, 'metadata.js'))
-const search = await import(join(dist, 'icons', 'search.js'))
+if (coreIconFiles.length === 0 || coreIconFiles.length !== reactIconFiles.length || coreIconFiles.length !== webIconFiles.length) {
+  throw new Error('Core, React, and Web per-icon outputs are missing or out of sync')
+}
 
-if (typeof main.SearchIcon !== 'object') throw new Error('Main SearchIcon export is missing')
-if ('Icon' in main || 'iconMeta' in main) throw new Error('Static entry contains dynamic or metadata exports')
-if (typeof dynamic.Icon !== 'object') throw new Error('Dynamic Icon export is missing')
-if (!Array.isArray(metadata.iconMeta)) throw new Error('Metadata export is missing')
-if (typeof search.default !== 'object') throw new Error('Default per-icon export is missing')
+const core = await import(join(dist('core'), 'index.js'))
+const metadata = await import(join(dist('core'), 'metadata.js'))
+const react = await import(join(dist('react'), 'index.js'))
+const reactDynamic = await import(join(dist('react'), 'dynamic.js'))
+const web = await import(join(dist('web'), 'index.js'))
+const webDynamic = await import(join(dist('web'), 'dynamic.js'))
 
-console.log(`Verified package entry points and ${iconFiles.length} per-icon modules`)
+if (Object.keys(core).length !== 0) throw new Error('Core root should only expose TypeScript types')
+if (!Array.isArray(metadata.iconMeta) || !Array.isArray(metadata.iconCategories)) throw new Error('Core metadata exports are missing')
+if (metadata.iconMeta.some((icon) => icon.categories.length === 0 || icon.tags.length === 0)) throw new Error('Generated icon metadata is incomplete')
+if (typeof react.CheckIcon !== 'object' || typeof reactDynamic.Icon !== 'object') throw new Error('React exports are missing')
+if (typeof web.CheckIcon !== 'function' || typeof webDynamic.Icon !== 'function') throw new Error('Web exports are missing')
+
+console.log(`Verified three package entry-point sets and ${coreIconFiles.length} aligned per-icon modules`)

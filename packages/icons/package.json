@@ -1,61 +1,13 @@
 {
-  "name": "uplus-icon",
+  "name": "@uplus-icon/source",
   "version": "0.1.0",
-  "description": "Official Uplus React icon library",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Upper-Hank/uplus-icon.git",
-    "directory": "packages/icons"
-  },
-  "bugs": {
-    "url": "https://github.com/Upper-Hank/uplus-icon/issues"
-  },
-  "homepage": "https://icon.upper.website",
-  "keywords": ["icon", "icons", "react", "svg", "uplus"],
+  "private": true,
   "type": "module",
-  "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./dynamic": {
-      "types": "./dist/dynamic.d.ts",
-      "import": "./dist/dynamic.js"
-    },
-    "./metadata": {
-      "types": "./dist/metadata.d.ts",
-      "import": "./dist/metadata.js"
-    },
-    "./icons/*": {
-      "types": "./dist/icons/*.d.ts",
-      "import": "./dist/icons/*.js"
-    }
-  },
-  "files": ["dist"],
   "scripts": {
     "generate": "node scripts/generate.mjs",
-    "build": "npm run generate && rm -rf dist && tsc",
-    "typecheck": "npm run generate && tsc --noEmit",
-    "test:package": "node scripts/test-package.mjs",
     "test:fidelity": "node scripts/test-fidelity.mjs",
+    "test:package": "node scripts/test-package.mjs",
     "test:size": "node scripts/test-size.mjs",
     "test:consumer": "node scripts/test-consumer.mjs"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "react": ">=18"
-  },
-  "devDependencies": {
-    "@types/react": "^19.1.8",
-    "esbuild": "^0.27.0",
-    "react": "^19.1.0",
-    "typescript": "^5.8.3"
   }
 }

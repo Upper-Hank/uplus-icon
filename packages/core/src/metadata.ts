@@ -1,0 +1,5 @@
+export { iconMeta } from './generated/metadata.js'
+export { iconCategories } from './generated/categories.js'
+export type { IconName } from './generated/names.js'
+export type { IconCategoryId } from './generated/category-names.js'
+export type { IconCategory, IconMeta, IconMotionCapabilities, IconMotionTransition, LocalizedText } from './types.js'

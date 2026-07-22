@@ -13,9 +13,11 @@
     "moduleResolution": "Bundler",
     "baseUrl": ".",
     "paths": {
-      "uplus-icon": ["../../packages/icons/src/index.ts"],
-      "uplus-icon/dynamic": ["../../packages/icons/src/dynamic.ts"],
-      "uplus-icon/metadata": ["../../packages/icons/src/metadata.ts"]
+      "@uplus-icon/react": ["../../packages/react/src/index.ts"],
+      "@uplus-icon/react/dynamic": ["../../packages/react/src/dynamic.ts"],
+      "@uplus-icon/core": ["../../packages/core/src/index.ts"],
+      "@uplus-icon/core/dynamic": ["../../packages/core/src/dynamic.ts"],
+      "@uplus-icon/core/metadata": ["../../packages/core/src/metadata.ts"]
     },
     "resolveJsonModule": true,
     "isolatedModules": true,

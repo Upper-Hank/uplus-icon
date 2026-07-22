@@ -1,17 +1,20 @@
 import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import { gsap } from 'gsap'
-import { Icon, type IconName } from 'uplus-icon/dynamic'
-import { iconMeta } from 'uplus-icon/metadata'
+import { Icon, type IconName } from '@uplus-icon/react/dynamic'
+import { iconMeta } from '@uplus-icon/core/metadata'
 import { I18nProvider, useI18n, type Language } from './i18n'
 import { useRoute } from './app/router'
-import { Header, Footer } from './components/SiteChrome'
-import { IconsPage, IconDetailPage } from './pages/IconsPage'
+import { useInteractiveMotion } from './app/useInteractiveMotion'
+import { Header } from './components/SiteChrome'
+import { IconsPage } from './pages/IconsPage'
 import { DocsPage } from './pages/DocsPage'
 
 export function App() {
+  const interactionProps = useInteractiveMotion()
   const [route, navigate] = useRoute()
   const mainRef = useRef<HTMLElement>(null)
   const [language, setLanguage] = useState<Language>(() => localStorage.getItem('uplus-language') === 'zh' ? 'zh' : 'en')
+  const routeSection = route.page === 'detail' ? 'icons' : route.page
 
   useEffect(() => {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'
@@ -24,52 +27,87 @@ export function App() {
       gsap.fromTo('[data-reveal]', { y: 20, opacity: 0 }, {
         y: 0, opacity: 1, duration: 0.75, stagger: 0.06, ease: 'power3.out', clearProps: 'transform',
       })
+
     }, mainRef)
     return () => context.revert()
-  }, [route])
+  }, [routeSection])
 
   return <I18nProvider value={{ language, setLanguage }}>
-    <div className="shell">
+    <div className="shell" {...interactionProps}>
       <Header route={route} navigate={navigate} />
       <main ref={mainRef}>
         {route.page === 'home' && <Home navigate={navigate} />}
-        {route.page === 'icons' && <IconsPage navigate={navigate} />}
-        {route.page === 'docs' && <DocsPage />}
-        {route.page === 'detail' && <IconDetailPage name={route.name} navigate={navigate} />}
+        {(route.page === 'icons' || route.page === 'detail') && (
+          <IconsPage navigate={navigate} selectedIcon={route.page === 'detail' ? route.name : undefined} />
+        )}
+        {route.page === 'docs' && <DocsPage doc={route.doc} navigate={navigate} />}
       </main>
-      <Footer />
     </div>
   </I18nProvider>
 }
 
 function Home({ navigate }: { navigate: (path: string) => void }) {
-  const heroRef = useRef<HTMLDivElement>(null)
-  const { t } = useI18n()
+  const { language, t } = useI18n()
+  const [copied, setCopied] = useState(false)
+  const copyTimerRef = useRef<number | undefined>(undefined)
+  const installCommand = 'npm install @uplus-icon/react'
+
+  useEffect(() => () => window.clearTimeout(copyTimerRef.current), [])
+
+  const copyInstall = async () => {
+    await navigator.clipboard.writeText(installCommand)
+    setCopied(true)
+    window.clearTimeout(copyTimerRef.current)
+    copyTimerRef.current = window.setTimeout(() => setCopied(false), 1600)
+  }
+
+  const moveExploreArrow = (button: HTMLButtonElement, x: number) => {
+    const arrow = button.querySelector('svg')
+    if (!arrow) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.set(arrow, { x })
+      return
+    }
+    gsap.to(arrow, { x, duration: 0.2, ease: 'power2.out', overwrite: true })
+  }
+
   return (
-    <>
-      <section className="hero" ref={heroRef}>
-        <div className="hero-copy">
-          <p className="eyebrow" data-reveal>{t('official')}</p>
-          <h1 data-reveal>{t('heroTitle').split('\n').map((line, index) => <span key={line}>{index > 0 && <br />}{line}</span>)}</h1>
-          <p className="intro" data-reveal>{t('heroIntro')}</p>
-          <div className="hero-actions" data-reveal>
-            <button className="primary" onClick={() => navigate('/icons')}>{t('explore')} <Icon name="arrow-right" size={18} /></button>
-            <code>npm i uplus-icon</code>
+    <section className="home-hero">
+      <div className="home-hero-layout">
+        <div className="home-hero-content">
+          <h1 data-reveal>{t('heroTitle')}</h1>
+          <p className="home-intro" data-reveal>{t('heroIntro')}</p>
+          <div className="home-install" data-reveal>
+            <div className="install-command">
+              <span>npm</span>
+              <code>{installCommand}</code>
+              <button type="button" onClick={copyInstall} aria-label={copied ? t('copied') : 'Copy install command'}>
+                <Icon name={copied ? 'check' : 'copy'} size={17} />
+              </button>
+            </div>
+            <button
+              className="explore-link"
+              type="button"
+              onClick={() => navigate('/icons')}
+              onPointerEnter={(event) => moveExploreArrow(event.currentTarget, 3)}
+              onPointerLeave={(event) => moveExploreArrow(event.currentTarget, 0)}
+              onFocus={(event) => moveExploreArrow(event.currentTarget, 3)}
+              onBlur={(event) => moveExploreArrow(event.currentTarget, 0)}
+            >
+              {t('explore')} <Icon name="arrow-right" size={17} />
+            </button>
           </div>
         </div>
-        <div className="hero-visual" data-reveal aria-hidden="true">
-          <PhysicsShowcase />
+
+        <div className="home-visual" data-reveal>
+          <div className="home-visual-header">
+            <span>{language === 'zh' ? '实时图标场' : 'Live icon field'}</span>
+            <span>{t('clickAnywhere')}</span>
+          </div>
+          <div className="home-physics"><PhysicsShowcase /></div>
         </div>
-      </section>
-      <section className="principles">
-        <div className="section-heading" data-reveal><p className="eyebrow">{t('system')}</p><h2>{t('consistent')}</h2></div>
-        <div className="principle-grid">
-          <article data-reveal><span>01</span><h3>{t('gridTitle')}</h3><p>{t('gridText')}</p></article>
-          <article data-reveal><span>02</span><h3>{t('colorTitle')}</h3><p>{t('colorText')}</p></article>
-          <article data-reveal><span>03</span><h3>{t('reactTitle')}</h3><p>{t('reactText')}</p></article>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 
@@ -88,7 +126,6 @@ type Particle = {
 const particleIcons: IconName[] = iconMeta.map(({ name }) => name as IconName)
 
 function PhysicsShowcase() {
-  const { t } = useI18n()
   const boxRef = useRef<HTMLDivElement>(null)
   const nodesRef = useRef<(HTMLSpanElement | null)[]>([])
   const particlesRef = useRef<Particle[]>(particleIcons.map(() => ({
@@ -101,6 +138,23 @@ function PhysicsShowcase() {
     let frame = 0
     let previous = performance.now()
     const radius = 20
+    const box = boxRef.current
+    if (box) {
+      const initialPositions = box.clientWidth < 680
+        ? [[0.16, 0.15], [0.84, 0.18], [0.1, 0.72], [0.9, 0.68], [0.28, 0.9], [0.72, 0.88]]
+        : [[0.1, 0.16], [0.23, 0.1], [0.77, 0.12], [0.9, 0.18], [0.08, 0.5], [0.92, 0.48], [0.12, 0.78], [0.3, 0.9], [0.7, 0.88], [0.88, 0.76]]
+      initialPositions.forEach(([x, y], index) => {
+        const particle = particlesRef.current[index]
+        particle.active = true
+        particle.x = box.clientWidth * x
+        particle.y = box.clientHeight * y
+        particle.vx = (Math.random() - 0.5) * 0.6
+        particle.vy = (Math.random() - 0.5) * 0.4
+        particle.angle = Math.random() * 20 - 10
+        particle.angularVelocity = (Math.random() - 0.5) * 0.5
+        queueRef.current.push(index)
+      })
+    }
 
     const tick = (now: number) => {
       const box = boxRef.current
@@ -371,42 +425,20 @@ function PhysicsShowcase() {
     })
   }
 
-  const moveCrosshair = (event: ReactPointerEvent<HTMLDivElement>) => {
-    onPointerMove(event)
-    const box = boxRef.current
-    if (!box) return
-    const rect = box.getBoundingClientRect()
-    box.style.setProperty('--cross-x', `${event.clientX - rect.left}px`)
-    box.style.setProperty('--cross-y', `${event.clientY - rect.top}px`)
-  }
-
-  const enterShowcase = () => boxRef.current?.classList.add('has-entered', 'is-tracking')
-  const leaveShowcase = () => {
-    const box = boxRef.current
-    if (!box || dragRef.current?.dragging) return
-    box.classList.remove('is-tracking')
-    box.style.removeProperty('--cross-x')
-    box.style.removeProperty('--cross-y')
-  }
-
   return (
     <div
       className="icon-showcase physics-showcase"
       ref={boxRef}
       onPointerDown={onPointerDown}
-      onPointerMove={moveCrosshair}
+      onPointerMove={onPointerMove}
       onPointerUp={releaseDrag}
       onPointerCancel={releaseDrag}
-      onPointerEnter={enterShowcase}
-      onPointerLeave={leaveShowcase}
     >
-      <span className="showcase-hint">{t('clickAnywhere')}</span>
       {particleIcons.map((name, index) => (
         <span className="physics-icon" key={name} ref={(node) => { nodesRef.current[index] = node }}>
           <Icon name={name} size={32} />
         </span>
       ))}
-      <span className="showcase-meta">Physics / {iconMeta.length}</span>
     </div>
   )
 }
