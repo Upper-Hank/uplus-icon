@@ -66,6 +66,7 @@ export function useInteractiveMotion(): InteractionProps {
 
   useEffect(() => () => {
     const animated = [...animatedRef.current]
+    if (animated.length === 0) return
     gsap.killTweensOf(animated)
     gsap.set(animated, { clearProps: 'transform' })
   }, [])
