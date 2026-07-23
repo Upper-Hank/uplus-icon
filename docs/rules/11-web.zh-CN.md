@@ -58,7 +58,7 @@ document.body.append(icon)
 
 ## 工厂选项
 
-跨框架默认值见[公共 API](/docs/api)。v1 使用单一 `24×24` 母版，不提供 Optical Size。
+跨框架默认值见[公共 API](/docs/api)。
 
 | 选项 | 类型 | 说明 |
 | --- | --- | --- |

@@ -88,6 +88,7 @@ export function IconDetailPreview({
   const motionTargetRef = useRef<HTMLDivElement>(null)
   const motionPlayButtonRef = useRef<HTMLButtonElement>(null)
   const motionTimelineRef = useRef<gsap.core.Timeline | null>(null)
+  const resetTweenRef = useRef<gsap.core.Tween | null>(null)
   const isMaster = mode === 'master'
   const isMotion = mode === 'motion'
   const modeOptions = [
@@ -125,6 +126,10 @@ export function IconDetailPreview({
     update()
     media.addEventListener('change', update)
     return () => media.removeEventListener('change', update)
+  }, [])
+
+  useEffect(() => () => {
+    resetTweenRef.current?.kill()
   }, [])
 
   useLayoutEffect(() => {
@@ -255,6 +260,50 @@ export function IconDetailPreview({
     setMotionPlaying(true)
   }
 
+  const resetPreview = () => {
+    resetTweenRef.current?.kill()
+    setShowGrid(false)
+    setShowGuides(false)
+    setShowSkeleton(false)
+    if (isMotion) {
+      motionTimelineRef.current?.pause(0)
+      setMotionName('fade')
+      setMotionDirection('in')
+      setMotionEase('standard')
+      setMotionDuration(0.8)
+      setMotionLoop(false)
+      setMotionPlaying(false)
+      motionPlayButtonRef.current?.style.setProperty('--motion-progress', '0%')
+    }
+
+    const values = {
+      motionDurationValue: motionDuration,
+      previewSize: size,
+      previewStrokeWidth: strokeWidth,
+    }
+    resetTweenRef.current = gsap.to(values, {
+      duration: reducedMotion ? 0 : 0.32,
+      ease: 'power2.out',
+      motionDurationValue: isMotion ? 0.8 : motionDuration,
+      previewSize: mode === 'actual' ? 24 : size,
+      previewStrokeWidth: 2,
+      onUpdate: () => {
+        if (mode === 'actual') onSizeChange(values.previewSize)
+        onStrokeWidthChange(values.previewStrokeWidth)
+        if (isMotion) setMotionDuration(values.motionDurationValue)
+      },
+      onComplete: () => {
+        if (mode === 'actual') {
+          onSizeChange(24)
+          onAbsoluteStrokeWidthChange(false)
+        }
+        onStrokeWidthChange(2)
+        if (isMotion) setMotionDuration(0.8)
+        resetTweenRef.current = null
+      },
+    })
+  }
+
   return (
     <section className={`detail-preview${isMotion ? ' is-motion' : ''}`} aria-label={language === 'zh' ? '图标预览与调试' : 'Icon preview and debugging'}>
       <div className="preview-canvas">
@@ -286,22 +335,25 @@ export function IconDetailPreview({
       <aside className="preview-controls" aria-label={language === 'zh' ? '预览参数' : 'Preview parameters'}>
         <SegmentedControl ariaLabel={language === 'zh' ? '预览模式' : 'Preview mode'} className="preview-mode-control" options={modeOptions} value={mode} onChange={onModeChange} />
 
-        <div className="preview-mode-copy">
-          <strong>{isMaster
-            ? (language === 'zh' ? '母版检查' : 'Master inspection')
-            : isMotion
-              ? (language === 'zh' ? '动画预览' : 'Motion preview')
-              : (language === 'zh' ? '实际尺寸' : 'Actual size')}</strong>
-          <span>{isMaster
-            ? (language === 'zh' ? '放大检查固定 24×24 源文件' : 'Enlarged inspection of the 24×24 source')
-            : isMotion
-              ? (language === 'zh' ? '预览最终动画效果，不改写 SVG 真源' : 'Preview the final motion without changing the SVG source')
-            : (language === 'zh' ? '按真实 CSS 像素渲染组件' : 'Rendered at its real CSS pixel size')}</span>
+        <div className="preview-mode-summary">
+          <div className="preview-mode-copy">
+            <strong>{isMaster
+              ? (language === 'zh' ? '母版检查' : 'Master inspection')
+              : isMotion
+                ? (language === 'zh' ? '动画预览' : 'Motion preview')
+                : (language === 'zh' ? '实际尺寸' : 'Actual size')}</strong>
+            <span>{isMaster
+              ? (language === 'zh' ? '放大检查固定 24×24 源文件' : 'Enlarged inspection of the 24×24 source')
+              : isMotion
+                ? (language === 'zh' ? '预览最终动画效果，不改写 SVG 真源' : 'Preview the final motion without changing the SVG source')
+              : (language === 'zh' ? '按真实 CSS 像素渲染组件' : 'Rendered at its real CSS pixel size')}</span>
+          </div>
+          <button className="preview-reset" type="button" onClick={resetPreview}>{language === 'zh' ? '恢复默认' : 'Restore defaults'}</button>
         </div>
 
         {mode === 'actual' && <label className="preview-range-control">
           <span>{language === 'zh' ? '尺寸' : 'Size'}</span>
-          <output>{size}px</output>
+          <output>{Math.round(size)}px</output>
           <input type="range" min="12" max="256" step="1" value={size} style={rangeProgress(size, 12, 256)} onChange={(event) => onSizeChange(Number(event.target.value))} />
         </label>}
 
@@ -334,7 +386,7 @@ export function IconDetailPreview({
             </label>
             <label className="preview-range-control">
               <span>{language === 'zh' ? '描边宽度' : 'Stroke width'}</span>
-              <output>{strokeWidth}</output>
+              <output>{Number(strokeWidth.toFixed(2))}</output>
               <input type="range" min="0.5" max="2" step="0.25" value={strokeWidth} style={rangeProgress(strokeWidth, 0.5, 2)} onChange={(event) => onStrokeWidthChange(Number(event.target.value))} />
             </label>
           </div>
@@ -353,7 +405,7 @@ export function IconDetailPreview({
 
         {!isMotion && <label className="preview-range-control">
           <span>{language === 'zh' ? '描边宽度' : 'Stroke width'}</span>
-          <output>{strokeWidth}</output>
+          <output>{Number(strokeWidth.toFixed(2))}</output>
           <input type="range" min="0.5" max="2" step="0.25" value={strokeWidth} style={rangeProgress(strokeWidth, 0.5, 2)} onChange={(event) => onStrokeWidthChange(Number(event.target.value))} />
         </label>}
 

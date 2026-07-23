@@ -58,7 +58,7 @@ Use dynamic `Icon` when a name comes from configuration or data. It carries the 
 
 ## Factory options
 
-See the [Public API](/docs/api) for cross-framework defaults. v1 uses one `24×24` master and has no optical-size option.
+See the [Public API](/docs/api) for cross-framework defaults.
 
 | Option | Type | Purpose |
 | --- | --- | --- |

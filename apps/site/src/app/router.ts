@@ -3,7 +3,10 @@ import type { IconName } from '@uplus-icon/core'
 import { iconMeta } from '@uplus-icon/core/metadata'
 import type { DocSlug } from '../content/docs'
 
-export type Route = { page: 'home' | 'icons' | 'changelog' } | { page: 'docs'; doc: DocSlug; mobileIndex: boolean } | { page: 'detail'; name: IconName }
+export type Route =
+  | { page: 'home' | 'icons' | 'guide' | 'changelog' | 'not-found' }
+  | { page: 'docs'; doc: DocSlug; mobileIndex: boolean }
+  | { page: 'detail'; name: IconName }
 
 const docRoutes: Record<string, DocSlug> = {
   '/docs': 'principles',
@@ -29,17 +32,27 @@ const docRoutes: Record<string, DocSlug> = {
   '/docs/release-process': 'release-process',
 }
 
-function readRoute(): Route {
-  const path = window.location.pathname.replace(/\/$/, '') || '/'
+export function resolveRoute(pathname: string): Route {
+  const path = pathname.replace(/\/+$/, '') || '/'
   if (path.startsWith('/icons/')) {
-    const name = decodeURIComponent(path.slice(7)) as IconName
-    if (iconMeta.some((icon) => icon.name === name)) return { page: 'detail', name }
+    try {
+      const name = decodeURIComponent(path.slice(7)) as IconName
+      if (iconMeta.some((icon) => icon.name === name)) return { page: 'detail', name }
+    } catch {
+      return { page: 'not-found' }
+    }
+    return { page: 'not-found' }
   }
   if (path === '/icons') return { page: 'icons' }
+  if (path === '/guide') return { page: 'guide' }
   if (path === '/changelog') return { page: 'changelog' }
   if (path in docRoutes) return { page: 'docs', doc: docRoutes[path], mobileIndex: path === '/docs' }
-  if (path.startsWith('/docs/')) return { page: 'docs', doc: 'principles', mobileIndex: false }
-  return { page: 'home' }
+  if (path === '/') return { page: 'home' }
+  return { page: 'not-found' }
+}
+
+function readRoute(): Route {
+  return resolveRoute(window.location.pathname)
 }
 
 export function useRoute() {

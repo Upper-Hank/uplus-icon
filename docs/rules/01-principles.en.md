@@ -30,7 +30,7 @@ Uplus Icon is a linear icon system for product interfaces. It must preserve visu
 
 ### Visual source
 
-Approved SVG files define paths, coordinates, strokes, fills, corners, and node order. In v1, every icon has one `24×24` canonical SVG and no optical-size matrix. The generator may read and compile these files but must never write them back or derive another asset.
+Approved SVG files define paths, coordinates, strokes, fills, corners, and node order. Every icon has one `24×24` canonical SVG. The generator may read and compile these files but must never write them back or derive another asset.
 
 ### Semantic source
 

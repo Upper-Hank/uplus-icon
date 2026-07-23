@@ -14,10 +14,10 @@ locale: en
 - **MUST** confirm filename and metadata semantics are accurate.
 - **MUST NOT** place drafts, screenshot reconstructions, or unapproved design exports in raw.
 
-v1 accepts one `24×24` canonical SVG per name. Multiple optical masters are outside the current import workflow.
+The library accepts one `24×24` canonical SVG per name.
 
 - **MUST** receive separate maintainer approval for every canonical SVG.
-- **MUST NOT** copy or automatically generate size variants from an existing file.
+- **MUST NOT** copy or automatically derive another approved asset from an existing file.
 
 ## Acceptance review
 
@@ -44,9 +44,9 @@ The generator reads approved sources and produces:
 
 - **MUST** make every package share the same Core Definition.
 - **MUST** keep output stable, reproducible, and free of manual patches.
-- **MUST** make every package consume the same single-master definition.
+- **MUST** make every package consume the same canonical definition.
 - **MUST NOT** generate or modify source SVG files from a framework package.
-- **MUST NOT** synthesize size variants.
+- **MUST NOT** synthesize additional approved assets.
 
 ## Bundles and compatibility
 

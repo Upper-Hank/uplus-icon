@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import { Icon } from '@uplus-icon/react/dynamic'
 import { getDocGroupLabels, getDocument, headingId, type DocDocument, type DocSlug } from '../content/docs'
 import { useI18n } from '../i18n'
+import { copyText } from '../app/copyText'
 import { PageHeading } from '../components/PageHeading'
 
 interface DocsContentProps {
@@ -141,22 +142,27 @@ function MarkdownArticle({ document, navigate }: { document: DocDocument; naviga
     const label = language ? (codeLanguageLabels[language] ?? language.toUpperCase()) : (document.locale === 'zh-CN' ? '代码' : 'Code')
     const value = String(codeProps?.children ?? '')
     const [copied, setCopied] = useState(false)
+    const [copyFailed, setCopyFailed] = useState(false)
     const copyTimerRef = useRef<number | undefined>(undefined)
 
     useEffect(() => () => window.clearTimeout(copyTimerRef.current), [])
 
     const copy = async () => {
-      await navigator.clipboard.writeText(value)
-      setCopied(true)
+      const success = await copyText(value)
+      setCopied(success)
+      setCopyFailed(!success)
       window.clearTimeout(copyTimerRef.current)
-      copyTimerRef.current = window.setTimeout(() => setCopied(false), 1600)
+      copyTimerRef.current = window.setTimeout(() => {
+        setCopied(false)
+        setCopyFailed(false)
+      }, 1600)
     }
 
     return (
       <div className="markdown-code-block">
         <div className="markdown-code-head">
           <span>{label}</span>
-          <button className="markdown-code-copy" type="button" onClick={copy} aria-label={copied ? (document.locale === 'zh-CN' ? '已复制' : 'Copied') : (document.locale === 'zh-CN' ? '复制代码' : 'Copy code')}>
+          <button className="markdown-code-copy" type="button" onClick={copy} aria-label={copyFailed ? (document.locale === 'zh-CN' ? '复制失败' : 'Copy failed') : copied ? (document.locale === 'zh-CN' ? '已复制' : 'Copied') : (document.locale === 'zh-CN' ? '复制代码' : 'Copy code')}>
             <Icon name={copied ? 'check' : 'copy'} size={14} />
           </button>
         </div>

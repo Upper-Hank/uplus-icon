@@ -5,7 +5,7 @@ import { useI18n } from '../i18n'
 import { DocumentationNav } from './DocumentationNav'
 
 interface DocumentationShellProps extends PropsWithChildren {
-  active: DocSlug | 'changelog'
+  active: DocSlug | 'guide' | 'changelog'
   mobileIndex: boolean
   navigate: (path: string) => void
 }

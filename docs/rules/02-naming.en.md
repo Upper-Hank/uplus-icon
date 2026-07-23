@@ -32,7 +32,7 @@ base[-state][-direction][-variant].svg
 The v1 `24×24` canvas is a library-wide constraint and never enters a name. `search-24`, `search-small`, and `search-large` are not valid size expressions.
 
 - **MUST** map one canonical name to one v1 canonical SVG, component name, and metadata record.
-- **MUST NOT** use names to invent unreleased optical sizes or visual weights.
+- **MUST NOT** use names to encode repository-wide canvas sizes or visual weights.
 - **MUST NOT** reserve empty variants for a hypothetical future size system.
 
 ## Name-to-component mapping

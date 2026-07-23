@@ -3,17 +3,15 @@ slug: optical
 order: 4
 group: visual
 title: 光学修正、间距与遮挡
-description: 单母版体系中的视觉居中、体积、负空间与前后关系
+description: 视觉居中、体积、负空间与前后关系
 locale: zh-CN
 ---
 
-## v1 边界
+## 多尺寸检查
 
-Uplus Icon v1 只维护一套 `24×24` Canonical SVG，不提供 `small / medium / large / auto` 光学尺寸 API。小尺寸可读性通过同一母版的审查保证，不通过运行时切换资产解决。
+每份 Canonical SVG 都需要在视觉审核中确认小尺寸可读性。
 
-- **必须**在 `16 / 20 / 24 / 32px` 检查同一母版。
-- **禁止**为了补齐尺寸矩阵复制或推导 SVG。
-- **可以**把多光学母版作为未来提案，但不得写入 v1 兼容承诺。
+- **必须**在 `16 / 20 / 24 / 32px` 检查 Canonical SVG。
 
 ## 视觉体积与居中
 

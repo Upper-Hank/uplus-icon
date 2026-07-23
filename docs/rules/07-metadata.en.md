@@ -18,7 +18,7 @@ Metadata explains what an icon means, how it is found, and its lifecycle state. 
 
 ## Asset relationship
 
-In v1, each metadata key maps one-to-one to a canonical SVG filename. Metadata does not store `opticalSizes` or another unreleased capability.
+Each metadata key maps one-to-one to a canonical SVG filename.
 
 - **MUST** let generation validate names against the file set.
 - **MUST NOT** declare an icon without a corresponding approved SVG.
@@ -52,8 +52,15 @@ In v1, each metadata key maps one-to-one to a canonical SVG filename. Metadata d
 
 - **MAY** add synonyms, legacy names, and common industry terms to aliases.
 - **MUST** avoid conflicts with every approved icon name.
+- **MUST** keep every alias globally unique so search has one deterministic owner.
 - **MUST NOT** generate components, export paths, or duplicate SVG files from aliases.
 - **MUST NOT** use aliases for visual style or category membership.
+
+## References
+
+- **MUST** make every `related`, `variants`, and motion transition target resolve to an approved icon name.
+- **MUST NOT** let an icon reference itself as a relation, variant, or motion transition target.
+- **MUST** reject duplicate motion capabilities and duplicate transitions during generation.
 
 ## Status and versions
 
@@ -64,5 +71,6 @@ In v1, each metadata key maps one-to-one to a canonical SVG filename. Metadata d
 | `updatedIn` | Version of the latest approved visual or semantic update |
 
 - **MUST** track renames, deprecations, and visual replacements as explicit changes.
+- **MUST** store `publishedIn` and `updatedIn` as semantic versions or `null`, and `deprecated` as a boolean.
 - **SHOULD** complete version fields during public release.
 - **MUST NOT** silently remove a published name without migration guidance.

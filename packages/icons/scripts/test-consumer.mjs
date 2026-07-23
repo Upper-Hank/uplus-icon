@@ -17,7 +17,7 @@ try {
   if (tarballs.length !== 3) throw new Error(`Expected three package tarballs, found ${tarballs.length}`)
 
   await writeFile(join(temp, 'package.json'), JSON.stringify({ name: 'uplus-icon-consumer', private: true, type: 'module' }))
-  execFileSync('npm', ['install', '--ignore-scripts', ...tarballs, 'react@19', 'react-dom@19', '@types/react@19', '@types/react-dom@19', 'typescript@5'], { cwd: temp, env: npmEnv, stdio: 'pipe' })
+  execFileSync('npm', ['install', '--ignore-scripts', ...tarballs, 'react@18', 'react-dom@18', '@types/react@18', '@types/react-dom@18', 'typescript@5'], { cwd: temp, env: npmEnv, stdio: 'pipe' })
   await writeFile(join(temp, 'tsconfig.json'), JSON.stringify({
     compilerOptions: { module: 'NodeNext', moduleResolution: 'NodeNext', target: 'ES2020', lib: ['ES2020', 'DOM'], jsx: 'react-jsx', strict: true, outDir: 'build' },
     include: ['consumer.tsx'],

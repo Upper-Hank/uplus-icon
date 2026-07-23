@@ -186,7 +186,7 @@ Generated files must not be edited manually. The generator may read from `packag
 - Expand the core interface icon set
 - Expand the category taxonomy and multilingual search metadata as the library grows
 - Improve the icon browser and copy workflows
-- Add package tests and bundle-size budgets
+- Add browser E2E and accessibility regression coverage
 - Publish the `@uplus-icon` packages to npm
 - Launch the public documentation website
 - Add framework packages when a real consumer requires them

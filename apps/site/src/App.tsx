@@ -1,21 +1,25 @@
-import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
-import { gsap } from 'gsap'
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
 import { iconMeta } from '@uplus-icon/core/metadata'
 import { I18nProvider, useI18n, type Language } from './i18n'
+import { copyText } from './app/copyText'
 import { useRoute } from './app/router'
+import { useDocumentMetadata } from './app/useDocumentMetadata'
 import { useInteractiveMotion } from './app/useInteractiveMotion'
 import { Header } from './components/SiteChrome'
-import { DocumentationShell } from './components/DocumentationShell'
-import { IconsPage } from './pages/IconsPage'
-import { DocsContent } from './pages/DocsPage'
-import { ChangelogContent } from './pages/ChangelogPage'
+
+const DocumentationShell = lazy(() => import('./components/DocumentationShell').then((module) => ({ default: module.DocumentationShell })))
+const IconsPage = lazy(() => import('./pages/IconsPage').then((module) => ({ default: module.IconsPage })))
+const DocsContent = lazy(() => import('./pages/DocsPage').then((module) => ({ default: module.DocsContent })))
+const GuideContent = lazy(() => import('./pages/GuidePage').then((module) => ({ default: module.GuideContent })))
+const ChangelogContent = lazy(() => import('./pages/ChangelogPage').then((module) => ({ default: module.ChangelogContent })))
 
 export function App() {
   const interactionProps = useInteractiveMotion()
   const [route, navigate] = useRoute()
   const mainRef = useRef<HTMLElement>(null)
   const [language, setLanguage] = useState<Language>(() => localStorage.getItem('uplus-language') === 'zh' ? 'zh' : 'en')
+  useDocumentMetadata(route, language)
   const routeMotionKey = route.page === 'detail'
     ? 'icons'
     : route.page === 'docs'
@@ -29,34 +33,38 @@ export function App() {
 
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const context = gsap.context(() => {
-      gsap.fromTo('[data-reveal]', { y: 20, opacity: 0 }, {
-        y: 0, opacity: 1, duration: 0.75, stagger: 0.06, ease: 'power3.out', clearProps: 'transform',
-      })
-
-    }, mainRef)
-    return () => context.revert()
+    const animations = [...(mainRef.current?.querySelectorAll<HTMLElement>('[data-reveal]') ?? [])]
+      .map((element, index) => element.animate(
+        [{ transform: 'translateY(20px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }],
+        { duration: 750, delay: index * 60, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'backwards' },
+      ))
+    return () => animations.forEach((animation) => animation.cancel())
   }, [routeMotionKey])
 
   return <I18nProvider value={{ language, setLanguage }}>
     <div className="shell" {...interactionProps}>
       <Header route={route} navigate={navigate} />
       <main ref={mainRef}>
-        {route.page === 'home' && <Home navigate={navigate} />}
-        {(route.page === 'icons' || route.page === 'detail') && (
-          <IconsPage navigate={navigate} selectedIcon={route.page === 'detail' ? route.name : undefined} />
-        )}
-        {(route.page === 'docs' || route.page === 'changelog') && (
-          <DocumentationShell
-            active={route.page === 'docs' ? route.doc : 'changelog'}
-            mobileIndex={route.page === 'docs' && route.mobileIndex}
-            navigate={navigate}
-          >
-            {route.page === 'docs'
-              ? <DocsContent doc={route.doc} navigate={navigate} />
-              : <ChangelogContent />}
-          </DocumentationShell>
-        )}
+        <Suspense fallback={<div className="route-loading" role="status">{language === 'zh' ? '正在加载…' : 'Loading…'}</div>}>
+          {route.page === 'home' && <Home navigate={navigate} />}
+          {(route.page === 'icons' || route.page === 'detail') && (
+            <IconsPage navigate={navigate} selectedIcon={route.page === 'detail' ? route.name : undefined} />
+          )}
+          {(route.page === 'docs' || route.page === 'guide' || route.page === 'changelog') && (
+            <DocumentationShell
+              active={route.page === 'docs' ? route.doc : route.page}
+              mobileIndex={route.page === 'docs' && route.mobileIndex}
+              navigate={navigate}
+            >
+              {route.page === 'docs'
+                ? <DocsContent doc={route.doc} navigate={navigate} />
+                : route.page === 'guide'
+                  ? <GuideContent navigate={navigate} />
+                  : <ChangelogContent />}
+            </DocumentationShell>
+          )}
+          {route.page === 'not-found' && <NotFound navigate={navigate} />}
+        </Suspense>
       </main>
     </div>
   </I18nProvider>
@@ -65,26 +73,30 @@ export function App() {
 function Home({ navigate }: { navigate: (path: string) => void }) {
   const { language, t } = useI18n()
   const [copied, setCopied] = useState(false)
+  const [copyFailed, setCopyFailed] = useState(false)
   const copyTimerRef = useRef<number | undefined>(undefined)
   const installCommand = 'npm install @uplus-icon/react'
 
   useEffect(() => () => window.clearTimeout(copyTimerRef.current), [])
 
   const copyInstall = async () => {
-    await navigator.clipboard.writeText(installCommand)
-    setCopied(true)
+    const success = await copyText(installCommand)
+    setCopied(success)
+    setCopyFailed(!success)
     window.clearTimeout(copyTimerRef.current)
-    copyTimerRef.current = window.setTimeout(() => setCopied(false), 1600)
+    copyTimerRef.current = window.setTimeout(() => {
+      setCopied(false)
+      setCopyFailed(false)
+    }, 1600)
   }
 
   const moveExploreArrow = (button: HTMLButtonElement, x: number) => {
     const arrow = button.querySelector('svg')
     if (!arrow) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      gsap.set(arrow, { x })
-      return
-    }
-    gsap.to(arrow, { x, duration: 0.2, ease: 'power2.out', overwrite: true })
+    arrow.style.transition = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 'none'
+      : 'transform .2s cubic-bezier(.22, 1, .36, 1)'
+    arrow.style.transform = `translateX(${x}px)`
   }
 
   return (
@@ -97,7 +109,7 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
             <div className="install-command">
               <span>npm</span>
               <code>{installCommand}</code>
-              <button type="button" onClick={copyInstall} aria-label={copied ? t('copied') : 'Copy install command'}>
+              <button type="button" onClick={copyInstall} aria-label={copyFailed ? (language === 'zh' ? '复制失败' : 'Copy failed') : copied ? t('copied') : 'Copy install command'}>
                 <Icon name={copied ? 'check' : 'copy'} size={17} />
               </button>
             </div>
@@ -122,6 +134,21 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
           </div>
           <div className="home-physics"><PhysicsShowcase /></div>
         </div>
+      </div>
+    </section>
+  )
+}
+
+function NotFound({ navigate }: { navigate: (path: string) => void }) {
+  const { language } = useI18n()
+  return (
+    <section className="not-found" data-reveal>
+      <p>404</p>
+      <h1>{language === 'zh' ? '页面不存在' : 'Page not found'}</h1>
+      <span>{language === 'zh' ? '这个地址可能已变更，或者从未存在。' : 'This address may have changed or never existed.'}</span>
+      <div>
+        <button type="button" onClick={() => navigate('/')}>{language === 'zh' ? '返回首页' : 'Go home'}</button>
+        <button type="button" onClick={() => navigate('/icons')}>{language === 'zh' ? '浏览图标' : 'Browse icons'}</button>
       </div>
     </section>
   )
@@ -415,8 +442,10 @@ function PhysicsShowcase() {
       nextNode.style.opacity = '1'
     }
     if (nextSvg) {
-      gsap.killTweensOf(nextSvg)
-      gsap.set(nextSvg, { opacity: 1, scale: 1, transformOrigin: '50% 50%' })
+      nextSvg.getAnimations().forEach((animation) => animation.cancel())
+      nextSvg.style.opacity = '1'
+      nextSvg.style.transform = 'scale(1)'
+      nextSvg.style.transformOrigin = '50% 50%'
     }
     queue.push(nextIndex)
 
@@ -431,14 +460,20 @@ function PhysicsShowcase() {
     oldest.active = false
     oldest.retiring = true
     if (!oldestSvg) { oldest.retiring = false; return }
-    gsap.to(oldestSvg, {
-      opacity: 0, scale: 0, duration: 0.55, ease: 'power2.inOut',
-      onComplete: () => {
-        if (oldestNode) { oldestNode.style.opacity = '0'; oldestNode.style.transform = '' }
-        gsap.set(oldestSvg, { clearProps: 'opacity,transform' })
-        oldest.retiring = false
-      },
+    const animation = oldestSvg.animate([
+      { opacity: 1, transform: 'scale(1)' },
+      { opacity: 0, transform: 'scale(0)' },
+    ], {
+      duration: 550,
+      easing: 'cubic-bezier(.65, 0, .35, 1)',
+      fill: 'forwards',
     })
+    animation.onfinish = () => {
+      if (oldestNode) { oldestNode.style.opacity = '0'; oldestNode.style.transform = '' }
+      oldestSvg.style.removeProperty('opacity')
+      oldestSvg.style.removeProperty('transform')
+      oldest.retiring = false
+    }
   }
 
   return (

@@ -3,7 +3,7 @@ slug: api
 order: 9
 group: usage
 title: 静态公共 API
-description: 单母版尺寸、线宽、绝对线宽、颜色与跨框架一致性
+description: 尺寸、线宽、绝对线宽、颜色与跨框架一致性
 locale: zh-CN
 ---
 
@@ -17,7 +17,7 @@ type IconProps = {
 }
 ```
 
-`size` 默认 `24`，只改变最终宽高。v1 不提供 Optical Size，也不根据尺寸选择另一份图形真源。
+`size` 默认 `24`，只改变最终宽高。
 
 ## 线宽模式
 

@@ -28,8 +28,8 @@ npm run check
 - 新增图标时必须同步更新 `metadata/icons.json`；分类只能引用 `metadata/categories.json` 中已注册的 ID，首个分类作为展示主分组。
 - 文件名使用小写英文 kebab-case，描述语义而不是外观；不添加 `icon`、`linear`、`outline` 或尺寸后缀。
 - 正式源文件固定使用 `width="24" height="24" viewBox="0 0 24 24"`，描边宽度必须在 `0.5–2`。
-- v1 每个名称只维护一份 `24×24` Canonical SVG，不提供多光学母版或 Optical Size API。
-- 不得自动生成、复制或命名尺寸变体；未来扩展需先经过独立提案与兼容性评审。
+- 每个名称只维护一份负责人确认的 `24×24` Canonical SVG。
+- 不得从现有 SVG 自动生成、复制或命名其他正式资产。
 
 详细协作约束见 `AGENTS.md`。
 

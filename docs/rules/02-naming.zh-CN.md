@@ -32,7 +32,7 @@ base[-state][-direction][-variant].svg
 v1 的 `24×24` 是全库画布约束，不进入名称。`search-24`、`search-small` 和 `search-large` 都不是合法的尺寸表达。
 
 - **必须**让一个 Canonical Name 对应一份 v1 Canonical SVG、一个组件名和一个元数据记录。
-- **禁止**用名称制造未发布的光学尺寸或视觉 Weight。
+- **禁止**用名称编码全库统一的画布尺寸或视觉 Weight。
 - **禁止**为了未来可能的尺寸系统预留空变体。
 
 ## 名称与组件映射

@@ -3,17 +3,15 @@ slug: optical
 order: 4
 group: visual
 title: Optical correction, spacing, and overlap
-description: Visual centering, volume, negative space, and depth in the single-master system
+description: Visual centering, volume, negative space, and depth
 locale: en
 ---
 
-## v1 boundary
+## Multi-size review
 
-Uplus Icon v1 maintains one `24×24` canonical SVG per icon. It does not expose a `small / medium / large / auto` optical-size API. Small-size legibility is validated against the same master instead of switching assets at runtime.
+Small-size legibility is part of the visual review for every canonical SVG.
 
-- **MUST** review the same master at `16 / 20 / 24 / 32px`.
-- **MUST NOT** copy or derive SVGs to complete a size matrix.
-- **MAY** discuss multiple optical masters as a future proposal, but not as a v1 commitment.
+- **MUST** review the canonical SVG at `16 / 20 / 24 / 32px`.
 
 ## Visual volume and centering
 

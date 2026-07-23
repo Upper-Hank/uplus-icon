@@ -30,7 +30,7 @@ const expected = [
 ]
 const expectedBySlug = new Map(expected.map(([slug, order, group]) => [slug, { order, group }]))
 const requiredFields = ['slug', 'order', 'group', 'title', 'description', 'locale']
-const routes = new Set(['/docs', '/changelog', ...expected.slice(1).map(([slug]) => `/docs/${slug}`), '/docs/principles'])
+const routes = new Set(['/docs', '/guide', '/changelog', ...expected.slice(1).map(([slug]) => `/docs/${slug}`), '/docs/principles'])
 
 function parse(source, filename) {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/)
@@ -109,4 +109,4 @@ for (const filename of ['CHANGELOG.md', 'CHANGELOG.zh-CN.md']) {
   assert.match(source, /^##\s+\[\d+\.\d+\.\d+-dev\.\d+\]/m, `${filename}: missing development release`)
 }
 
-console.log(`Validated ${documents.length} documents, ${expected.length + 1} routes, both changelogs, and all locale pairs.`)
+console.log(`Validated ${documents.length} documents, ${routes.size} routes, both changelogs, and all locale pairs.`)

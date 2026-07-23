@@ -55,7 +55,11 @@ export function Header({ route, navigate }: { route: Route; navigate: (path: str
     { value: 'zh', label: '中文', content: <span>中</span> },
     { value: 'en', label: 'English', content: <span>EN</span> },
   ] as const, [])
-  const activeNavigation = route.page === 'detail' ? 'icons' : route.page === 'changelog' ? 'docs' : route.page
+  const activeNavigation = route.page === 'detail'
+    ? 'icons'
+    : route.page === 'guide' || route.page === 'changelog'
+      ? 'docs'
+      : route.page
 
   return <header className={`header${route.page === 'icons' || route.page === 'detail' ? ' is-library' : ''}`}>
     <button className="wordmark" onClick={() => navigate('/')} aria-label="Uplus Icon home">
@@ -65,7 +69,7 @@ export function Header({ route, navigate }: { route: Route; navigate: (path: str
       <SlidingSurface activeKey={activeNavigation} className="header-nav-surface">
         <button className={route.page === 'home' ? 'active' : ''} data-slide-key="home" data-motion="none" onClick={() => navigate('/')}>{t('home')}</button>
         <button className={route.page === 'icons' || route.page === 'detail' ? 'active' : ''} data-slide-key="icons" data-motion="none" onClick={() => navigate('/icons')}>{t('icons')} <span className="count">{iconMeta.length}</span></button>
-        <button className={route.page === 'docs' || route.page === 'changelog' ? 'active' : ''} data-slide-key="docs" data-motion="none" onClick={() => navigate('/docs')}>{t('docs')}</button>
+        <button className={route.page === 'docs' || route.page === 'guide' || route.page === 'changelog' ? 'active' : ''} data-slide-key="docs" data-motion="none" onClick={() => navigate('/docs')}>{t('docs')}</button>
       </SlidingSurface>
     </nav>
     <div className="header-tools">

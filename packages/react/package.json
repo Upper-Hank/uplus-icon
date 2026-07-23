@@ -17,7 +17,7 @@
     "./dynamic": { "types": "./dist/dynamic.d.ts", "import": "./dist/dynamic.js" },
     "./icons/*": { "types": "./dist/generated/icons/*.d.ts", "import": "./dist/generated/icons/*.js" }
   },
-  "files": ["dist"],
+  "files": ["dist", "README.md", "LICENSE"],
   "scripts": {
     "build": "rm -rf dist && tsc",
     "typecheck": "tsc --noEmit"

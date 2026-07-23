@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/generate-sitemap.mjs && tsc -b && vite build",
     "typecheck": "tsc -b --pretty false",
-    "test:docs": "node scripts/test-docs.mjs"
+    "test:docs": "node scripts/test-docs.mjs",
+    "test:preview-svg": "node scripts/test-preview-svg.mjs",
+    "test:production": "node scripts/test-production.mjs"
   },
   "dependencies": {
     "@uplus-icon/core": "*",

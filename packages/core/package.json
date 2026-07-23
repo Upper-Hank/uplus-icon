@@ -18,7 +18,7 @@
     "./metadata": { "types": "./dist/metadata.d.ts", "import": "./dist/metadata.js" },
     "./icons/*": { "types": "./dist/generated/icons/*.d.ts", "import": "./dist/generated/icons/*.js" }
   },
-  "files": ["dist"],
+  "files": ["dist", "README.md", "LICENSE"],
   "scripts": {
     "build": "rm -rf dist && tsc",
     "typecheck": "tsc --noEmit"

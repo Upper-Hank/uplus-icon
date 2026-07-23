@@ -1,7 +1,7 @@
 import { getDocGroupLabels, getDocPath, type DocDocument, type DocGroup, type DocSlug } from '../content/docs'
 
 interface DocumentationNavProps {
-  active?: DocSlug | 'changelog'
+  active?: DocSlug | 'guide' | 'changelog'
   documents: DocDocument[]
   language: 'en' | 'zh'
   mobileIndex?: boolean
@@ -24,34 +24,47 @@ export function DocumentationNav({ active, documents, language, mobileIndex = fa
 
   return (
     <nav aria-label={language === 'zh' ? '文档目录' : 'Documentation'}>
-      <div className="docs-index-changelog-sticky">
+      <div className="docs-index-fixed docs-index-fixed-top">
         <button
-          className={`docs-index-changelog${active === 'changelog' ? ' active' : ''}`}
+          className={`docs-index-featured${active === 'guide' ? ' active' : ''}`}
+          type="button"
+          onClick={() => navigate('/guide')}
+          aria-current={active === 'guide' ? 'page' : undefined}
+        >
+          <strong>{language === 'zh' ? '使用指南' : 'Get started'}</strong>
+          <span className="docs-index-featured-badge" aria-hidden="true">START</span>
+        </button>
+      </div>
+      <div className="docs-index-scroll">
+        {documentGroups.map(({ group, documents: groupDocuments }, groupIndex) => (
+          <div className="docs-index-group" key={`${group}-${groupIndex}`}>
+            <h2>{labels[group]}</h2>
+            {groupDocuments.map((item) => (
+              <button
+                className={active === item.slug ? 'active' : ''}
+                type="button"
+                onClick={() => navigate(mobileIndex ? `/docs/${item.slug}` : getDocPath(item.slug))}
+                aria-current={active === item.slug ? 'page' : undefined}
+                key={item.slug}
+              >
+                <b>{String(item.order).padStart(2, '0')}</b>
+                <span><strong>{item.title}</strong></span>
+              </button>
+            ))}
+          </div>
+        ))}
+      </div>
+      <div className="docs-index-fixed docs-index-fixed-bottom">
+        <button
+          className={`docs-index-featured${active === 'changelog' ? ' active' : ''}`}
           type="button"
           onClick={() => navigate('/changelog')}
           aria-current={active === 'changelog' ? 'page' : undefined}
         >
           <strong>{language === 'zh' ? '更新日志' : 'Changelog'}</strong>
-          <span className="docs-index-changelog-badge" aria-hidden="true">DEV</span>
+          <span className="docs-index-featured-badge" aria-hidden="true">DEV</span>
         </button>
       </div>
-      {documentGroups.map(({ group, documents: groupDocuments }, groupIndex) => (
-        <div className="docs-index-group" key={`${group}-${groupIndex}`}>
-          <h2>{labels[group]}</h2>
-          {groupDocuments.map((item) => (
-            <button
-              className={active === item.slug ? 'active' : ''}
-              type="button"
-              onClick={() => navigate(mobileIndex ? `/docs/${item.slug}` : getDocPath(item.slug))}
-              aria-current={active === item.slug ? 'page' : undefined}
-              key={item.slug}
-            >
-              <b>{String(item.order).padStart(2, '0')}</b>
-              <span><strong>{item.title}</strong></span>
-            </button>
-          ))}
-        </div>
-      ))}
     </nav>
   )
 }

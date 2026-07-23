@@ -1,6 +1,7 @@
 import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises'
 import { basename, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { validateMetadataReferences } from './validate-metadata.mjs'
 
 const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const workspaceRoot = dirname(dirname(sourceRoot))
@@ -219,9 +220,6 @@ for (const file of files) {
   if (details.tags.length === 0) throw new Error(`Metadata field ${name}.tags must not be empty`)
   const unknownCategories = details.categories.filter((category) => !categoryIds.has(category))
   if (unknownCategories.length > 0) throw new Error(`Metadata for ${name} references unknown categories: ${unknownCategories.join(', ')}`)
-  const conflictingAliases = details.aliases.filter((alias) => nameSet.has(alias))
-  if (conflictingAliases.length > 0) throw new Error(`Metadata aliases for ${name} conflict with icon names: ${conflictingAliases.join(', ')}`)
-
   icons.push({
     name,
     componentName: `${toPascal(name)}Icon`,
@@ -243,6 +241,8 @@ for (const file of files) {
     updatedIn: details.updatedIn ?? null,
   })
 }
+
+validateMetadataReferences(metadata, nameSet)
 
 for (const path of Object.values(temporaryRoots)) {
   await rm(path, { recursive: true, force: true })

@@ -29,16 +29,6 @@ Uplus Icon 是 Uplus 的官方图标系统，包含 React 图标组件库和配�
 
 生成脚本可以只读解析原始 SVG，并将结果写入生成目录或构建产物；不得反向写入 `packages/icons/raw`。
 
-### 光学尺寸架构
-
-- 光学尺寸分为 `small`、`medium`、`large`，三个档位始终使用相同的 24×24 画布。
-- 现有 `packages/icons/raw/<name>.svg` 全部属于必需的 `medium` 档，不进行批量搬迁。
-- 可选主文件使用 `packages/icons/raw/optical/small/<name>.svg` 与 `packages/icons/raw/optical/large/<name>.svg`。
-- 简单且缩放稳定的图标允许只有 `medium` 一个真源；不得为了补齐矩阵复制相同 SVG。
-- 每个光学主文件都属于受保护的正式真源，必须由负责人单独提供或批准。
-- 生成器不得自动删减、重绘或从一个档位推导另一个档位。
-- `medium` 是缺省值；请求的可选档位不存在时确定性回退到 `medium`。
-
 ### SVG 准入与生成规则
 
 - 带背景、网格、参考框、中心线或其他辅助线的设计稿不是正式真源，必须先在仓库外完成清理和审核。
@@ -50,9 +40,7 @@ Uplus Icon 是 Uplus 的官方图标系统，包含 React 图标组件库和配�
 
 ## 目录职责
 
-- `packages/icons/raw`：`medium` 正式 SVG 源文件，只读资产；现有文件保持原位。
-- `packages/icons/raw/optical/small`：可选小尺寸光学主文件，只读资产。
-- `packages/icons/raw/optical/large`：可选大尺寸光学主文件，只读资产。
+- `packages/icons/raw`：正式 SVG 源文件，只读资产。
 - `packages/icons/metadata`：与 SVG 分离维护的分类、标签、别名等数据。
 - `packages/icons/scripts`：只读处理 SVG 并生成代码的私有工具包。
 - `packages/core`：框架无关的类型、元数据和 SVG definition 公共包。
@@ -71,7 +59,6 @@ Uplus Icon 是 Uplus 的官方图标系统，包含 React 图标组件库和配�
 - 提供完整的 TypeScript 类型。
 - 支持标准 SVG 属性、`ref` 和尺寸，并忠实保留负责人提供的 SVG 渲染内容。
 - 提供范围为 `0.5–2` 的 `strokeWidth` API；默认值来自 SVG 真源，越界输入向边界收敛。
-- 光学尺寸 API 实现后应使用 `small | medium | large | auto`；不传时和缺失档位均使用 `medium`，`auto` 只对数字 `size` 按固定阈值分档。在实现前不宣称公共 API 已可用。
 - 保持 API 简洁、行为明确并兼容服务端渲染。
 - 确保单个图标可以真正按需打包，避免导入一个图标时包含完整图标集。
 - 生成代码必须稳定、可复现，不依赖手工修补。

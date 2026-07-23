@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef, type ReactNode } from 'react'
-import { gsap } from 'gsap'
 
 interface SlidingSurfaceProps {
   activeKey: string
@@ -22,14 +21,17 @@ export function SlidingSurface({ activeKey, ariaLabel, children, className = '',
     const update = () => {
       const active = [...container.querySelectorAll<HTMLElement>('[data-slide-key]')]
         .find((item) => item.dataset.slideKey === activeKey)
-      if (!active) return
-      const metrics = { width: active.offsetWidth, x: active.offsetLeft, opacity: 1 }
-      if (!readyRef.current || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        gsap.set(indicator, metrics)
-        readyRef.current = true
+      if (!active) {
+        indicator.style.opacity = '0'
         return
       }
-      gsap.to(indicator, { ...metrics, duration: 0.22, ease: 'power2.out', overwrite: true })
+      indicator.style.transition = !readyRef.current || window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'none'
+        : 'width .22s cubic-bezier(.22, 1, .36, 1), transform .22s cubic-bezier(.22, 1, .36, 1), opacity .15s ease'
+      indicator.style.width = `${active.offsetWidth}px`
+      indicator.style.transform = `translateX(${active.offsetLeft}px)`
+      indicator.style.opacity = '1'
+      readyRef.current = true
     }
 
     update()
@@ -38,7 +40,6 @@ export function SlidingSurface({ activeKey, ariaLabel, children, className = '',
     for (const item of container.querySelectorAll<HTMLElement>('[data-slide-key]')) observer.observe(item)
     return () => {
       observer.disconnect()
-      gsap.killTweensOf(indicator)
     }
   }, [activeKey])
 

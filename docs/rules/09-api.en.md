@@ -3,7 +3,7 @@ slug: api
 order: 9
 group: usage
 title: Static public API
-description: Single-master sizing, stroke modes, color, and cross-runtime parity
+description: Sizing, stroke modes, color, and cross-runtime parity
 locale: en
 ---
 
@@ -17,7 +17,7 @@ type IconProps = {
 }
 ```
 
-`size` defaults to `24` and changes only the rendered width and height. v1 has no optical-size API and never selects another source based on size.
+`size` defaults to `24` and changes only the rendered width and height.
 
 ## Stroke modes
 

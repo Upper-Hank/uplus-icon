@@ -4,6 +4,8 @@ import { Icon, type IconName } from '@uplus-icon/react/dynamic'
 import { iconDefinitions } from '@uplus-icon/core/dynamic'
 import { iconCategories, iconMeta } from '@uplus-icon/core/metadata'
 import { useI18n } from '../i18n'
+import { copyText } from '../app/copyText'
+import { createPreviewSvg, resolveStaticPreviewSettings } from '../app/previewSvg'
 import { IconDetailPreview, type IconPreviewMode } from './IconDetailPreview'
 import { SegmentedControl } from './LibraryControls'
 
@@ -13,7 +15,7 @@ interface IconDetailDrawerProps {
 }
 
 type CopyTarget = 'name' | 'usage'
-type UsageFormat = 'react' | 'svg' | 'web'
+type UsageFormat = 'core' | 'react' | 'svg' | 'web'
 
 export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const { language } = useI18n()
@@ -21,9 +23,10 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const [size, setSize] = useState(24)
   const [strokeWidth, setStrokeWidth] = useState(2)
   const [absoluteStrokeWidth, setAbsoluteStrokeWidth] = useState(false)
-  const [usageFormat, setUsageFormat] = useState<UsageFormat>('react')
+  const [usageFormat, setUsageFormat] = useState<UsageFormat>('svg')
   const [moreOpen, setMoreOpen] = useState(false)
   const [copied, setCopied] = useState<CopyTarget | null>(null)
+  const [copyFailed, setCopyFailed] = useState<CopyTarget | null>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const drawerRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -36,26 +39,25 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const definition = iconDefinitions.find((icon) => icon.name === name)
   const component = `${name.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}Icon`
   const titleId = `icon-drawer-title-${name}`
-  const effectiveSize = previewMode === 'master' ? 24 : size
-  const effectiveAbsoluteStrokeWidth = previewMode === 'actual' && absoluteStrokeWidth
+  const staticPreview = resolveStaticPreviewSettings(previewMode, size, strokeWidth, absoluteStrokeWidth)
+  const effectiveSize = staticPreview.size
+  const effectiveAbsoluteStrokeWidth = staticPreview.absoluteStrokeWidth
   const sizeProp = effectiveSize === 24 ? '' : ` size={${effectiveSize}}`
   const strokeProp = strokeWidth === 2 ? '' : ` strokeWidth={${strokeWidth}}`
   const absoluteStrokeProp = effectiveAbsoluteStrokeWidth ? ' absoluteStrokeWidth' : ''
   const reactSnippet = `import { ${component} } from '@uplus-icon/react'\n\n<${component}${sizeProp}${strokeProp}${absoluteStrokeProp} />`
-  const svgSource = definition
-    ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${definition.viewBox}" width="${effectiveSize}" height="${effectiveSize}" fill="none">\n${definition.body.trim()
-      .split('var(--uplus-icon-stroke-width, 2)').join(String(strokeWidth))
-      .split('var(--uplus-icon-vector-effect, none)').join(effectiveAbsoluteStrokeWidth ? 'non-scaling-stroke' : 'none')}\n</svg>`
-    : ''
+  const coreSnippet = `import icon from '@uplus-icon/core/icons/${name}'\n\nicon`
+  const svgSource = definition ? createPreviewSvg({ definition, ...staticPreview }) : ''
   const webSizeAttribute = effectiveSize === 24 ? '' : ` size="${effectiveSize}"`
   const webStrokeAttribute = strokeWidth === 2 ? '' : ` stroke-width="${strokeWidth}"`
   const webAbsoluteStrokeAttribute = effectiveAbsoluteStrokeWidth ? ' absolute-stroke-width' : ''
   const webSnippet = `import '@uplus-icon/web/element'\n\n<uplus-icon name="${name}"${webSizeAttribute}${webStrokeAttribute}${webAbsoluteStrokeAttribute}></uplus-icon>`
-  const usage = usageFormat === 'react' ? reactSnippet : usageFormat === 'svg' ? svgSource : webSnippet
-  const usageLabel = usageFormat === 'react' ? 'React' : usageFormat === 'svg' ? 'SVG' : 'Web'
+  const usage = { core: coreSnippet, react: reactSnippet, svg: svgSource, web: webSnippet }[usageFormat]
+  const usageLabel = { core: 'Core', react: 'React', svg: 'SVG', web: 'Web' }[usageFormat]
   const usageOptions = [
-    { value: 'react', label: 'React', content: 'React' },
     { value: 'svg', label: 'SVG', content: 'SVG' },
+    { value: 'core', label: 'Core', content: 'Core' },
+    { value: 'react', label: 'React', content: 'React' },
     { value: 'web', label: 'Web Component', content: 'Web' },
   ] as const
   const renderingType = definition
@@ -174,15 +176,21 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   }, [requestClose])
 
   const copy = async (target: CopyTarget, value: string) => {
-    await navigator.clipboard.writeText(value)
-    setCopied(target)
+    const success = await copyText(value)
+    setCopied(success ? target : null)
+    setCopyFailed(success ? null : target)
     window.clearTimeout(copyTimerRef.current)
-    copyTimerRef.current = window.setTimeout(() => setCopied(null), 1600)
+    copyTimerRef.current = window.setTimeout(() => {
+      setCopied(null)
+      setCopyFailed(null)
+    }, 1600)
   }
 
-  const copyLabel = (target: CopyTarget, fallback: string) => copied === target
-    ? (language === 'zh' ? '已复制' : 'Copied')
-    : fallback
+  const copyLabel = (target: CopyTarget, fallback: string) => copyFailed === target
+    ? (language === 'zh' ? '复制失败' : 'Copy failed')
+    : copied === target
+      ? (language === 'zh' ? '已复制' : 'Copied')
+      : fallback
 
   return (
     <div className="icon-detail-overlay" ref={overlayRef} role="presentation" onPointerDown={(event) => {
@@ -263,7 +271,11 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
           <div className="drawer-code-panel" ref={codePanelRef}>
             <div className="drawer-code-heading">
               <span>{usageLabel}</span>
-              <span>{language === 'zh' ? '当前配置' : 'Current configuration'}</span>
+              <span>{usageFormat === 'svg'
+                ? (language === 'zh' ? '已应用当前静态预览参数' : 'Current static preview applied')
+                : usageFormat === 'core'
+                  ? (language === 'zh' ? '原始图标定义' : 'Original icon definition')
+                  : (language === 'zh' ? '当前配置' : 'Current configuration')}</span>
             </div>
             <pre><code>{usage}</code></pre>
           </div>
