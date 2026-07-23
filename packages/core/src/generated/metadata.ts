@@ -110,6 +110,18 @@ export const iconMeta: readonly IconMeta[] = [
     "aliases": [
       "notification"
     ],
+    "motion": {
+      "generic": [
+        "fade",
+        "scale",
+        "blur",
+        "draw"
+      ],
+      "semantic": [
+        "ring"
+      ],
+      "transitions": []
+    },
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null
@@ -537,6 +549,18 @@ export const iconMeta: readonly IconMeta[] = [
       "like",
       "favorite"
     ],
+    "motion": {
+      "generic": [
+        "fade",
+        "scale",
+        "blur",
+        "draw"
+      ],
+      "semantic": [
+        "beat"
+      ],
+      "transitions": []
+    },
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null
@@ -826,6 +850,18 @@ export const iconMeta: readonly IconMeta[] = [
       "reload",
       "sync"
     ],
+    "motion": {
+      "generic": [
+        "fade",
+        "scale",
+        "blur",
+        "draw"
+      ],
+      "semantic": [
+        "rotate"
+      ],
+      "transitions": []
+    },
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null

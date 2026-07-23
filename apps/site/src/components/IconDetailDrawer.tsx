@@ -107,12 +107,14 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
       const panelBottomInset = 12
       const revealDistance = codePanel.offsetTop + codePanel.offsetHeight - codeDock.offsetHeight + panelBottomInset
       const maxScroll = Math.max(0, content.scrollHeight - content.clientHeight)
-      const remaining = Math.max(0, maxScroll - content.scrollTop)
-      const progress = maxScroll === 0 || revealDistance === 0
+      const scrollTop = Math.max(0, Math.min(content.scrollTop, maxScroll))
+      const revealStart = Math.max(0, maxScroll - revealDistance)
+      const revealRange = maxScroll - revealStart
+      const progress = maxScroll === 0 || revealRange === 0
         ? 0
         : prefersReducedMotion
-          ? Number(remaining <= 1)
-          : Math.max(0, Math.min(1, 1 - remaining / revealDistance))
+          ? Number(maxScroll - scrollTop <= 1)
+          : Math.max(0, Math.min(1, (scrollTop - revealStart) / revealRange))
 
       gsap.set(codeDock, { y: -progress * revealDistance })
     }
@@ -134,15 +136,38 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   useEffect(() => {
     const previousOverflow = document.body.style.overflow
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') requestClose()
+    const handleDialogKeys = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        requestClose()
+        return
+      }
+      if (event.key !== 'Tab') return
+      const drawer = drawerRef.current
+      if (!drawer) return
+      const focusable = [...drawer.querySelectorAll<HTMLElement>(
+        'button:not(:disabled), [href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])',
+      )].filter((element) => !element.hidden && !element.closest('[inert]'))
+      if (!focusable.length) {
+        event.preventDefault()
+        drawer.focus()
+        return
+      }
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && (document.activeElement === first || !drawer.contains(document.activeElement))) {
+        event.preventDefault()
+        last?.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
     }
     document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', closeOnEscape)
+    window.addEventListener('keydown', handleDialogKeys)
     drawerRef.current?.focus()
     return () => {
       document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', closeOnEscape)
+      window.removeEventListener('keydown', handleDialogKeys)
       window.clearTimeout(copyTimerRef.current)
       previousFocus?.focus()
     }
@@ -184,6 +209,7 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
             name={name}
             definition={definition}
             mode={previewMode}
+            motion={metadata?.motion}
             size={size}
             strokeWidth={strokeWidth}
             absoluteStrokeWidth={absoluteStrokeWidth}
@@ -214,7 +240,7 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
               aria-controls={`${titleId}-more`}
               onClick={() => setMoreOpen((open) => !open)}
             >{language === 'zh' ? '更多信息' : 'More information'}</button>
-            <div className="drawer-more-content" id={`${titleId}-more`} ref={moreContentRef}>
+            <div className="drawer-more-content" id={`${titleId}-more`} ref={moreContentRef} aria-hidden={!moreOpen} inert={!moreOpen}>
               <div className="drawer-more-content-inner">
                 <div className="drawer-metadata">
                   <div><span>{language === 'zh' ? '标签' : 'Tags'}</span><p>{metadata.tags.join(' · ')}</p></div>
