@@ -1,29 +1,65 @@
 {
   "name": "@uplus-icon/web",
-  "version": "0.1.0",
+  "version": "0.2.0-beta.0",
   "description": "Native Web APIs and custom element for Uplus Icon",
   "license": "MIT",
-  "repository": { "type": "git", "url": "git+https://github.com/Upper-Hank/uplus-icon.git", "directory": "packages/web" },
-  "bugs": { "url": "https://github.com/Upper-Hank/uplus-icon/issues" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Upper-Hank/uplus-icon.git",
+    "directory": "packages/web"
+  },
+  "bugs": {
+    "url": "https://github.com/Upper-Hank/uplus-icon/issues"
+  },
   "homepage": "https://icon.upper.website",
-  "keywords": ["icon", "icons", "web-components", "svg", "uplus"],
+  "keywords": [
+    "icon",
+    "icons",
+    "web-components",
+    "svg",
+    "uplus"
+  ],
   "type": "module",
-  "sideEffects": ["./dist/element.js"],
+  "sideEffects": [
+    "./dist/element.js"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
-    "./dynamic": { "types": "./dist/dynamic.d.ts", "import": "./dist/dynamic.js" },
-    "./element": { "types": "./dist/element.d.ts", "import": "./dist/element.js" },
-    "./icons/*": { "types": "./dist/generated/icons/*.d.ts", "import": "./dist/generated/icons/*.js" }
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./dynamic": {
+      "types": "./dist/dynamic.d.ts",
+      "import": "./dist/dynamic.js"
+    },
+    "./element": {
+      "types": "./dist/element.d.ts",
+      "import": "./dist/element.js"
+    },
+    "./icons/*": {
+      "types": "./dist/generated/icons/*.d.ts",
+      "import": "./dist/generated/icons/*.js"
+    }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "rm -rf dist && tsc",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": { "@uplus-icon/core": "^0.1.0" },
-  "devDependencies": { "typescript": "^5.8.3" },
-  "publishConfig": { "access": "public" }
+  "dependencies": {
+    "@uplus-icon/core": "^0.2.0-beta.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

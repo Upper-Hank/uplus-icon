@@ -1,27 +1,56 @@
 {
   "name": "@uplus-icon/core",
-  "version": "0.1.0",
+  "version": "0.2.0-beta.0",
   "description": "Framework-agnostic SVG data and metadata for Uplus Icon",
   "license": "MIT",
-  "repository": { "type": "git", "url": "git+https://github.com/Upper-Hank/uplus-icon.git", "directory": "packages/core" },
-  "bugs": { "url": "https://github.com/Upper-Hank/uplus-icon/issues" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Upper-Hank/uplus-icon.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/Upper-Hank/uplus-icon/issues"
+  },
   "homepage": "https://icon.upper.website",
-  "keywords": ["icon", "icons", "svg", "uplus"],
+  "keywords": [
+    "icon",
+    "icons",
+    "svg",
+    "uplus"
+  ],
   "type": "module",
   "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
-    "./dynamic": { "types": "./dist/dynamic.d.ts", "import": "./dist/dynamic.js" },
-    "./metadata": { "types": "./dist/metadata.d.ts", "import": "./dist/metadata.js" },
-    "./icons/*": { "types": "./dist/generated/icons/*.d.ts", "import": "./dist/generated/icons/*.js" }
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./dynamic": {
+      "types": "./dist/dynamic.d.ts",
+      "import": "./dist/dynamic.js"
+    },
+    "./metadata": {
+      "types": "./dist/metadata.d.ts",
+      "import": "./dist/metadata.js"
+    },
+    "./icons/*": {
+      "types": "./dist/generated/icons/*.d.ts",
+      "import": "./dist/generated/icons/*.js"
+    }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "rm -rf dist && tsc",
     "typecheck": "tsc --noEmit"
   },
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }

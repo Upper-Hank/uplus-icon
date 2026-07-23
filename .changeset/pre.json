@@ -8,5 +8,7 @@
     "@uplus-icon/react": "0.1.0",
     "@uplus-icon/web": "0.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "modern-package-boundaries"
+  ]
 }
