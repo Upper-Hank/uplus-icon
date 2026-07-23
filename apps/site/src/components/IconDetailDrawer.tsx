@@ -22,10 +22,13 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const [strokeWidth, setStrokeWidth] = useState(2)
   const [absoluteStrokeWidth, setAbsoluteStrokeWidth] = useState(false)
   const [usageFormat, setUsageFormat] = useState<UsageFormat>('react')
+  const [moreOpen, setMoreOpen] = useState(false)
   const [copied, setCopied] = useState<CopyTarget | null>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const drawerRef = useRef<HTMLElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  const moreContentRef = useRef<HTMLDivElement>(null)
+  const codeDockRef = useRef<HTMLElement>(null)
   const codePanelRef = useRef<HTMLDivElement>(null)
   const copyTimerRef = useRef<number | undefined>(undefined)
   const closingRef = useRef(false)
@@ -95,36 +98,36 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
 
   useLayoutEffect(() => {
     const content = contentRef.current
+    const codeDock = codeDockRef.current
     const codePanel = codePanelRef.current
-    if (!content || !codePanel) return
+    if (!content || !codeDock || !codePanel) return
 
-    const revealDistance = 160
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const updateCodeReveal = () => {
+      const panelBottomInset = 12
+      const revealDistance = codePanel.offsetTop + codePanel.offsetHeight - codeDock.offsetHeight + panelBottomInset
       const maxScroll = Math.max(0, content.scrollHeight - content.clientHeight)
       const remaining = Math.max(0, maxScroll - content.scrollTop)
-      const progress = maxScroll === 0
-        ? 1
+      const progress = maxScroll === 0 || revealDistance === 0
+        ? 0
         : prefersReducedMotion
           ? Number(remaining <= 1)
           : Math.max(0, Math.min(1, 1 - remaining / revealDistance))
 
-      gsap.set(codePanel, {
-        yPercent: (1 - progress) * 100,
-        opacity: progress,
-      })
+      gsap.set(codeDock, { y: -progress * revealDistance })
     }
 
     const resizeObserver = new ResizeObserver(updateCodeReveal)
     content.addEventListener('scroll', updateCodeReveal, { passive: true })
     resizeObserver.observe(content)
     resizeObserver.observe(codePanel)
+    if (moreContentRef.current) resizeObserver.observe(moreContentRef.current)
     updateCodeReveal()
 
     return () => {
       content.removeEventListener('scroll', updateCodeReveal)
       resizeObserver.disconnect()
-      gsap.killTweensOf(codePanel)
+      gsap.killTweensOf(codeDock)
     }
   }, [])
 
@@ -161,7 +164,6 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
       if (event.target === event.currentTarget) requestClose()
     }}>
       <aside className="icon-detail-drawer" ref={drawerRef} tabIndex={-1} role="dialog" aria-modal="true" aria-labelledby={titleId}>
-        <span className="drawer-grabber" aria-hidden="true" />
         <header className="drawer-topbar">
           <div className={`drawer-title${language === 'en' ? ' is-single-line' : ''}`}>
             <div className="drawer-title-line">
@@ -204,30 +206,40 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
             </dl>
           </section>}
 
-          {metadata && <details className="drawer-more">
-            <summary>{language === 'zh' ? '更多信息' : 'More information'}</summary>
-            <div className="drawer-metadata">
-              <div><span>{language === 'zh' ? '标签' : 'Tags'}</span><p>{metadata.tags.join(' · ')}</p></div>
-              <div><span>{language === 'zh' ? '别名' : 'Aliases'}</span><p>{metadata.aliases.join(' · ') || '—'}</p></div>
-              <div><span>{language === 'zh' ? '全部分类' : 'All categories'}</span><p>{metadata.categories.map((id) => {
-                const category = iconCategories.find((item) => item.id === id)
-                return language === 'zh' ? category?.titleZh : category?.title
-              }).filter(Boolean).join(' · ')}</p></div>
+          {metadata && <section className={`drawer-more${moreOpen ? ' is-open' : ''}`}>
+            <button
+              className="drawer-more-toggle"
+              type="button"
+              aria-expanded={moreOpen}
+              aria-controls={`${titleId}-more`}
+              onClick={() => setMoreOpen((open) => !open)}
+            >{language === 'zh' ? '更多信息' : 'More information'}</button>
+            <div className="drawer-more-content" id={`${titleId}-more`} ref={moreContentRef}>
+              <div className="drawer-more-content-inner">
+                <div className="drawer-metadata">
+                  <div><span>{language === 'zh' ? '标签' : 'Tags'}</span><p>{metadata.tags.join(' · ')}</p></div>
+                  <div><span>{language === 'zh' ? '别名' : 'Aliases'}</span><p>{metadata.aliases.join(' · ') || '—'}</p></div>
+                  <div><span>{language === 'zh' ? '全部分类' : 'All categories'}</span><p>{metadata.categories.map((id) => {
+                    const category = iconCategories.find((item) => item.id === id)
+                    return language === 'zh' ? category?.titleZh : category?.title
+                  }).filter(Boolean).join(' · ')}</p></div>
+                </div>
+              </div>
             </div>
-          </details>}
+          </section>}
         </div>
 
-        <footer className="drawer-code-dock">
-          <div className="drawer-code-panel" ref={codePanelRef} aria-hidden="true">
+        <footer className="drawer-code-dock" ref={codeDockRef}>
+          <div className="drawer-copybar">
+            <SegmentedControl ariaLabel={language === 'zh' ? '使用格式' : 'Usage format'} className="drawer-format-control" options={usageOptions} value={usageFormat} onChange={setUsageFormat} />
+            <button className="drawer-copy-primary" type="button" onClick={() => copy('usage', usage)} disabled={!usage}>{copyLabel('usage', language === 'zh' ? `复制 ${usageLabel}` : `Copy ${usageLabel}`)}</button>
+          </div>
+          <div className="drawer-code-panel" ref={codePanelRef}>
             <div className="drawer-code-heading">
               <span>{usageLabel}</span>
               <span>{language === 'zh' ? '当前配置' : 'Current configuration'}</span>
             </div>
             <pre><code>{usage}</code></pre>
-          </div>
-          <div className="drawer-copybar">
-            <SegmentedControl ariaLabel={language === 'zh' ? '使用格式' : 'Usage format'} className="drawer-format-control" options={usageOptions} value={usageFormat} onChange={setUsageFormat} />
-            <button className="drawer-copy-primary" type="button" onClick={() => copy('usage', usage)} disabled={!usage}>{copyLabel('usage', language === 'zh' ? `复制 ${usageLabel}` : `Copy ${usageLabel}`)}</button>
           </div>
         </footer>
       </aside>

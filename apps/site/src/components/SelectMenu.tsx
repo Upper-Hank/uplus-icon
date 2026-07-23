@@ -104,7 +104,6 @@ export function SelectMenu<T extends string>({ ariaLabel, onChange, options, val
             key={option.value}
           >
             <span>{option.label}</span>
-            {option.value === value && <span className="select-option-mark" aria-hidden="true" />}
           </button>
         ))}
       </div>}

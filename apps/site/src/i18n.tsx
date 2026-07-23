@@ -24,7 +24,7 @@ const messages = {
   },
   zh: {
     home: '首页', icons: '图标', docs: '文档', official: 'Uplus 官方图标库',
-    heroTitle: '足够好的图标', heroIntro: '线性图标，完全免费',
+    heroTitle: '足够好的图标', heroIntro: '线性图标，开源免费',
     explore: '浏览全部图标', system: '设计系统', consistent: '默认保持一致。',
     gridTitle: '24 像素网格', gridText: '基于统一画布构建，让图标在不同界面中保持稳定对齐。',
     colorTitle: '忠于源文件', colorText: '每个图标都完整保留已审核 SVG 中提供的视觉内容。',

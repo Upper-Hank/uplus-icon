@@ -54,7 +54,7 @@ export function IconDetailPreview({
         <div className={`preview-master${isMaster ? '' : ' is-actual'}${showSkeleton ? ' is-skeleton' : ''}`} style={actualStyle}>
           {showGrid && <svg className="preview-grid-svg" viewBox="0 0 24 24" shapeRendering="crispEdges" aria-hidden="true">
             <defs><pattern id="preview-unit-grid" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M 1 0 H 0 V 1" fill="none" stroke="currentColor" strokeWidth="0.08" /></pattern></defs>
-            <rect width="24" height="24" fill="url(#preview-unit-grid)" />
+            <rect x="0.04" y="0.04" width="23.92" height="23.92" fill="url(#preview-unit-grid)" stroke="currentColor" strokeWidth="0.08" />
           </svg>}
           <Icon className="preview-icon" name={name} size="100%" strokeWidth={strokeWidth} absoluteStrokeWidth={!isMaster && absoluteStrokeWidth} />
           {showSkeleton && definition && <IconSkeletonOverlay definition={definition} />}

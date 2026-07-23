@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f2f2ef" />
+    <style>
+      html, body { background: #fff; }
+      html[data-theme='dark'], html[data-theme='dark'] body { background: #11110f; }
+    </style>
+    <script>
+      (() => {
+        const savedTheme = localStorage.getItem('uplus-theme')
+        const themePreference = savedTheme === 'light' || savedTheme === 'dark' || savedTheme === 'system'
+          ? savedTheme
+          : 'system'
+        const theme = themePreference === 'system'
+          ? matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          : themePreference
+        document.documentElement.dataset.theme = theme
+        document.querySelector('meta[name="theme-color"]')
+          ?.setAttribute('content', theme === 'dark' ? '#11110f' : '#f2f2ef')
+      })()
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>Uplus Icon — A quiet icon library</title>
   </head>

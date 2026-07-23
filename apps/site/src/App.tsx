@@ -6,15 +6,21 @@ import { I18nProvider, useI18n, type Language } from './i18n'
 import { useRoute } from './app/router'
 import { useInteractiveMotion } from './app/useInteractiveMotion'
 import { Header } from './components/SiteChrome'
+import { DocumentationShell } from './components/DocumentationShell'
 import { IconsPage } from './pages/IconsPage'
-import { DocsPage } from './pages/DocsPage'
+import { DocsContent } from './pages/DocsPage'
+import { ChangelogContent } from './pages/ChangelogPage'
 
 export function App() {
   const interactionProps = useInteractiveMotion()
   const [route, navigate] = useRoute()
   const mainRef = useRef<HTMLElement>(null)
   const [language, setLanguage] = useState<Language>(() => localStorage.getItem('uplus-language') === 'zh' ? 'zh' : 'en')
-  const routeSection = route.page === 'detail' ? 'icons' : route.page
+  const routeMotionKey = route.page === 'detail'
+    ? 'icons'
+    : route.page === 'docs'
+      ? `docs:${route.doc}`
+      : route.page
 
   useEffect(() => {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'
@@ -30,7 +36,7 @@ export function App() {
 
     }, mainRef)
     return () => context.revert()
-  }, [routeSection])
+  }, [routeMotionKey])
 
   return <I18nProvider value={{ language, setLanguage }}>
     <div className="shell" {...interactionProps}>
@@ -40,7 +46,17 @@ export function App() {
         {(route.page === 'icons' || route.page === 'detail') && (
           <IconsPage navigate={navigate} selectedIcon={route.page === 'detail' ? route.name : undefined} />
         )}
-        {route.page === 'docs' && <DocsPage doc={route.doc} navigate={navigate} />}
+        {(route.page === 'docs' || route.page === 'changelog') && (
+          <DocumentationShell
+            active={route.page === 'docs' ? route.doc : 'changelog'}
+            mobileIndex={route.page === 'docs' && route.mobileIndex}
+            navigate={navigate}
+          >
+            {route.page === 'docs'
+              ? <DocsContent doc={route.doc} navigate={navigate} />
+              : <ChangelogContent />}
+          </DocumentationShell>
+        )}
       </main>
     </div>
   </I18nProvider>

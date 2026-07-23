@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 
 const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const rulesRoot = path.resolve(siteRoot, '../../docs/rules')
+const repositoryRoot = path.resolve(siteRoot, '../..')
 const expected = [
   ['principles', 1, 'foundations'],
   ['naming', 2, 'foundations'],
@@ -29,7 +30,7 @@ const expected = [
 ]
 const expectedBySlug = new Map(expected.map(([slug, order, group]) => [slug, { order, group }]))
 const requiredFields = ['slug', 'order', 'group', 'title', 'description', 'locale']
-const routes = new Set(['/docs', ...expected.slice(1).map(([slug]) => `/docs/${slug}`), '/docs/principles'])
+const routes = new Set(['/docs', '/changelog', ...expected.slice(1).map(([slug]) => `/docs/${slug}`), '/docs/principles'])
 
 function parse(source, filename) {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/)
@@ -101,4 +102,11 @@ for (const [slug, order, group] of expected) {
 }
 assert.deepEqual([...orders.en].sort((a, b) => a - b), [...orders['zh-CN']].sort((a, b) => a - b), 'locale route order mismatch')
 
-console.log(`Validated ${documents.length} documents, ${expected.length} routes, and all locale pairs.`)
+for (const filename of ['CHANGELOG.md', 'CHANGELOG.zh-CN.md']) {
+  const source = await readFile(path.join(repositoryRoot, filename), 'utf8')
+  assert.match(source, /^#\s+.+/m, `${filename}: missing page title`)
+  assert.match(source, /^##\s+\[Unreleased\]/m, `${filename}: missing Unreleased section`)
+  assert.match(source, /^##\s+\[\d+\.\d+\.\d+-dev\.\d+\]/m, `${filename}: missing development release`)
+}
+
+console.log(`Validated ${documents.length} documents, ${expected.length + 1} routes, both changelogs, and all locale pairs.`)

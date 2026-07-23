@@ -1,51 +1,50 @@
-import { useEffect, useState, type ComponentPropsWithoutRef, type MouseEvent } from 'react'
+import { Children, isValidElement, useEffect, useRef, useState, type ComponentPropsWithoutRef, type MouseEvent, type ReactNode } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { getDocPath, getDocument, getDocuments, headingId, type DocDocument, type DocGroup, type DocSlug } from '../content/docs'
+import { Icon } from '@uplus-icon/react/dynamic'
+import { getDocGroupLabels, getDocument, headingId, type DocDocument, type DocSlug } from '../content/docs'
 import { useI18n } from '../i18n'
 import { PageHeading } from '../components/PageHeading'
-import { UiIcon } from '../components/UiIcon'
 
-interface DocsPageProps {
+interface DocsContentProps {
   doc: DocSlug
   navigate: (path: string) => void
 }
 
-const groupOrder: DocGroup[] = ['foundations', 'visual', 'motion', 'architecture', 'governance', 'usage']
-const groupLabels = {
-  en: { foundations: 'Foundations', visual: 'Visual rules', motion: 'Motion', architecture: 'Architecture', governance: 'Governance', usage: 'Usage' },
-  zh: { foundations: '基础', visual: '视觉规则', motion: '动效', architecture: '架构', governance: '治理', usage: '使用' },
-} satisfies Record<'en' | 'zh', Record<DocGroup, string>>
-
-interface DocumentationNavProps {
-  doc: DocSlug
-  documents: DocDocument[]
-  labels: Record<DocGroup, string>
-  language: 'en' | 'zh'
-  navigate: (path: string) => void
+const normativeLevels: Record<string, string> = {
+  '必须': 'required',
+  '应该': 'recommended',
+  '可以': 'allowed',
+  '禁止': 'forbidden',
+  'MUST': 'required',
+  'SHOULD': 'recommended',
+  'MAY': 'allowed',
+  'MUST NOT': 'forbidden',
 }
 
-export function DocsPage({ doc, navigate }: DocsPageProps) {
+const codeLanguageLabels: Record<string, string> = {
+  bash: 'Shell',
+  css: 'CSS',
+  html: 'HTML',
+  javascript: 'JavaScript',
+  js: 'JavaScript',
+  json: 'JSON',
+  markdown: 'Markdown',
+  md: 'Markdown',
+  sh: 'Shell',
+  ts: 'TypeScript',
+  tsx: 'TSX',
+  typescript: 'TypeScript',
+  jsx: 'JSX',
+}
+
+export function DocsContent({ doc, navigate }: DocsContentProps) {
   const { language } = useI18n()
-  const documents = getDocuments(language)
   const document = getDocument(doc, language)
-  const labels = groupLabels[language]
+  const labels = getDocGroupLabels(language)
 
   return (
-    <section className="docs-page">
-      <aside className="docs-index docs-index-desktop">
-        <DocumentationNav doc={doc} documents={documents} labels={labels} language={language} navigate={navigate} />
-      </aside>
-
-      <details className="docs-index docs-index-mobile" data-reveal>
-        <summary>
-          <strong>{document.title}</strong>
-          <UiIcon className="docs-index-chevron docs-index-chevron-down" name="chevron-down" />
-          <UiIcon className="docs-index-chevron docs-index-chevron-up" name="chevron-up" />
-        </summary>
-        <DocumentationNav doc={doc} documents={documents} labels={labels} language={language} navigate={navigate} />
-      </details>
-
+    <>
       <article className="docs-article" data-reveal>
         <PageHeading
           label={`${String(document.order).padStart(2, '0')} / ${labels[document.group]}`}
@@ -63,36 +62,12 @@ export function DocsPage({ doc, navigate }: DocsPageProps) {
       <aside className="docs-toc-desktop">
         <TableOfContents document={document} />
       </aside>
-    </section>
-  )
-}
-
-function DocumentationNav({ doc, documents, labels, language, navigate }: DocumentationNavProps) {
-  return (
-    <nav aria-label={language === 'zh' ? '文档目录' : 'Documentation'}>
-      {groupOrder.map((group) => (
-        <div className="docs-index-group" key={group}>
-          <h2>{labels[group]}</h2>
-          {documents.filter((item) => item.group === group).map((item) => (
-            <button
-              className={doc === item.slug ? 'active' : ''}
-              type="button"
-              onClick={() => navigate(getDocPath(item.slug))}
-              aria-current={doc === item.slug ? 'page' : undefined}
-              key={item.slug}
-            >
-              <b>{String(item.order).padStart(2, '0')}</b>
-              <span><strong>{item.title}</strong></span>
-            </button>
-          ))}
-        </div>
-      ))}
-    </nav>
+    </>
   )
 }
 
 function TableOfContents({ document }: { document: DocDocument }) {
-  const [activeId, setActiveId] = useState(document.headings[0]?.id)
+  const [visibleIds, setVisibleIds] = useState<string[]>([])
 
   useEffect(() => {
     let frame = 0
@@ -100,15 +75,21 @@ function TableOfContents({ document }: { document: DocDocument }) {
       frame = 0
       const headerHeight = Number.parseFloat(getComputedStyle(window.document.documentElement).getPropertyValue('--header-height')) || 64
       const threshold = headerHeight + 32
-      const headings = document.headings
+      const viewportBottom = window.innerHeight
+      const nextVisibleIds = document.headings
         .map((heading) => window.document.getElementById(heading.id))
         .filter((heading): heading is HTMLElement => Boolean(heading))
-      let current = headings[0]?.id
-      for (const heading of headings) {
-        if (heading.getBoundingClientRect().top > threshold) break
-        current = heading.id
-      }
-      setActiveId(current)
+        .filter((heading) => {
+          const bounds = heading.getBoundingClientRect()
+          return bounds.bottom > threshold && bounds.top < viewportBottom
+        })
+        .map((heading) => heading.id)
+
+      setVisibleIds((currentIds) => (
+        currentIds.length === nextVisibleIds.length && currentIds.every((id, index) => id === nextVisibleIds[index])
+          ? currentIds
+          : nextVisibleIds
+      ))
     }
     const requestUpdate = () => {
       if (frame) return
@@ -128,7 +109,12 @@ function TableOfContents({ document }: { document: DocDocument }) {
   return (
     <nav aria-label={document.locale === 'zh-CN' ? '本页目录' : 'On this page'}>
       {document.headings.map((heading) => (
-        <a className={heading.depth === 3 ? 'depth-3' : undefined} href={`#${heading.id}`} aria-current={activeId === heading.id ? 'location' : undefined} key={heading.id}>
+        <a
+          className={[heading.depth === 3 ? 'depth-3' : '', visibleIds.includes(heading.id) ? 'is-visible' : ''].filter(Boolean).join(' ') || undefined}
+          href={`#${heading.id}`}
+          aria-current={visibleIds.includes(heading.id) ? 'location' : undefined}
+          key={heading.id}
+        >
           {heading.label}
         </a>
       ))}
@@ -148,6 +134,37 @@ function MarkdownArticle({ document, navigate }: { document: DocDocument; naviga
     return <Tag id={headingId(label)} {...props}>{children}</Tag>
   }
 
+  function CodeBlock({ children, ...props }: ComponentPropsWithoutRef<'pre'>) {
+    const code = Children.toArray(children).find((child): child is React.ReactElement => isValidElement(child))
+    const codeProps = code?.props as { className?: string; children?: ReactNode } | undefined
+    const language = codeProps?.className?.match(/language-([\w-]+)/)?.[1]
+    const label = language ? (codeLanguageLabels[language] ?? language.toUpperCase()) : (document.locale === 'zh-CN' ? '代码' : 'Code')
+    const value = String(codeProps?.children ?? '')
+    const [copied, setCopied] = useState(false)
+    const copyTimerRef = useRef<number | undefined>(undefined)
+
+    useEffect(() => () => window.clearTimeout(copyTimerRef.current), [])
+
+    const copy = async () => {
+      await navigator.clipboard.writeText(value)
+      setCopied(true)
+      window.clearTimeout(copyTimerRef.current)
+      copyTimerRef.current = window.setTimeout(() => setCopied(false), 1600)
+    }
+
+    return (
+      <div className="markdown-code-block">
+        <div className="markdown-code-head">
+          <span>{label}</span>
+          <button className="markdown-code-copy" type="button" onClick={copy} aria-label={copied ? (document.locale === 'zh-CN' ? '已复制' : 'Copied') : (document.locale === 'zh-CN' ? '复制代码' : 'Copy code')}>
+            <Icon name={copied ? 'check' : 'copy'} size={14} />
+          </button>
+        </div>
+        <pre {...props}>{children}</pre>
+      </div>
+    )
+  }
+
   return (
     <div className="markdown-body">
       <ReactMarkdown
@@ -155,9 +172,16 @@ function MarkdownArticle({ document, navigate }: { document: DocDocument; naviga
         components={{
           h2: heading('h2'),
           h3: heading('h3'),
+          pre: CodeBlock,
           a: ({ href, children, ...props }) => (
             <a href={href} onClick={(event) => onLink(event, href)} {...props}>{children}</a>
           ),
+          strong: ({ children, ...props }) => {
+            const level = normativeLevels[String(children)]
+            return level
+              ? <strong className="normative-level" data-level={level} {...props}>{children}</strong>
+              : <strong {...props}>{children}</strong>
+          },
         }}
       >
         {document.body}

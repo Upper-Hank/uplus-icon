@@ -1,4 +1,4 @@
-export type UiIconName = 'grid' | 'list' | 'chevron-up' | 'chevron-down' | 'search' | 'sun' | 'moon'
+export type UiIconName = 'grid' | 'list' | 'chevron-up' | 'chevron-down' | 'search' | 'sun' | 'moon' | 'system'
 
 interface UiIconProps {
   className?: string
@@ -58,6 +58,13 @@ export function UiIcon({ className, name }: UiIconProps) {
     return <svg {...commonProps}>
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
       <path d="M12 3V5M18.364 5.636L16.95 7.05M21 12H19M18.364 18.364L16.95 16.95M12 21V19M5.636 18.364L7.05 16.95M3 12H5M5.636 5.636L7.05 7.05" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  }
+
+  if (name === 'system') {
+    return <svg {...commonProps}>
+      <rect x="4" y="4" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="2" />
+      <path d="M8 20H16M12 16V20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   }
 

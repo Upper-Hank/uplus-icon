@@ -39,6 +39,15 @@ export interface DocDocument {
   headings: DocHeading[]
 }
 
+const groupLabels = {
+  en: { foundations: 'Foundations', visual: 'Visual rules', motion: 'Motion', architecture: 'Architecture', governance: 'Governance', usage: 'Usage' },
+  zh: { foundations: '基础', visual: '视觉规则', motion: '动效', architecture: '架构', governance: '治理', usage: '使用' },
+} satisfies Record<'en' | 'zh', Record<DocGroup, string>>
+
+export function getDocGroupLabels(language: 'en' | 'zh') {
+  return groupLabels[language]
+}
+
 const rawDocuments = import.meta.glob('../../../../docs/rules/*.md', {
   eager: true,
   query: '?raw',

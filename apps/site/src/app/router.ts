@@ -3,7 +3,7 @@ import type { IconName } from '@uplus-icon/core'
 import { iconMeta } from '@uplus-icon/core/metadata'
 import type { DocSlug } from '../content/docs'
 
-export type Route = { page: 'home' | 'icons' } | { page: 'docs'; doc: DocSlug } | { page: 'detail'; name: IconName }
+export type Route = { page: 'home' | 'icons' | 'changelog' } | { page: 'docs'; doc: DocSlug; mobileIndex: boolean } | { page: 'detail'; name: IconName }
 
 const docRoutes: Record<string, DocSlug> = {
   '/docs': 'principles',
@@ -36,8 +36,9 @@ function readRoute(): Route {
     if (iconMeta.some((icon) => icon.name === name)) return { page: 'detail', name }
   }
   if (path === '/icons') return { page: 'icons' }
-  if (path in docRoutes) return { page: 'docs', doc: docRoutes[path] }
-  if (path.startsWith('/docs/')) return { page: 'docs', doc: 'principles' }
+  if (path === '/changelog') return { page: 'changelog' }
+  if (path in docRoutes) return { page: 'docs', doc: docRoutes[path], mobileIndex: path === '/docs' }
+  if (path.startsWith('/docs/')) return { page: 'docs', doc: 'principles', mobileIndex: false }
   return { page: 'home' }
 }
 
@@ -54,7 +55,7 @@ export function useRoute() {
     if (window.location.pathname === path) return
     window.history.pushState({}, '', path)
     setRoute(readRoute())
-    window.scrollTo({ top: 0 })
+    window.scrollTo({ top: 0, behavior: 'instant' })
   }
 
   return [route, navigate] as const

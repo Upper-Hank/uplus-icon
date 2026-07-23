@@ -72,7 +72,7 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
   ] as const, [language])
 
   return <section className="library-page">
-    <div className="library-toolbar" data-reveal>
+    <div className="library-toolbar">
       <div className="icon-search" role="search">
         {query
           ? <button className="search-clear" type="button" aria-label={language === 'zh' ? '清除搜索' : 'Clear search'} onClick={() => {
@@ -104,8 +104,10 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
         />
       </div>
     </div>
-    {filtered.length ? <IconCollection groups={groups} icons={filtered} language={language} navigate={navigate} viewMode={viewMode} />
-      : <div className="empty"><Icon name="grid" size={32} /><h2>{t('noIcon')}</h2><p>{t('noIconText')}</p></div>}
+    <div className="library-content" data-reveal>
+      {filtered.length ? <IconCollection groups={groups} icons={filtered} language={language} navigate={navigate} viewMode={viewMode} />
+        : <div className="empty"><Icon name="grid" size={32} /><h2>{t('noIcon')}</h2><p>{t('noIconText')}</p></div>}
+    </div>
     {selectedIcon && <IconDetailDrawer key={selectedIcon} name={selectedIcon} onClose={() => navigate('/icons')} />}
   </section>
 }
