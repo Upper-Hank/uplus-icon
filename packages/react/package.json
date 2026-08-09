@@ -1,6 +1,6 @@
 {
   "name": "@uplus-icon/react",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "React components for Uplus Icon",
   "license": "MIT",
   "repository": { "type": "git", "url": "git+https://github.com/Upper-Hank/uplus-icon.git", "directory": "packages/react" },
@@ -21,7 +21,7 @@
     "build": "rm -rf dist && tsc",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": { "@uplus-icon/core": "^0.1.0" },
+  "dependencies": { "@uplus-icon/core": "^0.0.0" },
   "peerDependencies": { "react": ">=18" },
   "devDependencies": {
     "@types/react": "^19.1.8",

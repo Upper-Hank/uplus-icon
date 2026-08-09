@@ -1,6 +1,6 @@
 {
   "name": "@uplus-icon/core",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Framework-agnostic SVG data and metadata for Uplus Icon",
   "license": "MIT",
   "repository": { "type": "git", "url": "git+https://github.com/Upper-Hank/uplus-icon.git", "directory": "packages/core" },
