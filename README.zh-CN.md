@@ -25,9 +25,8 @@ Uplus Icon 是一套为现代产品打造的开源图标系统。项目将经过
 - 面向现代用户界面的统一 SVG 图标
 - 框架无关的 SVG definition 和可检索元数据
 - 类型安全、支持 ref 的 React 组件
-- 原生 DOM 工具和可选 Web Component
+- 原生单图标 DOM 工具
 - 支持单图标静态导入，控制生产包体积
-- 支持通过类型化名称动态渲染
 - 支持标准 SVG 属性并忠实保留源文件渲染内容
 - 合理的装饰性与语义化无障碍行为
 - 搜索、分类、标签和别名元数据与 SVG 分离
@@ -80,20 +79,6 @@ import CheckIcon from '@uplus-icon/react/icons/check'
 <CheckIcon size={24} />
 ```
 
-### 动态图标
-
-图标名称来自配置或数据时，可以使用动态组件：
-
-```tsx
-import { Icon, type IconName } from '@uplus-icon/react/dynamic'
-
-const name: IconName = 'check'
-
-<Icon name={name} size={24} />
-```
-
-动态组件需要包含图标注册表。对于名称固定的业务图标，优先使用静态组件导入。可搜索目录数据从 `@uplus-icon/core/metadata` 单独导入，其中不包含 SVG body。
-
 ### 原生 Web
 
 不使用 React 时，可以直接创建 SVG DOM 元素：
@@ -104,16 +89,6 @@ import { CheckIcon } from '@uplus-icon/web'
 document.body.append(CheckIcon({ size: 24, ariaLabel: '完成' }))
 ```
 
-通过明确的副作用入口注册可选 Web Component：
-
-```ts
-import '@uplus-icon/web/element'
-```
-
-```html
-<uplus-icon name="check" size="24" aria-label="完成"></uplus-icon>
-```
-
 ## 属性
 
 所有图标都支持标准 React SVG 属性，以及以下属性：
@@ -121,8 +96,8 @@ import '@uplus-icon/web/element'
 | 属性 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |
 | `size` | `number \| string` | `24` | 同时设置宽度和高度。 |
-| `strokeWidth` | `number` | SVG 真源 | 覆盖真源描边，运行时限制在 `0.5–2`。 |
-| `absoluteStrokeWidth` | `boolean` | `false` | 让描边保持 CSS 像素宽度，不随 `size` 缩放。 |
+| `weight` | `number` | `2` | 描边按 `weight ÷ 2` 缩放；受支持的实心细节按 `(weight + 1) ÷ 3` 连续缩放。运行时限制在 `0.5–2`。 |
+| `absoluteWeight` | `boolean` | `false` | 数值尺寸下保持 CSS 像素重量；字符串尺寸安全回退为相对重量。 |
 | `title` | `string` | — | 添加 SVG 标题，并将图标暴露为图像。 |
 | `color` | `string` | — | 标准 SVG 颜色属性，实际效果取决于提供的 SVG 源文件。 |
 | `aria-label` | `string` | — | 为具有独立语义的图标提供无障碍名称。 |
@@ -152,7 +127,7 @@ uplus-icon/
 │   │   └── scripts/          统一代码生成工具
 │   ├── core/                 框架无关 definition 和元数据
 │   ├── react/                React 组件
-│   └── web/                  原生 DOM API 和 Web Component
+│   └── web/                  原生单图标 DOM API
 ├── .github/workflows/        持续集成
 ├── CONTRIBUTING.md
 └── LICENSE

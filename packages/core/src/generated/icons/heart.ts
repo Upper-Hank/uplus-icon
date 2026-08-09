@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "heart",
   "viewBox": "0 0 24 24",
-  "body": "\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M19.0935 7.19398C20.6556 8.75608 20.6556 11.2887 19.0935 12.8508L14.8509 17.0935C13.5175 18.4268 12.8509 19.0935 12.0225 19.0935C11.194 19.0935 10.5274 18.4268 9.19402 17.0935L4.82847 12.7279C3.26637 11.1658 3.26637 8.63316 4.82847 7.07107C6.39059 5.50931 8.92334 5.50908 10.4853 7.07107L10.6082 7.19398C11.3893 7.97503 12.6556 7.97503 13.4367 7.19398C14.9988 5.63189 17.5314 5.63189 19.0935 7.19398Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linejoin=\"round\"/>\n"
+  "body": "\n<path d=\"M16 5C14.3714 5 13.3325 5.88322 12.7229 6.69121C12.4334 7.07486 11.5663 7.07501 11.2768 6.6914C10.6669 5.88336 9.62791 5 8 5C4.96243 5 3 7.5 3 10.5C3 14.4532 8.62597 18.7189 10.9817 20.3318C11.6008 20.7557 12.3992 20.7557 13.0183 20.3318C15.374 18.7189 21 14.4532 21 10.5C21 7.5 19 5 16 5Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

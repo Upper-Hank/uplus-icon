@@ -14,7 +14,6 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
-    "./dynamic": { "types": "./dist/dynamic.d.ts", "import": "./dist/dynamic.js" },
     "./icons/*": { "types": "./dist/generated/icons/*.d.ts", "import": "./dist/generated/icons/*.js" }
   },
   "files": ["dist", "README.md", "LICENSE"],

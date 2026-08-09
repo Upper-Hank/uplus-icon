@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "minus",
   "viewBox": "0 0 24 24",
-  "body": "\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"3\" y=\"11\" width=\"18\" height=\"2\" rx=\"1\" fill=\"currentColor\"/>\n"
+  "body": "\n<path d=\"M4 12H20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

@@ -1,9 +1,11 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { gsap } from 'gsap'
-import type { IconDefinition, IconMotionCapabilities } from '@uplus-icon/core'
+import type { IconDefinition } from '@uplus-icon/core'
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
+import { releaseFeatures } from '../app/releaseFeatures'
 import { useI18n } from '../i18n'
 import { IconGuideOverlay } from './IconGuideOverlay'
+import { PreviewColorPicker } from './PreviewColorPicker'
 import { IconSkeletonOverlay } from './IconSkeletonOverlay'
 import { SegmentedControl } from './LibraryControls'
 import { SelectMenu, type SelectMenuOption } from './SelectMenu'
@@ -14,23 +16,34 @@ type MotionDirection = 'in' | 'out'
 type MotionEase = 'standard' | 'linear' | 'ease-in' | 'ease-out'
 type MotionName = 'fade' | 'scale' | 'blur' | 'draw' | 'ring' | 'beat' | 'rotate'
 
+interface IconMotionCapabilities {
+  semantic: readonly string[]
+}
+
 interface IconDetailPreviewProps {
-  absoluteStrokeWidth: boolean
+  absoluteWeight: boolean
+  color: string | null
   definition?: IconDefinition
   mode: IconPreviewMode
   motion?: IconMotionCapabilities
   name: IconName
-  onAbsoluteStrokeWidthChange: (value: boolean) => void
+  onAbsoluteWeightChange: (value: boolean) => void
+  onColorChange: (value: string | null) => void
   onModeChange: (value: IconPreviewMode) => void
   onSizeChange: (value: number) => void
-  onStrokeWidthChange: (value: number) => void
+  onWeightChange: (value: number) => void
   size: number
-  strokeWidth: number
+  weight: number
 }
 
 const rangeProgress = (value: number, min: number, max: number) => ({
   '--range-progress': `${((value - min) / (max - min)) * 100}%`,
 }) as CSSProperties
+
+const defaultPreviewColor = () => {
+  if (typeof document === 'undefined') return '#000000'
+  return getComputedStyle(document.documentElement).getPropertyValue('--ui-text').trim() || '#000000'
+}
 
 const motionLabels = {
   zh: {
@@ -62,17 +75,19 @@ function geometryLength(element: SVGGeometryElement) {
 }
 
 export function IconDetailPreview({
-  absoluteStrokeWidth,
+  absoluteWeight,
+  color,
   definition,
   mode,
   motion,
   name,
-  onAbsoluteStrokeWidthChange,
+  onAbsoluteWeightChange,
+  onColorChange,
   onModeChange,
   onSizeChange,
-  onStrokeWidthChange,
+  onWeightChange,
   size,
-  strokeWidth,
+  weight,
 }: IconDetailPreviewProps) {
   const { language } = useI18n()
   const [showGrid, setShowGrid] = useState(false)
@@ -85,18 +100,25 @@ export function IconDetailPreview({
   const [motionLoop, setMotionLoop] = useState(false)
   const [motionPlaying, setMotionPlaying] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
+  const [themeColor, setThemeColor] = useState(defaultPreviewColor)
   const motionTargetRef = useRef<HTMLDivElement>(null)
   const motionPlayButtonRef = useRef<HTMLButtonElement>(null)
   const motionTimelineRef = useRef<gsap.core.Timeline | null>(null)
   const resetTweenRef = useRef<gsap.core.Tween | null>(null)
   const isMaster = mode === 'master'
-  const isMotion = mode === 'motion'
+  const isMotion = releaseFeatures.motion && mode === 'motion'
   const modeOptions = [
     { value: 'master', label: language === 'zh' ? '母版检查' : 'Master inspection', content: language === 'zh' ? '母版' : 'Master' },
     { value: 'actual', label: language === 'zh' ? '实际尺寸' : 'Actual size', content: language === 'zh' ? '实际' : 'Actual' },
-    { value: 'motion', label: language === 'zh' ? '动画预览' : 'Motion preview', content: language === 'zh' ? '动画' : 'Motion' },
+    ...(releaseFeatures.motion
+      ? [{ value: 'motion', label: language === 'zh' ? '动画预览' : 'Motion preview', content: language === 'zh' ? '动画' : 'Motion' } as const]
+      : []),
   ] as const
-  const actualStyle = mode === 'actual' ? { '--preview-actual-size': `${size}px` } as CSSProperties : undefined
+  const displayColor = color ?? themeColor
+  const previewStyle = {
+    color: displayColor,
+    ...(mode === 'actual' ? { '--preview-actual-size': `${size}px` } : {}),
+  } as CSSProperties
   const motionOptions = useMemo(() => {
     const generic: SelectMenuOption<MotionName>[] = (['fade', 'scale', 'blur', 'draw'] as const).map((value) => ({
       value,
@@ -121,11 +143,20 @@ export function IconDetailPreview({
   }, [motionName, motionOptions])
 
   useEffect(() => {
+    if (!releaseFeatures.motion) return
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
     const update = () => setReducedMotion(media.matches)
     update()
     media.addEventListener('change', update)
     return () => media.removeEventListener('change', update)
+  }, [])
+
+  useEffect(() => {
+    const root = document.documentElement
+    const updateThemeColor = () => setThemeColor(defaultPreviewColor())
+    const observer = new MutationObserver(updateThemeColor)
+    observer.observe(root, { attributes: true, attributeFilter: ['data-theme'] })
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => () => {
@@ -265,6 +296,7 @@ export function IconDetailPreview({
     setShowGrid(false)
     setShowGuides(false)
     setShowSkeleton(false)
+    onColorChange(null)
     if (isMotion) {
       motionTimelineRef.current?.pause(0)
       setMotionName('fade')
@@ -279,25 +311,25 @@ export function IconDetailPreview({
     const values = {
       motionDurationValue: motionDuration,
       previewSize: size,
-      previewStrokeWidth: strokeWidth,
+      previewWeight: weight,
     }
     resetTweenRef.current = gsap.to(values, {
       duration: reducedMotion ? 0 : 0.32,
       ease: 'power2.out',
       motionDurationValue: isMotion ? 0.8 : motionDuration,
       previewSize: mode === 'actual' ? 24 : size,
-      previewStrokeWidth: 2,
+      previewWeight: 2,
       onUpdate: () => {
         if (mode === 'actual') onSizeChange(values.previewSize)
-        onStrokeWidthChange(values.previewStrokeWidth)
+        onWeightChange(values.previewWeight)
         if (isMotion) setMotionDuration(values.motionDurationValue)
       },
       onComplete: () => {
         if (mode === 'actual') {
           onSizeChange(24)
-          onAbsoluteStrokeWidthChange(false)
+          onAbsoluteWeightChange(false)
         }
-        onStrokeWidthChange(2)
+        onWeightChange(2)
         if (isMotion) setMotionDuration(0.8)
         resetTweenRef.current = null
       },
@@ -312,21 +344,22 @@ export function IconDetailPreview({
           : isMotion
             ? `24 × 24 ${language === 'zh' ? '动画预览' : 'motion'}`
             : `${size} × ${size}px`}</span>
-        <div className={`preview-master${mode === 'actual' ? ' is-actual' : ''}${isMotion ? ' is-motion' : ''}${showSkeleton ? ' is-skeleton' : ''}`} style={actualStyle}>
+        <div className={`preview-master${mode === 'actual' ? ' is-actual' : ''}${isMotion ? ' is-motion' : ''}${showSkeleton ? ' is-skeleton' : ''}`} style={previewStyle}>
           {showGrid && <svg className="preview-grid-svg" viewBox="0 0 24 24" shapeRendering="crispEdges" aria-hidden="true">
             <defs><pattern id="preview-unit-grid" width="1" height="1" patternUnits="userSpaceOnUse"><path d="M 1 0 H 0 V 1" fill="none" stroke="currentColor" strokeWidth="0.08" /></pattern></defs>
             <rect x="0.04" y="0.04" width="23.92" height="23.92" fill="url(#preview-unit-grid)" stroke="currentColor" strokeWidth="0.08" />
           </svg>}
           {showGuides && <IconGuideOverlay />}
           <div className="preview-motion-target" ref={motionTargetRef}>
-            <Icon className="preview-icon" name={name} size="100%" strokeWidth={strokeWidth} absoluteStrokeWidth={mode === 'actual' && absoluteStrokeWidth} />
+            <Icon className="preview-icon" name={name} size={mode === 'actual' ? size : '100%'} weight={weight} absoluteWeight={mode === 'actual' && absoluteWeight} />
           </div>
           {showSkeleton && definition && <IconSkeletonOverlay definition={definition} />}
         </div>
         <div className="preview-canvas-inspection">
           <div className="preview-actions">
+            <PreviewColorPicker label={language === 'zh' ? '选择图标预览颜色' : 'Choose icon preview color'} value={displayColor} onChange={onColorChange} />
             <button className="preview-toggle" type="button" aria-pressed={showGrid} onClick={() => setShowGrid((visible) => !visible)}><Icon name="grid" size={15} />{language === 'zh' ? '网格' : 'Grid'}</button>
-            <button className="preview-toggle" type="button" aria-pressed={showGuides} onClick={() => setShowGuides((visible) => !visible)}><Icon name="control" size={15} />{language === 'zh' ? '辅助线' : 'Guides'}</button>
+            <button className="preview-toggle" type="button" aria-pressed={showGuides} onClick={() => setShowGuides((visible) => !visible)}><Icon name="compass" size={15} />{language === 'zh' ? '辅助线' : 'Guides'}</button>
             <button className="preview-toggle" type="button" aria-pressed={showSkeleton} disabled={!definition} onClick={() => setShowSkeleton((visible) => !visible)}><Icon name="share" size={15} />{language === 'zh' ? '骨骼' : 'Skeleton'}</button>
           </div>
         </div>
@@ -385,9 +418,9 @@ export function IconDetailPreview({
               <input type="range" min="0.2" max="2" step="0.1" value={motionDuration} style={rangeProgress(motionDuration, 0.2, 2)} onChange={(event) => setMotionDuration(Number(event.target.value))} />
             </label>
             <label className="preview-range-control">
-              <span>{language === 'zh' ? '描边宽度' : 'Stroke width'}</span>
-              <output>{Number(strokeWidth.toFixed(2))}</output>
-              <input type="range" min="0.5" max="2" step="0.25" value={strokeWidth} style={rangeProgress(strokeWidth, 0.5, 2)} onChange={(event) => onStrokeWidthChange(Number(event.target.value))} />
+              <span>{language === 'zh' ? '重量' : 'Weight'}</span>
+              <output>{Number(weight.toFixed(2))}</output>
+              <input type="range" min="0.5" max="2" step="0.25" value={weight} style={rangeProgress(weight, 0.5, 2)} onChange={(event) => onWeightChange(Number(event.target.value))} />
             </label>
           </div>
           <div className="preview-motion-playback">
@@ -404,12 +437,11 @@ export function IconDetailPreview({
         </>}
 
         {!isMotion && <label className="preview-range-control">
-          <span>{language === 'zh' ? '描边宽度' : 'Stroke width'}</span>
-          <output>{Number(strokeWidth.toFixed(2))}</output>
-          <input type="range" min="0.5" max="2" step="0.25" value={strokeWidth} style={rangeProgress(strokeWidth, 0.5, 2)} onChange={(event) => onStrokeWidthChange(Number(event.target.value))} />
+          <span>{language === 'zh' ? '重量' : 'Weight'}</span>
+          <output>{Number(weight.toFixed(2))}</output>
+          <input type="range" min="0.5" max="2" step="0.25" value={weight} style={rangeProgress(weight, 0.5, 2)} onChange={(event) => onWeightChange(Number(event.target.value))} />
         </label>}
-
-        {mode === 'actual' && <SwitchControl checked={absoluteStrokeWidth} label={language === 'zh' ? '绝对线宽' : 'Absolute stroke'} onChange={onAbsoluteStrokeWidthChange} />}
+        {mode === 'actual' && <SwitchControl checked={absoluteWeight} label={language === 'zh' ? '绝对重量' : 'Absolute weight'} onChange={onAbsoluteWeightChange} />}
       </aside>
     </section>
   )

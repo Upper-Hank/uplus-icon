@@ -3,7 +3,7 @@ slug: web
 order: 11
 group: usage
 title: Web usage
-description: Native DOM factories, dynamic names, and custom elements
+description: Static per-icon DOM factories and accessibility
 locale: en
 ---
 
@@ -20,7 +20,7 @@ import { CheckIcon } from '@uplus-icon/web'
 
 const icon = CheckIcon({
   size: 24,
-  strokeWidth: 1.5,
+  weight: 1.5,
   ariaLabel: 'Complete',
 })
 
@@ -31,47 +31,27 @@ Factories return real `SVGSVGElement` instances for native pages and application
 
 - **MUST** use a concrete icon factory for a fixed name.
 - **MAY** pass additional standard SVG attributes through `attributes`.
-- **MUST NOT** register a global custom element from a regular per-icon entry.
+- **MUST NOT** include a full icon registry or register global elements from a public v1 entry.
 
-## Dynamic names
-
-Use dynamic `Icon` when a name comes from configuration or data. It carries the complete registry, so accept the bundle cost explicitly.
-
-## Web Component
-
-```html
-<script type="module">
-  import '@uplus-icon/web/element'
-</script>
-
-<uplus-icon
-  name="check"
-  size="24"
-  stroke-width="1.5"
-  aria-label="Complete"
-></uplus-icon>
-```
-
-- **MUST** register the default custom element only through `@uplus-icon/web/element`.
-- **MAY** call `registerIconElement()` to define another tag name.
-- **MUST** rerender when `name`, `size`, `stroke-width`, `absolute-stroke-width`, `title`, or `aria-label` changes.
+The first public release exposes concrete per-icon factories only.
 
 ## Factory options
 
 See the [Public API](/docs/api) for cross-framework defaults.
 
+DOM options and `attributes` are the idiomatic native-Web expression of the shared public capability set, not Web-only icon capabilities. Equivalent behavior must remain expressible through React props and standard SVG attributes.
+
 | Option | Type | Purpose |
 | --- | --- | --- |
 | `size` | `number \| string` | Sets width and height |
-| `strokeWidth` | `number` | Clamped to `0.5–2` |
-| `absoluteStrokeWidth` | `boolean` | Keeps a CSS-pixel stroke |
+| `weight` | `number` | Proportional artwork weight, clamped to `0.5–2` |
+| `absoluteWeight` | `boolean` | Keeps CSS-pixel weight for numeric sizes; string sizes use relative weight |
 | `title` | `string` | Creates a title node |
 | `ariaLabel` | `string` | Provides an accessible name |
 | `className` | `string` | Sets the SVG class |
 | `attributes` | `Record` | Adds standard SVG attributes |
 
-## Accessibility and side effects
+## Accessibility
 
 - **MUST** default icons without title or label to `aria-hidden="true"`.
 - **MUST** give SVGs with `title` or `ariaLabel` the `img` role.
-- **SHOULD** import the element side-effect entry only when a Web Component is actually used.

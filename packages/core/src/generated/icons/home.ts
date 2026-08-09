@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "home",
   "viewBox": "0 0 24 24",
-  "body": "\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M6 9.58579V19C6 19.5523 6.44772 20 7 20H9.5M18 9.58579V19C18 19.5523 17.5523 20 17 20H14.5M4 11.5858L11.2929 4.29289C11.6834 3.90237 12.3166 3.90237 12.7071 4.29289L20 11.5858M9.5 20V15.5C9.5 14.9477 9.94772 14.5 10.5 14.5H13.5C14.0523 14.5 14.5 14.9477 14.5 15.5V20M9.5 20H14.5\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linecap=\"round\"/>\n"
+  "body": "\n<path d=\"M18 9.58578V19C18 19.5523 17.5523 20 17 20H7C6.44772 20 6 19.5523 6 19V9.58578\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9.5 20V15.5C9.5 14.9477 9.94772 14.5 10.5 14.5H13.5C14.0523 14.5 14.5 14.9477 14.5 15.5V20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M4 11.5858L6 9.58579L11.2929 4.29289C11.6834 3.90237 12.3166 3.90237 12.7071 4.29289L18 9.58579L20 11.5858\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

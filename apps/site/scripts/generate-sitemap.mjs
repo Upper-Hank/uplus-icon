@@ -6,10 +6,12 @@ const siteRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const workspaceRoot = dirname(dirname(siteRoot))
 const metadata = JSON.parse(await readFile(join(workspaceRoot, 'packages', 'icons', 'metadata', 'icons.json'), 'utf8'))
 const rules = await readdir(join(workspaceRoot, 'docs', 'rules'))
+const firstReleaseHiddenDocSlugs = new Set(['motion-api', 'motion-authoring'])
 const docSlugs = rules.sort()
   .map((file) => file.match(/^\d{2}-([a-z-]+)\.en\.md$/)?.[1])
   .filter(Boolean)
   .filter((slug) => slug !== 'principles')
+  .filter((slug) => !firstReleaseHiddenDocSlugs.has(slug))
 
 const paths = [
   '/',

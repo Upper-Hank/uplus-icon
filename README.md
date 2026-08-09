@@ -25,9 +25,8 @@ The project values clarity, visual consistency, accessibility, and predictable p
 - Modern, consistent SVG icons for user interfaces
 - Framework-neutral SVG definitions and searchable metadata
 - Type-safe React components with ref forwarding
-- Native DOM helpers and an optional Web Component
+- Native per-icon DOM helpers
 - Static per-icon imports for small production bundles
-- Dynamic rendering by a typed icon name
 - Standard SVG props with source-faithful rendering
 - Accessible decorative and labelled icon behavior
 - Separate metadata for search, categories, tags, and aliases
@@ -80,20 +79,6 @@ import CheckIcon from '@uplus-icon/react/icons/check'
 <CheckIcon size={24} />
 ```
 
-### Dynamic icon
-
-Use the dynamic component when an icon name comes from configuration or data:
-
-```tsx
-import { Icon, type IconName } from '@uplus-icon/react/dynamic'
-
-const name: IconName = 'check'
-
-<Icon name={name} size={24} />
-```
-
-Dynamic rendering includes the icon registry. Prefer static component imports for fixed application icons. Searchable catalog data is available from `@uplus-icon/core/metadata` and does not contain SVG bodies.
-
 ### Native Web
 
 Use a per-icon DOM factory when React is not present:
@@ -104,16 +89,6 @@ import { CheckIcon } from '@uplus-icon/web'
 document.body.append(CheckIcon({ size: 24, ariaLabel: 'Complete' }))
 ```
 
-An explicit side-effect entry registers the optional custom element:
-
-```ts
-import '@uplus-icon/web/element'
-```
-
-```html
-<uplus-icon name="check" size="24" aria-label="Complete"></uplus-icon>
-```
-
 ## Props
 
 Every icon accepts standard React SVG attributes in addition to the following props:
@@ -121,8 +96,8 @@ Every icon accepts standard React SVG attributes in addition to the following pr
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `size` | `number \| string` | `24` | Sets both width and height. |
-| `strokeWidth` | `number` | SVG source | Overrides source strokes and is clamped to `0.5–2`. |
-| `absoluteStrokeWidth` | `boolean` | `false` | Keeps the stroke width in CSS pixels instead of scaling with `size`. |
+| `weight` | `number` | `2` | Scales strokes by `weight ÷ 2` and supported solid details continuously by `(weight + 1) ÷ 3`. Clamped to `0.5–2`. |
+| `absoluteWeight` | `boolean` | `false` | Keeps weight in CSS pixels for numeric sizes; string sizes safely use relative weight. |
 | `title` | `string` | — | Adds an SVG title and exposes the icon as an image. |
 | `color` | `string` | — | Standard SVG color prop; its effect follows the supplied SVG source. |
 | `aria-label` | `string` | — | Gives a meaningful icon an accessible name. |
@@ -152,7 +127,7 @@ uplus-icon/
 │   │   └── scripts/          Unified code generation
 │   ├── core/                 Framework-neutral definitions and metadata
 │   ├── react/                React components
-│   └── web/                  Native DOM API and Web Component
+│   └── web/                  Native per-icon DOM API
 ├── .github/workflows/        Continuous integration
 ├── CONTRIBUTING.md
 └── LICENSE

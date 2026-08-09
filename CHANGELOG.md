@@ -5,14 +5,14 @@
 ### Added
 
 - Added a bilingual changelog page to the documentation website.
-- Added a motion preview mode to the icon detail drawer with generic and icon-specific effects, direction, duration, easing, looping, playback, pause, reverse, and replay controls.
 - Added an optional 20×20 design-guide inspection layer without automatic alignment validation.
 
 ### Changed
 
+- Limited the first public package API to named and per-icon static entries.
 - Aligned the documentation navigation to a shared horizontal spacing baseline.
-- Changed the desktop detail preview to a fixed-height square canvas with a wider control area, and added real-time progress fill to the playback button.
-- Moved inspection-layer controls into the preview canvas and returned the absolute-stroke switch to normal control spacing.
+- Changed the desktop detail preview to a fixed-height square canvas with a wider control area.
+- Moved inspection-layer controls into the preview canvas and aligned the absolute-weight switch with the standard control spacing.
 - Set the master preview and actual-size upper bound to 256px, and fixed the code panel peeking after width changes.
 
 ### Known issues

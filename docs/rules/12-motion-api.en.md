@@ -17,7 +17,7 @@ Motion is an independently released, optional product layer. Static packages do 
 
 ## Animation capabilities
 
-Generic presentation includes `draw-in/out`, `fade-in/out`, `blur-in/out`, and `scale-in/out`. Semantic motion is opt-in, such as `bell:ring`, `heart:beat`, or `refresh:rotate`. Transitions are designed icon pairs; arbitrary morphing is not a product promise.
+Generic presentation capability IDs include `draw`, `fade`, `blur`, and `scale`; enter or exit direction is an independent API option. Semantic motion is opt-in, such as `bell:ring`, `heart:beat`, or `refresh:rotate`. Transitions are designed icon pairs; arbitrary morphing is not a product promise.
 
 ## API behavior
 

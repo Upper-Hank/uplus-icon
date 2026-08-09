@@ -3,7 +3,7 @@ slug: react
 order: 10
 group: usage
 title: React usage
-description: Named components, dynamic rendering, stroke width, types, and accessibility
+description: Named components, per-icon imports, weight, types, and accessibility
 locale: en
 ---
 
@@ -21,38 +21,39 @@ Use named components for fixed icons to get autocomplete, type checks, and tree-
 import { CheckIcon } from '@uplus-icon/react'
 
 <CheckIcon size={24} />
-<CheckIcon color="currentColor" strokeWidth={1.5} />
+<CheckIcon color="currentColor" weight={1.5} />
 ```
 
 - **MUST** use a named component or per-icon path for a fixed icon.
 - **SHOULD** let parent CSS `color` control icon color.
-- **MUST NOT** import the complete dynamic registry for one fixed icon.
+- **MUST NOT** include the complete icon registry in a static icon import.
 
-## Dynamic names
+## Per-icon imports
 
 ```tsx
-import { Icon, type IconName } from '@uplus-icon/react/dynamic'
+import CheckIcon from '@uplus-icon/react/icons/check'
 
-const name: IconName = 'check'
-<Icon name={name} size={24} />
+<CheckIcon size={24} />
 ```
 
-The dynamic entry is for names supplied by configuration, APIs, or user data. It includes the complete icon definition registry.
+The first public release exposes static named components and per-icon paths only.
 
 ## Public props
 
 See the [Public API](/docs/api) for cross-framework defaults. v1 uses one `24×24` master and has no `opticalSize` prop.
 
+React props are the idiomatic React expression of the shared public capability set, not React-only capabilities. Equivalent behavior must remain expressible through Web factory options or `attributes`.
+
 | Prop | Type | Default | Behavior |
 | --- | --- | --- | --- |
 | `size` | `number \| string` | `24` | Sets width and height |
-| `strokeWidth` | `number` | SVG source | Clamped to `0.5–2` |
-| `absoluteStrokeWidth` | `boolean` | `false` | Keeps a CSS-pixel stroke instead of scaling with size |
+| `weight` | `number` | `2` | Proportional artwork weight, clamped to `0.5–2` |
+| `absoluteWeight` | `boolean` | `false` | Keeps CSS-pixel weight for numeric sizes; string sizes use relative weight |
 | `color` | `string` | inherited | Controls currentColor artwork |
 | `title` | `string` | — | Adds an SVG title and image semantics |
 | `ref` | `SVGSVGElement` | — | Forwards to the root SVG |
 
-Fill-only icons do not change with `strokeWidth`. Omitting it preserves the source default; absolute stroke uses `non-scaling-stroke`.
+Weight preserves source stroke ratios and scales supported solid primitives continuously around their centers using `(weight + 1) ÷ 3`. Complex filled paths are not deformed automatically. Omitting `weight` renders the approved master at weight `2`. Absolute weight adjusts strokes and supported solid geometry separately for numeric sizes.
 
 ## Accessibility
 

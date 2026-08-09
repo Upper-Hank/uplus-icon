@@ -15,7 +15,7 @@
     "test:docs": "npm run test:docs -w uplus-icon-site",
     "check:generated": "npm run generate && git diff --exit-code -- packages/core/src/generated packages/react/src/generated packages/web/src/generated",
     "check:raw": "npm run generate && git diff --exit-code -- packages/icons/raw",
-    "check": "npm run test:docs && npm run test:preview-svg -w uplus-icon-site && npm run typecheck && npm run build && npm run test:production -w uplus-icon-site && npm run test:package -w @uplus-icon/source && npm run test:runtime -w @uplus-icon/source && npm run test:metadata -w @uplus-icon/source && npm run test:fidelity -w @uplus-icon/source && npm run test:size -w @uplus-icon/source && npm run test:consumer -w @uplus-icon/source && npm run check:generated && npm run check:raw"
+    "check": "npm run test:docs && npm run test:preview-svg -w uplus-icon-site && npm run typecheck && npm run build && npm run test:production -w uplus-icon-site && npm run test:package -w @uplus-icon/source && npm run test:runtime -w @uplus-icon/source && npm run test:metadata -w @uplus-icon/source && npm run test:fidelity -w @uplus-icon/source && npm run test:weight-audit -w @uplus-icon/source && npm run test:size -w @uplus-icon/source && npm run test:consumer -w @uplus-icon/source && npm run check:generated && npm run check:raw"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.0"

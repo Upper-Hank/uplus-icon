@@ -6,6 +6,7 @@
   "scripts": {
     "generate": "node scripts/generate.mjs",
     "test:fidelity": "node scripts/test-fidelity.mjs",
+    "test:weight-audit": "node scripts/audit-weight.mjs",
     "test:metadata": "node --test scripts/test-metadata.mjs",
     "test:package": "node scripts/test-package.mjs",
     "test:runtime": "node --test scripts/test-runtime.mjs",

@@ -9,7 +9,7 @@ locale: en
 
 ## Naming goal
 
-An approved name is the stable identifier shared by the filesystem, metadata, dynamic rendering, and named components. It describes meaning rather than visual style or one product screen.
+An approved name is the stable identifier shared by the filesystem, metadata, per-icon paths, and named components. It describes meaning rather than visual style or one product screen.
 
 - **MUST** use kebab-case made from lowercase ASCII letters, digits, and single hyphens.
 - **MUST** use short, established English terms understood by product teams.
@@ -37,7 +37,7 @@ The v1 `24×24` canvas is a library-wide constraint and never enters a name. `se
 
 ## Name-to-component mapping
 
-| SVG | Dynamic name | React component |
+| SVG | Canonical name | React component |
 | --- | --- | --- |
 | `arrow-left.svg` | `arrow-left` | `ArrowLeftIcon` |
 | `save-alt.svg` | `save-alt` | `SaveAltIcon` |
@@ -54,7 +54,7 @@ The v1 `24×24` canvas is a library-wide constraint and never enters a name. `se
 
 ## Renaming and compatibility
 
-An approved rename changes the file path, dynamic name, and named component, so it is a public API change.
+An approved rename changes the file path, canonical name, and named component, so it is a public API change.
 
 - **MUST** confirm the new name materially improves accuracy and audit existing consumers.
 - **MUST** document migration, deprecation timing, and release notes.

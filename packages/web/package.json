@@ -8,14 +8,12 @@
   "homepage": "https://icon.upper.website",
   "keywords": ["icon", "icons", "web-components", "svg", "uplus"],
   "type": "module",
-  "sideEffects": ["./dist/element.js"],
+  "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
-    "./dynamic": { "types": "./dist/dynamic.d.ts", "import": "./dist/dynamic.js" },
-    "./element": { "types": "./dist/element.d.ts", "import": "./dist/element.js" },
     "./icons/*": { "types": "./dist/generated/icons/*.d.ts", "import": "./dist/generated/icons/*.js" }
   },
   "files": ["dist", "README.md", "LICENSE"],

@@ -25,21 +25,37 @@ try {
   await writeFile(join(temp, 'consumer.tsx'), `
 import type { IconName } from '@uplus-icon/core'
 import { iconMeta } from '@uplus-icon/core/metadata'
-import { CheckIcon } from '@uplus-icon/react'
-import CheckIconDirect from '@uplus-icon/react/icons/check'
-import { Icon } from '@uplus-icon/react/dynamic'
-import { CheckIcon as createCheckIcon } from '@uplus-icon/web'
+import { PlusIcon } from '@uplus-icon/react'
+import PlusIconDirect from '@uplus-icon/react/icons/plus'
+import { PlusIcon as createPlusIcon } from '@uplus-icon/web'
 import { renderToStaticMarkup } from 'react-dom/server'
 
-const name: IconName = 'check'
-const markup = renderToStaticMarkup(<><CheckIcon strokeWidth={1.5} absoluteStrokeWidth /><CheckIconDirect strokeWidth={0.5} /><Icon name={name} strokeWidth={3} /></>)
-if (!markup.includes('<svg') || !markup.includes('--uplus-icon-stroke-width:1.5') || !markup.includes('--uplus-icon-stroke-width:2') || !markup.includes('--uplus-icon-vector-effect:non-scaling-stroke') || !markup.includes('vector-effect="var(--uplus-icon-vector-effect, none)"') || iconMeta.length === 0 || typeof createCheckIcon !== 'function') {
+const name: IconName = 'plus'
+const markup = renderToStaticMarkup(<><PlusIcon weight={1.5} /><PlusIconDirect size={48} weight={2} absoluteWeight /></>)
+if (name !== 'plus' || !markup.includes('<svg') || !markup.includes('stroke-width="1.5"') || !markup.includes('stroke-width="1"') || iconMeta.length === 0 || typeof createPlusIcon !== 'function') {
   throw new Error('Installed packages did not expose the expected APIs')
 }
 console.log('Rendered installed packages with', iconMeta.length, 'metadata entries')
 `)
+  await writeFile(join(temp, 'static-boundary.mjs'), `
+for (const specifier of [
+  '@uplus-icon/core/dynamic',
+  '@uplus-icon/react/dynamic',
+  '@uplus-icon/web/dynamic',
+  '@uplus-icon/web/element',
+]) {
+  try {
+    await import(specifier)
+  } catch (error) {
+    if (error?.code === 'ERR_PACKAGE_PATH_NOT_EXPORTED') continue
+    throw error
+  }
+  throw new Error('First-release package unexpectedly exposes ' + specifier)
+}
+`)
   execFileSync(join(temp, 'node_modules', '.bin', 'tsc'), [], { cwd: temp, stdio: 'pipe' })
   const output = execFileSync('node', ['build/consumer.js'], { cwd: temp, encoding: 'utf8' }).trim()
+  execFileSync('node', ['static-boundary.mjs'], { cwd: temp, stdio: 'pipe' })
   console.log(output)
 } finally {
   await rm(temp, { recursive: true, force: true })

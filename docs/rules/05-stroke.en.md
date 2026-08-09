@@ -9,13 +9,23 @@ locale: en
 
 ## Stroke scale
 
-Linear icons preserve real centerline strokes. The default approved width is `2`, and consumers may override it within `0.5–2`.
+Linear icons preserve real centerline strokes. The default approved width is `2`; consumers adjust whole-icon weight proportionally within `0.5–2`.
 
 - **MUST** use one width for lines at the same visual hierarchy.
 - **SHOULD** use `stroke-width="2"` as the approved-source default.
 - **MAY** use another source width within `0.5–2` after visual review.
 - **MUST NOT** overlap identical paths to fake local weight.
 - **MUST NOT** outline the entire stroke system into broad fills merely for export.
+
+## Stroke alignment
+
+Approved SVGs use centered strokes by default: the path is the stroke centerline and the width is distributed equally on both sides.
+
+- **SHOULD** prefer centered strokes so open linework, closed contours, and runtime width changes remain consistent and predictable.
+- **MAY** use inside or outside alignment when required to hold an outer dimension, protect interior negative space, express occlusion, or apply a necessary optical correction.
+- **MUST** express inside or outside alignment through owner-approved final path placement or geometry. Sources must not depend on the inconsistently supported `stroke-alignment` property, and generators must never offset paths automatically.
+- **MAY** use `fill` to freeze a contour when a real stroke cannot express the required inside or outside boundary reliably and accurately, while preserving fixed `black`, a transparent background, and the approved visual weight in the design source; the private adapter converts release definitions to `currentColor`.
+- **MUST** review alignment at the approved source width. After a runtime `weight` change, inside and outside edges may move around the centerline and are not guaranteed to remain locked to one boundary.
 
 ## Open caps
 
@@ -38,18 +48,20 @@ Linear icons preserve real centerline strokes. The default approved width is `2`
 - **MAY** optically correct for size differences without creating visible randomness.
 - **MUST NOT** mix several nearly identical radii to imitate a hand-drawn effect.
 
-## Scaling and runtime API
+## Weight and runtime API
 
-The generator binds approved `stroke-width` values to a CSS variable and keeps the source width as fallback.
+The runtime derives artwork weight from the approved master with `scale = weight ÷ 2`.
 
 ```tsx
-<CheckIcon size={24} strokeWidth={1.5} />
+<CheckIcon size={24} weight={1.5} />
 ```
 
-- **MUST** clamp consumer stroke width to `0.5–2`.
-- **MUST** scale strokes with the SVG.
+- **MUST** clamp consumer weight to `0.5–2`.
+- **MUST** multiply every source stroke width by the same scale so local ratios remain intact.
+- **MUST** scale solid circles, ellipses, and rectangles around their centers, including their corner radii.
+- **MUST NOT** deform solid paths or other complex fill geometry automatically; list them for design review.
 - **MUST NOT** use `vector-effect="non-scaling-stroke"`.
-- **MUST NOT** let the runtime stroke API alter fill-only regions.
+- **MUST** implement `absoluteWeight` by scaling strokes and supported solid primitives together; numeric sizes use `24 ÷ size`, while string sizes fall back to relative weight.
 
 ## Review checklist
 

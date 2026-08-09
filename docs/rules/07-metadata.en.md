@@ -16,6 +16,21 @@ Metadata explains what an icon means, how it is found, and its lifecycle state. 
 - **MUST NOT** store SVG bodies, paths, or visual correction parameters in metadata.
 - **MUST NOT** format or rewrite raw SVG files when metadata changes.
 
+Submitted metadata requires `title`, `titleZh`, `categories`, `subgroup`, `tags`, and `aliases`. Add `description`, `related`, `variants`, `contributors`, `deprecated`, `publishedIn`, and `updatedIn` only when applicable. Every path, `d` value, coordinate, color, stroke, and node order belongs exclusively to the canonical SVG and must not be copied into `icons.json`.
+
+```json
+{
+  "bell": {
+    "title": "Bell",
+    "titleZh": "通知",
+    "categories": ["objects"],
+    "subgroup": "communication",
+    "tags": ["objects", "对象", "communication", "沟通"],
+    "aliases": ["notification"]
+  }
+}
+```
+
 ## Asset relationship
 
 Each metadata key maps one-to-one to a canonical SVG filename.
@@ -44,13 +59,15 @@ Each metadata key maps one-to-one to a canonical SVG filename.
 ## Tags
 
 - **MUST** provide at least one tag with no empty or duplicate values.
-- **SHOULD** cover object, action, direction, state, and common usage contexts.
-- **SHOULD** keep English tags lowercase and add genuinely useful Chinese search terms.
+- **MUST** use tags for stable classification and include the primary category ID and subgroup ID.
+- **SHOULD** include localized category and subgroup labels for bilingual filtering and search.
+- **MUST NOT** repeat formal names, aliases, or temporary search terms in tags.
 - **MUST NOT** add unrelated trending terms, project IDs, campaign names, or ordering instructions.
 
 ## Aliases
 
 - **MAY** add synonyms, legacy names, and common industry terms to aliases.
+- **SHOULD** put common search names outside the formal title in aliases, not tags.
 - **MUST** avoid conflicts with every approved icon name.
 - **MUST** keep every alias globally unique so search has one deterministic owner.
 - **MUST NOT** generate components, export paths, or duplicate SVG files from aliases.
@@ -58,9 +75,16 @@ Each metadata key maps one-to-one to a canonical SVG filename.
 
 ## References
 
-- **MUST** make every `related`, `variants`, and motion transition target resolve to an approved icon name.
-- **MUST NOT** let an icon reference itself as a relation, variant, or motion transition target.
-- **MUST** reject duplicate motion capabilities and duplicate transitions during generation.
+- **MUST** make every `related` and `variants` target resolve to an approved icon name.
+- **MUST NOT** let an icon reference itself as a relation or variant.
+
+## Structural parts and Motion
+
+`parts` only declares stable structural parts that already exist in the SVG; it cannot create or correct geometry. Submit `parts` only when the SVG contains `data-part`, and list every value in exact document order. `motion` only declares implemented and reviewed capabilities; it never stores keyframes, duration, easing, selectors, or path data.
+
+- **MUST NOT** prefill `parts` or `motion` for a possible future animation.
+- **MUST** implement and review a Motion capability before declaring it.
+- **MUST** make generation reject a part list that differs between SVG and metadata.
 
 ## Status and versions
 

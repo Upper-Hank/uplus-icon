@@ -29,21 +29,21 @@ export function GuideContent({ navigate }: { navigate: (path: string) => void })
             <p>{zh
               ? '已知图标名称时，优先使用具名导入，以获得清晰的类型和最小的打包结果。'
               : 'Prefer a named import when the icon is known ahead of time for clear types and the smallest bundle.'}</p>
-            <CodeBlock>{`import { CheckIcon } from '@uplus-icon/react'
+            <CodeBlock>{`import { PlusIcon } from '@uplus-icon/react'
 
-export function Confirmed() {
-  return <CheckIcon size={20} aria-label="${zh ? '已确认' : 'Confirmed'}" />
+export function AddAction() {
+  return <PlusIcon size={20} aria-label="${zh ? '添加' : 'Add'}" />
 }`}</CodeBlock>
           </section>
 
-          <section id="dynamic-icons">
-            <h2>{zh ? '按名称动态渲染' : 'Render by name'}</h2>
+          <section id="per-icon-imports">
+            <h2>{zh ? '单图标导入' : 'Per-icon imports'}</h2>
             <p>{zh
-              ? '图标名称来自配置或数据时，使用动态入口。'
-              : 'Use the dynamic entry when the icon name comes from configuration or data.'}</p>
-            <CodeBlock>{`import { Icon } from '@uplus-icon/react/dynamic'
+              ? '需要最明确的静态依赖边界时，使用单图标路径。'
+              : 'Use a per-icon path when you want the most explicit static dependency boundary.'}</p>
+            <CodeBlock>{`import PlusIcon from '@uplus-icon/react/icons/plus'
 
-<Icon name="check" size={20} />`}</CodeBlock>
+<PlusIcon size={20} />`}</CodeBlock>
           </section>
 
           <section id="next">
@@ -51,12 +51,12 @@ export function Confirmed() {
             <div className="guide-links">
               <GuideLink
                 title={zh ? 'React 使用' : 'React usage'}
-                description={zh ? '组件属性、ref、线宽和类型。' : 'Component props, refs, stroke width, and types.'}
+                description={zh ? '组件属性、ref、重量和类型。' : 'Component props, refs, weight, and types.'}
                 onClick={() => navigate('/docs/react')}
               />
               <GuideLink
                 title={zh ? 'Web 使用' : 'Web usage'}
-                description={zh ? '原生 DOM API 与 Web Component。' : 'Native DOM APIs and the Web Component.'}
+                description={zh ? '原生单图标 DOM API。' : 'Native per-icon DOM APIs.'}
                 onClick={() => navigate('/docs/web')}
               />
               <GuideLink
@@ -73,7 +73,7 @@ export function Confirmed() {
         <nav aria-label={zh ? '本页目录' : 'On this page'}>
           <a href="#install">{zh ? '安装' : 'Install'}</a>
           <a href="#named-components">{zh ? '使用具名组件' : 'Use a named component'}</a>
-          <a href="#dynamic-icons">{zh ? '按名称动态渲染' : 'Render by name'}</a>
+          <a href="#per-icon-imports">{zh ? '单图标导入' : 'Per-icon imports'}</a>
           <a href="#next">{zh ? '深入了解' : 'Go deeper'}</a>
         </nav>
       </aside>

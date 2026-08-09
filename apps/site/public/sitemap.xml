@@ -15,8 +15,6 @@
   <url><loc>https://icon.upper.website/docs/api</loc></url>
   <url><loc>https://icon.upper.website/docs/react</loc></url>
   <url><loc>https://icon.upper.website/docs/web</loc></url>
-  <url><loc>https://icon.upper.website/docs/motion-api</loc></url>
-  <url><loc>https://icon.upper.website/docs/motion-authoring</loc></url>
   <url><loc>https://icon.upper.website/docs/accessibility</loc></url>
   <url><loc>https://icon.upper.website/docs/testing</loc></url>
   <url><loc>https://icon.upper.website/docs/versioning</loc></url>
@@ -24,54 +22,304 @@
   <url><loc>https://icon.upper.website/docs/figma</loc></url>
   <url><loc>https://icon.upper.website/docs/package-architecture</loc></url>
   <url><loc>https://icon.upper.website/docs/release-process</loc></url>
+  <url><loc>https://icon.upper.website/icons/activity</loc></url>
+  <url><loc>https://icon.upper.website/icons/alarm-clock</loc></url>
+  <url><loc>https://icon.upper.website/icons/anchor-curve</loc></url>
+  <url><loc>https://icon.upper.website/icons/anchor-point</loc></url>
+  <url><loc>https://icon.upper.website/icons/archive</loc></url>
   <url><loc>https://icon.upper.website/icons/arrow-down</loc></url>
   <url><loc>https://icon.upper.website/icons/arrow-left</loc></url>
   <url><loc>https://icon.upper.website/icons/arrow-right</loc></url>
   <url><loc>https://icon.upper.website/icons/arrow-up</loc></url>
+  <url><loc>https://icon.upper.website/icons/artboard</loc></url>
+  <url><loc>https://icon.upper.website/icons/at-sign</loc></url>
+  <url><loc>https://icon.upper.website/icons/badge</loc></url>
+  <url><loc>https://icon.upper.website/icons/barcode</loc></url>
+  <url><loc>https://icon.upper.website/icons/battery-horizon</loc></url>
+  <url><loc>https://icon.upper.website/icons/battery-vertical</loc></url>
   <url><loc>https://icon.upper.website/icons/bell</loc></url>
+  <url><loc>https://icon.upper.website/icons/bell-off</loc></url>
+  <url><loc>https://icon.upper.website/icons/bluetooth</loc></url>
+  <url><loc>https://icon.upper.website/icons/bluetooth-off</loc></url>
+  <url><loc>https://icon.upper.website/icons/bold</loc></url>
+  <url><loc>https://icon.upper.website/icons/book</loc></url>
+  <url><loc>https://icon.upper.website/icons/bookmark</loc></url>
+  <url><loc>https://icon.upper.website/icons/braces</loc></url>
+  <url><loc>https://icon.upper.website/icons/briefcase</loc></url>
+  <url><loc>https://icon.upper.website/icons/broadcast</loc></url>
+  <url><loc>https://icon.upper.website/icons/bug</loc></url>
+  <url><loc>https://icon.upper.website/icons/calculator</loc></url>
+  <url><loc>https://icon.upper.website/icons/calendar</loc></url>
+  <url><loc>https://icon.upper.website/icons/camera</loc></url>
+  <url><loc>https://icon.upper.website/icons/card</loc></url>
+  <url><loc>https://icon.upper.website/icons/cast</loc></url>
+  <url><loc>https://icon.upper.website/icons/charge</loc></url>
+  <url><loc>https://icon.upper.website/icons/chart-column</loc></url>
+  <url><loc>https://icon.upper.website/icons/chart-column-up</loc></url>
   <url><loc>https://icon.upper.website/icons/check</loc></url>
+  <url><loc>https://icon.upper.website/icons/checkbox</loc></url>
   <url><loc>https://icon.upper.website/icons/chevron-down</loc></url>
   <url><loc>https://icon.upper.website/icons/chevron-left</loc></url>
   <url><loc>https://icon.upper.website/icons/chevron-right</loc></url>
   <url><loc>https://icon.upper.website/icons/chevron-up</loc></url>
+  <url><loc>https://icon.upper.website/icons/chevrons-down</loc></url>
+  <url><loc>https://icon.upper.website/icons/chevrons-left</loc></url>
+  <url><loc>https://icon.upper.website/icons/chevrons-right</loc></url>
+  <url><loc>https://icon.upper.website/icons/chevrons-up</loc></url>
+  <url><loc>https://icon.upper.website/icons/chip</loc></url>
+  <url><loc>https://icon.upper.website/icons/clarity</loc></url>
   <url><loc>https://icon.upper.website/icons/clock</loc></url>
   <url><loc>https://icon.upper.website/icons/close</loc></url>
-  <url><loc>https://icon.upper.website/icons/code</loc></url>
-  <url><loc>https://icon.upper.website/icons/columns</loc></url>
+  <url><loc>https://icon.upper.website/icons/cloud</loc></url>
+  <url><loc>https://icon.upper.website/icons/cloud-download</loc></url>
+  <url><loc>https://icon.upper.website/icons/cloud-upload</loc></url>
+  <url><loc>https://icon.upper.website/icons/code-block</loc></url>
+  <url><loc>https://icon.upper.website/icons/color</loc></url>
+  <url><loc>https://icon.upper.website/icons/color-wheel</loc></url>
   <url><loc>https://icon.upper.website/icons/comment</loc></url>
-  <url><loc>https://icon.upper.website/icons/control</loc></url>
+  <url><loc>https://icon.upper.website/icons/compass</loc></url>
+  <url><loc>https://icon.upper.website/icons/computer</loc></url>
+  <url><loc>https://icon.upper.website/icons/control-horizon</loc></url>
+  <url><loc>https://icon.upper.website/icons/control-vertical</loc></url>
   <url><loc>https://icon.upper.website/icons/copy</loc></url>
+  <url><loc>https://icon.upper.website/icons/coupon</loc></url>
+  <url><loc>https://icon.upper.website/icons/credit-card</loc></url>
+  <url><loc>https://icon.upper.website/icons/crop</loc></url>
+  <url><loc>https://icon.upper.website/icons/cube</loc></url>
+  <url><loc>https://icon.upper.website/icons/cup</loc></url>
+  <url><loc>https://icon.upper.website/icons/currency</loc></url>
+  <url><loc>https://icon.upper.website/icons/currency-dollar</loc></url>
+  <url><loc>https://icon.upper.website/icons/currency-euro</loc></url>
+  <url><loc>https://icon.upper.website/icons/currency-yen</loc></url>
+  <url><loc>https://icon.upper.website/icons/currency-yuan</loc></url>
+  <url><loc>https://icon.upper.website/icons/cursor</loc></url>
+  <url><loc>https://icon.upper.website/icons/cut</loc></url>
+  <url><loc>https://icon.upper.website/icons/danger</loc></url>
+  <url><loc>https://icon.upper.website/icons/database</loc></url>
+  <url><loc>https://icon.upper.website/icons/dial</loc></url>
+  <url><loc>https://icon.upper.website/icons/diamond</loc></url>
   <url><loc>https://icon.upper.website/icons/download</loc></url>
+  <url><loc>https://icon.upper.website/icons/drag</loc></url>
+  <url><loc>https://icon.upper.website/icons/drag-alt</loc></url>
+  <url><loc>https://icon.upper.website/icons/duplicate</loc></url>
+  <url><loc>https://icon.upper.website/icons/earth</loc></url>
   <url><loc>https://icon.upper.website/icons/edit</loc></url>
-  <url><loc>https://icon.upper.website/icons/expand</loc></url>
+  <url><loc>https://icon.upper.website/icons/eraser</loc></url>
+  <url><loc>https://icon.upper.website/icons/exclude</loc></url>
+  <url><loc>https://icon.upper.website/icons/expand-collapse</loc></url>
+  <url><loc>https://icon.upper.website/icons/export</loc></url>
+  <url><loc>https://icon.upper.website/icons/external-link</loc></url>
+  <url><loc>https://icon.upper.website/icons/eye</loc></url>
+  <url><loc>https://icon.upper.website/icons/eye-off</loc></url>
+  <url><loc>https://icon.upper.website/icons/eyedropper</loc></url>
+  <url><loc>https://icon.upper.website/icons/fast-forward</loc></url>
   <url><loc>https://icon.upper.website/icons/file</loc></url>
-  <url><loc>https://icon.upper.website/icons/globe</loc></url>
+  <url><loc>https://icon.upper.website/icons/filter</loc></url>
+  <url><loc>https://icon.upper.website/icons/fingerprint</loc></url>
+  <url><loc>https://icon.upper.website/icons/flag</loc></url>
+  <url><loc>https://icon.upper.website/icons/flash</loc></url>
+  <url><loc>https://icon.upper.website/icons/flashlight</loc></url>
+  <url><loc>https://icon.upper.website/icons/flip-horizontal</loc></url>
+  <url><loc>https://icon.upper.website/icons/flip-vertical</loc></url>
+  <url><loc>https://icon.upper.website/icons/floppy-disk</loc></url>
+  <url><loc>https://icon.upper.website/icons/folder</loc></url>
+  <url><loc>https://icon.upper.website/icons/folder-open</loc></url>
+  <url><loc>https://icon.upper.website/icons/football</loc></url>
+  <url><loc>https://icon.upper.website/icons/game-handle</loc></url>
+  <url><loc>https://icon.upper.website/icons/gauge</loc></url>
+  <url><loc>https://icon.upper.website/icons/gender-female</loc></url>
+  <url><loc>https://icon.upper.website/icons/gender-male</loc></url>
+  <url><loc>https://icon.upper.website/icons/gender-neutral</loc></url>
+  <url><loc>https://icon.upper.website/icons/gender-transgender</loc></url>
+  <url><loc>https://icon.upper.website/icons/gift</loc></url>
+  <url><loc>https://icon.upper.website/icons/git</loc></url>
+  <url><loc>https://icon.upper.website/icons/glasses</loc></url>
+  <url><loc>https://icon.upper.website/icons/global</loc></url>
   <url><loc>https://icon.upper.website/icons/grid</loc></url>
+  <url><loc>https://icon.upper.website/icons/grid-alt</loc></url>
+  <url><loc>https://icon.upper.website/icons/hand</loc></url>
+  <url><loc>https://icon.upper.website/icons/hard-drive</loc></url>
+  <url><loc>https://icon.upper.website/icons/hashtag</loc></url>
+  <url><loc>https://icon.upper.website/icons/heading</loc></url>
+  <url><loc>https://icon.upper.website/icons/headset</loc></url>
   <url><loc>https://icon.upper.website/icons/heart</loc></url>
+  <url><loc>https://icon.upper.website/icons/help</loc></url>
   <url><loc>https://icon.upper.website/icons/home</loc></url>
+  <url><loc>https://icon.upper.website/icons/hourglass</loc></url>
+  <url><loc>https://icon.upper.website/icons/image</loc></url>
+  <url><loc>https://icon.upper.website/icons/info</loc></url>
+  <url><loc>https://icon.upper.website/icons/intersect</loc></url>
+  <url><loc>https://icon.upper.website/icons/italic</loc></url>
+  <url><loc>https://icon.upper.website/icons/jeep</loc></url>
+  <url><loc>https://icon.upper.website/icons/key</loc></url>
+  <url><loc>https://icon.upper.website/icons/keyboard</loc></url>
+  <url><loc>https://icon.upper.website/icons/lab</loc></url>
+  <url><loc>https://icon.upper.website/icons/lamp</loc></url>
+  <url><loc>https://icon.upper.website/icons/laptop</loc></url>
+  <url><loc>https://icon.upper.website/icons/laurel</loc></url>
   <url><loc>https://icon.upper.website/icons/layers</loc></url>
+  <url><loc>https://icon.upper.website/icons/lightbulb</loc></url>
   <url><loc>https://icon.upper.website/icons/link</loc></url>
+  <url><loc>https://icon.upper.website/icons/link-off</loc></url>
   <url><loc>https://icon.upper.website/icons/list</loc></url>
+  <url><loc>https://icon.upper.website/icons/list-ordered</loc></url>
+  <url><loc>https://icon.upper.website/icons/loading</loc></url>
+  <url><loc>https://icon.upper.website/icons/location</loc></url>
   <url><loc>https://icon.upper.website/icons/lock</loc></url>
+  <url><loc>https://icon.upper.website/icons/login</loc></url>
+  <url><loc>https://icon.upper.website/icons/logout</loc></url>
+  <url><loc>https://icon.upper.website/icons/mail</loc></url>
+  <url><loc>https://icon.upper.website/icons/map</loc></url>
+  <url><loc>https://icon.upper.website/icons/mask</loc></url>
+  <url><loc>https://icon.upper.website/icons/masonry</loc></url>
+  <url><loc>https://icon.upper.website/icons/masonry-alt</loc></url>
+  <url><loc>https://icon.upper.website/icons/maximize</loc></url>
+  <url><loc>https://icon.upper.website/icons/maximize-alt</loc></url>
+  <url><loc>https://icon.upper.website/icons/megaphone</loc></url>
   <url><loc>https://icon.upper.website/icons/menu</loc></url>
+  <url><loc>https://icon.upper.website/icons/microphone</loc></url>
+  <url><loc>https://icon.upper.website/icons/minimize</loc></url>
+  <url><loc>https://icon.upper.website/icons/minimize-alt</loc></url>
   <url><loc>https://icon.upper.website/icons/minus</loc></url>
-  <url><loc>https://icon.upper.website/icons/more</loc></url>
+  <url><loc>https://icon.upper.website/icons/mistake</loc></url>
+  <url><loc>https://icon.upper.website/icons/monitor</loc></url>
+  <url><loc>https://icon.upper.website/icons/moon</loc></url>
+  <url><loc>https://icon.upper.website/icons/more-horizon</loc></url>
+  <url><loc>https://icon.upper.website/icons/more-vertical</loc></url>
+  <url><loc>https://icon.upper.website/icons/mountain</loc></url>
+  <url><loc>https://icon.upper.website/icons/mouse</loc></url>
+  <url><loc>https://icon.upper.website/icons/mouse-alt</loc></url>
+  <url><loc>https://icon.upper.website/icons/music</loc></url>
+  <url><loc>https://icon.upper.website/icons/notebook</loc></url>
+  <url><loc>https://icon.upper.website/icons/object-align-center</loc></url>
+  <url><loc>https://icon.upper.website/icons/object-align-justify</loc></url>
+  <url><loc>https://icon.upper.website/icons/object-align-justify-alt</loc></url>
+  <url><loc>https://icon.upper.website/icons/object-align-left</loc></url>
+  <url><loc>https://icon.upper.website/icons/object-align-right</loc></url>
+  <url><loc>https://icon.upper.website/icons/panel-left</loc></url>
+  <url><loc>https://icon.upper.website/icons/panel-right</loc></url>
+  <url><loc>https://icon.upper.website/icons/paperclip</loc></url>
+  <url><loc>https://icon.upper.website/icons/pause</loc></url>
+  <url><loc>https://icon.upper.website/icons/pen</loc></url>
+  <url><loc>https://icon.upper.website/icons/pencil</loc></url>
+  <url><loc>https://icon.upper.website/icons/percent</loc></url>
   <url><loc>https://icon.upper.website/icons/phone</loc></url>
+  <url><loc>https://icon.upper.website/icons/pie-chart</loc></url>
+  <url><loc>https://icon.upper.website/icons/pin</loc></url>
+  <url><loc>https://icon.upper.website/icons/pin-off</loc></url>
+  <url><loc>https://icon.upper.website/icons/plane</loc></url>
+  <url><loc>https://icon.upper.website/icons/planet</loc></url>
   <url><loc>https://icon.upper.website/icons/play</loc></url>
   <url><loc>https://icon.upper.website/icons/plus</loc></url>
   <url><loc>https://icon.upper.website/icons/power</loc></url>
+  <url><loc>https://icon.upper.website/icons/print</loc></url>
+  <url><loc>https://icon.upper.website/icons/qr-code</loc></url>
+  <url><loc>https://icon.upper.website/icons/quote</loc></url>
+  <url><loc>https://icon.upper.website/icons/radio</loc></url>
+  <url><loc>https://icon.upper.website/icons/receipt</loc></url>
+  <url><loc>https://icon.upper.website/icons/record</loc></url>
+  <url><loc>https://icon.upper.website/icons/redo</loc></url>
   <url><loc>https://icon.upper.website/icons/refresh</loc></url>
+  <url><loc>https://icon.upper.website/icons/repeat</loc></url>
+  <url><loc>https://icon.upper.website/icons/reply</loc></url>
+  <url><loc>https://icon.upper.website/icons/rewind</loc></url>
+  <url><loc>https://icon.upper.website/icons/robot</loc></url>
+  <url><loc>https://icon.upper.website/icons/rocket</loc></url>
+  <url><loc>https://icon.upper.website/icons/rotate-left</loc></url>
+  <url><loc>https://icon.upper.website/icons/rotate-right</loc></url>
+  <url><loc>https://icon.upper.website/icons/ruler</loc></url>
   <url><loc>https://icon.upper.website/icons/save</loc></url>
-  <url><loc>https://icon.upper.website/icons/save-alt</loc></url>
-  <url><loc>https://icon.upper.website/icons/settings</loc></url>
+  <url><loc>https://icon.upper.website/icons/scan</loc></url>
+  <url><loc>https://icon.upper.website/icons/search</loc></url>
+  <url><loc>https://icon.upper.website/icons/send</loc></url>
+  <url><loc>https://icon.upper.website/icons/separator</loc></url>
+  <url><loc>https://icon.upper.website/icons/server</loc></url>
+  <url><loc>https://icon.upper.website/icons/set-bottom</loc></url>
+  <url><loc>https://icon.upper.website/icons/set-medium</loc></url>
+  <url><loc>https://icon.upper.website/icons/set-top</loc></url>
+  <url><loc>https://icon.upper.website/icons/setting</loc></url>
   <url><loc>https://icon.upper.website/icons/share</loc></url>
-  <url><loc>https://icon.upper.website/icons/sidebar</loc></url>
+  <url><loc>https://icon.upper.website/icons/shield</loc></url>
+  <url><loc>https://icon.upper.website/icons/shield-check</loc></url>
+  <url><loc>https://icon.upper.website/icons/ship-rudder</loc></url>
+  <url><loc>https://icon.upper.website/icons/shopping-bag</loc></url>
+  <url><loc>https://icon.upper.website/icons/shopping-cart</loc></url>
+  <url><loc>https://icon.upper.website/icons/shuffle</loc></url>
+  <url><loc>https://icon.upper.website/icons/sidebar-left</loc></url>
+  <url><loc>https://icon.upper.website/icons/sidebar-right</loc></url>
+  <url><loc>https://icon.upper.website/icons/skip-back</loc></url>
+  <url><loc>https://icon.upper.website/icons/skip-forward</loc></url>
+  <url><loc>https://icon.upper.website/icons/skyscraper</loc></url>
+  <url><loc>https://icon.upper.website/icons/smartphone</loc></url>
+  <url><loc>https://icon.upper.website/icons/smile</loc></url>
   <url><loc>https://icon.upper.website/icons/sort</loc></url>
-  <url><loc>https://icon.upper.website/icons/square</loc></url>
+  <url><loc>https://icon.upper.website/icons/space-shuttle</loc></url>
+  <url><loc>https://icon.upper.website/icons/sparkle</loc></url>
+  <url><loc>https://icon.upper.website/icons/split-screen</loc></url>
   <url><loc>https://icon.upper.website/icons/star</loc></url>
+  <url><loc>https://icon.upper.website/icons/stop</loc></url>
+  <url><loc>https://icon.upper.website/icons/store</loc></url>
+  <url><loc>https://icon.upper.website/icons/strikethrough</loc></url>
+  <url><loc>https://icon.upper.website/icons/student</loc></url>
+  <url><loc>https://icon.upper.website/icons/subscription</loc></url>
+  <url><loc>https://icon.upper.website/icons/subtract</loc></url>
+  <url><loc>https://icon.upper.website/icons/success</loc></url>
+  <url><loc>https://icon.upper.website/icons/sun</loc></url>
+  <url><loc>https://icon.upper.website/icons/sync</loc></url>
+  <url><loc>https://icon.upper.website/icons/table</loc></url>
+  <url><loc>https://icon.upper.website/icons/tablet</loc></url>
+  <url><loc>https://icon.upper.website/icons/tabs</loc></url>
+  <url><loc>https://icon.upper.website/icons/tag</loc></url>
+  <url><loc>https://icon.upper.website/icons/target</loc></url>
+  <url><loc>https://icon.upper.website/icons/target-alt</loc></url>
   <url><loc>https://icon.upper.website/icons/task</loc></url>
+  <url><loc>https://icon.upper.website/icons/terminal</loc></url>
+  <url><loc>https://icon.upper.website/icons/text</loc></url>
+  <url><loc>https://icon.upper.website/icons/text-align-center</loc></url>
+  <url><loc>https://icon.upper.website/icons/text-align-justify</loc></url>
+  <url><loc>https://icon.upper.website/icons/text-align-justify-alt</loc></url>
+  <url><loc>https://icon.upper.website/icons/text-align-left</loc></url>
+  <url><loc>https://icon.upper.website/icons/text-align-right</loc></url>
+  <url><loc>https://icon.upper.website/icons/text-alt</loc></url>
+  <url><loc>https://icon.upper.website/icons/textarea</loc></url>
+  <url><loc>https://icon.upper.website/icons/thumbs-down</loc></url>
+  <url><loc>https://icon.upper.website/icons/thumbs-up</loc></url>
+  <url><loc>https://icon.upper.website/icons/ticket</loc></url>
+  <url><loc>https://icon.upper.website/icons/ticket-alt</loc></url>
+  <url><loc>https://icon.upper.website/icons/timer</loc></url>
+  <url><loc>https://icon.upper.website/icons/toggle</loc></url>
+  <url><loc>https://icon.upper.website/icons/touchpad</loc></url>
+  <url><loc>https://icon.upper.website/icons/transfer</loc></url>
+  <url><loc>https://icon.upper.website/icons/transform</loc></url>
+  <url><loc>https://icon.upper.website/icons/translate</loc></url>
   <url><loc>https://icon.upper.website/icons/trash</loc></url>
+  <url><loc>https://icon.upper.website/icons/trending-down</loc></url>
+  <url><loc>https://icon.upper.website/icons/trending-up</loc></url>
+  <url><loc>https://icon.upper.website/icons/truck</loc></url>
+  <url><loc>https://icon.upper.website/icons/underline</loc></url>
+  <url><loc>https://icon.upper.website/icons/undo</loc></url>
+  <url><loc>https://icon.upper.website/icons/uninteresting</loc></url>
+  <url><loc>https://icon.upper.website/icons/union</loc></url>
   <url><loc>https://icon.upper.website/icons/unlock</loc></url>
+  <url><loc>https://icon.upper.website/icons/unsafe</loc></url>
   <url><loc>https://icon.upper.website/icons/upload</loc></url>
+  <url><loc>https://icon.upper.website/icons/url</loc></url>
   <url><loc>https://icon.upper.website/icons/user</loc></url>
+  <url><loc>https://icon.upper.website/icons/users</loc></url>
+  <url><loc>https://icon.upper.website/icons/video</loc></url>
+  <url><loc>https://icon.upper.website/icons/visualization</loc></url>
+  <url><loc>https://icon.upper.website/icons/volume</loc></url>
+  <url><loc>https://icon.upper.website/icons/volume-down</loc></url>
+  <url><loc>https://icon.upper.website/icons/volume-high</loc></url>
+  <url><loc>https://icon.upper.website/icons/volume-low</loc></url>
+  <url><loc>https://icon.upper.website/icons/volume-off</loc></url>
+  <url><loc>https://icon.upper.website/icons/volume-up</loc></url>
+  <url><loc>https://icon.upper.website/icons/vr</loc></url>
+  <url><loc>https://icon.upper.website/icons/wallet</loc></url>
+  <url><loc>https://icon.upper.website/icons/warning</loc></url>
+  <url><loc>https://icon.upper.website/icons/waveform</loc></url>
+  <url><loc>https://icon.upper.website/icons/wifi</loc></url>
+  <url><loc>https://icon.upper.website/icons/wifi-off</loc></url>
+  <url><loc>https://icon.upper.website/icons/zoom-in</loc></url>
+  <url><loc>https://icon.upper.website/icons/zoom-out</loc></url>
 </urlset>

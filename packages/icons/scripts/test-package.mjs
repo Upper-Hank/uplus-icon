@@ -17,6 +17,27 @@ for (const name of ['core', 'react', 'web']) {
   if (packageLicense !== rootLicense) throw new Error(`${name} package license differs from the repository license`)
 }
 
+for (const [name, files] of Object.entries({
+  core: ['dynamic.js', 'dynamic.d.ts'],
+  react: ['dynamic.js', 'dynamic.d.ts', 'Icon.js', 'Icon.d.ts'],
+  web: ['dynamic.js', 'dynamic.d.ts', 'Icon.js', 'Icon.d.ts', 'element.js', 'element.d.ts'],
+})) {
+  for (const file of files) {
+    try {
+      await access(join(dist(name), file))
+      throw new Error(`${name}/dist/${file} must not ship in v1`)
+    } catch (error) {
+      if (error?.code !== 'ENOENT') throw error
+    }
+  }
+}
+
+for (const name of ['core', 'react', 'web']) {
+  const manifest = JSON.parse(await readFile(join(packagesRoot, name, 'package.json'), 'utf8'))
+  if ('./dynamic' in manifest.exports) throw new Error(`${name} must not publish the dynamic entry in v1`)
+  if (name === 'web' && './element' in manifest.exports) throw new Error('web must not publish the name-based custom element in v1')
+}
+
 const coreIconFiles = (await readdir(join(dist('core'), 'generated', 'icons'))).filter((file) => file.endsWith('.js'))
 const reactIconFiles = (await readdir(join(dist('react'), 'generated', 'icons'))).filter((file) => file.endsWith('.js'))
 const webIconFiles = (await readdir(join(dist('web'), 'generated', 'icons'))).filter((file) => file.endsWith('.js'))
@@ -28,15 +49,14 @@ if (coreIconFiles.length === 0 || coreIconFiles.length !== reactIconFiles.length
 const core = await import(join(dist('core'), 'index.js'))
 const metadata = await import(join(dist('core'), 'metadata.js'))
 const react = await import(join(dist('react'), 'index.js'))
-const reactDynamic = await import(join(dist('react'), 'dynamic.js'))
 const web = await import(join(dist('web'), 'index.js'))
-const webDynamic = await import(join(dist('web'), 'dynamic.js'))
 
 if (Object.keys(core).length !== 0) throw new Error('Core root should only expose TypeScript types')
 if (!Array.isArray(metadata.iconMeta) || !Array.isArray(metadata.iconCategories)) throw new Error('Core metadata exports are missing')
 if (metadata.iconMeta.some((icon) => icon.categories.length === 0 || icon.tags.length === 0)) throw new Error('Generated icon metadata is incomplete')
-if (typeof react.CheckIcon !== 'object' || typeof reactDynamic.Icon !== 'object') throw new Error('React exports are missing')
-if (typeof web.CheckIcon !== 'function' || typeof webDynamic.Icon !== 'function') throw new Error('Web exports are missing')
+if (metadata.iconMeta.some((icon) => 'motion' in icon)) throw new Error('First-release metadata must not expose Motion capabilities')
+if (typeof react.PlusIcon !== 'object') throw new Error('React static exports are missing')
+if (typeof web.PlusIcon !== 'function') throw new Error('Web static exports are missing')
 
 const cache = await mkdtemp(join(tmpdir(), 'uplus-icon-pack-cache-'))
 try {
@@ -56,4 +76,4 @@ try {
   await rm(cache, { recursive: true, force: true })
 }
 
-console.log(`Verified three package entry-point sets and ${coreIconFiles.length} aligned per-icon modules`)
+console.log(`Verified static public package entries and ${coreIconFiles.length} aligned per-icon modules`)

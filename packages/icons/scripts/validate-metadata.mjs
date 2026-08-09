@@ -1,4 +1,6 @@
 const versionPattern = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/
+const capabilityPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+const genericMotionCapabilities = new Set(['blur', 'draw', 'fade', 'scale'])
 
 export function validateMetadataReferences(metadata, iconNames) {
   const names = iconNames instanceof Set ? iconNames : new Set(iconNames)
@@ -37,10 +39,20 @@ export function validateMetadataReferences(metadata, iconNames) {
       if (new Set(capabilities).size !== capabilities.length) {
         throw new Error(`Metadata field ${name}.motion.${field} contains duplicate capabilities`)
       }
+      if (capabilities.some((capability) => !capabilityPattern.test(capability))) {
+        throw new Error(`Metadata field ${name}.motion.${field} capabilities must use kebab-case`)
+      }
+    }
+    const unsupportedGeneric = details.motion.generic.filter((capability) => !genericMotionCapabilities.has(capability))
+    if (unsupportedGeneric.length > 0) {
+      throw new Error(`Metadata field ${name}.motion.generic contains unsupported capabilities: ${unsupportedGeneric.join(', ')}`)
     }
 
     const transitionKeys = new Set()
     for (const transition of details.motion.transitions) {
+      if (!capabilityPattern.test(transition.name)) {
+        throw new Error(`Metadata field ${name}.motion.transitions names must use kebab-case`)
+      }
       if (!names.has(transition.to)) {
         throw new Error(`Metadata field ${name}.motion.transitions references missing icon "${transition.to}"`)
       }

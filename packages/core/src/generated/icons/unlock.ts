@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "unlock",
   "viewBox": "0 0 24 24",
-  "body": "\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M16 7.23352V6.00006C16 4.34321 14.6569 3.00006 13 3.00006H11C9.34315 3.00006 8 4.34321 8 6.00006V10.0001M12 9.99999H7C5.34315 9.99999 4 11.3431 4 13V17C4 18.6568 5.34315 20 7 20H17C18.6569 20 20 18.6568 20 17V13C20 11.3431 18.6569 9.99999 17 9.99999H16H12Z\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linecap=\"round\"/>\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M12 12C13.1046 12 14 12.8954 14 14C14 14.7537 13.5826 15.4091 12.9668 15.75C12.9874 15.83 13 15.9135 13 16V17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17V16C11 15.9136 11.0116 15.83 11.0322 15.75C10.4169 15.409 10 14.7534 10 14C10 12.8954 10.8954 12 12 12Z\" fill=\"currentColor\"/>\n"
+  "body": "\n<path d=\"M4 13C4 11.3431 5.34315 10 7 10H17C18.6569 10 20 11.3431 20 13V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V13Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 7.23345V6C16 4.34315 14.6569 3 13 3H11C9.34315 3 8 4.34315 8 6V10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<circle cx=\"12\" cy=\"14\" r=\"1\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 14V17\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

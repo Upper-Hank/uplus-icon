@@ -17,8 +17,8 @@ The supported baseline is a `24×24` master, default stroke `2`, and recommended
 - **MUST** prove per-icon entries do not bundle the full registry.
 - **MUST** prove generation is reproducible and never rewrites raw SVGs.
 - **MUST** validate the mapping among names, categories, metadata, and routes.
-- **MUST** test React accessibility defaults, stroke boundaries, and dynamic-name behavior.
-- **MUST** test native DOM factories and Web Component attribute updates.
+- **MUST** test React accessibility defaults, stroke boundaries, and static per-icon imports.
+- **MUST** test native per-icon DOM factories.
 - **MUST** inspect packed artifacts for required documentation and validate the lowest supported React peer version.
 - **MUST** enforce route-level metadata, sitemap coverage, SPA fallback, and production JavaScript budgets for the site.
 

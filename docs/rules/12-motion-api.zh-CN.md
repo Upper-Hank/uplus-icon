@@ -17,7 +17,7 @@ Motion 是独立发布、可选安装的产品层。静态包不依赖 Motion �
 
 ## 动画能力
 
-通用呈现动画包括 `draw-in/out`、`fade-in/out`、`blur-in/out`、`scale-in/out`。专属动画只向适合的图标开放，例如 `bell:ring`、`heart:beat`、`refresh:rotate`。转换动画只支持经过设计验证的图标对，不承诺任意 Morph。
+通用呈现动画的能力 ID 包括 `draw`、`fade`、`blur`、`scale`，进入或退出方向由独立 API 参数表达。专属动画只向适合的图标开放，例如 `bell:ring`、`heart:beat`、`refresh:rotate`。转换动画只支持经过设计验证的图标对，不承诺任意 Morph。
 
 ## API 行为
 

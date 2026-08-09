@@ -19,10 +19,8 @@
 - [React 使用](./rules/10-react.zh-CN.md)
 - [Web 使用](./rules/11-web.zh-CN.md)
 
-## Motion、架构与治理
+## 架构与治理
 
-- [Motion 公共 API](./rules/12-motion-api.zh-CN.md)
-- [Motion 制作规范](./rules/13-motion-authoring.zh-CN.md)
 - [可访问性](./rules/14-accessibility.zh-CN.md)
 - [测试与质量门禁](./rules/15-testing.zh-CN.md)
 - [版本、弃用与兼容性](./rules/16-versioning.zh-CN.md)
@@ -32,3 +30,5 @@
 - [发布流程](./rules/20-release-process.zh-CN.md)
 
 英文文档位于同一目录下对应的 `.en.md` 文件。展示网站入口为 `/docs`。
+
+架构不变量：所有面向用户的框架包保持公共能力一致，仅使用各自平台的惯用写法表达；设计真源与生成工具始终属于私有实现。

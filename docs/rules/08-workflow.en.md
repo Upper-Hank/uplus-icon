@@ -10,7 +10,7 @@ locale: en
 ## Before import
 
 - **MUST** receive a mature SVG from the maintainer or gain explicit approval.
-- **MUST** clean backgrounds, guides, colors, and complex structure outside the repository.
+- **MUST** clean backgrounds, guides, non-`black`/`none` paint values, and complex structure outside the repository.
 - **MUST** confirm filename and metadata semantics are accurate.
 - **MUST NOT** place drafts, screenshot reconstructions, or unapproved design exports in raw.
 
@@ -43,17 +43,20 @@ The generator reads approved sources and produces:
 ```
 
 - **MUST** make every package share the same Core Definition.
+- **MUST** separate protected fixed-black design sources from adapted release definitions; color adaptation may only replace the value `black` with `currentColor`.
+- **MUST** keep color adaptation reproducible and prove through fidelity tests that it changes no other content.
 - **MUST** keep output stable, reproducible, and free of manual patches.
 - **MUST** make every package consume the same canonical definition.
 - **MUST NOT** generate or modify source SVG files from a framework package.
 - **MUST NOT** synthesize additional approved assets.
+- **MUST NOT** create a second manually maintained release SVG set.
 
 ## Bundles and compatibility
 
 - **MUST** preserve a true per-icon entry for every icon.
 - **MUST** keep each per-icon entry limited to its definition and runtime.
 - **SHOULD** use named components or per-icon paths for fixed-name consumers.
-- **MAY** use the full dynamic registry for data-driven names.
+- **MUST NOT** expose the complete icon registry from a first-release package entry.
 - **MUST** assess renames, removals, and type changes as public API changes.
 - **MUST NOT** include the complete icon set when a consumer imports one icon.
 

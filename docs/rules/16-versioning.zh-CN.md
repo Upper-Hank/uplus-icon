@@ -13,7 +13,7 @@ locale: zh-CN
 
 ## Breaking Change
 
-以下变化需要 Major 或明确兼容层：删除/改名公共导出、无别名改 Canonical Name、删除或改名 `data-part`、破坏 Motion 部件映射、收窄既有属性输入。
+以下变化需要 Major 或明确兼容层：删除/改名公共导出、无别名改 Canonical Name、删除或改名 `data-part`、收窄既有属性输入。
 
 ## 弃用流程
 

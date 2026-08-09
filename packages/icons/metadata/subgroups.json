@@ -1,0 +1,272 @@
+[
+  {
+    "id": "transfer",
+    "categoryId": "actions",
+    "title": "Transfer",
+    "titleZh": "传输"
+  },
+  {
+    "id": "editing",
+    "categoryId": "actions",
+    "title": "Editing",
+    "titleZh": "编辑"
+  },
+  {
+    "id": "session",
+    "categoryId": "actions",
+    "title": "Session",
+    "titleZh": "会话"
+  },
+  {
+    "id": "view",
+    "categoryId": "actions",
+    "title": "View",
+    "titleZh": "视图"
+  },
+  {
+    "id": "geometry",
+    "categoryId": "actions",
+    "title": "Geometry",
+    "titleZh": "几何"
+  },
+  {
+    "id": "formatting",
+    "categoryId": "actions",
+    "title": "Formatting",
+    "titleZh": "格式"
+  },
+  {
+    "id": "arrangement",
+    "categoryId": "actions",
+    "title": "Arrangement",
+    "titleZh": "排列"
+  },
+  {
+    "id": "object-align",
+    "categoryId": "actions",
+    "title": "Object align",
+    "titleZh": "对象对齐"
+  },
+  {
+    "id": "text-align",
+    "categoryId": "actions",
+    "title": "Text align",
+    "titleZh": "文本对齐"
+  },
+  {
+    "id": "management",
+    "categoryId": "actions",
+    "title": "Management",
+    "titleZh": "管理"
+  },
+  {
+    "id": "destination",
+    "categoryId": "navigation",
+    "title": "Destination",
+    "titleZh": "目的地"
+  },
+  {
+    "id": "chevron",
+    "categoryId": "navigation",
+    "title": "Chevron",
+    "titleZh": "单折线"
+  },
+  {
+    "id": "chevrons",
+    "categoryId": "navigation",
+    "title": "Chevrons",
+    "titleZh": "双折线"
+  },
+  {
+    "id": "arrow",
+    "categoryId": "navigation",
+    "title": "Arrow",
+    "titleZh": "箭头"
+  },
+  {
+    "id": "history",
+    "categoryId": "navigation",
+    "title": "History",
+    "titleZh": "历史"
+  },
+  {
+    "id": "trend",
+    "categoryId": "navigation",
+    "title": "Trend",
+    "titleZh": "趋势"
+  },
+  {
+    "id": "controls",
+    "categoryId": "interface",
+    "title": "Controls",
+    "titleZh": "控件"
+  },
+  {
+    "id": "appearance",
+    "categoryId": "interface",
+    "title": "Appearance",
+    "titleZh": "外观"
+  },
+  {
+    "id": "creation",
+    "categoryId": "interface",
+    "title": "Creation",
+    "titleZh": "创建"
+  },
+  {
+    "id": "interaction",
+    "categoryId": "interface",
+    "title": "Interaction",
+    "titleZh": "交互"
+  },
+  {
+    "id": "data",
+    "categoryId": "interface",
+    "title": "Data",
+    "titleZh": "数据"
+  },
+  {
+    "id": "structure",
+    "categoryId": "interface",
+    "title": "Structure",
+    "titleZh": "结构"
+  },
+  {
+    "id": "menu",
+    "categoryId": "interface",
+    "title": "Menu",
+    "titleZh": "菜单"
+  },
+  {
+    "id": "playback",
+    "categoryId": "media",
+    "title": "Playback",
+    "titleZh": "播放"
+  },
+  {
+    "id": "audio",
+    "categoryId": "media",
+    "title": "Audio",
+    "titleZh": "音频"
+  },
+  {
+    "id": "visual",
+    "categoryId": "media",
+    "title": "Visual",
+    "titleZh": "视觉"
+  },
+  {
+    "id": "gaming",
+    "categoryId": "media",
+    "title": "Gaming",
+    "titleZh": "游戏"
+  },
+  {
+    "id": "content",
+    "categoryId": "objects",
+    "title": "Content",
+    "titleZh": "内容"
+  },
+  {
+    "id": "communication",
+    "categoryId": "objects",
+    "title": "Communication",
+    "titleZh": "沟通"
+  },
+  {
+    "id": "technology",
+    "categoryId": "objects",
+    "title": "Technology",
+    "titleZh": "技术"
+  },
+  {
+    "id": "time",
+    "categoryId": "objects",
+    "title": "Time",
+    "titleZh": "时间"
+  },
+  {
+    "id": "place",
+    "categoryId": "objects",
+    "title": "Place",
+    "titleZh": "地点"
+  },
+  {
+    "id": "identity",
+    "categoryId": "objects",
+    "title": "Identity",
+    "titleZh": "身份"
+  },
+  {
+    "id": "commerce",
+    "categoryId": "objects",
+    "title": "Commerce",
+    "titleZh": "商务"
+  },
+  {
+    "id": "security",
+    "categoryId": "objects",
+    "title": "Security",
+    "titleZh": "安全"
+  },
+  {
+    "id": "mineral",
+    "categoryId": "objects",
+    "title": "Mineral",
+    "titleZh": "矿物"
+  },
+  {
+    "id": "life",
+    "categoryId": "objects",
+    "title": "Life",
+    "titleZh": "生活"
+  },
+  {
+    "id": "sport",
+    "categoryId": "objects",
+    "title": "Sport",
+    "titleZh": "运动"
+  },
+  {
+    "id": "professional",
+    "categoryId": "objects",
+    "title": "Professional",
+    "titleZh": "职业"
+  },
+  {
+    "id": "mobility",
+    "categoryId": "objects",
+    "title": "Mobility",
+    "titleZh": "出行"
+  },
+  {
+    "id": "feedback",
+    "categoryId": "status",
+    "title": "Feedback",
+    "titleZh": "反馈"
+  },
+  {
+    "id": "security",
+    "categoryId": "status",
+    "title": "Security",
+    "titleZh": "安全"
+  },
+  {
+    "id": "alter",
+    "categoryId": "status",
+    "title": "Alert",
+    "titleZh": "警示"
+  },
+  {
+    "id": "system",
+    "categoryId": "status",
+    "title": "System",
+    "titleZh": "系统"
+  },
+  {
+    "id": "achievement",
+    "categoryId": "status",
+    "title": "Achievement",
+    "titleZh": "成就"
+  }
+]

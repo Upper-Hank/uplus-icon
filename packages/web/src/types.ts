@@ -1,8 +1,9 @@
 export interface IconOptions {
   size?: number | string
-  strokeWidth?: number
-  /** Keep the rendered stroke width in CSS pixels instead of scaling it with `size`. */
-  absoluteStrokeWidth?: boolean
+  /** Visual weight from 0.5 to 2. Defaults to the 2-unit design master. */
+  weight?: number
+  /** Keep weight in CSS pixels for numeric sizes. String sizes use relative weight. */
+  absoluteWeight?: boolean
   title?: string
   ariaLabel?: string
   className?: string

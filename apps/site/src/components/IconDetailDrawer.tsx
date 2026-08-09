@@ -2,7 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react
 import { gsap } from 'gsap'
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
 import { iconDefinitions } from '@uplus-icon/core/dynamic'
-import { iconCategories, iconMeta } from '@uplus-icon/core/metadata'
+import { iconCategories, iconMeta, iconSubgroups } from '@uplus-icon/core/metadata'
 import { useI18n } from '../i18n'
 import { copyText } from '../app/copyText'
 import { createPreviewSvg, resolveStaticPreviewSettings } from '../app/previewSvg'
@@ -21,8 +21,9 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const { language } = useI18n()
   const [previewMode, setPreviewMode] = useState<IconPreviewMode>('master')
   const [size, setSize] = useState(24)
-  const [strokeWidth, setStrokeWidth] = useState(2)
-  const [absoluteStrokeWidth, setAbsoluteStrokeWidth] = useState(false)
+  const [weight, setWeight] = useState(2)
+  const [absoluteWeight, setAbsoluteWeight] = useState(false)
+  const [previewColor, setPreviewColor] = useState<string | null>(null)
   const [usageFormat, setUsageFormat] = useState<UsageFormat>('svg')
   const [moreOpen, setMoreOpen] = useState(false)
   const [copied, setCopied] = useState<CopyTarget | null>(null)
@@ -39,19 +40,23 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const definition = iconDefinitions.find((icon) => icon.name === name)
   const component = `${name.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}Icon`
   const titleId = `icon-drawer-title-${name}`
-  const staticPreview = resolveStaticPreviewSettings(previewMode, size, strokeWidth, absoluteStrokeWidth)
+  const staticPreview = resolveStaticPreviewSettings(previewMode, size, weight, absoluteWeight)
   const effectiveSize = staticPreview.size
-  const effectiveAbsoluteStrokeWidth = staticPreview.absoluteStrokeWidth
+  const effectiveAbsoluteWeight = staticPreview.absoluteWeight
   const sizeProp = effectiveSize === 24 ? '' : ` size={${effectiveSize}}`
-  const strokeProp = strokeWidth === 2 ? '' : ` strokeWidth={${strokeWidth}}`
-  const absoluteStrokeProp = effectiveAbsoluteStrokeWidth ? ' absoluteStrokeWidth' : ''
-  const reactSnippet = `import { ${component} } from '@uplus-icon/react'\n\n<${component}${sizeProp}${strokeProp}${absoluteStrokeProp} />`
+  const weightProp = weight === 2 ? '' : ` weight={${weight}}`
+  const absoluteWeightProp = effectiveAbsoluteWeight ? ' absoluteWeight' : ''
+  const colorProp = previewColor ? ` color="${previewColor}"` : ''
+  const reactSnippet = `import { ${component} } from '@uplus-icon/react'\n\n<${component}${sizeProp}${weightProp}${absoluteWeightProp}${colorProp} />`
   const coreSnippet = `import icon from '@uplus-icon/core/icons/${name}'\n\nicon`
-  const svgSource = definition ? createPreviewSvg({ definition, ...staticPreview }) : ''
-  const webSizeAttribute = effectiveSize === 24 ? '' : ` size="${effectiveSize}"`
-  const webStrokeAttribute = strokeWidth === 2 ? '' : ` stroke-width="${strokeWidth}"`
-  const webAbsoluteStrokeAttribute = effectiveAbsoluteStrokeWidth ? ' absolute-stroke-width' : ''
-  const webSnippet = `import '@uplus-icon/web/element'\n\n<uplus-icon name="${name}"${webSizeAttribute}${webStrokeAttribute}${webAbsoluteStrokeAttribute}></uplus-icon>`
+  const svgSource = definition ? createPreviewSvg({ definition, ...staticPreview, color: previewColor ?? undefined }) : ''
+  const webOptions = [
+    effectiveSize === 24 ? '' : `size: ${effectiveSize}`,
+    weight === 2 ? '' : `weight: ${weight}`,
+    effectiveAbsoluteWeight ? 'absoluteWeight: true' : '',
+    previewColor ? `attributes: { color: '${previewColor}' }` : '',
+  ].filter(Boolean).join(', ')
+  const webSnippet = `import { ${component} } from '@uplus-icon/web'\n\ndocument.body.append(${component}(${webOptions ? `{ ${webOptions} }` : ''}))`
   const usage = { core: coreSnippet, react: reactSnippet, svg: svgSource, web: webSnippet }[usageFormat]
   const usageLabel = { core: 'Core', react: 'React', svg: 'SVG', web: 'Web' }[usageFormat]
   const usageOptions = [
@@ -136,8 +141,9 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   }, [])
 
   useEffect(() => {
-    const previousOverflow = document.body.style.overflow
+    const scrollY = window.scrollY
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null
+    const { overflow, position, top, width } = document.body.style
     const handleDialogKeys = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         requestClose()
@@ -164,14 +170,23 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
         first.focus()
       }
     }
+
     document.body.style.overflow = 'hidden'
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.width = '100%'
     window.addEventListener('keydown', handleDialogKeys)
     drawerRef.current?.focus()
+
     return () => {
-      document.body.style.overflow = previousOverflow
+      document.body.style.overflow = overflow
+      document.body.style.position = position
+      document.body.style.top = top
+      document.body.style.width = width
+      window.scrollTo(0, scrollY)
       window.removeEventListener('keydown', handleDialogKeys)
       window.clearTimeout(copyTimerRef.current)
-      previousFocus?.focus()
+      previousFocus?.focus({ preventScroll: true })
     }
   }, [requestClose])
 
@@ -202,7 +217,7 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
             <div className="drawer-title-line">
               <h1 id={titleId}>{name}</h1>
               <button className="drawer-name-copy" type="button" onClick={() => copy('name', name)} aria-label={copyLabel('name', language === 'zh' ? '复制图标名称' : 'Copy icon name')}>
-                <Icon name={copied === 'name' ? 'check' : 'copy'} size={15} />
+                <Icon name={copied === 'name' ? 'save' : 'copy'} size={15} />
               </button>
             </div>
             {metadata && language === 'zh' && <p>{metadata.titleZh}</p>}
@@ -217,14 +232,15 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
             name={name}
             definition={definition}
             mode={previewMode}
-            motion={metadata?.motion}
             size={size}
-            strokeWidth={strokeWidth}
-            absoluteStrokeWidth={absoluteStrokeWidth}
+            weight={weight}
+            absoluteWeight={absoluteWeight}
+            color={previewColor}
             onModeChange={setPreviewMode}
             onSizeChange={setSize}
-            onStrokeWidthChange={setStrokeWidth}
-            onAbsoluteStrokeWidthChange={setAbsoluteStrokeWidth}
+            onWeightChange={setWeight}
+            onAbsoluteWeightChange={setAbsoluteWeight}
+            onColorChange={setPreviewColor}
           />
 
           {metadata && <section className="drawer-reference" aria-label={language === 'zh' ? '图标规格' : 'Icon specification'}>
@@ -234,8 +250,12 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
               <div><dt>{language === 'zh' ? '渲染' : 'Rendering'}</dt><dd>{renderingType}</dd></div>
               <div><dt>{language === 'zh' ? '分类' : 'Category'}</dt><dd>{(() => {
                 const category = iconCategories.find((item) => item.id === metadata.categories[0])
-                return language === 'zh' ? category?.titleZh : category?.title
-              })() ?? '—'}</dd></div>
+                const subgroup = iconSubgroups.find((item) => item.categoryId === metadata.categories[0] && item.id === metadata.subgroup)
+                const categoryLabel = language === 'zh' ? category?.titleZh : category?.title
+                const subgroupLabel = language === 'zh' ? subgroup?.titleZh : subgroup?.title
+                if (!categoryLabel) return '—'
+                return subgroupLabel ? `${categoryLabel} · ${subgroupLabel}` : categoryLabel
+              })()}</dd></div>
               <div><dt>{language === 'zh' ? '版本' : 'Version'}</dt><dd>{metadata.publishedIn ?? '—'}</dd></div>
             </dl>
           </section>}

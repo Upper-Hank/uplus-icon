@@ -2,12 +2,15 @@ import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promise
 import { basename, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { validateMetadataReferences } from './validate-metadata.mjs'
+import { compileRuntimeSvgBody } from './svg-adapter.mjs'
 
 const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
+const releaseFeatures = { motion: false }
 const workspaceRoot = dirname(dirname(sourceRoot))
 const rawDir = join(sourceRoot, 'raw')
 const metadataFile = join(sourceRoot, 'metadata', 'icons.json')
 const categoriesFile = join(sourceRoot, 'metadata', 'categories.json')
+const subgroupsFile = join(sourceRoot, 'metadata', 'subgroups.json')
 const outputRoots = {
   core: join(workspaceRoot, 'packages', 'core', 'src', 'generated'),
   react: join(workspaceRoot, 'packages', 'react', 'src', 'generated'),
@@ -18,6 +21,7 @@ const temporaryRoots = Object.fromEntries(
 )
 const toPascal = (name) => name.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')
 const sharedGraphicAttributes = new Set([
+  'data-part',
   'fill',
   'fill-rule',
   'clip-rule',
@@ -70,6 +74,8 @@ function validateSvgBody(file, body, viewBox) {
   }
 
   const openElements = []
+  const parts = []
+  const partNames = new Set()
   for (const [, closing, element, attributeSource] of tags) {
     if (closing) {
       const expected = openElements.pop()
@@ -83,12 +89,22 @@ function validateSvgBody(file, body, viewBox) {
     const unsupported = Object.keys(attributes).filter((name) => !allowedAttributes.has(name))
     if (unsupported.length > 0) throw new Error(`${file} <${element}> uses unsupported attributes: ${unsupported.join(', ')}`)
 
+    if (attributes['data-part'] !== undefined) {
+      const part = attributes['data-part']
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(part)) {
+        throw new Error(`${file} <${element}> data-part must use kebab-case: ${part}`)
+      }
+      if (partNames.has(part)) throw new Error(`${file} contains duplicate data-part: ${part}`)
+      partNames.add(part)
+      parts.push(part)
+    }
+
     for (const [name, value] of Object.entries(attributes)) {
       if (/^on/i.test(name) || /(?:url\s*\(|javascript:|data:|https?:)/i.test(value)) {
         throw new Error(`${file} <${element}> contains an unsafe reference or event attribute`)
       }
-      if ((name === 'fill' || name === 'stroke') && value !== 'none' && value !== 'currentColor') {
-        throw new Error(`${file} <${element}> ${name} must be "none" or "currentColor"`)
+      if ((name === 'fill' || name === 'stroke') && value !== 'none' && value !== 'black') {
+        throw new Error(`${file} <${element}> design-source ${name} must be "none" or "black"`)
       }
       if (name === 'stroke-width') {
         const strokeWidth = Number(value)
@@ -117,21 +133,13 @@ function validateSvgBody(file, body, viewBox) {
     if (!attributeSource.trim().endsWith('/')) openElements.push(element)
   }
   if (openElements.length > 0) throw new Error(`${file} contains unclosed <${openElements.at(-1)}> markup`)
-}
-
-function compileSvgBody(body) {
-  return body.replace(
-    /\bstroke-width\s*=\s*(["'])((?:\d+(?:\.\d+)?)|(?:\.\d+))\1/g,
-    (_attribute, quote, width) => `stroke-width=${quote}var(--uplus-icon-stroke-width, ${width})${quote}`,
-  ).replace(
-    /<(path|circle|ellipse|rect|line|polyline|polygon)\b/g,
-    '<$1 vector-effect="var(--uplus-icon-vector-effect, none)"',
-  )
+  return parts
 }
 
 const files = (await readdir(rawDir)).filter((file) => file.endsWith('.svg')).sort()
 const metadata = JSON.parse(await readFile(metadataFile, 'utf8'))
 const categories = JSON.parse(await readFile(categoriesFile, 'utf8'))
+const subgroups = JSON.parse(await readFile(subgroupsFile, 'utf8'))
 const names = files.map((file) => basename(file, '.svg'))
 const nameSet = new Set(names)
 const unknownMetadata = Object.keys(metadata).filter((name) => !nameSet.has(name))
@@ -158,6 +166,21 @@ for (const [index, category] of categories.entries()) {
   categoryIds.add(category.id)
 }
 
+const subgroupKeys = new Set()
+for (const [index, subgroup] of subgroups.entries()) {
+  const allowedFields = ['id', 'categoryId', 'title', 'titleZh']
+  const unknownFields = Object.keys(subgroup).filter((field) => !allowedFields.includes(field))
+  if (unknownFields.length > 0) throw new Error(`Unsupported subgroup fields at index ${index}: ${unknownFields.join(', ')}`)
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(subgroup.id)) throw new Error(`Invalid subgroup id at index ${index}: ${subgroup.id}`)
+  if (!categoryIds.has(subgroup.categoryId)) throw new Error(`Subgroup ${subgroup.id} references unknown category: ${subgroup.categoryId}`)
+  for (const field of ['title', 'titleZh']) {
+    if (typeof subgroup[field] !== 'string' || !subgroup[field].trim()) throw new Error(`Subgroup ${subgroup.id}.${field} must be a non-empty string`)
+  }
+  const key = `${subgroup.categoryId}\0${subgroup.id}`
+  if (subgroupKeys.has(key)) throw new Error(`Duplicate subgroup id within category: ${subgroup.categoryId}/${subgroup.id}`)
+  subgroupKeys.add(key)
+}
+
 const icons = []
 
 for (const file of files) {
@@ -179,16 +202,19 @@ for (const file of files) {
   if (rootAttributes.fill && rootAttributes.fill !== 'none') throw new Error(`${file} root fill must be "none" so it can be preserved by runtimes`)
   if (viewBoxMatches[0][2] !== '0 0 24 24') throw new Error(`${file} must use viewBox="0 0 24 24"`)
   if (rootAttributes.width !== '24' || rootAttributes.height !== '24') throw new Error(`${file} root width and height must both be 24`)
-  validateSvgBody(file, body, viewBoxMatches[0][2])
+  const svgParts = validateSvgBody(file, body, viewBoxMatches[0][2])
 
   const details = metadata[name]
-  const allowedMetadata = ['title', 'titleZh', 'description', 'categories', 'tags', 'aliases', 'related', 'variants', 'parts', 'motion', 'contributors', 'deprecated', 'publishedIn', 'updatedIn']
+  const allowedMetadata = ['title', 'titleZh', 'description', 'categories', 'subgroup', 'tags', 'aliases', 'related', 'variants', 'parts', 'motion', 'contributors', 'deprecated', 'publishedIn', 'updatedIn']
   const unknownFields = Object.keys(details).filter((field) => !allowedMetadata.includes(field))
   if (unknownFields.length > 0) throw new Error(`Unsupported metadata for ${name}: ${unknownFields.join(', ')}`)
   for (const field of ['categories', 'tags', 'aliases']) {
     if (!Array.isArray(details[field])) throw new Error(`Metadata field ${name}.${field} must be an array`)
     if (details[field].some((value) => typeof value !== 'string' || !value.trim())) throw new Error(`Metadata field ${name}.${field} must only contain non-empty strings`)
     if (new Set(details[field]).size !== details[field].length) throw new Error(`Metadata field ${name}.${field} contains duplicate values`)
+    if (new Set(details[field].map((value) => value.toLocaleLowerCase())).size !== details[field].length) {
+      throw new Error(`Metadata field ${name}.${field} contains case-insensitive duplicate values`)
+    }
   }
   for (const field of ['related', 'variants', 'parts', 'contributors']) {
     if (details[field] === undefined) continue
@@ -196,6 +222,10 @@ for (const file of files) {
       throw new Error(`Metadata field ${name}.${field} must only contain non-empty strings`)
     }
     if (new Set(details[field]).size !== details[field].length) throw new Error(`Metadata field ${name}.${field} contains duplicate values`)
+  }
+  const metadataParts = details.parts ?? []
+  if (metadataParts.length !== svgParts.length || metadataParts.some((part, index) => part !== svgParts[index])) {
+    throw new Error(`Metadata field ${name}.parts must exactly match SVG data-part values in document order`)
   }
   if (details.description !== undefined && (
     typeof details.description !== 'object' || details.description === null ||
@@ -216,25 +246,36 @@ for (const file of files) {
   }
   if (typeof details.title !== 'string' || !details.title.trim()) throw new Error(`Metadata field ${name}.title must be a non-empty string`)
   if (typeof details.titleZh !== 'string' || !details.titleZh.trim()) throw new Error(`Metadata field ${name}.titleZh must be a non-empty string`)
+  if (!/[\u3400-\u9fff]/.test(details.titleZh)) throw new Error(`Metadata field ${name}.titleZh must contain a Chinese name`)
   if (details.categories.length === 0) throw new Error(`Metadata field ${name}.categories must include a primary category`)
+  if (typeof details.subgroup !== 'string' || !details.subgroup.trim()) throw new Error(`Metadata field ${name}.subgroup must be a non-empty string`)
+  if (!subgroupKeys.has(`${details.categories[0]}\0${details.subgroup}`)) {
+    throw new Error(`Metadata for ${name} references unknown subgroup: ${details.categories[0]}/${details.subgroup}`)
+  }
   if (details.tags.length === 0) throw new Error(`Metadata field ${name}.tags must not be empty`)
+  if (!details.tags.includes(details.categories[0]) || !details.tags.includes(details.subgroup)) {
+    throw new Error(`Metadata field ${name}.tags must include its primary category and subgroup`)
+  }
+  const aliasTagOverlap = details.aliases.filter((alias) => details.tags.some((tag) => tag.toLocaleLowerCase() === alias.toLocaleLowerCase()))
+  if (aliasTagOverlap.length > 0) throw new Error(`Metadata for ${name} uses aliases as classification tags: ${aliasTagOverlap.join(', ')}`)
   const unknownCategories = details.categories.filter((category) => !categoryIds.has(category))
   if (unknownCategories.length > 0) throw new Error(`Metadata for ${name} references unknown categories: ${unknownCategories.join(', ')}`)
   icons.push({
     name,
     componentName: `${toPascal(name)}Icon`,
     viewBox: viewBoxMatches[0][2],
-    body: compileSvgBody(body),
+    body: compileRuntimeSvgBody(body),
     title: details.title,
     titleZh: details.titleZh,
     categories: details.categories,
+    subgroup: details.subgroup,
     tags: details.tags,
     aliases: details.aliases,
     ...(details.description === undefined ? {} : { description: details.description }),
     ...(details.related === undefined ? {} : { related: details.related }),
     ...(details.variants === undefined ? {} : { variants: details.variants }),
     ...(details.parts === undefined ? {} : { parts: details.parts }),
-    ...(details.motion === undefined ? {} : { motion: details.motion }),
+    ...(!releaseFeatures.motion || details.motion === undefined ? {} : { motion: details.motion }),
     ...(details.contributors === undefined ? {} : { contributors: details.contributors }),
     deprecated: details.deprecated ?? false,
     publishedIn: details.publishedIn ?? null,
@@ -255,12 +296,13 @@ await writeFile(join(temporaryRoots.core, 'names.ts'), `${generatedNotice}export
 const categoryIdType = categories.map(({ id }) => `  | '${id}'`).join('\n')
 await writeFile(join(temporaryRoots.core, 'category-names.ts'), `${generatedNotice}export type IconCategoryId =\n${categoryIdType}\n`)
 await writeFile(join(temporaryRoots.core, 'categories.ts'), `${generatedNotice}import type { IconCategory } from '../types.js'\n\nexport const iconCategories: readonly IconCategory[] = ${JSON.stringify(categories, null, 2)}\n`)
+await writeFile(join(temporaryRoots.core, 'subgroups.ts'), `${generatedNotice}import type { IconSubgroup } from '../types.js'\n\nexport const iconSubgroups: readonly IconSubgroup[] = ${JSON.stringify(subgroups, null, 2)}\n`)
 
 const definitions = icons.map(({ name, viewBox, body }) => ({ name, viewBox, body }))
 await writeFile(join(temporaryRoots.core, 'definitions.ts'), `${generatedNotice}import type { IconDefinition } from '../types.js'\n\nexport const iconDefinitions: readonly IconDefinition[] = ${JSON.stringify(definitions, null, 2)}\n`)
 
 const catalog = icons.map(({ body: _body, viewBox: _viewBox, ...entry }) => entry)
-await writeFile(join(temporaryRoots.core, 'metadata.ts'), `${generatedNotice}import type { IconMeta } from '../types.js'\n\nexport const iconMeta: readonly IconMeta[] = ${JSON.stringify(catalog, null, 2)}\n`)
+await writeFile(join(temporaryRoots.core, 'metadata.ts'), `${generatedNotice}import type { PublicIconMeta } from '../types.js'\n\nexport const iconMeta: readonly PublicIconMeta[] = ${JSON.stringify(catalog, null, 2)}\n`)
 
 await writeFile(join(temporaryRoots.react, 'components.ts'), `${generatedNotice}${icons.map(({ name, componentName }) => `export { ${componentName} } from './icons/${name}.js'`).join('\n')}\n`)
 await writeFile(join(temporaryRoots.web, 'components.ts'), `${generatedNotice}${icons.map(({ name, componentName }) => `export { ${componentName} } from './icons/${name}.js'`).join('\n')}\n`)

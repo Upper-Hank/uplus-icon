@@ -163,7 +163,7 @@ function MarkdownArticle({ document, navigate }: { document: DocDocument; naviga
         <div className="markdown-code-head">
           <span>{label}</span>
           <button className="markdown-code-copy" type="button" onClick={copy} aria-label={copyFailed ? (document.locale === 'zh-CN' ? '复制失败' : 'Copy failed') : copied ? (document.locale === 'zh-CN' ? '已复制' : 'Copied') : (document.locale === 'zh-CN' ? '复制代码' : 'Copy code')}>
-            <Icon name={copied ? 'check' : 'copy'} size={14} />
+            <Icon name={copied ? 'save' : 'copy'} size={14} />
           </button>
         </div>
         <pre {...props}>{children}</pre>

@@ -3,7 +3,7 @@ slug: accessibility
 order: 14
 group: usage
 title: Accessibility
-description: Decorative icons, semantic graphics, control names, and motion fallback
+description: Decorative icons, semantic graphics, and control names
 locale: en
 ---
 
@@ -21,4 +21,4 @@ An icon-only button is named by the button, for example “Close dialog,” not 
 
 ## State and color
 
-Never distinguish a state by color alone. Loading, error, and success need synchronized text, accessible names, or control state. Animated icons honor reduced motion while preserving the perceivable final state.
+Never distinguish a state by color alone. Loading, error, and success need synchronized text, accessible names, or control state.

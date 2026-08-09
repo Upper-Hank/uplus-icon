@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "chevron-up",
   "viewBox": "0 0 24 24",
-  "body": "\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M4 16L10.5858 9.41421C11.3668 8.63316 12.6332 8.63317 13.4142 9.41421L20 16\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linecap=\"round\"/>\n"
+  "body": "\n<path d=\"M4 16L10.5858 9.41422C11.3668 8.63317 12.6332 8.63317 13.4142 9.41422L20 16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

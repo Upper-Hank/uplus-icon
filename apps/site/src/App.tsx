@@ -110,7 +110,7 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
               <span>npm</span>
               <code>{installCommand}</code>
               <button type="button" onClick={copyInstall} aria-label={copyFailed ? (language === 'zh' ? '复制失败' : 'Copy failed') : copied ? t('copied') : 'Copy install command'}>
-                <Icon name={copied ? 'check' : 'copy'} size={17} />
+                <Icon name={copied ? 'save' : 'copy'} size={17} />
               </button>
             </div>
             <button

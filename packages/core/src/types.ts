@@ -13,6 +13,13 @@ export interface IconCategory {
   description: string
 }
 
+export interface IconSubgroup {
+  id: string
+  categoryId: IconCategoryId
+  title: string
+  titleZh: string
+}
+
 export interface LocalizedText {
   en: string
   zh: string
@@ -35,6 +42,7 @@ export interface IconMeta {
   title: string
   titleZh: string
   categories: readonly IconCategoryId[]
+  subgroup: string
   tags: readonly string[]
   aliases: readonly string[]
   description?: LocalizedText
@@ -47,3 +55,5 @@ export interface IconMeta {
   publishedIn: string | null
   updatedIn: string | null
 }
+
+export type PublicIconMeta = Omit<IconMeta, 'motion'>
