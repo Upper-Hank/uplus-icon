@@ -5,7 +5,10 @@
     "uplus-icon-site": "0.1.0",
     "@uplus-icon/source": "0.1.0",
     "@uplus-icon/core": "0.0.0",
-    "@uplus-icon/react": "0.0.0"
+    "@uplus-icon/react": "0.0.0",
+    "@uplus-icon/motion": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "modern-package-boundaries"
+  ]
 }
