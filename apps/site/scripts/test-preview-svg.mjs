@@ -68,6 +68,12 @@ test('copied SVG applies absolute weight to strokes and solid primitives', () =>
   assert.match(svg, /r="1.5"/)
 })
 
+test('copied SVG supports absolute weights above the relative master range', () => {
+  const svg = createPreviewSvg({ definition, size: 48, weight: 8, absoluteWeight: true })
+  assert.match(svg, /stroke-width="3"/)
+  assert.match(svg, /r="4\.5"/)
+})
+
 test('copied textarea SVG applies the anchored handle rule', () => {
   const textarea = {
     name: 'textarea',

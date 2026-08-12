@@ -1,45 +1,19 @@
 # Changelog
 
-## [Unreleased]
+## [0.1.0-beta.0] - 2026-08-12
+
+First public beta of Uplus Icon.
 
 ### Added
 
-- Added a bilingual changelog page to the documentation website.
-- Added an optional 20×20 design-guide inspection layer without automatic alignment validation.
-- Added an explicit name-based React entry for data-driven interfaces.
+- Published `@uplus-icon/core` with framework-independent SVG definitions, metadata, and dynamic name-based access for 300 icons.
+- Published `@uplus-icon/react` with named components, per-icon imports, and the explicit `dynamic` entry for data-driven interfaces.
+- Added TypeScript types, standard SVG prop forwarding, `ref` support, accessible titles, and decorative defaults.
+- Added the `weight` and `absoluteWeight` APIs while preserving the proportions and geometry of the protected SVG sources.
+- Added bilingual documentation for browsing, searching, previewing, copying, and integrating icons.
 
-### Changed
+### Packaging
 
-- Kept named and per-icon imports as the static tree-shaking boundary while exposing full registries only through explicit `dynamic` entries.
-- Aligned the documentation navigation to a shared horizontal spacing baseline.
-- Changed the desktop detail preview to a fixed-height square canvas with a wider control area.
-- Moved inspection-layer controls into the preview canvas and aligned the absolute-weight switch with the standard control spacing.
-- Set the master preview and actual-size upper bound to 256px, and fixed the code panel peeking after width changes.
-
-### Known issues
-
-- Responsive behavior is being rebuilt for narrow mobile, mobile, tablet, and desktop layouts.
-
-## [0.1.0-dev.1] - 2026-07-23
-
-Development preview. This snapshot has not been published to npm.
-
-### Added
-
-- Added searchable flat and grouped icon browsing.
-- Added a bottom detail drawer with master and actual-size inspection modes, grid and skeleton overlays, rendering controls, and synchronized Core, React, and SVG snippets.
-- Added bilingual design-rule documentation and a shared metadata-driven category system.
-- Added framework-independent Core data and React components generated from the same protected SVG sources.
-
-### Changed
-
-- Rebuilt the documentation and showcase website around the current Uplus visual language.
-- Reworked package boundaries so metadata, definitions, and React components can be consumed independently.
-
-### Fixed
-
-- Fixed documentation navigation scrolling, sticky toolbar behavior, drawer transitions, and multiple control interaction states.
-
-### Known issues
-
-- The website still needs a complete responsive-layout pass before it can be considered production-ready.
+- Added reproducible generation from the protected SVG source and metadata registry.
+- Added real consumer-install, runtime, source-fidelity, tree-shaking, and per-icon size verification.
+- Published Core and React only; Motion remains private and is not part of this release.

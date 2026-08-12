@@ -18,7 +18,11 @@ export function ChangelogContent() {
   const versionOptions = changelog.versions.map((version) => ({ value: version.id, label: version.label }))
 
   useEffect(() => {
-    setActiveVersion(readVersionFromHash(changelog.versions))
+    const version = readVersionFromHash(changelog.versions)
+    setActiveVersion(version)
+    if (window.location.hash.slice(1) !== version) {
+      window.history.replaceState({}, '', `#${version}`)
+    }
   }, [changelog])
 
   const selectVersion = (version: string) => {
@@ -38,10 +42,10 @@ export function ChangelogContent() {
     <>
       <article className="docs-article" data-reveal>
         <PageHeading
-          label={language === 'zh' ? '开发版本' : 'Development releases'}
+          label={language === 'zh' ? '版本记录' : 'Release history'}
           title={language === 'zh' ? '更新日志' : 'Changelog'}
-          description={language === 'zh' ? '记录 Uplus Icon 的开发进展与正式版本变化。' : 'Development progress and release history for Uplus Icon.'}
-          meta={<><span>Development preview</span><span>{language === 'zh' ? '尚未发布到 npm' : 'Not published to npm'}</span></>}
+          description={language === 'zh' ? '记录 Uplus Icon 从第一个公开 Beta 开始的版本变化。' : 'Uplus Icon release history starting with the first public beta.'}
+          meta={<span>{language === 'zh' ? '公开 Beta' : 'Public beta'}</span>}
         />
         <div className="changelog-version-select">
           <SelectMenu ariaLabel={language === 'zh' ? '选择版本' : 'Select version'} options={versionOptions} value={activeVersion} onChange={selectVersion} />

@@ -45,9 +45,9 @@ The React package exposes static icons, sizing, color, weight, accessibility, st
 
 Only audited solid paths use the same `solidScale`: the `textarea` handle scales around `(19, 17)`, the `headset` dot around `(14, 19.5)`, and the three `qr-code` modules around their own centers. Their original `d` values stay intact; other solid paths do not inherit this rule.
 
-`absoluteWeight` defaults to `false`. With a finite positive numeric `size`, the runtime separately calculates `strokeScale = (weight ÷ 2) × (24 ÷ size)` and `solidScale = ((weight + 1) ÷ 3) × (24 ÷ size)`. Strokes and supported solid details therefore keep their CSS-pixel sizes under their respective continuous mappings. String sizes such as `em`, `%`, and `calc()` cannot be resolved deterministically during SSR and therefore safely use relative weight.
+`absoluteWeight` defaults to `false`. With a finite positive numeric `size`, `weight` represents CSS pixels and ranges from `0.5–8`; the runtime separately calculates `strokeScale = (weight ÷ 2) × (24 ÷ size)` and `solidScale = ((weight + 1) ÷ 3) × (24 ÷ size)`. Strokes and supported solid details therefore keep their CSS-pixel sizes under their respective continuous mappings. String sizes such as `em`, `%`, and `calc()` cannot be resolved deterministically during SSR and therefore safely use the `0.5–2` relative range.
 
-- **MUST** clamp runtime `weight` to `0.5–2`; non-finite values fall back to `2`.
+- **MUST** clamp relative `weight` to `0.5–2` and numeric-size absolute `weight` to `0.5–8`; non-finite values fall back to `2`.
 - **MUST** apply absolute weight to strokes and supported solid primitives together; it must never be a stroke-only `vector-effect` shortcut.
 - **MUST NOT** select, generate, or mutate another source SVG because of size or weight props.
 

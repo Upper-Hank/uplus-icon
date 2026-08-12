@@ -57,8 +57,8 @@ React props, standard SVG attributes, and refs form the public rendering interfa
 | Prop | Type | Default | Behavior |
 | --- | --- | --- | --- |
 | `size` | `number \| string` | `24` | Sets width and height |
-| `weight` | `number` | `2` | Proportional artwork weight, clamped to `0.5–2` |
-| `absoluteWeight` | `boolean` | `false` | Keeps CSS-pixel weight for numeric sizes; string sizes use relative weight |
+| `weight` | `number` | `2` | `0.5–2` in relative mode; `0.5–8px` in numeric-size absolute mode |
+| `absoluteWeight` | `boolean` | `false` | Interprets weight as CSS pixels for numeric sizes; string sizes use relative weight |
 | `color` | `string` | inherited | Controls currentColor artwork |
 | `title` | `string` | — | Adds an SVG title and image semantics |
 | `ref` | `SVGSVGElement` | — | Forwards to the root SVG |

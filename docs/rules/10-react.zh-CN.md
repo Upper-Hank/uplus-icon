@@ -57,8 +57,8 @@ React props、标准 SVG 属性和 ref 共同构成公共渲染接口。
 | 属性 | 类型 | 默认值 | 行为 |
 | --- | --- | --- | --- |
 | `size` | `number \| string` | `24` | 同时设置宽度和高度 |
-| `weight` | `number` | `2` | 按比例调整图标重量，限制在 `0.5–2` |
-| `absoluteWeight` | `boolean` | `false` | 数值尺寸下保持 CSS 像素重量；字符串尺寸使用相对重量 |
+| `weight` | `number` | `2` | 相对模式限制在 `0.5–2`；数值尺寸的绝对模式限制在 `0.5–8px` |
+| `absoluteWeight` | `boolean` | `false` | 数值尺寸下将重量解释为 CSS 像素；字符串尺寸使用相对重量 |
 | `color` | `string` | 继承 | 通过 currentColor 控制视觉颜色 |
 | `title` | `string` | — | 添加 SVG title 并暴露图像语义 |
 | `ref` | `SVGSVGElement` | — | 转发到底层 SVG |

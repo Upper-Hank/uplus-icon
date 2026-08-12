@@ -3,7 +3,7 @@ import test from 'node:test'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { ObjectAlignJustifyIcon, PlusIcon, QrCodeIcon, TextareaIcon } from '../../react/dist/index.js'
-import { applyIconWeight, resolveIconWeight, resolveIconWeightScale } from '../../core/dist/weight.js'
+import { applyIconWeight, resolveAbsoluteIconWeight, resolveIconWeight, resolveIconWeightScale } from '../../core/dist/weight.js'
 import objectAlignJustifyDefinition from '../../core/dist/generated/icons/object-align-justify.js'
 import qrCodeDefinition from '../../core/dist/generated/icons/qr-code.js'
 import textareaDefinition from '../../core/dist/generated/icons/textarea.js'
@@ -40,6 +40,8 @@ test('weight clamps invalid values and preserves source stroke ratios', () => {
   const body = '<path d="M3 4V20" stroke="currentColor" stroke-width="2"/><line x1="21" y1="4" x2="21" y2="20" stroke="currentColor" stroke-width="1.5"/>'
   assert.equal(resolveIconWeight(0), 0.5)
   assert.equal(resolveIconWeight(3), 2)
+  assert.equal(resolveAbsoluteIconWeight(3), 3)
+  assert.equal(resolveAbsoluteIconWeight(9), 8)
   assert.equal(resolveIconWeight(Number.NaN), 2)
   assert.equal(applyIconWeight(body, { weight: 1.5 }), '<path d="M3 4V20" stroke="currentColor" stroke-width="1.5"/><line x1="21" y1="4" x2="21" y2="20" stroke="currentColor" stroke-width="1.125"/>')
   assert.equal(applyIconWeight(body, { weight: 2 }), body)
@@ -73,7 +75,9 @@ test('absolute weight offsets numeric size scaling and safely falls back for str
   assert.equal(resolveIconWeightScale({ absoluteWeight: true, size: 48, weight: 2 }), 0.5)
   assert.equal(applyIconWeight(body, { absoluteWeight: true, size: 48, weight: 2 }), '<path stroke="currentColor" stroke-width="1"/><circle cx="12" cy="12" r="2" fill="currentColor"/>')
   assert.equal(applyIconWeight(body, { absoluteWeight: true, size: 48, weight: 1.5 }), '<path stroke="currentColor" stroke-width="0.75"/><circle cx="12" cy="12" r="1.6667" fill="currentColor"/>')
+  assert.equal(applyIconWeight(body, { absoluteWeight: true, size: 48, weight: 8 }), '<path stroke="currentColor" stroke-width="4"/><circle cx="12" cy="12" r="6" fill="currentColor"/>')
   assert.equal(resolveIconWeightScale({ absoluteWeight: true, size: '2em', weight: 1 }), 0.5)
+  assert.equal(resolveIconWeightScale({ absoluteWeight: true, size: '2em', weight: 8 }), 1)
   assert.equal(applyIconWeight(body, { absoluteWeight: true, size: '2em', weight: 1 }), applyIconWeight(body, { weight: 1 }))
 })
 

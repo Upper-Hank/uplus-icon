@@ -104,8 +104,9 @@ assert.deepEqual([...orders.en].sort((a, b) => a - b), [...orders['zh-CN']].sort
 for (const filename of ['CHANGELOG.md', 'CHANGELOG.zh-CN.md']) {
   const source = await readFile(path.join(repositoryRoot, filename), 'utf8')
   assert.match(source, /^#\s+.+/m, `${filename}: missing page title`)
-  assert.match(source, /^##\s+\[Unreleased\]/m, `${filename}: missing Unreleased section`)
-  assert.match(source, /^##\s+\[\d+\.\d+\.\d+-dev\.\d+\]/m, `${filename}: missing development release`)
+  assert.match(source, /^##\s+\[0\.1\.0-beta\.0\]\s+-\s+2026-08-12$/m, `${filename}: missing first public beta`)
+  assert.doesNotMatch(source, /^##\s+\[Unreleased\]/m, `${filename}: should start from the first published version`)
+  assert.doesNotMatch(source, /^##\s+\[\d+\.\d+\.\d+-dev\.\d+\]/m, `${filename}: should not include unpublished development snapshots`)
 }
 
 console.log(`Validated ${documents.length} documents, ${routes.size} routes, both changelogs, and all locale pairs.`)

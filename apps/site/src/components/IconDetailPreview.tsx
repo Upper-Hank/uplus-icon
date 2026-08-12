@@ -2,6 +2,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, typ
 import type { IconDefinition } from '@uplus-icon/core'
 import { animateIcon, type MotionControls, type MotionDirection, type MotionEasing, type MotionName } from '@uplus-icon/motion'
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
+import { MAX_ABSOLUTE_ICON_WEIGHT, MAX_ICON_WEIGHT, MIN_ICON_WEIGHT } from '@uplus-icon/core/internal/weight'
 import { releaseFeatures } from '../app/releaseFeatures'
 import { useI18n } from '../i18n'
 import { IconGuideOverlay } from './IconGuideOverlay'
@@ -29,6 +30,7 @@ interface IconDetailPreviewProps {
   onModeChange: (value: IconPreviewMode) => void
   onSizeChange: (value: number) => void
   onWeightChange: (value: number) => void
+  onWeightReset: () => void
   size: number
   weight: number
 }
@@ -76,6 +78,7 @@ export function IconDetailPreview({
   onModeChange,
   onSizeChange,
   onWeightChange,
+  onWeightReset,
   size,
   weight,
 }: IconDetailPreviewProps) {
@@ -348,7 +351,7 @@ export function IconDetailPreview({
       onSizeChange(24)
       onAbsoluteWeightChange(false)
     }
-    onWeightChange(2)
+    onWeightReset()
   }
 
   return (
@@ -402,9 +405,17 @@ export function IconDetailPreview({
         </label>}
 
         <label className="preview-range-control">
-          <span>{language === 'zh' ? '重量' : 'Weight'}</span>
-          <output>{Number(weight.toFixed(2))}</output>
-          <input type="range" min="0.5" max="2" step="0.25" value={weight} style={rangeProgress(weight, 0.5, 2)} onChange={(event) => onWeightChange(Number(event.target.value))} />
+          <span>{absoluteWeight && mode === 'actual' ? (language === 'zh' ? '绝对重量' : 'Absolute weight') : (language === 'zh' ? '重量' : 'Weight')}</span>
+          <output>{Number(weight.toFixed(2))}{absoluteWeight && mode === 'actual' ? 'px' : ''}</output>
+          <input
+            type="range"
+            min={MIN_ICON_WEIGHT}
+            max={absoluteWeight && mode === 'actual' ? MAX_ABSOLUTE_ICON_WEIGHT : MAX_ICON_WEIGHT}
+            step="0.25"
+            value={weight}
+            style={rangeProgress(weight, MIN_ICON_WEIGHT, absoluteWeight && mode === 'actual' ? MAX_ABSOLUTE_ICON_WEIGHT : MAX_ICON_WEIGHT)}
+            onChange={(event) => onWeightChange(Number(event.target.value))}
+          />
         </label>
         {mode === 'actual' && <SwitchControl checked={absoluteWeight} label={language === 'zh' ? '绝对重量' : 'Absolute weight'} onChange={onAbsoluteWeightChange} />}
 

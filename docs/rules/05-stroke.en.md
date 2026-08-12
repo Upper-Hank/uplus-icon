@@ -56,7 +56,7 @@ The runtime derives artwork weight from the approved master with `scale = weight
 <CheckIcon size={24} weight={1.5} />
 ```
 
-- **MUST** clamp consumer weight to `0.5–2`.
+- **MUST** clamp relative consumer weight to `0.5–2`; numeric-size absolute weight may extend to `8px`.
 - **MUST** multiply every source stroke width by the same scale so local ratios remain intact.
 - **MUST** scale solid circles, ellipses, and rectangles around their centers, including their corner radii.
 - **MUST NOT** deform solid paths or other complex fill geometry automatically; list them for design review.

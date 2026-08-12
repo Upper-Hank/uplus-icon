@@ -1,6 +1,7 @@
 export const DEFAULT_ICON_WEIGHT = 2
 export const MIN_ICON_WEIGHT = 0.5
 export const MAX_ICON_WEIGHT = 2
+export const MAX_ABSOLUTE_ICON_WEIGHT = 8
 
 export interface IconWeightOptions {
   absoluteWeight?: boolean
@@ -34,6 +35,15 @@ export function resolveIconWeight(weight = DEFAULT_ICON_WEIGHT) {
   return Math.min(MAX_ICON_WEIGHT, Math.max(MIN_ICON_WEIGHT, finiteWeight))
 }
 
+export function resolveAbsoluteIconWeight(weight = DEFAULT_ICON_WEIGHT) {
+  const finiteWeight = Number.isFinite(weight) ? weight : DEFAULT_ICON_WEIGHT
+  return Math.min(MAX_ABSOLUTE_ICON_WEIGHT, Math.max(MIN_ICON_WEIGHT, finiteWeight))
+}
+
+function hasAbsoluteSize({ absoluteWeight = false, size = 24 }: IconWeightOptions) {
+  return absoluteWeight && typeof size === 'number' && Number.isFinite(size) && size > 0
+}
+
 /**
  * Applies weight to an adapted SVG body without changing paths or source assets.
  * Stroke widths retain their source ratios. Supported solid geometry uses a
@@ -44,9 +54,10 @@ export function resolveIconWeightScale({
   size = 24,
   weight = DEFAULT_ICON_WEIGHT,
 }: IconWeightOptions = {}) {
-  const relativeScale = resolveIconWeight(weight) / DEFAULT_ICON_WEIGHT
-  if (!absoluteWeight || typeof size !== 'number' || !Number.isFinite(size) || size <= 0) return relativeScale
-  return relativeScale * (24 / size)
+  const isAbsolute = hasAbsoluteSize({ absoluteWeight, size })
+  const relativeScale = (isAbsolute ? resolveAbsoluteIconWeight(weight) : resolveIconWeight(weight)) / DEFAULT_ICON_WEIGHT
+  if (!isAbsolute) return relativeScale
+  return relativeScale * (24 / (size as number))
 }
 
 function resolveIconSolidScale({
@@ -54,9 +65,11 @@ function resolveIconSolidScale({
   size = 24,
   weight = DEFAULT_ICON_WEIGHT,
 }: IconWeightOptions = {}) {
-  const relativeScale = (resolveIconWeight(weight) + 1) / 3
-  if (!absoluteWeight || typeof size !== 'number' || !Number.isFinite(size) || size <= 0) return relativeScale
-  return relativeScale * (24 / size)
+  const isAbsolute = hasAbsoluteSize({ absoluteWeight, size })
+  const resolvedWeight = isAbsolute ? resolveAbsoluteIconWeight(weight) : resolveIconWeight(weight)
+  const relativeScale = (resolvedWeight + 1) / 3
+  if (!isAbsolute) return relativeScale
+  return relativeScale * (24 / (size as number))
 }
 
 export function applyIconWeight(body: string, options: IconWeightOptions = {}) {

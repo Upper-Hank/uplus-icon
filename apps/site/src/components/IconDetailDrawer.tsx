@@ -21,7 +21,8 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const { language } = useI18n()
   const [previewMode, setPreviewMode] = useState<IconPreviewMode>('master')
   const [size, setSize] = useState(24)
-  const [weight, setWeight] = useState(2)
+  const [relativeWeight, setRelativeWeight] = useState(2)
+  const [absoluteWeightValue, setAbsoluteWeightValue] = useState(2)
   const [absoluteWeight, setAbsoluteWeight] = useState(false)
   const [previewColor, setPreviewColor] = useState<string | null>(null)
   const [usageFormat, setUsageFormat] = useState<UsageFormat>('svg')
@@ -40,6 +41,8 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const definition = iconDefinitions.find((icon) => icon.name === name)
   const component = `${name.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}Icon`
   const titleId = `icon-drawer-title-${name}`
+  const usesAbsoluteWeight = previewMode === 'actual' && absoluteWeight
+  const weight = usesAbsoluteWeight ? absoluteWeightValue : relativeWeight
   const staticPreview = resolveStaticPreviewSettings(previewMode, size, weight, absoluteWeight)
   const effectiveSize = staticPreview.size
   const effectiveAbsoluteWeight = staticPreview.absoluteWeight
@@ -61,6 +64,14 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
     ? definition.body.includes('stroke=') && definition.body.includes('fill="currentColor"') ? 'Mixed'
       : definition.body.includes('stroke=') ? 'Stroke' : 'Fill'
     : '—'
+  const handleWeightChange = (value: number) => {
+    if (usesAbsoluteWeight) setAbsoluteWeightValue(value)
+    else setRelativeWeight(value)
+  }
+  const resetWeight = () => {
+    setRelativeWeight(2)
+    setAbsoluteWeightValue(2)
+  }
 
   const requestClose = useCallback(() => {
     if (closingRef.current) return
@@ -230,7 +241,8 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
             color={previewColor}
             onModeChange={setPreviewMode}
             onSizeChange={setSize}
-            onWeightChange={setWeight}
+            onWeightChange={handleWeightChange}
+            onWeightReset={resetWeight}
             onAbsoluteWeightChange={setAbsoluteWeight}
             onColorChange={setPreviewColor}
           />
