@@ -1,7 +1,7 @@
 import type { IconDefinition } from '@uplus-icon/core'
 import { applyIconWeight } from '@uplus-icon/core/internal/weight'
 
-export type StaticPreviewMode = 'master' | 'actual' | 'motion'
+export type StaticPreviewMode = 'master' | 'actual'
 
 interface StaticPreviewSettings {
   absoluteWeight: boolean

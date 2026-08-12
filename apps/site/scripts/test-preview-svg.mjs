@@ -60,11 +60,6 @@ test('only actual-size mode changes copied size while all modes retain weight', 
     size: 80,
     weight: 1.5,
   })
-  assert.deepEqual(resolveStaticPreviewSettings('motion', 80, 1.5, true), {
-    absoluteWeight: false,
-    size: 24,
-    weight: 1.5,
-  })
 })
 
 test('copied SVG applies absolute weight to strokes and solid primitives', () => {

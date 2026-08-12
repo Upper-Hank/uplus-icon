@@ -36,13 +36,23 @@ import CheckIcon from '@uplus-icon/react/icons/check'
 <CheckIcon size={24} />
 ```
 
-首个公开版本仅开放静态具名组件和单图标路径。
+## 名称渲染
+
+当图标名称来自导航数据、配置、CMS 内容或其他运行时来源时，使用显式动态入口。
+
+```tsx
+import { Icon } from '@uplus-icon/react/dynamic'
+
+<Icon name="check" size={24} />
+```
+
+`name` 使用 `IconName` 类型。该入口包含完整 definition 注册表，因此固定 UI 仍必须使用具名组件或逐图标导入。
 
 ## 公共属性
 
-跨框架默认值见[公共 API](/docs/api)。v1 使用单一 `24×24` 母版，不提供 `opticalSize`。
+共享默认值见[公共 API](/docs/api)。v1 使用单一 `24×24` 母版，不提供 `opticalSize`。
 
-React 的 props 是共享公共能力在 React 中的惯用表达，不构成 React 专属能力。对应行为必须能由 Web factory options 或 `attributes` 等价表达。
+React props、标准 SVG 属性和 ref 共同构成公共渲染接口。
 
 | 属性 | 类型 | 默认值 | 行为 |
 | --- | --- | --- | --- |

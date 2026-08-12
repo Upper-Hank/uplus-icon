@@ -31,7 +31,6 @@ export interface IconMotionTransition {
 }
 
 export interface IconMotionCapabilities {
-  generic: readonly string[]
   semantic: readonly string[]
   transitions: readonly IconMotionTransition[]
 }

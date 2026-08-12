@@ -17,7 +17,7 @@ locale: zh-CN
 2. 运行生成并确认 Raw SVG diff 为空。
 3. 运行类型检查、包构建、站点构建、消费者、保真和包体测试。
 4. 审核 Changeset、Changelog 和弃用说明。
-5. 按 Core → React/Web → Site 的依赖顺序发布。
+5. 按 Core → React → Site 的依赖顺序发布。
 
 - **必须**为失败门禁停止发布。
 - **禁止**为了通过门禁自动修复或覆盖 SVG。

@@ -14,7 +14,6 @@ const subgroupsFile = join(sourceRoot, 'metadata', 'subgroups.json')
 const outputRoots = {
   core: join(workspaceRoot, 'packages', 'core', 'src', 'generated'),
   react: join(workspaceRoot, 'packages', 'react', 'src', 'generated'),
-  web: join(workspaceRoot, 'packages', 'web', 'src', 'generated'),
 }
 const temporaryRoots = Object.fromEntries(
   Object.entries(outputRoots).map(([name, path]) => [name, `${path}.tmp`]),
@@ -233,11 +232,11 @@ for (const file of files) {
     typeof details.description.zh !== 'string' || !details.description.zh.trim()
   )) throw new Error(`Metadata field ${name}.description must contain non-empty en and zh strings`)
   if (details.motion !== undefined) {
-    const { generic, semantic, transitions } = details.motion
-    if (!Array.isArray(generic) || !Array.isArray(semantic) || !Array.isArray(transitions)) {
-      throw new Error(`Metadata field ${name}.motion must contain generic, semantic, and transitions arrays`)
+    const { semantic, transitions } = details.motion
+    if (!Array.isArray(semantic) || !Array.isArray(transitions)) {
+      throw new Error(`Metadata field ${name}.motion must contain semantic and transitions arrays`)
     }
-    if ([...generic, ...semantic].some((value) => typeof value !== 'string' || !value.trim())) {
+    if (semantic.some((value) => typeof value !== 'string' || !value.trim())) {
       throw new Error(`Metadata field ${name}.motion capabilities must be non-empty strings`)
     }
     if (transitions.some((entry) => typeof entry !== 'object' || entry === null || typeof entry.to !== 'string' || !entry.to || typeof entry.name !== 'string' || !entry.name)) {
@@ -305,13 +304,11 @@ const catalog = icons.map(({ body: _body, viewBox: _viewBox, ...entry }) => entr
 await writeFile(join(temporaryRoots.core, 'metadata.ts'), `${generatedNotice}import type { PublicIconMeta } from '../types.js'\n\nexport const iconMeta: readonly PublicIconMeta[] = ${JSON.stringify(catalog, null, 2)}\n`)
 
 await writeFile(join(temporaryRoots.react, 'components.ts'), `${generatedNotice}${icons.map(({ name, componentName }) => `export { ${componentName} } from './icons/${name}.js'`).join('\n')}\n`)
-await writeFile(join(temporaryRoots.web, 'components.ts'), `${generatedNotice}${icons.map(({ name, componentName }) => `export { ${componentName} } from './icons/${name}.js'`).join('\n')}\n`)
 
 for (const { name, componentName, viewBox, body } of icons) {
   const definition = JSON.stringify({ name, viewBox, body }, null, 2)
   await writeFile(join(temporaryRoots.core, 'icons', `${name}.ts`), `${generatedNotice}import type { IconDefinition } from '../../types.js'\n\nconst icon = ${definition} as const satisfies IconDefinition\n\nexport default icon\n`)
   await writeFile(join(temporaryRoots.react, 'icons', `${name}.tsx`), `${generatedNotice}import icon from '@uplus-icon/core/icons/${name}'\nimport { createIcon } from '../../createIcon.js'\n\nexport const ${componentName} = createIcon(icon)\nexport default ${componentName}\n`)
-  await writeFile(join(temporaryRoots.web, 'icons', `${name}.ts`), `${generatedNotice}import icon from '@uplus-icon/core/icons/${name}'\nimport { createIcon } from '../../createIcon.js'\nimport type { IconOptions } from '../../types.js'\n\nexport const ${componentName} = (options: IconOptions = {}) => createIcon(icon, options)\nexport default ${componentName}\n`)
 }
 
 for (const [name, path] of Object.entries(outputRoots)) {
@@ -319,4 +316,4 @@ for (const [name, path] of Object.entries(outputRoots)) {
   await rename(temporaryRoots[name], path)
 }
 
-console.log(`Generated ${icons.length} icons for core, React, and Web without altering SVG sources`)
+console.log(`Generated ${icons.length} icons for Core and React without altering SVG sources`)

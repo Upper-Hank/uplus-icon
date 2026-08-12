@@ -267,12 +267,6 @@
       "notification"
     ],
     "motion": {
-      "generic": [
-        "fade",
-        "scale",
-        "blur",
-        "draw"
-      ],
       "semantic": [
         "ring"
       ],
@@ -1879,12 +1873,6 @@
       "favorite"
     ],
     "motion": {
-      "generic": [
-        "fade",
-        "scale",
-        "blur",
-        "draw"
-      ],
       "semantic": [
         "beat"
       ],
@@ -3084,12 +3072,6 @@
       "reload"
     ],
     "motion": {
-      "generic": [
-        "fade",
-        "scale",
-        "blur",
-        "draw"
-      ],
       "semantic": [
         "rotate"
       ],

@@ -3,9 +3,7 @@ import test from 'node:test'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { ObjectAlignJustifyIcon, PlusIcon, QrCodeIcon, TextareaIcon } from '../../react/dist/index.js'
-import { createIcon as createWebIcon } from '../../web/dist/createIcon.js'
 import { applyIconWeight, resolveIconWeight, resolveIconWeightScale } from '../../core/dist/weight.js'
-import plusDefinition from '../../core/dist/generated/icons/plus.js'
 import objectAlignJustifyDefinition from '../../core/dist/generated/icons/object-align-justify.js'
 import qrCodeDefinition from '../../core/dist/generated/icons/qr-code.js'
 import textareaDefinition from '../../core/dist/generated/icons/textarea.js'
@@ -117,128 +115,18 @@ test('React weight renders transformed geometry and preserves caller styles', ()
   assert.doesNotMatch(styled, /--uplus-icon-/)
 })
 
-test.skip('React dynamic icons render known names and ignore unknown runtime names', async () => {
+test('React dynamic icons render known names and ignore unknown runtime names', async () => {
   const { Icon: ReactIcon } = await import('../../react/dist/dynamic.js')
   assert.match(renderToStaticMarkup(createElement(ReactIcon, { name: 'plus' })), /<svg/)
   assert.equal(renderToStaticMarkup(createElement(ReactIcon, { name: 'missing-at-runtime' })), '')
 })
 
-class FakeStyle {
-  properties = new Map()
-
-  setProperty(name, value) {
-    this.properties.set(name, String(value))
-  }
-
-  getPropertyValue(name) {
-    return this.properties.get(name) ?? ''
-  }
-}
-
-class FakeElement {
-  constructor(tagName = 'element') {
-    this.tagName = tagName
-  }
-
-  attributes = new Map()
-  children = []
-  style = new FakeStyle()
-  innerHTML = ''
-  textContent = ''
-  isConnected = false
-
-  setAttribute(name, value) {
-    this.attributes.set(name, String(value))
-  }
-
-  getAttribute(name) {
-    return this.attributes.get(name) ?? null
-  }
-
-  hasAttribute(name) {
-    return this.attributes.has(name)
-  }
-
-  append(...children) {
-    this.children.push(...children)
-  }
-
-  replaceChildren(...children) {
-    this.children = [...children]
-  }
-}
-
-class FakeHTMLElement extends FakeElement {
-  constructor() {
-    super('uplus-icon')
-  }
-}
-
-const registeredElements = new Map()
-globalThis.document = {
-  createElementNS(_namespace, tagName) {
-    return new FakeElement(tagName)
-  },
-}
-globalThis.HTMLElement = FakeHTMLElement
-globalThis.customElements = {
-  define(name, constructor) {
-    if (registeredElements.has(name)) throw new Error(`Custom element already registered: ${name}`)
-    registeredElements.set(name, constructor)
-  },
-  get(name) {
-    return registeredElements.get(name)
-  },
-}
-
-test('Web factories create decorative and labelled SVG elements', () => {
-  const decorative = createWebIcon(plusDefinition)
-  assert.equal(decorative.getAttribute('width'), '24')
-  assert.equal(decorative.getAttribute('height'), '24')
-  assert.equal(decorative.getAttribute('aria-hidden'), 'true')
-  assert.equal(decorative.getAttribute('role'), null)
-
-  const labelled = createWebIcon(plusDefinition, {
-    size: '1em',
-    weight: 1.5,
-    title: 'Complete',
-    ariaLabel: 'Completion state',
-    className: 'status-icon',
-    attributes: { focusable: 'false', 'data-testid': 'plus' },
-  })
-
-  assert.equal(labelled.getAttribute('width'), '1em')
-  assert.equal(labelled.getAttribute('height'), '1em')
-  assert.equal(labelled.getAttribute('role'), 'img')
-  assert.equal(labelled.getAttribute('aria-label'), 'Completion state')
-  assert.equal(labelled.getAttribute('aria-hidden'), null)
-  assert.equal(labelled.getAttribute('class'), 'status-icon')
-  assert.equal(labelled.getAttribute('focusable'), 'false')
-  assert.equal(labelled.getAttribute('data-testid'), 'plus')
-  assert.equal(labelled.children[0].tagName, 'title')
-  assert.equal(labelled.children[0].textContent, 'Complete')
-  assert.equal(labelled.children[1].tagName, 'g')
-  assert.equal(labelled.children[1].innerHTML, applyIconWeight(plusDefinition.body, { weight: 1.5 }))
-  assert.match(labelled.children[1].innerHTML, /stroke-width="1.5"/)
-})
-
-test('React and Web apply identical relative and absolute weight geometry', () => {
-  const reactMarkup = renderToStaticMarkup(createElement(PlusIcon, { absoluteWeight: true, size: 48, weight: 1.25 }))
-  const reactBody = reactMarkup.match(/<g>([\s\S]*?)<\/g>/)?.[1]
-  const webBody = createWebIcon(plusDefinition, { absoluteWeight: true, size: 48, weight: 1.25 }).children[0].innerHTML
-
-  assert.equal(reactBody, webBody)
-  assert.equal(webBody, applyIconWeight(plusDefinition.body, { absoluteWeight: true, size: 48, weight: 1.25 }))
-})
-
-test('textarea anchored handle is identical across React and Web at supported weights', () => {
+test('textarea anchored handle renders the audited geometry at supported weights', () => {
   for (const weight of [0.5, 1.5, 2]) {
     const reactMarkup = renderToStaticMarkup(createElement(TextareaIcon, { weight }))
     const reactBody = reactMarkup.match(/<g>([\s\S]*?)<\/g>/)?.[1]
-    const webBody = createWebIcon(textareaDefinition, { weight }).children[0].innerHTML
     const expected = applyIconWeight(textareaDefinition.body, { name: 'textarea', weight })
     assert.equal(reactBody, expected)
-    assert.equal(webBody, expected)
     if (weight === 2) assert.doesNotMatch(expected, /translate\(19 17\)/)
     else {
       const solidScale = String(Number((((weight + 1) / 3)).toFixed(4)))
@@ -249,30 +137,26 @@ test('textarea anchored handle is identical across React and Web at supported we
   const options = { absoluteWeight: true, size: 48, weight: 1.5 }
   const reactMarkup = renderToStaticMarkup(createElement(TextareaIcon, options))
   const reactBody = reactMarkup.match(/<g>([\s\S]*?)<\/g>/)?.[1]
-  const webBody = createWebIcon(textareaDefinition, options).children[0].innerHTML
-  assert.equal(reactBody, webBody)
-  assert.match(webBody, /translate\(19 17\) scale\(0.4167\) translate\(-19 -17\)/)
+  assert.equal(reactBody, applyIconWeight(textareaDefinition.body, { name: 'textarea', ...options }))
+  assert.match(reactBody, /translate\(19 17\) scale\(0.4167\) translate\(-19 -17\)/)
 })
 
-test('qr-code finder squares are identical across React and Web at supported weights', () => {
+test('qr-code finder squares render the audited geometry at supported weights', () => {
   for (const weight of [0.5, 1.5, 2]) {
     const reactMarkup = renderToStaticMarkup(createElement(QrCodeIcon, { weight }))
     const reactBody = reactMarkup.match(/<g>([\s\S]*?)<\/g>/)?.[1]
-    const webBody = createWebIcon(qrCodeDefinition, { weight }).children[0].innerHTML
     const expected = applyIconWeight(qrCodeDefinition.body, { name: 'qr-code', weight })
     assert.equal(reactBody, expected)
-    assert.equal(webBody, expected)
   }
 
   const options = { absoluteWeight: true, size: 48, weight: 1.5 }
   const reactMarkup = renderToStaticMarkup(createElement(QrCodeIcon, options))
   const reactBody = reactMarkup.match(/<g>([\s\S]*?)<\/g>/)?.[1]
-  const webBody = createWebIcon(qrCodeDefinition, options).children[0].innerHTML
-  assert.equal(reactBody, webBody)
-  assert.match(webBody, /translate\(7 7\) scale\(0\.4167\) translate\(-7 -7\)/)
+  assert.equal(reactBody, applyIconWeight(qrCodeDefinition.body, { name: 'qr-code', ...options }))
+  assert.match(reactBody, /translate\(7 7\) scale\(0\.4167\) translate\(-7 -7\)/)
 })
 
-test('object alignment paths keep every endpoint across React and Web', () => {
+test('object alignment paths keep every source endpoint', () => {
   const sourcePaths = [...objectAlignJustifyDefinition.body.matchAll(/ d="([^"]+)"/g)].map((match) => match[1])
 
   for (const options of [
@@ -283,36 +167,9 @@ test('object alignment paths keep every endpoint across React and Web', () => {
   ]) {
     const reactMarkup = renderToStaticMarkup(createElement(ObjectAlignJustifyIcon, options))
     const reactBody = reactMarkup.match(/<g>([\s\S]*?)<\/g>/)?.[1]
-    const webBody = createWebIcon(objectAlignJustifyDefinition, options).children[0].innerHTML
-    const weightedPaths = [...webBody.matchAll(/ d="([^"]+)"/g)].map((match) => match[1])
-    assert.equal(reactBody, webBody)
+    assert.ok(reactBody)
+    const weightedPaths = [...reactBody.matchAll(/ d="([^"]+)"/g)].map((match) => match[1])
     assert.deepEqual(weightedPaths, sourcePaths)
-    assert.doesNotMatch(webBody, /transform=/)
+    assert.doesNotMatch(reactBody, /transform=/)
   }
-})
-
-test.skip('Web Component registration and attribute rerendering stay deterministic', async () => {
-  const { UplusIconElement, registerIconElement } = await import('../../web/dist/element.js')
-  assert.equal(customElements.get('uplus-icon'), UplusIconElement)
-
-  registerIconElement('uplus-status-icon')
-  registerIconElement('uplus-status-icon')
-  assert.equal(customElements.get('uplus-status-icon'), UplusIconElement)
-
-  const element = new UplusIconElement()
-  element.setAttribute('name', 'plus')
-  element.setAttribute('size', '18')
-  element.setAttribute('weight', '0')
-  element.setAttribute('aria-label', 'Complete')
-  element.isConnected = true
-  element.connectedCallback()
-
-  assert.equal(element.children.length, 1)
-  assert.equal(element.children[0].getAttribute('width'), '18')
-  assert.equal(element.children[0].getAttribute('aria-label'), 'Complete')
-  assert.match(element.children[0].children[0].innerHTML, /stroke-width="0.5"/)
-
-  element.setAttribute('name', 'unknown-at-runtime')
-  element.attributeChangedCallback()
-  assert.equal(element.children.length, 0)
 })

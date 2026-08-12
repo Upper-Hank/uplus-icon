@@ -29,7 +29,7 @@ for (const path of ['/', '/icons', '/guide', '/docs', '/changelog', ...Object.ke
   assert(sitemap.includes(`<loc>https://icon.upper.website${path}</loc>`), `Sitemap is missing ${path}`)
 }
 for (const path of ['/docs/motion-api', '/docs/motion-authoring']) {
-  assert(!sitemap.includes(`<loc>https://icon.upper.website${path}</loc>`), `First release sitemap exposes ${path}`)
+  assert(!sitemap.includes(`<loc>https://icon.upper.website${path}</loc>`), `Current release sitemap exposes ${path}`)
 }
 
 const sourceSitemap = await readFile(join(publicRoot, 'sitemap.xml'), 'utf8')
@@ -49,7 +49,7 @@ for (const file of javascriptFiles) {
   const size = (await stat(join(distRoot, 'assets', file))).size
   assert(size < 500_000, `${file} is ${size} bytes and exceeds the 500 kB production chunk limit`)
   for (const marker of ['Motion preview', '动画预览', 'motion-api', 'motion-authoring']) {
-    assert(!source.includes(marker), `${file} exposes first-release Motion content: ${marker}`)
+    assert(!source.includes(marker), `${file} exposes current-release Motion content: ${marker}`)
   }
 }
 

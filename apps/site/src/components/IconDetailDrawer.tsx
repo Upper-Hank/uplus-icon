@@ -15,7 +15,7 @@ interface IconDetailDrawerProps {
 }
 
 type CopyTarget = 'name' | 'usage'
-type UsageFormat = 'core' | 'react' | 'svg' | 'web'
+type UsageFormat = 'core' | 'react' | 'svg'
 
 export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const { language } = useI18n()
@@ -50,20 +50,12 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
   const reactSnippet = `import { ${component} } from '@uplus-icon/react'\n\n<${component}${sizeProp}${weightProp}${absoluteWeightProp}${colorProp} />`
   const coreSnippet = `import icon from '@uplus-icon/core/icons/${name}'\n\nicon`
   const svgSource = definition ? createPreviewSvg({ definition, ...staticPreview, color: previewColor ?? undefined }) : ''
-  const webOptions = [
-    effectiveSize === 24 ? '' : `size: ${effectiveSize}`,
-    weight === 2 ? '' : `weight: ${weight}`,
-    effectiveAbsoluteWeight ? 'absoluteWeight: true' : '',
-    previewColor ? `attributes: { color: '${previewColor}' }` : '',
-  ].filter(Boolean).join(', ')
-  const webSnippet = `import { ${component} } from '@uplus-icon/web'\n\ndocument.body.append(${component}(${webOptions ? `{ ${webOptions} }` : ''}))`
-  const usage = { core: coreSnippet, react: reactSnippet, svg: svgSource, web: webSnippet }[usageFormat]
-  const usageLabel = { core: 'Core', react: 'React', svg: 'SVG', web: 'Web' }[usageFormat]
+  const usage = { core: coreSnippet, react: reactSnippet, svg: svgSource }[usageFormat]
+  const usageLabel = { core: 'Core', react: 'React', svg: 'SVG' }[usageFormat]
   const usageOptions = [
     { value: 'svg', label: 'SVG', content: 'SVG' },
     { value: 'core', label: 'Core', content: 'Core' },
     { value: 'react', label: 'React', content: 'React' },
-    { value: 'web', label: 'Web Component', content: 'Web' },
   ] as const
   const renderingType = definition
     ? definition.body.includes('stroke=') && definition.body.includes('fill="currentColor"') ? 'Mixed'

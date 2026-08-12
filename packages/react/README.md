@@ -15,7 +15,15 @@ For the smallest explicit import path:
 import CheckIcon from '@uplus-icon/react/icons/check'
 ```
 
-The first public release exposes named and per-icon static components only.
+For data-driven names, use the explicit registry entry:
+
+```tsx
+import { Icon } from '@uplus-icon/react/dynamic'
+
+<Icon name="check" />
+```
+
+The dynamic entry includes the complete definition registry. Fixed UI should keep named or per-icon imports for smaller bundles.
 
 `weight` is clamped to `0.5–2` and defaults to `2`; strokes use `weight / 2` while supported solid details use the continuous `(weight + 1) / 3` scale. `absoluteWeight` applies `24 / size` to both mappings for numeric sizes; string sizes safely use relative weight.
 

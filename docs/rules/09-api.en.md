@@ -2,12 +2,24 @@
 slug: api
 order: 9
 group: usage
-title: Static public API
-description: Sizing, weight, color, and cross-runtime parity
+title: Public API
+description: Static and name-based rendering, sizing, weight, color, and accessibility
 locale: en
 ---
 
-## v1 API
+## Rendering paths
+
+Use named components for fixed UI and the explicit `dynamic` entry for data-driven names. Both paths resolve the same generated Core Definition. The static root and per-icon entries never import the full registry.
+
+```tsx
+import { CheckIcon } from '@uplus-icon/react'
+import { Icon } from '@uplus-icon/react/dynamic'
+
+<CheckIcon />
+<Icon name="check" />
+```
+
+## Base API
 
 ```ts
 type IconProps = {
@@ -19,15 +31,13 @@ type IconProps = {
 
 `size` defaults to `24` and changes only the rendered width and height.
 
-## Cross-framework capability parity
+## React public behavior
 
-Every user-facing framework package follows “same capabilities, platform-native syntax.” React and Web must expose the same public capability set: static icons, sizing, color, weight, accessibility, and native extension points for each platform.
+The React package exposes static icons, sizing, color, weight, accessibility, standard SVG attributes, and refs.
 
-- **MUST** produce equivalent SVG behavior and accessibility results from the same input semantics in React and Web.
-- **MUST** limit differences to platform-native expression: React uses component props, standard SVG props, and refs; Web uses DOM factory options and `attributes`, returning a real `SVGSVGElement`.
-- **MUST NOT** add a public icon capability to only one user-facing framework package; capability changes require a React and Web parity review.
+- **MUST** use component props, standard SVG props, and refs as the public runtime interface.
 - **MUST NOT** expose private design sources, import scripts, or generation tools as user APIs.
-- **MUST**, if dynamic entry points are published later, keep React and Web dynamic capabilities aligned and expose them as explicit independent entries so static entries never carry the full registry implicitly.
+- **MUST** keep name-based rendering under the explicit `dynamic` entry so static entries never carry the full registry implicitly.
 
 ## Weight
 
@@ -37,14 +47,13 @@ Only audited solid paths use the same `solidScale`: the `textarea` handle scales
 
 `absoluteWeight` defaults to `false`. With a finite positive numeric `size`, the runtime separately calculates `strokeScale = (weight ÷ 2) × (24 ÷ size)` and `solidScale = ((weight + 1) ÷ 3) × (24 ÷ size)`. Strokes and supported solid details therefore keep their CSS-pixel sizes under their respective continuous mappings. String sizes such as `em`, `%`, and `calc()` cannot be resolved deterministically during SSR and therefore safely use relative weight.
 
-- **MUST** keep React and Web factory behavior aligned.
 - **MUST** clamp runtime `weight` to `0.5–2`; non-finite values fall back to `2`.
 - **MUST** apply absolute weight to strokes and supported solid primitives together; it must never be a stroke-only `vector-effect` shortcut.
 - **MUST NOT** select, generate, or mutate another source SVG because of size or weight props.
 
 ## Color and attributes
 
-Strokes and limited solid details inherit `currentColor`. React accepts standard SVG attributes and refs; the Web factory accepts an explicit attribute map. A per-icon import must not pull in the internal icon registry.
+Strokes and limited solid details inherit `currentColor`. React accepts standard SVG attributes and refs. A per-icon import must not pull in the internal icon registry.
 
 ## Accessibility
 

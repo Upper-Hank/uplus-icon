@@ -33,7 +33,7 @@ Uplus Icon 是 Uplus 的官方图标系统，包含 React 图标组件库和配�
 
 - 带背景、网格、参考框、中心线或其他辅助线的设计稿不是正式真源，必须先在仓库外完成清理和审核。
 - 正式设计真源使用透明背景，视觉颜色只使用固定 `black` 与 `none`；`currentColor` 只存在于生成后的运行时定义和发布产物中。
-- Core、React、Web 和网站只能消费适配后的 `currentColor` 定义，不得直接发布或运行时消费固定黑色真源，也不得维护第二份人工 SVG。
+- Core、React、Motion 和网站只能消费适配后的 `currentColor` 定义，不得直接发布或运行时消费固定黑色真源，也不得维护第二份人工 SVG。
 - 天然线条优先保留 `stroke`，不得为了生成包体而统一转成填充轮廓。
 - 允许基础 SVG 图形和已经烘焙进 path 的复合几何；正式真源不得依赖运行时 `mask`、`clipPath`、`filter`、外部资源或脚本。
 - 不能安全消除的遮罩、裁剪或布尔结构必须停止导入，等待负责人提供成熟文件或明确授权处理。
@@ -46,7 +46,6 @@ Uplus Icon 是 Uplus 的官方图标系统，包含 React 图标组件库和配�
 - `packages/icons/scripts`：只读处理 SVG 并生成代码的私有工具包。
 - `packages/core`：框架无关的类型、元数据和 SVG definition 公共包。
 - `packages/react`：React 组件和公共 API。
-- `packages/web`：原生 DOM API 和 Web Component 公共包。
 - `packages/*/src/generated`：由生成脚本产生的代码，不手工编辑。
 - `packages/*/dist`：构建产物，不作为源代码直接维护。
 - `apps/site`：图标库文档和展示网站。

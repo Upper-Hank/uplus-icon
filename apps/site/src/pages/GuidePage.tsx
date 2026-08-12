@@ -55,9 +55,9 @@ export function AddAction() {
                 onClick={() => navigate('/docs/react')}
               />
               <GuideLink
-                title={zh ? 'Web 使用' : 'Web usage'}
-                description={zh ? '原生单图标 DOM API。' : 'Native per-icon DOM APIs.'}
-                onClick={() => navigate('/docs/web')}
+                title={zh ? 'API 与导入' : 'API and imports'}
+                description={zh ? '公共入口、按需加载和类型边界。' : 'Public entries, tree shaking, and type boundaries.'}
+                onClick={() => navigate('/docs/api')}
               />
               <GuideLink
                 title={zh ? '可访问性' : 'Accessibility'}

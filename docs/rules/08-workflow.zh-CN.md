@@ -39,7 +39,6 @@ locale: zh-CN
 ```text
 @uplus-icon/core
 @uplus-icon/react
-@uplus-icon/web
 ```
 
 - **必须**让所有包共享同一 Core Definition。
@@ -72,7 +71,7 @@ npm run check
 至少确认：
 
 - **必须**通过 SVG 结构、元数据和生成数量检查。
-- **必须**通过 Core、React、Web 和网站构建。
+- **必须**通过 Core、React 和网站构建。
 - **必须**通过 SVG 保真、逐图标体积和真实消费者安装测试。
 - **必须**确认生成流程没有写入未经授权的 raw SVG。
 - **应该**在浏览器中检查图标详情、主题、网格、尺寸和重量控制。

@@ -20,7 +20,6 @@ const docRoutes: Record<string, DocSlug> = {
   '/docs/workflow': 'workflow',
   '/docs/api': 'api',
   '/docs/react': 'react',
-  '/docs/web': 'web',
   '/docs/accessibility': 'accessibility',
   '/docs/testing': 'testing',
   '/docs/versioning': 'versioning',

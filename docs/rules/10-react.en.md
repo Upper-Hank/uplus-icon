@@ -36,13 +36,23 @@ import CheckIcon from '@uplus-icon/react/icons/check'
 <CheckIcon size={24} />
 ```
 
-The first public release exposes static named components and per-icon paths only.
+## Name-based rendering
+
+Use the explicit dynamic entry when an icon name comes from navigation data, configuration, CMS content, or another runtime source.
+
+```tsx
+import { Icon } from '@uplus-icon/react/dynamic'
+
+<Icon name="check" size={24} />
+```
+
+`name` is typed as `IconName`. This entry contains the complete definition registry, so fixed UI must continue to use a named component or per-icon import.
 
 ## Public props
 
-See the [Public API](/docs/api) for cross-framework defaults. v1 uses one `24×24` master and has no `opticalSize` prop.
+See the [Public API](/docs/api) for shared defaults. v1 uses one `24×24` master and has no `opticalSize` prop.
 
-React props are the idiomatic React expression of the shared public capability set, not React-only capabilities. Equivalent behavior must remain expressible through Web factory options or `attributes`.
+React props, standard SVG attributes, and refs form the public rendering interface.
 
 | Prop | Type | Default | Behavior |
 | --- | --- | --- | --- |

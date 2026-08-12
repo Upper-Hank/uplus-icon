@@ -3,13 +3,13 @@ slug: motion-authoring
 order: 13
 group: motion
 title: Motion authoring
-description: data-part semantics, timing, transition pairs, and motion review
+description: Whole-icon rules, data-part semantics, timing, capability registration, and motion review
 locale: en
 ---
 
 ## Semantic parts
 
-Motion builds depend on stable kebab-case `data-part` values and never global `id` attributes. Parts describe structural roles such as `body`, `handle`, or `indicator`, not a particular animation.
+All initial rules target the complete SVG and require no `data-part`. Motion depends on stable `data-part` values only when a future rule genuinely moves an internal part independently. Part names use kebab-case, never global `id`, and describe structural roles such as `body`, `handle`, or `indicator`, not one animation.
 
 - **MUST** preserve path order, layering, and part relationships.
 - **MUST NOT** rename, split, or merge parts in a non-breaking release.
@@ -28,7 +28,9 @@ Whole-icon motion needs no part marker. Add `data-part` only when a portion need
 
 Prefer transforms and opacity over continuous complex path rewrites. Origins, direction, and overshoot must match the represented object. Loops require an explicit stop condition and must not consume resources indefinitely in the background.
 
-Generic metadata uses base capability IDs: `fade`, `scale`, `blur`, and `draw`. Enter or exit direction is a Motion API option rather than a duplicated capability. Semantic motion uses stable action IDs such as `ring`, `beat`, and `rotate`. Keyframes, duration, easing, and selectors live only in the Motion package.
+Generic `fade`, `scale`, and `blur` capabilities are global rules and are not implemented per icon. Enter or exit direction is a Motion API option. Semantic capability IDs must be registered in both metadata and the Motion rule map, such as `bell:ring`, `heart:beat`, and `refresh:rotate`. Keyframes, duration, easing, and selectors live only in the Motion package.
+
+Adding a semantic rule requires its implementation, metadata declaration, type-map entry, English and Chinese rule documentation, site selector exposure, and tests. A partial addition is not publishable.
 
 ## Transitions
 
@@ -36,4 +38,4 @@ Each pair records start, end, part mapping, and incompatible fallback. If geomet
 
 ## Review matrix
 
-Review normal playback, pause, reverse, rapid retriggering, light/dark themes, and reduced motion. The final state must match the static icon.
+Review normal playback, pause, reverse, rapid retriggering, loop cleanup, unmount cleanup, light/dark themes, and reduced motion. The final state must match the static icon, and the site preview must use the public Motion package rather than a private implementation.

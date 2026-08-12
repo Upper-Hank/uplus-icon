@@ -36,7 +36,7 @@ npm run check
 ## 代码贡献
 
 - 保持实现简单、清晰且向后兼容。
-- 不手工编辑 `packages/core/src/generated`、`packages/react/src/generated` 或 `packages/web/src/generated`。
+- 不手工编辑 `packages/core/src/generated` 或 `packages/react/src/generated`。
 - 修改生成逻辑后运行 `npm run generate` 并提交生成结果。
 - 新行为应包含与风险相称的测试或验证。
 

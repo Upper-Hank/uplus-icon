@@ -15,7 +15,7 @@ Uplus Icon is a linear icon system for product interfaces. It must preserve visu
 - **MUST** keep categories, tags, aliases, and release status in `packages/icons/metadata`, never inside SVG files.
 - **SHOULD** prefer simple, reproducible engineering that the build can verify.
 - **MAY** add framework packages when a real consumer requires them, but every package must consume the same Core Definition.
-- **MUST NOT** maintain a second hand-copied artwork set in the site, React package, or Web package.
+- **MUST NOT** maintain a second hand-copied artwork set in the site or React package.
 
 ## Rule levels
 
@@ -57,7 +57,7 @@ Metadata defines names, titles, categories, tags, aliases, deprecation, and vers
 approved SVG + metadata
   → validation
   → @uplus-icon/core
-  → @uplus-icon/react / @uplus-icon/web
+  → @uplus-icon/react
   → documentation / product code
 ```
 

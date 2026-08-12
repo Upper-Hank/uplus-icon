@@ -2,12 +2,24 @@
 slug: api
 order: 9
 group: usage
-title: 静态公共 API
-description: 尺寸、重量、颜色与跨框架一致性
+title: 公共 API
+description: 静态与名称渲染、尺寸、重量、颜色和无障碍
 locale: zh-CN
 ---
 
-## v1 API
+## 渲染路径
+
+固定 UI 使用具名组件，数据驱动名称使用显式 `dynamic` 入口。两条路径解析同一份生成后的 Core Definition；静态根入口和逐图标入口不会导入完整注册表。
+
+```tsx
+import { CheckIcon } from '@uplus-icon/react'
+import { Icon } from '@uplus-icon/react/dynamic'
+
+<CheckIcon />
+<Icon name="check" />
+```
+
+## 基础 API
 
 ```ts
 type IconProps = {
@@ -19,15 +31,13 @@ type IconProps = {
 
 `size` 默认 `24`，只改变最终宽高。
 
-## 跨框架能力一致
+## React 公共行为
 
-所有面向用户的框架包遵循“能力一致、写法不同”。React 与 Web 必须提供同一组公共能力：静态图标、尺寸、颜色、重量、无障碍，以及各自平台的原生扩展入口。
+React 包提供静态图标、尺寸、颜色、重量、无障碍、标准 SVG 属性和 ref。
 
-- **必须**让同一输入语义在 React 与 Web 中产生等价的 SVG 行为和无障碍结果。
-- **必须**把差异限制在平台惯用表达：React 使用组件 props、标准 SVG props 与 `ref`；Web 使用 DOM factory options、`attributes` 并返回真实 `SVGSVGElement`。
-- **禁止**仅在一个面向用户的框架包中增加公共图标能力；能力变化必须同时评估 React 与 Web。
+- **必须**使用组件 props、标准 SVG props 与 `ref` 作为公共运行时接口。
 - **禁止**把私有设计真源、导入脚本或生成工具作为用户 API 暴露。
-- **必须**在未来发布动态入口时，让 React 与 Web 的动态能力继续对齐，并使用显式、独立的入口，不能让静态入口隐式携带完整注册表。
+- **必须**让名称渲染只通过显式 `dynamic` 入口开放，不能让静态入口隐式携带完整注册表。
 
 ## 重量
 
@@ -37,14 +47,13 @@ type IconProps = {
 
 `absoluteWeight` 默认值为 `false`。当它与有限正数 `size` 同时使用时，运行时分别计算 `strokeScale = (weight ÷ 2) × (24 ÷ size)` 与 `solidScale = ((weight + 1) ÷ 3) × (24 ÷ size)`。因此描边和受支持的实心细节都保持各自连续映射下的 CSS 像素尺寸。`em`、`%`、`calc()` 等字符串尺寸无法在 SSR 中确定解析，因此安全回退为相对重量。
 
-- **必须**让 React 与 Web 工厂具有相同行为。
 - **必须**把运行时 `weight` 收敛在 `0.5–2`，非有限值回退为 `2`。
 - **必须**让绝对重量同步作用于描边和受支持的实心基础几何；禁止仅靠描边 `vector-effect` 实现。
 - **禁止**因 `size` 或重量参数选择、生成或修改另一份源 SVG。
 
 ## 颜色与属性
 
-描边和少量实心细节统一继承 `currentColor`。React 接受标准 SVG 属性和 `ref`；Web 工厂接受显式属性映射。单图标导入不得带入内部图标注册表。
+描边和少量实心细节统一继承 `currentColor`。React 接受标准 SVG 属性和 `ref`。单图标导入不得带入内部图标注册表。
 
 ## 无障碍
 

@@ -78,12 +78,11 @@ Each metadata key maps one-to-one to a canonical SVG filename.
 - **MUST** make every `related` and `variants` target resolve to an approved icon name.
 - **MUST NOT** let an icon reference itself as a relation or variant.
 
-## Structural parts and Motion
+## Structural parts
 
-`parts` only declares stable structural parts that already exist in the SVG; it cannot create or correct geometry. Submit `parts` only when the SVG contains `data-part`, and list every value in exact document order. `motion` only declares implemented and reviewed capabilities; it never stores keyframes, duration, easing, selectors, or path data.
+`parts` only declares stable structural parts that already exist in the SVG; it cannot create or correct geometry. Submit `parts` only when the SVG contains `data-part`, and list every value in exact document order.
 
-- **MUST NOT** prefill `parts` or `motion` for a possible future animation.
-- **MUST** implement and review a Motion capability before declaring it.
+- **MUST NOT** prefill `parts` for a possible future feature.
 - **MUST** make generation reject a part list that differs between SVG and metadata.
 
 ## Status and versions

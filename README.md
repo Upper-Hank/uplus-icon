@@ -16,7 +16,7 @@ Consistent SVG icons, type-safe React components, and a focused browser for find
 
 ## About
 
-Uplus Icon is an open-source icon system for modern products. It brings carefully selected SVG assets, framework-neutral icon data, React components, native Web APIs, and a documentation site into one repository.
+Uplus Icon is an open-source icon system for modern products. It brings carefully selected SVG assets, framework-neutral icon data, React components, and a documentation site into one repository.
 
 The project values clarity, visual consistency, accessibility, and predictable production behavior. Raw SVG assets are reviewed and supplied by the maintainer; the build pipeline reads them without rewriting their visual data.
 
@@ -25,8 +25,8 @@ The project values clarity, visual consistency, accessibility, and predictable p
 - Modern, consistent SVG icons for user interfaces
 - Framework-neutral SVG definitions and searchable metadata
 - Type-safe React components with ref forwarding
-- Native per-icon DOM helpers
 - Static per-icon imports for small production bundles
+- Explicit name-based rendering for data-driven interfaces
 - Standard SVG props with source-faithful rendering
 - Accessible decorative and labelled icon behavior
 - Separate metadata for search, categories, tags, and aliases
@@ -35,7 +35,7 @@ The project values clarity, visual consistency, accessibility, and predictable p
 
 ## Project status
 
-Uplus Icon is currently in preview. The icon set, package APIs, and website are under active development. The `@uplus-icon/core`, `@uplus-icon/react`, and `@uplus-icon/web` packages have not been published publicly to npm yet. The future documentation site will be available at `icon.upper.website`.
+Uplus Icon is currently in preview. The icon set, package APIs, and website are under active development. The `@uplus-icon/core` and `@uplus-icon/react` packages have not been published publicly to npm yet. The future documentation site will be available at `icon.upper.website`.
 
 Until the first public release, install the repository locally for development:
 
@@ -79,15 +79,17 @@ import CheckIcon from '@uplus-icon/react/icons/check'
 <CheckIcon size={24} />
 ```
 
-### Native Web
+### Name-based rendering
 
-Use a per-icon DOM factory when React is not present:
+Use the explicit dynamic entry for navigation data, CMS content, or other runtime names:
 
-```ts
-import { CheckIcon } from '@uplus-icon/web'
+```tsx
+import { Icon } from '@uplus-icon/react/dynamic'
 
-document.body.append(CheckIcon({ size: 24, ariaLabel: 'Complete' }))
+<Icon name="check" size={24} />
 ```
+
+This entry contains the complete registry. Fixed UI should keep named or per-icon imports.
 
 ## Props
 
@@ -126,8 +128,7 @@ uplus-icon/
 │   │   ├── metadata/         Search and classification metadata
 │   │   └── scripts/          Unified code generation
 │   ├── core/                 Framework-neutral definitions and metadata
-│   ├── react/                React components
-│   └── web/                  Native per-icon DOM API
+│   └── react/                React components
 ├── .github/workflows/        Continuous integration
 ├── CONTRIBUTING.md
 └── LICENSE

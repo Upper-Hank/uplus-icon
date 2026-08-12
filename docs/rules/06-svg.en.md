@@ -21,7 +21,7 @@ Linear does not mean fill is completely forbidden. Dots, states, solid closed re
 - **MUST** use only fixed `black` and `none` for monochrome artwork in the protected design source.
 - **MUST** deterministically replace the attribute value `black` with `currentColor` in the private adaptation step while preserving `none`.
 - **MUST NOT** let color adaptation change paths, coordinates, dimensions, viewBox, stroke widths, corners, node order, or any other visual or structural content.
-- **MUST** make Core, React, Web, and the site consume only adapted `currentColor` definitions so icons inherit CSS `color` by default and remain overridable through the standard `color` property.
+- **MUST** make Core, React, and the site consume only adapted `currentColor` definitions so icons inherit CSS `color` by default and remain overridable through the standard `color` property.
 - **MUST NOT** maintain a second manually edited set of release SVGs; adapted output must remain reproducible generated data.
 - **MUST** keep the root SVG background transparent.
 - **MUST NOT** use white, hex, RGB, gradients, `currentColor`, or palette references in design sources.
@@ -43,7 +43,7 @@ g path circle ellipse rect line polyline polygon
 
 ## Path merging and splitting
 
-Minimum node count is not an authoring goal, and an icon is not required to use one combined `path`. Visual structure and motion capabilities define the split boundaries.
+Minimum node count is not an authoring goal, and an icon is not required to use one combined `path`. Visual structure defines the split boundaries.
 
 - **MUST** preserve separate elements when they need independent stroke, fill, opacity, transform, or animation timing.
 - **MUST** preserve different semantic parts as separate elements or groups; paths must not be merged across part boundaries merely to reduce nodes.

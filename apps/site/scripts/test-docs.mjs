@@ -17,7 +17,6 @@ const expected = [
   ['workflow', 8, 'governance'],
   ['api', 9, 'usage'],
   ['react', 10, 'usage'],
-  ['web', 11, 'usage'],
   ['motion-api', 12, 'motion'],
   ['motion-authoring', 13, 'motion'],
   ['accessibility', 14, 'usage'],
@@ -67,7 +66,7 @@ for (const filename of files) {
     expectedBySlug.get(document.slug),
     `${filename}: unexpected order or group`,
   )
-  if (document.order <= 20 && !['api', 'react', 'web'].includes(document.slug)) {
+  if (document.order <= 20 && !['api', 'react'].includes(document.slug)) {
     const normative = document.locale === 'zh-CN' ? /\*\*(必须|应该|可以|禁止)\*\*/ : /\*\*(MUST|SHOULD|MAY|MUST NOT)\*\*/
     assert(normative.test(document.body), `${filename}: core rule document has no normative level marker`)
   }

@@ -16,7 +16,7 @@
 
 ## 项目介绍
 
-Uplus Icon 是一套为现代产品打造的开源图标系统。项目将经过筛选的 SVG 资产、框架无关图标数据、React 组件、原生 Web API 和文档网站统一维护在一个仓库中。
+Uplus Icon 是一套为现代产品打造的开源图标系统。项目将经过筛选的 SVG 资产、框架无关图标数据、React 组件和文档网站统一维护在一个仓库中。
 
 我们重视清晰、一致、无障碍和可预测的生产环境行为。正式 SVG 由维护者审核并提供，构建流程只读取 SVG，不会反向改写图标视觉数据。
 
@@ -25,8 +25,8 @@ Uplus Icon 是一套为现代产品打造的开源图标系统。项目将经过
 - 面向现代用户界面的统一 SVG 图标
 - 框架无关的 SVG definition 和可检索元数据
 - 类型安全、支持 ref 的 React 组件
-- 原生单图标 DOM 工具
 - 支持单图标静态导入，控制生产包体积
+- 支持显式名称渲染，适合数据驱动界面
 - 支持标准 SVG 属性并忠实保留源文件渲染内容
 - 合理的装饰性与语义化无障碍行为
 - 搜索、分类、标签和别名元数据与 SVG 分离
@@ -35,7 +35,7 @@ Uplus Icon 是一套为现代产品打造的开源图标系统。项目将经过
 
 ## 项目状态
 
-Uplus Icon 当前处于预览阶段，图标集合、组件 API 和网站仍在持续开发。`@uplus-icon/core`、`@uplus-icon/react` 和 `@uplus-icon/web` 尚未正式发布到 npm。未来的文档网站地址为 `icon.upper.website`。
+Uplus Icon 当前处于预览阶段，图标集合、组件 API 和网站仍在持续开发。`@uplus-icon/core` 和 `@uplus-icon/react` 尚未正式发布到 npm。未来的文档网站地址为 `icon.upper.website`。
 
 正式发布前，可以克隆仓库进行本地开发：
 
@@ -79,15 +79,17 @@ import CheckIcon from '@uplus-icon/react/icons/check'
 <CheckIcon size={24} />
 ```
 
-### 原生 Web
+### 名称渲染
 
-不使用 React 时，可以直接创建 SVG DOM 元素：
+导航配置、CMS 或其他运行时数据可以使用显式动态入口：
 
-```ts
-import { CheckIcon } from '@uplus-icon/web'
+```tsx
+import { Icon } from '@uplus-icon/react/dynamic'
 
-document.body.append(CheckIcon({ size: 24, ariaLabel: '完成' }))
+<Icon name="check" size={24} />
 ```
+
+该入口包含完整图标注册表；固定 UI 继续使用具名组件或单图标路径。
 
 ## 属性
 
@@ -126,8 +128,7 @@ uplus-icon/
 │   │   ├── metadata/         搜索和分类元数据
 │   │   └── scripts/          统一代码生成工具
 │   ├── core/                 框架无关 definition 和元数据
-│   ├── react/                React 组件
-│   └── web/                  原生单图标 DOM API
+│   └── react/                React 组件
 ├── .github/workflows/        持续集成
 ├── CONTRIBUTING.md
 └── LICENSE

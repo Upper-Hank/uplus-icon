@@ -79,7 +79,7 @@ test('reference validation rejects missing and self-referential icons', () => {
   )
   assert.throws(
     () => validateMetadataReferences({
-      alpha: entry({ motion: { generic: [], semantic: [], transitions: [{ to: 'missing', name: 'swap' }] } }),
+      alpha: entry({ motion: { semantic: [], transitions: [{ to: 'missing', name: 'swap' }] } }),
     }, ['alpha']),
     /references missing icon "missing"/,
   )
@@ -96,19 +96,13 @@ test('reference validation rejects invalid release state and duplicate motion en
   )
   assert.throws(
     () => validateMetadataReferences({
-      alpha: entry({ motion: { generic: ['fade', 'fade'], semantic: [], transitions: [] } }),
+      alpha: entry({ motion: { semantic: ['ring', 'ring'], transitions: [] } }),
     }, ['alpha']),
     /contains duplicate capabilities/,
   )
   assert.throws(
     () => validateMetadataReferences({
-      alpha: entry({ motion: { generic: ['spin'], semantic: [], transitions: [] } }),
-    }, ['alpha']),
-    /contains unsupported capabilities: spin/,
-  )
-  assert.throws(
-    () => validateMetadataReferences({
-      alpha: entry({ motion: { generic: [], semantic: ['Bad Name'], transitions: [] } }),
+      alpha: entry({ motion: { semantic: ['Bad Name'], transitions: [] } }),
     }, ['alpha']),
     /capabilities must use kebab-case/,
   )

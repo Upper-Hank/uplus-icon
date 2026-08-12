@@ -10,6 +10,7 @@
     "test:metadata": "node --test scripts/test-metadata.mjs",
     "test:package": "node scripts/test-package.mjs",
     "test:runtime": "node --test scripts/test-runtime.mjs",
+    "test:motion": "node --test scripts/test-motion.mjs",
     "test:size": "node scripts/test-size.mjs",
     "test:consumer": "node scripts/test-consumer.mjs"
   }

@@ -39,7 +39,6 @@ The generator reads approved sources and produces:
 ```text
 @uplus-icon/core
 @uplus-icon/react
-@uplus-icon/web
 ```
 
 - **MUST** make every package share the same Core Definition.
@@ -72,7 +71,7 @@ npm run check
 At minimum:
 
 - **MUST** pass SVG structure, metadata, and generated-count checks.
-- **MUST** build Core, React, Web, and the site.
+- **MUST** build Core, React, and the site.
 - **MUST** pass SVG fidelity, per-icon size, and installed-consumer tests.
 - **MUST** confirm generation did not write to unauthorized raw SVG files.
 - **SHOULD** review icon details, themes, grid, size, and stroke controls in a browser.
