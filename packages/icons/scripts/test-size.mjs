@@ -19,9 +19,9 @@ async function bundleSize(options) {
   return result.outputFiles.reduce((total, file) => total + file.contents.byteLength, 0)
 }
 
-const directBytes = await bundleSize({ entryPoints: [join(reactDist, 'generated', 'icons', 'check.js')] })
+const directBytes = await bundleSize({ entryPoints: [join(reactDist, 'generated', 'icons', 'plus.js')] })
 const rootBytes = await bundleSize({
-  stdin: { contents: "import { CheckIcon } from '@uplus-icon/react'; console.log(CheckIcon)", resolveDir: sourceRoot },
+  stdin: { contents: "import { PlusIcon } from '@uplus-icon/react'; console.log(PlusIcon)", resolveDir: sourceRoot },
   alias: { '@uplus-icon/react': join(reactDist, 'index.js') },
 })
 

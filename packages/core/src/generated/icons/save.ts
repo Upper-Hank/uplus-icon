@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "save",
   "viewBox": "0 0 24 24",
-  "body": "\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M8.5 20H6.5C5.39543 20 4.5 19.1046 4.5 18V6C4.5 4.89543 5.39543 4 6.5 4H9.5H14.7984C15.2526 4 15.6932 4.15456 16.0478 4.43826L19.7494 7.39951C20.2238 7.77906 20.5 8.35368 20.5 8.96125V12V18C20.5 19.1046 19.6046 20 18.5 20H16.5M8.5 20V18C8.5 16.8954 9.39543 16 10.5 16H14.5C15.6046 16 16.5 16.8954 16.5 18V20M8.5 20H16.5\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\"/>\n"
+  "body": "\n<path d=\"M9.5 3H7.5C6.39543 3 5.5 3.89543 5.5 5V19C5.5 20.1046 6.39543 21 7.5 21H8.5M9.5 3H15.5M9.5 3V5C9.5 6.10457 10.3954 7 11.5 7H13.5C14.6046 7 15.5 6.10457 15.5 5V3M15.5 3H17.5C18.6046 3 19.5 3.89543 19.5 5V19C19.5 20.1046 18.6046 21 17.5 21H16.5M8.5 21V19C8.5 17.8954 9.39543 17 10.5 17H14.5C15.6046 17 16.5 17.8954 16.5 19V21M8.5 21H16.5\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

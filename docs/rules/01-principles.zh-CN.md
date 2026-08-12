@@ -15,7 +15,7 @@ Uplus Icon 是一套面向产品界面的线性图标系统。它需要同时保
 - **必须**把分类、标签、别名和发布状态维护在 `packages/icons/metadata`，不得写进 SVG。
 - **应该**优先采用简单、可复现、可以由构建验证的工程方案。
 - **可以**在出现真实消费者需求后增加新的框架包，但所有包必须消费同一份 Core Definition。
-- **禁止**在展示网站、React 包或 Web 包中维护第二份手工复制的图形。
+- **禁止**在展示网站或 React 包中维护第二份手工复制的图形。
 
 ## 规则等级
 
@@ -57,7 +57,7 @@ Uplus Icon 是一套面向产品界面的线性图标系统。它需要同时保
 approved SVG + metadata
   → validation
   → @uplus-icon/core
-  → @uplus-icon/react / @uplus-icon/web
+  → @uplus-icon/react
   → documentation / product code
 ```
 

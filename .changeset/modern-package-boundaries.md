@@ -1,7 +1,6 @@
 ---
 "@uplus-icon/core": minor
 "@uplus-icon/react": minor
-"@uplus-icon/web": minor
 ---
 
-Introduce framework-neutral core data, React components, and native Web APIs with faithful SVG generation, extensible Motion metadata contracts, absolute stroke-width support, and real tarball consumer verification.
+Introduce framework-neutral core data and React APIs with explicit name-based rendering, faithful SVG generation, absolute weight support, and real tarball consumer verification.

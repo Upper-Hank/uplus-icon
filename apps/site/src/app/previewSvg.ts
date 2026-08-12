@@ -1,49 +1,44 @@
 import type { IconDefinition } from '@uplus-icon/core'
+import { applyIconWeight } from '@uplus-icon/core/internal/weight'
 
-export type StaticPreviewMode = 'master' | 'actual' | 'motion'
+export type StaticPreviewMode = 'master' | 'actual'
 
 interface StaticPreviewSettings {
-  absoluteStrokeWidth: boolean
+  absoluteWeight: boolean
   size: number
-  strokeWidth: number
+  weight: number
 }
 
 interface PreviewSvgOptions extends StaticPreviewSettings {
+  color?: string
   definition: IconDefinition
 }
-
-const strokeWidthVariable = /var\(\s*--uplus-icon-stroke-width\s*,\s*(?:\d+(?:\.\d+)?|\.\d+)\s*\)/g
-const vectorEffectAttribute = /\s+vector-effect\s*=\s*(["'])var\(\s*--uplus-icon-vector-effect\s*,\s*none\s*\)\1/g
 
 const formatNumber = (value: number) => String(Number(value.toFixed(4)))
 
 export function resolveStaticPreviewSettings(
   mode: StaticPreviewMode,
   size: number,
-  strokeWidth: number,
-  absoluteStrokeWidth: boolean,
+  weight: number,
+  absoluteWeight: boolean,
 ): StaticPreviewSettings {
   return {
     size: mode === 'actual' ? size : 24,
-    strokeWidth,
-    absoluteStrokeWidth: mode === 'actual' && absoluteStrokeWidth,
+    weight,
+    absoluteWeight: mode === 'actual' && absoluteWeight,
   }
 }
 
 export function createPreviewSvg({
   definition,
   size,
-  strokeWidth,
-  absoluteStrokeWidth,
+  weight,
+  absoluteWeight,
+  color,
 }: PreviewSvgOptions) {
   const resolvedSize = formatNumber(size)
-  const resolvedStrokeWidth = formatNumber(strokeWidth)
-  const body = definition.body.trim()
-    .replace(strokeWidthVariable, resolvedStrokeWidth)
-    .replace(
-      vectorEffectAttribute,
-      absoluteStrokeWidth ? ' vector-effect="non-scaling-stroke"' : '',
-    )
+  const body = applyIconWeight(definition.body, { absoluteWeight, name: definition.name, size, weight }).trim()
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${definition.viewBox}" width="${resolvedSize}" height="${resolvedSize}" fill="none">\n${body}\n</svg>`
+  const colorAttribute = color ? ` color="${color}"` : ''
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${definition.viewBox}" width="${resolvedSize}" height="${resolvedSize}" fill="none"${colorAttribute}>\n${body}\n</svg>`
 }

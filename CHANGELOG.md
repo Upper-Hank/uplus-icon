@@ -5,14 +5,15 @@
 ### Added
 
 - Added a bilingual changelog page to the documentation website.
-- Added a motion preview mode to the icon detail drawer with generic and icon-specific effects, direction, duration, easing, looping, playback, pause, reverse, and replay controls.
 - Added an optional 20×20 design-guide inspection layer without automatic alignment validation.
+- Added an explicit name-based React entry for data-driven interfaces.
 
 ### Changed
 
+- Kept named and per-icon imports as the static tree-shaking boundary while exposing full registries only through explicit `dynamic` entries.
 - Aligned the documentation navigation to a shared horizontal spacing baseline.
-- Changed the desktop detail preview to a fixed-height square canvas with a wider control area, and added real-time progress fill to the playback button.
-- Moved inspection-layer controls into the preview canvas and returned the absolute-stroke switch to normal control spacing.
+- Changed the desktop detail preview to a fixed-height square canvas with a wider control area.
+- Moved inspection-layer controls into the preview canvas and aligned the absolute-weight switch with the standard control spacing.
 - Set the master preview and actual-size upper bound to 256px, and fixed the code panel peeking after width changes.
 
 ### Known issues
@@ -26,14 +27,14 @@ Development preview. This snapshot has not been published to npm.
 ### Added
 
 - Added searchable flat and grouped icon browsing.
-- Added a bottom detail drawer with master and actual-size inspection modes, grid and skeleton overlays, rendering controls, and synchronized React, SVG, and Web Component snippets.
+- Added a bottom detail drawer with master and actual-size inspection modes, grid and skeleton overlays, rendering controls, and synchronized Core, React, and SVG snippets.
 - Added bilingual design-rule documentation and a shared metadata-driven category system.
-- Added framework-independent Core, React, and Web packages generated from the same protected SVG sources.
+- Added framework-independent Core data and React components generated from the same protected SVG sources.
 
 ### Changed
 
 - Rebuilt the documentation and showcase website around the current Uplus visual language.
-- Reworked package boundaries so metadata, definitions, React components, and Web Components can be consumed independently.
+- Reworked package boundaries so metadata, definitions, and React components can be consumed independently.
 
 ### Fixed
 

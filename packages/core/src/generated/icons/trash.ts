@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "trash",
   "viewBox": "0 0 24 24",
-  "body": "\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M5.5 6V20C5.5 20.5523 5.94772 21 6.5 21H17.5C18.0523 21 18.5 20.5523 18.5 20V6M5.5 6H4M5.5 6H9M18.5 6H20M18.5 6H15M9 6V4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V6M9 6H15\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linecap=\"round\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"8\" y=\"9\" width=\"2\" height=\"10\" rx=\"1\" fill=\"currentColor\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"11\" y=\"9\" width=\"2\" height=\"10\" rx=\"1\" fill=\"currentColor\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"14\" y=\"9\" width=\"2\" height=\"10\" rx=\"1\" fill=\"currentColor\"/>\n"
+  "body": "\n<path d=\"M5.5 6V20C5.5 20.5523 5.94772 21 6.5 21H17.5C18.0523 21 18.5 20.5523 18.5 20V6M5.5 6H4M5.5 6H9M18.5 6H20M18.5 6H15M9 6V4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V6M9 6H15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 10V18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 10V18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M15 10V18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

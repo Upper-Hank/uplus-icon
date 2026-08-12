@@ -3,51 +3,39 @@ import type { IconCategory } from '../types.js'
 
 export const iconCategories: readonly IconCategory[] = [
   {
+    "id": "actions",
+    "title": "Actions",
+    "titleZh": "操作",
+    "description": "Commands, editing, transfer, and view controls"
+  },
+  {
     "id": "navigation",
     "title": "Navigation",
     "titleZh": "导航",
     "description": "Direction, movement, and wayfinding"
   },
   {
-    "id": "actions",
-    "title": "Actions",
-    "titleZh": "操作",
-    "description": "Common commands and direct manipulation"
-  },
-  {
-    "id": "layout",
-    "title": "Layout",
-    "titleZh": "布局",
-    "description": "Views, containers, and interface structure"
-  },
-  {
-    "id": "communication",
-    "title": "Communication",
-    "titleZh": "沟通",
-    "description": "Messages, notifications, links, and contact"
+    "id": "interface",
+    "title": "Interface",
+    "titleZh": "界面",
+    "description": "Controls, structure, creation, and interface tooling"
   },
   {
     "id": "media",
     "title": "Media",
     "titleZh": "媒体",
-    "description": "Playback and media controls"
+    "description": "Playback, audio, visual capture, and gaming"
   },
   {
     "id": "objects",
     "title": "Objects",
     "titleZh": "对象",
-    "description": "Files, people, time, and tangible concepts"
+    "description": "Files, devices, places, commerce, and tangible concepts"
   },
   {
     "id": "status",
     "title": "Status",
     "titleZh": "状态",
-    "description": "State, preference, and feedback"
-  },
-  {
-    "id": "system",
-    "title": "System",
-    "titleZh": "系统",
-    "description": "Settings, security, development, and global controls"
+    "description": "Feedback, security, alerts, and system state"
   }
 ]

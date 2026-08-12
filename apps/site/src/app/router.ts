@@ -20,9 +20,6 @@ const docRoutes: Record<string, DocSlug> = {
   '/docs/workflow': 'workflow',
   '/docs/api': 'api',
   '/docs/react': 'react',
-  '/docs/web': 'web',
-  '/docs/motion-api': 'motion-api',
-  '/docs/motion-authoring': 'motion-authoring',
   '/docs/accessibility': 'accessibility',
   '/docs/testing': 'testing',
   '/docs/versioning': 'versioning',
@@ -55,6 +52,11 @@ function readRoute(): Route {
   return resolveRoute(window.location.pathname)
 }
 
+function preservesIconsScroll(from: Route, to: Route) {
+  const onIconsSurface = (route: Route) => route.page === 'icons' || route.page === 'detail'
+  return onIconsSurface(from) && onIconsSurface(to)
+}
+
 export function useRoute() {
   const [route, setRoute] = useState(readRoute)
 
@@ -66,9 +68,13 @@ export function useRoute() {
 
   const navigate = (path: string) => {
     if (window.location.pathname === path) return
+    const from = resolveRoute(window.location.pathname)
+    const to = resolveRoute(path)
     window.history.pushState({}, '', path)
-    setRoute(readRoute())
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    setRoute(to)
+    if (!preservesIconsScroll(from, to)) {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }
   }
 
   return [route, navigate] as const

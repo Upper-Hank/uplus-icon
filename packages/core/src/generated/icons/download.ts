@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "download",
   "viewBox": "0 0 24 24",
-  "body": "\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M4 14V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V14\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linecap=\"round\"/>\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M11.9997 3.05566C12.5519 3.05566 12.9995 3.50355 12.9997 4.05566V12.793L15.2927 10.5C15.6832 10.1095 16.3162 10.1095 16.7067 10.5C17.0973 10.8905 17.0973 11.5235 16.7067 11.9141L13.0602 15.5605C12.9056 15.7152 12.7249 15.8274 12.5329 15.9004C12.3784 15.9981 12.196 16.0557 11.9997 16.0557C11.8033 16.0556 11.621 15.9982 11.4665 15.9004C11.2745 15.8274 11.0938 15.7152 10.9392 15.5605L7.29267 11.9141C6.90224 11.5236 6.90224 10.8905 7.29267 10.5C7.68317 10.1095 8.3162 10.1095 8.70673 10.5L10.9997 12.793V4.05566C10.9999 3.50359 11.4476 3.05573 11.9997 3.05566Z\" fill=\"currentColor\"/>\n"
+  "body": "\n<path d=\"M4 14V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 15.7929V4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8 12L11.6464 15.6464C11.8417 15.8417 12.1583 15.8417 12.3536 15.6464L16 12\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

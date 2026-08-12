@@ -1,25 +1,23 @@
 import type { IconDefinition } from '@uplus-icon/core'
-import { forwardRef } from 'react'
+import { applyIconWeight } from '@uplus-icon/core/internal/weight'
+import { forwardRef, useMemo } from 'react'
 import type { IconBaseProps } from './types.js'
 
-const clampStrokeWidth = (value: number) => Math.min(2, Math.max(0.5, Number.isFinite(value) ? value : 2))
-
 export const IconBase = forwardRef<SVGSVGElement, IconBaseProps & { icon: IconDefinition }>(function IconBase(
-  { icon, size = 24, strokeWidth, absoluteStrokeWidth = false, title, style, 'aria-label': ariaLabel, ...props },
+  { icon, size = 24, weight = 2, absoluteWeight = false, title, 'aria-label': ariaLabel, ...props },
   ref,
 ) {
-  const iconStyle = {
-    ...style,
-    ...(strokeWidth === undefined ? {} : { '--uplus-icon-stroke-width': clampStrokeWidth(strokeWidth) }),
-    ...(absoluteStrokeWidth ? { '--uplus-icon-vector-effect': 'non-scaling-stroke' } : {}),
-  }
+  const body = useMemo(
+    () => applyIconWeight(icon.body, { absoluteWeight, name: icon.name, size, weight }),
+    [absoluteWeight, icon.body, icon.name, size, weight],
+  )
 
   return (
     <svg ref={ref} xmlns="http://www.w3.org/2000/svg" viewBox={icon.viewBox} width={size} height={size}
       fill="none" aria-hidden={title || ariaLabel ? undefined : true} aria-label={ariaLabel}
-      role={title || ariaLabel ? 'img' : undefined} style={iconStyle} {...props}>
+      role={title || ariaLabel ? 'img' : undefined} {...props}>
       {title ? <title>{title}</title> : null}
-      <g dangerouslySetInnerHTML={{ __html: icon.body }} />
+      <g dangerouslySetInnerHTML={{ __html: body }} />
     </svg>
   )
 })

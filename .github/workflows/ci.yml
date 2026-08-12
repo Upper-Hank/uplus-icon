@@ -23,4 +23,3 @@ jobs:
         run: |
           npm pack --dry-run -w @uplus-icon/core
           npm pack --dry-run -w @uplus-icon/react
-          npm pack --dry-run -w @uplus-icon/web

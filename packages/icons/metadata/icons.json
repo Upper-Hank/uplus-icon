@@ -1,52 +1,4659 @@
 {
-  "arrow-down": { "title": "Arrow Down", "titleZh": "向下箭头", "categories": ["navigation"], "tags": ["arrow", "down", "direction", "向下"], "aliases": ["move-down"] },
-  "arrow-left": { "title": "Arrow Left", "titleZh": "向左箭头", "categories": ["navigation"], "tags": ["arrow", "left", "back", "previous", "向左", "返回"], "aliases": ["back", "previous"] },
-  "arrow-right": { "title": "Arrow Right", "titleZh": "向右箭头", "categories": ["navigation"], "tags": ["arrow", "right", "next", "forward", "向右", "下一步"], "aliases": ["next", "forward"] },
-  "arrow-up": { "title": "Arrow Up", "titleZh": "向上箭头", "categories": ["navigation"], "tags": ["arrow", "up", "direction", "向上"], "aliases": ["move-up"] },
-  "bell": { "title": "Bell", "titleZh": "通知", "categories": ["communication"], "tags": ["bell", "notification", "alert", "提醒", "通知"], "aliases": ["notification"], "motion": { "generic": ["fade", "scale", "blur", "draw"], "semantic": ["ring"], "transitions": [] } },
-  "check": { "title": "Check", "titleZh": "完成", "categories": ["actions", "status"], "tags": ["check", "complete", "done", "success", "确认", "完成"], "aliases": ["complete", "done"] },
-  "chevron-down": { "title": "Chevron Down", "titleZh": "下折线", "categories": ["navigation"], "tags": ["chevron", "down", "expand", "向下", "展开"], "aliases": ["caret-down"] },
-  "chevron-left": { "title": "Chevron Left", "titleZh": "左折线", "categories": ["navigation"], "tags": ["chevron", "left", "back", "向左", "返回"], "aliases": ["caret-left"] },
-  "chevron-right": { "title": "Chevron Right", "titleZh": "右折线", "categories": ["navigation"], "tags": ["chevron", "right", "next", "向右", "下一步"], "aliases": ["caret-right"] },
-  "chevron-up": { "title": "Chevron Up", "titleZh": "上折线", "categories": ["navigation"], "tags": ["chevron", "up", "collapse", "向上", "收起"], "aliases": ["caret-up"] },
-  "clock": { "title": "Clock", "titleZh": "时钟", "categories": ["objects"], "tags": ["clock", "time", "history", "时间", "时钟"], "aliases": ["time"] },
-  "close": { "title": "Close", "titleZh": "关闭", "categories": ["actions"], "tags": ["close", "remove", "cancel", "关闭", "取消"], "aliases": ["x", "cancel"] },
-  "code": { "title": "Code", "titleZh": "代码", "categories": ["system"], "tags": ["code", "developer", "terminal", "代码", "开发"], "aliases": ["developer"] },
-  "columns": { "title": "Columns", "titleZh": "分栏", "categories": ["layout"], "tags": ["columns", "layout", "split", "分栏", "布局"], "aliases": ["split-view"] },
-  "comment": { "title": "Comment", "titleZh": "评论", "categories": ["communication"], "tags": ["comment", "message", "chat", "评论", "消息"], "aliases": ["message", "chat"] },
-  "control": { "title": "Control", "titleZh": "控制", "categories": ["layout"], "tags": ["control", "adjust", "tune", "控制", "调节"], "aliases": ["adjust"] },
-  "copy": { "title": "Copy", "titleZh": "复制", "categories": ["actions"], "tags": ["copy", "duplicate", "clipboard", "复制", "副本"], "aliases": ["duplicate"] },
-  "download": { "title": "Download", "titleZh": "下载", "categories": ["actions"], "tags": ["download", "receive", "import", "下载", "导入"], "aliases": ["import"] },
-  "edit": { "title": "Edit", "titleZh": "编辑", "categories": ["actions"], "tags": ["edit", "pencil", "write", "编辑", "修改"], "aliases": ["pencil"] },
-  "expand": { "title": "Expand", "titleZh": "展开", "categories": ["navigation", "layout"], "tags": ["expand", "fullscreen", "focus", "展开", "全屏"], "aliases": ["fullscreen", "focus"] },
-  "file": { "title": "File", "titleZh": "文件", "categories": ["objects"], "tags": ["file", "document", "page", "文件", "文档"], "aliases": ["document"] },
-  "globe": { "title": "Globe", "titleZh": "全球", "categories": ["system"], "tags": ["globe", "world", "language", "全球", "语言"], "aliases": ["world", "language"] },
-  "grid": { "title": "Grid", "titleZh": "网格", "categories": ["layout"], "tags": ["grid", "tiles", "layout", "网格", "宫格"], "aliases": ["tiles"] },
-  "heart": { "title": "Heart", "titleZh": "喜欢", "categories": ["status"], "tags": ["heart", "like", "favorite", "喜欢", "收藏"], "aliases": ["like", "favorite"], "motion": { "generic": ["fade", "scale", "blur", "draw"], "semantic": ["beat"], "transitions": [] } },
-  "home": { "title": "Home", "titleZh": "首页", "categories": ["navigation"], "tags": ["home", "house", "start", "首页", "主页"], "aliases": ["house"] },
-  "layers": { "title": "Layers", "titleZh": "图层", "categories": ["layout"], "tags": ["layers", "stack", "group", "图层", "层级"], "aliases": ["stack"] },
-  "link": { "title": "Link", "titleZh": "链接", "categories": ["communication"], "tags": ["link", "chain", "url", "链接", "关联"], "aliases": ["chain", "url"] },
-  "list": { "title": "List", "titleZh": "列表", "categories": ["layout"], "tags": ["list", "items", "rows", "列表", "条目"], "aliases": ["rows"] },
-  "lock": { "title": "Lock", "titleZh": "锁定", "categories": ["system"], "tags": ["lock", "secure", "private", "锁定", "安全"], "aliases": ["secure"] },
-  "menu": { "title": "Menu", "titleZh": "菜单", "categories": ["navigation"], "tags": ["menu", "navigation", "hamburger", "菜单", "导航"], "aliases": ["hamburger"] },
-  "minus": { "title": "Minus", "titleZh": "减少", "categories": ["actions"], "tags": ["minus", "remove", "subtract", "减少", "移除"], "aliases": ["subtract"] },
-  "more": { "title": "More", "titleZh": "更多", "categories": ["layout"], "tags": ["more", "ellipsis", "options", "更多", "选项"], "aliases": ["ellipsis"] },
-  "phone": { "title": "Phone", "titleZh": "手机", "categories": ["communication"], "tags": ["phone", "mobile", "device", "手机", "移动设备"], "aliases": ["mobile"] },
-  "play": { "title": "Play", "titleZh": "播放", "categories": ["media"], "tags": ["play", "start", "media", "播放", "开始"], "aliases": ["start"] },
-  "plus": { "title": "Plus", "titleZh": "添加", "categories": ["actions"], "tags": ["plus", "add", "create", "添加", "新建"], "aliases": ["add", "create"] },
-  "power": { "title": "Power", "titleZh": "电源", "categories": ["system"], "tags": ["power", "shutdown", "switch", "电源", "关机"], "aliases": ["shutdown"] },
-  "refresh": { "title": "Refresh", "titleZh": "刷新", "categories": ["actions"], "tags": ["refresh", "reload", "sync", "刷新", "同步"], "aliases": ["reload", "sync"], "motion": { "generic": ["fade", "scale", "blur", "draw"], "semantic": ["rotate"], "transitions": [] } },
-  "save-alt": { "title": "Save Alternate", "titleZh": "备用保存", "categories": ["actions"], "tags": ["save", "floppy", "store", "保存", "磁盘"], "aliases": ["floppy-disk"] },
-  "save": { "title": "Save", "titleZh": "保存", "categories": ["actions"], "tags": ["save", "store", "floppy", "保存", "存储"], "aliases": ["store"] },
-  "settings": { "title": "Settings", "titleZh": "设置", "categories": ["system"], "tags": ["settings", "gear", "preferences", "设置", "偏好"], "aliases": ["gear", "preferences"] },
-  "share": { "title": "Share", "titleZh": "分享", "categories": ["actions"], "tags": ["share", "send", "external", "分享", "发送"], "aliases": ["send"] },
-  "sidebar": { "title": "Sidebar", "titleZh": "侧边栏", "categories": ["layout"], "tags": ["sidebar", "panel", "layout", "侧边栏", "面板"], "aliases": ["panel"] },
-  "sort": { "title": "Sort", "titleZh": "排序", "categories": ["actions"], "tags": ["sort", "order", "arrange", "排序", "顺序"], "aliases": ["order"] },
-  "square": { "title": "Square", "titleZh": "方形", "categories": ["media"], "tags": ["square", "stop", "shape", "方形", "停止"], "aliases": ["stop"] },
-  "star": { "title": "Star", "titleZh": "星标", "categories": ["status"], "tags": ["star", "favorite", "rating", "星标", "收藏"], "aliases": ["rating"] },
-  "task": { "title": "Task", "titleZh": "任务", "categories": ["objects"], "tags": ["task", "clipboard", "todo", "任务", "待办"], "aliases": ["todo", "clipboard"] },
-  "trash": { "title": "Trash", "titleZh": "删除", "categories": ["actions"], "tags": ["trash", "delete", "remove", "删除", "回收站"], "aliases": ["delete"] },
-  "unlock": { "title": "Unlock", "titleZh": "解锁", "categories": ["system"], "tags": ["unlock", "open", "unsecure", "解锁", "开放"], "aliases": ["unlocked"] },
-  "upload": { "title": "Upload", "titleZh": "上传", "categories": ["actions"], "tags": ["upload", "send", "export", "上传", "导出"], "aliases": ["export"] },
-  "user": { "title": "User", "titleZh": "用户", "categories": ["objects"], "tags": ["user", "person", "account", "用户", "账户"], "aliases": ["person", "account"] }
+  "activity": {
+    "title": "Activity",
+    "titleZh": "活动",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "system",
+      "系统"
+    ],
+    "aliases": [],
+    "subgroup": "system"
+  },
+  "alarm-clock": {
+    "title": "Alarm Clock",
+    "titleZh": "闹钟",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "time",
+      "时间"
+    ],
+    "aliases": [],
+    "subgroup": "time"
+  },
+  "anchor-curve": {
+    "title": "Anchor Curve",
+    "titleZh": "曲线锚点",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "creation",
+      "创建"
+    ],
+    "aliases": [],
+    "subgroup": "creation"
+  },
+  "anchor-point": {
+    "title": "Anchor Point",
+    "titleZh": "锚点",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "creation",
+      "创建"
+    ],
+    "aliases": [],
+    "subgroup": "creation"
+  },
+  "archive": {
+    "title": "Archive",
+    "titleZh": "归档",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "management",
+      "管理"
+    ],
+    "aliases": [],
+    "subgroup": "management"
+  },
+  "arrow-down": {
+    "title": "Arrow Down",
+    "titleZh": "向下箭头",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "arrow",
+      "箭头"
+    ],
+    "aliases": [
+      "move-down"
+    ],
+    "subgroup": "arrow"
+  },
+  "arrow-left": {
+    "title": "Arrow Left",
+    "titleZh": "向左箭头",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "arrow",
+      "箭头"
+    ],
+    "aliases": [
+      "back",
+      "previous"
+    ],
+    "subgroup": "arrow"
+  },
+  "arrow-right": {
+    "title": "Arrow Right",
+    "titleZh": "向右箭头",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "arrow",
+      "箭头"
+    ],
+    "aliases": [
+      "next",
+      "forward"
+    ],
+    "subgroup": "arrow"
+  },
+  "arrow-up": {
+    "title": "Arrow Up",
+    "titleZh": "向上箭头",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "arrow",
+      "箭头"
+    ],
+    "aliases": [
+      "move-up"
+    ],
+    "subgroup": "arrow"
+  },
+  "artboard": {
+    "title": "Artboard",
+    "titleZh": "画板",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "creation",
+      "创建"
+    ],
+    "aliases": [],
+    "subgroup": "creation"
+  },
+  "at-sign": {
+    "title": "At Sign",
+    "titleZh": "@ 符号",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [
+      "mention"
+    ],
+    "subgroup": "communication"
+  },
+  "badge": {
+    "title": "Badge",
+    "titleZh": "徽章",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "achievement",
+      "成就"
+    ],
+    "aliases": [],
+    "subgroup": "achievement"
+  },
+  "barcode": {
+    "title": "Barcode",
+    "titleZh": "条形码",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "battery-horizon": {
+    "title": "Horizontal Battery",
+    "titleZh": "横向电池",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "battery-vertical": {
+    "title": "Battery Vertical",
+    "titleZh": "纵向电池",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "bell-off": {
+    "title": "Bell Off",
+    "titleZh": "关闭通知",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [],
+    "subgroup": "communication"
+  },
+  "bell": {
+    "title": "Bell",
+    "titleZh": "通知",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [
+      "notification"
+    ],
+    "motion": {
+      "semantic": [
+        "ring"
+      ],
+      "transitions": []
+    },
+    "subgroup": "communication"
+  },
+  "bluetooth-off": {
+    "title": "Bluetooth Off",
+    "titleZh": "关闭蓝牙",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "bluetooth": {
+    "title": "Bluetooth",
+    "titleZh": "蓝牙",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "bold": {
+    "title": "Bold",
+    "titleZh": "粗体",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "formatting",
+      "格式"
+    ],
+    "aliases": [],
+    "subgroup": "formatting"
+  },
+  "book": {
+    "title": "Book",
+    "titleZh": "书籍",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "bookmark": {
+    "title": "Bookmark",
+    "titleZh": "书签",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "braces": {
+    "title": "Braces",
+    "titleZh": "花括号",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "briefcase": {
+    "title": "Briefcase",
+    "titleZh": "公文包",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "professional",
+      "职业"
+    ],
+    "aliases": [],
+    "subgroup": "professional"
+  },
+  "broadcast": {
+    "title": "Broadcast",
+    "titleZh": "广播信号",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [
+      "signal",
+      "antenna"
+    ],
+    "subgroup": "technology"
+  },
+  "bug": {
+    "title": "Bug",
+    "titleZh": "程序错误",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "system",
+      "系统"
+    ],
+    "aliases": [],
+    "subgroup": "system"
+  },
+  "calculator": {
+    "title": "Calculator",
+    "titleZh": "计算器",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "controls",
+      "控件"
+    ],
+    "aliases": [],
+    "subgroup": "controls"
+  },
+  "calendar": {
+    "title": "Calendar",
+    "titleZh": "日历",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "time",
+      "时间"
+    ],
+    "aliases": [],
+    "subgroup": "time"
+  },
+  "camera": {
+    "title": "Camera",
+    "titleZh": "相机",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "visual",
+      "视觉"
+    ],
+    "aliases": [],
+    "subgroup": "visual"
+  },
+  "card": {
+    "title": "Card",
+    "titleZh": "卡片",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "cast": {
+    "title": "Cast",
+    "titleZh": "投屏",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "visual",
+      "视觉"
+    ],
+    "aliases": [],
+    "subgroup": "visual"
+  },
+  "charge": {
+    "title": "Charge",
+    "titleZh": "充电",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "chart-column-up": {
+    "title": "Chart Column Up",
+    "titleZh": "上升柱状图",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "data",
+      "数据"
+    ],
+    "aliases": [],
+    "subgroup": "data"
+  },
+  "chart-column": {
+    "title": "Chart Column",
+    "titleZh": "柱状图",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "data",
+      "数据"
+    ],
+    "aliases": [],
+    "subgroup": "data"
+  },
+  "check": {
+    "title": "Check",
+    "titleZh": "勾选",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "subgroup": "editing"
+  },
+  "checkbox": {
+    "title": "Checkbox",
+    "titleZh": "复选框",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "controls",
+      "控件"
+    ],
+    "aliases": [],
+    "subgroup": "controls"
+  },
+  "chevron-down": {
+    "title": "Chevron Down",
+    "titleZh": "下折线",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "chevron",
+      "单折线"
+    ],
+    "aliases": [
+      "caret-down"
+    ],
+    "subgroup": "chevron"
+  },
+  "chevron-left": {
+    "title": "Chevron Left",
+    "titleZh": "左折线",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "chevron",
+      "单折线"
+    ],
+    "aliases": [
+      "caret-left"
+    ],
+    "subgroup": "chevron"
+  },
+  "chevron-right": {
+    "title": "Chevron Right",
+    "titleZh": "右折线",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "chevron",
+      "单折线"
+    ],
+    "aliases": [
+      "caret-right"
+    ],
+    "subgroup": "chevron"
+  },
+  "chevron-up": {
+    "title": "Chevron Up",
+    "titleZh": "上折线",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "chevron",
+      "单折线"
+    ],
+    "aliases": [
+      "caret-up"
+    ],
+    "subgroup": "chevron"
+  },
+  "chevrons-down": {
+    "title": "Chevrons Down",
+    "titleZh": "双下折线",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "chevrons",
+      "双折线"
+    ],
+    "aliases": [],
+    "subgroup": "chevrons"
+  },
+  "chevrons-left": {
+    "title": "Chevrons Left",
+    "titleZh": "双左折线",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "chevrons",
+      "双折线"
+    ],
+    "aliases": [],
+    "subgroup": "chevrons"
+  },
+  "chevrons-right": {
+    "title": "Chevrons Right",
+    "titleZh": "双右折线",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "chevrons",
+      "双折线"
+    ],
+    "aliases": [],
+    "subgroup": "chevrons"
+  },
+  "chevrons-up": {
+    "title": "Chevrons Up",
+    "titleZh": "双上折线",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "chevrons",
+      "双折线"
+    ],
+    "aliases": [],
+    "subgroup": "chevrons"
+  },
+  "chip": {
+    "title": "Chip",
+    "titleZh": "芯片",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "clarity": {
+    "title": "Clarity",
+    "titleZh": "清晰度",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "appearance",
+      "外观"
+    ],
+    "aliases": [],
+    "subgroup": "appearance"
+  },
+  "clock": {
+    "title": "Clock",
+    "titleZh": "时钟",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "time",
+      "时间"
+    ],
+    "aliases": [],
+    "subgroup": "time"
+  },
+  "close": {
+    "title": "Close",
+    "titleZh": "关闭",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [
+      "x",
+      "cancel"
+    ],
+    "subgroup": "editing"
+  },
+  "cloud-download": {
+    "title": "Cloud Download",
+    "titleZh": "云端下载",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
+    ],
+    "aliases": [],
+    "subgroup": "transfer"
+  },
+  "cloud-upload": {
+    "title": "Cloud Upload",
+    "titleZh": "云端上传",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
+    ],
+    "aliases": [],
+    "subgroup": "transfer"
+  },
+  "cloud": {
+    "title": "Cloud",
+    "titleZh": "云",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "place",
+      "地点"
+    ],
+    "aliases": [],
+    "subgroup": "place"
+  },
+  "code-block": {
+    "title": "Code Block",
+    "titleZh": "代码块",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "color-wheel": {
+    "title": "Color Wheel",
+    "titleZh": "色轮",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "appearance",
+      "外观"
+    ],
+    "aliases": [],
+    "subgroup": "appearance"
+  },
+  "color": {
+    "title": "Color",
+    "titleZh": "颜色",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "appearance",
+      "外观"
+    ],
+    "aliases": [],
+    "subgroup": "appearance"
+  },
+  "comment": {
+    "title": "Comment",
+    "titleZh": "评论",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [
+      "message",
+      "chat"
+    ],
+    "subgroup": "communication"
+  },
+  "compass": {
+    "title": "Compass",
+    "titleZh": "指南针",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "destination",
+      "目的地"
+    ],
+    "aliases": [],
+    "subgroup": "destination"
+  },
+  "computer": {
+    "title": "Computer",
+    "titleZh": "计算机",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "control-horizon": {
+    "title": "Horizontal Control",
+    "titleZh": "横向调节",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "controls",
+      "控件"
+    ],
+    "aliases": [],
+    "subgroup": "controls"
+  },
+  "control-vertical": {
+    "title": "Control Vertical",
+    "titleZh": "纵向调节",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "controls",
+      "控件"
+    ],
+    "aliases": [],
+    "subgroup": "controls"
+  },
+  "copy": {
+    "title": "Copy",
+    "titleZh": "复制",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "subgroup": "editing"
+  },
+  "coupon": {
+    "title": "Coupon",
+    "titleZh": "优惠券",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [
+      "voucher"
+    ],
+    "subgroup": "commerce"
+  },
+  "credit-card": {
+    "title": "Credit Card",
+    "titleZh": "信用卡",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "crop": {
+    "title": "Crop",
+    "titleZh": "裁剪",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "creation",
+      "创建"
+    ],
+    "aliases": [],
+    "subgroup": "creation"
+  },
+  "cube": {
+    "title": "Cube",
+    "titleZh": "立方体",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "cup": {
+    "title": "Cup",
+    "titleZh": "杯子",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [],
+    "subgroup": "life"
+  },
+  "currency-dollar": {
+    "title": "Currency Dollar",
+    "titleZh": "美元",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "currency-euro": {
+    "title": "Currency Euro",
+    "titleZh": "欧元",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "currency-yen": {
+    "title": "Currency Yen",
+    "titleZh": "日元",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "currency-yuan": {
+    "title": "Currency Yuan",
+    "titleZh": "人民币",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "currency": {
+    "title": "Currency",
+    "titleZh": "货币",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "cursor": {
+    "title": "Cursor",
+    "titleZh": "光标",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [],
+    "subgroup": "interaction"
+  },
+  "cut": {
+    "title": "Cut",
+    "titleZh": "剪切",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "subgroup": "editing"
+  },
+  "danger": {
+    "title": "Danger",
+    "titleZh": "危险",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "alter",
+      "alert",
+      "警示"
+    ],
+    "aliases": [],
+    "subgroup": "alter"
+  },
+  "database": {
+    "title": "Database",
+    "titleZh": "数据库",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "dial": {
+    "title": "Dial",
+    "titleZh": "刻度盘",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "data",
+      "数据"
+    ],
+    "aliases": [],
+    "subgroup": "data"
+  },
+  "diamond": {
+    "title": "Diamond",
+    "titleZh": "钻石",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "mineral",
+      "矿物"
+    ],
+    "aliases": [],
+    "subgroup": "mineral"
+  },
+  "download": {
+    "title": "Download",
+    "titleZh": "下载",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
+    ],
+    "aliases": [
+      "import"
+    ],
+    "subgroup": "transfer"
+  },
+  "drag-alt": {
+    "title": "Drag Alt",
+    "titleZh": "拖拽变体",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [],
+    "subgroup": "interaction"
+  },
+  "drag": {
+    "title": "Drag",
+    "titleZh": "拖拽",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [],
+    "subgroup": "interaction"
+  },
+  "duplicate": {
+    "title": "Duplicate",
+    "titleZh": "创建副本",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "subgroup": "editing"
+  },
+  "earth": {
+    "title": "Earth",
+    "titleZh": "地球",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "place",
+      "地点"
+    ],
+    "aliases": [],
+    "subgroup": "place"
+  },
+  "edit": {
+    "title": "Edit",
+    "titleZh": "编辑",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "subgroup": "editing"
+  },
+  "eraser": {
+    "title": "Eraser",
+    "titleZh": "橡皮擦",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [
+      "erase"
+    ],
+    "subgroup": "editing"
+  },
+  "exclude": {
+    "title": "Exclude",
+    "titleZh": "排除",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "expand-collapse": {
+    "title": "Expand Collapse",
+    "titleZh": "展开与收起",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "view",
+      "视图"
+    ],
+    "aliases": [],
+    "subgroup": "view"
+  },
+  "export": {
+    "title": "Export",
+    "titleZh": "导出",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
+    ],
+    "aliases": [],
+    "subgroup": "transfer"
+  },
+  "external-link": {
+    "title": "External Link",
+    "titleZh": "外部链接",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
+    ],
+    "aliases": [],
+    "subgroup": "transfer"
+  },
+  "eye-off": {
+    "title": "Eye Off",
+    "titleZh": "隐藏",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "appearance",
+      "外观"
+    ],
+    "aliases": [],
+    "subgroup": "appearance"
+  },
+  "eye": {
+    "title": "Eye",
+    "titleZh": "查看",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "appearance",
+      "外观"
+    ],
+    "aliases": [],
+    "subgroup": "appearance"
+  },
+  "eyedropper": {
+    "title": "Eyedropper",
+    "titleZh": "吸管",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "creation",
+      "创建"
+    ],
+    "aliases": [],
+    "subgroup": "creation"
+  },
+  "fast-forward": {
+    "title": "Fast Forward",
+    "titleZh": "快进",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [],
+    "subgroup": "playback"
+  },
+  "file": {
+    "title": "File",
+    "titleZh": "文件",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [
+      "document"
+    ],
+    "subgroup": "content"
+  },
+  "filter": {
+    "title": "Filter",
+    "titleZh": "筛选",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "management",
+      "管理"
+    ],
+    "aliases": [],
+    "subgroup": "management"
+  },
+  "fingerprint": {
+    "title": "Fingerprint",
+    "titleZh": "指纹",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "security",
+      "安全"
+    ],
+    "aliases": [
+      "biometric"
+    ],
+    "subgroup": "security"
+  },
+  "flag": {
+    "title": "Flag",
+    "titleZh": "旗帜",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "alter",
+      "alert",
+      "警示"
+    ],
+    "aliases": [],
+    "subgroup": "alter"
+  },
+  "flash": {
+    "title": "Flash",
+    "titleZh": "闪电",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "system",
+      "系统"
+    ],
+    "aliases": [],
+    "subgroup": "system"
+  },
+  "flashlight": {
+    "title": "Flashlight",
+    "titleZh": "手电筒",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [],
+    "subgroup": "life"
+  },
+  "flip-horizontal": {
+    "title": "Flip Horizontal",
+    "titleZh": "水平翻转",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "flip-vertical": {
+    "title": "Flip Vertical",
+    "titleZh": "垂直翻转",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "floppy-disk": {
+    "title": "Floppy Disk",
+    "titleZh": "软盘",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "folder-open": {
+    "title": "Folder Open",
+    "titleZh": "打开的文件夹",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "folder": {
+    "title": "Folder",
+    "titleZh": "文件夹",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "football": {
+    "title": "Football",
+    "titleZh": "足球",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "sport",
+      "运动"
+    ],
+    "aliases": [],
+    "subgroup": "sport"
+  },
+  "game-handle": {
+    "title": "Game Handle",
+    "titleZh": "游戏手柄",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "gaming",
+      "游戏"
+    ],
+    "aliases": [],
+    "subgroup": "gaming"
+  },
+  "gauge": {
+    "title": "Gauge",
+    "titleZh": "仪表盘",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "data",
+      "数据"
+    ],
+    "aliases": [],
+    "subgroup": "data"
+  },
+  "gender-female": {
+    "title": "Gender Female",
+    "titleZh": "女性",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "identity",
+      "身份"
+    ],
+    "aliases": [],
+    "subgroup": "identity"
+  },
+  "gender-male": {
+    "title": "Gender Male",
+    "titleZh": "男性",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "identity",
+      "身份"
+    ],
+    "aliases": [],
+    "subgroup": "identity"
+  },
+  "gender-neutral": {
+    "title": "Gender Neutral",
+    "titleZh": "性别中立",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "identity",
+      "身份"
+    ],
+    "aliases": [],
+    "subgroup": "identity"
+  },
+  "gender-transgender": {
+    "title": "Gender Transgender",
+    "titleZh": "跨性别",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "identity",
+      "身份"
+    ],
+    "aliases": [],
+    "subgroup": "identity"
+  },
+  "gift": {
+    "title": "Gift",
+    "titleZh": "礼物",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "git": {
+    "title": "Git",
+    "titleZh": "Git 版本控制",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "glasses": {
+    "title": "Glasses",
+    "titleZh": "眼镜",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "appearance",
+      "外观"
+    ],
+    "aliases": [],
+    "subgroup": "appearance"
+  },
+  "global": {
+    "title": "Global",
+    "titleZh": "全球",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "place",
+      "地点"
+    ],
+    "aliases": [
+      "globe",
+      "world",
+      "language"
+    ],
+    "subgroup": "place"
+  },
+  "grid-alt": {
+    "title": "Grid Alt",
+    "titleZh": "网格变体",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "grid": {
+    "title": "Grid",
+    "titleZh": "网格",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "hand": {
+    "title": "Hand",
+    "titleZh": "手势",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [
+      "gesture"
+    ],
+    "subgroup": "interaction"
+  },
+  "hard-drive": {
+    "title": "Hard Drive",
+    "titleZh": "硬盘",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "hashtag": {
+    "title": "Hashtag",
+    "titleZh": "井号",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [
+      "hash"
+    ],
+    "subgroup": "content"
+  },
+  "heading": {
+    "title": "Heading",
+    "titleZh": "标题",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "formatting",
+      "格式"
+    ],
+    "aliases": [],
+    "subgroup": "formatting"
+  },
+  "headset": {
+    "title": "Headset",
+    "titleZh": "耳机",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [],
+    "subgroup": "communication"
+  },
+  "heart": {
+    "title": "Heart",
+    "titleZh": "喜欢",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "feedback",
+      "反馈"
+    ],
+    "aliases": [
+      "like",
+      "favorite"
+    ],
+    "motion": {
+      "semantic": [
+        "beat"
+      ],
+      "transitions": []
+    },
+    "subgroup": "feedback"
+  },
+  "help": {
+    "title": "Help",
+    "titleZh": "帮助",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "alter",
+      "alert",
+      "警示"
+    ],
+    "aliases": [],
+    "subgroup": "alter"
+  },
+  "home": {
+    "title": "Home",
+    "titleZh": "首页",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "destination",
+      "目的地"
+    ],
+    "aliases": [
+      "house"
+    ],
+    "subgroup": "destination"
+  },
+  "hourglass": {
+    "title": "Hourglass",
+    "titleZh": "沙漏",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "system",
+      "系统"
+    ],
+    "aliases": [],
+    "subgroup": "system"
+  },
+  "image": {
+    "title": "Image",
+    "titleZh": "图片",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "visual",
+      "视觉"
+    ],
+    "aliases": [],
+    "subgroup": "visual"
+  },
+  "info": {
+    "title": "Info",
+    "titleZh": "信息",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [],
+    "subgroup": "communication"
+  },
+  "intersect": {
+    "title": "Intersect",
+    "titleZh": "交集",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "italic": {
+    "title": "Italic",
+    "titleZh": "斜体",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "formatting",
+      "格式"
+    ],
+    "aliases": [],
+    "subgroup": "formatting"
+  },
+  "jeep": {
+    "title": "Jeep",
+    "titleZh": "吉普车",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "mobility",
+      "出行"
+    ],
+    "aliases": [],
+    "subgroup": "mobility"
+  },
+  "key": {
+    "title": "Key",
+    "titleZh": "密钥",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "security",
+      "安全"
+    ],
+    "aliases": [],
+    "subgroup": "security"
+  },
+  "keyboard": {
+    "title": "Keyboard",
+    "titleZh": "键盘",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [
+      "keys"
+    ],
+    "subgroup": "interaction"
+  },
+  "lab": {
+    "title": "Lab",
+    "titleZh": "实验室",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "professional",
+      "职业"
+    ],
+    "aliases": [],
+    "subgroup": "professional"
+  },
+  "lamp": {
+    "title": "Lamp",
+    "titleZh": "台灯",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [],
+    "subgroup": "life"
+  },
+  "laptop": {
+    "title": "Laptop",
+    "titleZh": "笔记本电脑",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "laurel": {
+    "title": "Laurel",
+    "titleZh": "月桂冠",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "achievement",
+      "成就"
+    ],
+    "aliases": [],
+    "subgroup": "achievement"
+  },
+  "layers": {
+    "title": "Layers",
+    "titleZh": "图层",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [
+      "stack"
+    ],
+    "subgroup": "structure"
+  },
+  "lightbulb": {
+    "title": "Lightbulb",
+    "titleZh": "灯泡",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [
+      "idea"
+    ],
+    "subgroup": "life"
+  },
+  "link-off": {
+    "title": "Link Off",
+    "titleZh": "断开链接",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [],
+    "subgroup": "communication"
+  },
+  "link": {
+    "title": "Link",
+    "titleZh": "链接",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [
+      "chain"
+    ],
+    "subgroup": "communication"
+  },
+  "list-ordered": {
+    "title": "List Ordered",
+    "titleZh": "有序列表",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "list": {
+    "title": "List",
+    "titleZh": "列表",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [
+      "rows"
+    ],
+    "subgroup": "structure"
+  },
+  "loading": {
+    "title": "Loading",
+    "titleZh": "加载中",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "system",
+      "系统"
+    ],
+    "aliases": [],
+    "subgroup": "system"
+  },
+  "location": {
+    "title": "Location",
+    "titleZh": "位置",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "place",
+      "地点"
+    ],
+    "aliases": [],
+    "subgroup": "place"
+  },
+  "lock": {
+    "title": "Lock",
+    "titleZh": "锁定",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "security",
+      "安全"
+    ],
+    "aliases": [
+      "secure"
+    ],
+    "subgroup": "security"
+  },
+  "login": {
+    "title": "Login",
+    "titleZh": "登录",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "session",
+      "会话"
+    ],
+    "aliases": [],
+    "subgroup": "session"
+  },
+  "logout": {
+    "title": "Logout",
+    "titleZh": "退出登录",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "session",
+      "会话"
+    ],
+    "aliases": [],
+    "subgroup": "session"
+  },
+  "mail": {
+    "title": "Mail",
+    "titleZh": "邮件",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "map": {
+    "title": "Map",
+    "titleZh": "地图",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "place",
+      "地点"
+    ],
+    "aliases": [],
+    "subgroup": "place"
+  },
+  "mask": {
+    "title": "Mask",
+    "titleZh": "遮罩",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "masonry-alt": {
+    "title": "Masonry Alt",
+    "titleZh": "瀑布流变体",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "masonry": {
+    "title": "Masonry",
+    "titleZh": "瀑布流",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "maximize-alt": {
+    "title": "Maximize Alt",
+    "titleZh": "最大化变体",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "view",
+      "视图"
+    ],
+    "aliases": [],
+    "subgroup": "view"
+  },
+  "maximize": {
+    "title": "Maximize",
+    "titleZh": "最大化",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "view",
+      "视图"
+    ],
+    "aliases": [],
+    "subgroup": "view"
+  },
+  "megaphone": {
+    "title": "Megaphone",
+    "titleZh": "扩音器",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [
+      "announcement"
+    ],
+    "subgroup": "communication"
+  },
+  "menu": {
+    "title": "Menu",
+    "titleZh": "菜单",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "menu",
+      "菜单"
+    ],
+    "aliases": [
+      "hamburger"
+    ],
+    "subgroup": "menu"
+  },
+  "microphone": {
+    "title": "Microphone",
+    "titleZh": "麦克风",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "minimize-alt": {
+    "title": "Minimize Alt",
+    "titleZh": "最小化变体",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "view",
+      "视图"
+    ],
+    "aliases": [],
+    "subgroup": "view"
+  },
+  "minimize": {
+    "title": "Minimize",
+    "titleZh": "最小化",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "view",
+      "视图"
+    ],
+    "aliases": [],
+    "subgroup": "view"
+  },
+  "minus": {
+    "title": "Minus",
+    "titleZh": "减少",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "subgroup": "editing"
+  },
+  "mistake": {
+    "title": "Mistake",
+    "titleZh": "错误",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "alter",
+      "alert",
+      "警示"
+    ],
+    "aliases": [],
+    "subgroup": "alter"
+  },
+  "monitor": {
+    "title": "Monitor",
+    "titleZh": "显示器",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "moon": {
+    "title": "Moon",
+    "titleZh": "月亮",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "appearance",
+      "外观"
+    ],
+    "aliases": [],
+    "subgroup": "appearance"
+  },
+  "more-horizon": {
+    "title": "More Horizontal",
+    "titleZh": "横向更多",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "menu",
+      "菜单"
+    ],
+    "aliases": [],
+    "subgroup": "menu"
+  },
+  "more-vertical": {
+    "title": "More Vertical",
+    "titleZh": "更多竖排",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "menu",
+      "菜单"
+    ],
+    "aliases": [],
+    "subgroup": "menu"
+  },
+  "mountain": {
+    "title": "Mountain",
+    "titleZh": "山峰",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "place",
+      "地点"
+    ],
+    "aliases": [],
+    "subgroup": "place"
+  },
+  "mouse-alt": {
+    "title": "Mouse Alt",
+    "titleZh": "鼠标变体",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [],
+    "subgroup": "interaction"
+  },
+  "mouse": {
+    "title": "Mouse",
+    "titleZh": "鼠标",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [],
+    "subgroup": "interaction"
+  },
+  "music": {
+    "title": "Music",
+    "titleZh": "音乐",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "notebook": {
+    "title": "Notebook",
+    "titleZh": "笔记本",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "object-align-center": {
+    "title": "Object Align Center",
+    "titleZh": "对象居中对齐",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "object-align",
+      "object align",
+      "对象对齐"
+    ],
+    "aliases": [],
+    "subgroup": "object-align"
+  },
+  "object-align-justify-alt": {
+    "title": "Object Align Justify Alt",
+    "titleZh": "对象两端对齐变体",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "object-align",
+      "object align",
+      "对象对齐"
+    ],
+    "aliases": [],
+    "subgroup": "object-align"
+  },
+  "object-align-justify": {
+    "title": "Object Align Justify",
+    "titleZh": "对象两端对齐",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "object-align",
+      "object align",
+      "对象对齐"
+    ],
+    "aliases": [],
+    "subgroup": "object-align"
+  },
+  "object-align-left": {
+    "title": "Object Align Left",
+    "titleZh": "对象左对齐",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "object-align",
+      "object align",
+      "对象对齐"
+    ],
+    "aliases": [],
+    "subgroup": "object-align"
+  },
+  "object-align-right": {
+    "title": "Object Align Right",
+    "titleZh": "对象右对齐",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "object-align",
+      "object align",
+      "对象对齐"
+    ],
+    "aliases": [],
+    "subgroup": "object-align"
+  },
+  "panel-left": {
+    "title": "Panel Left",
+    "titleZh": "左侧面板",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "panel-right": {
+    "title": "Panel Right",
+    "titleZh": "右侧面板",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "paperclip": {
+    "title": "Paperclip",
+    "titleZh": "附件",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [
+      "attachment"
+    ],
+    "subgroup": "content"
+  },
+  "pause": {
+    "title": "Pause",
+    "titleZh": "暂停",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [],
+    "subgroup": "playback"
+  },
+  "pen": {
+    "title": "Pen",
+    "titleZh": "钢笔",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "creation",
+      "创建"
+    ],
+    "aliases": [],
+    "subgroup": "creation"
+  },
+  "pencil": {
+    "title": "Pencil",
+    "titleZh": "铅笔",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "creation",
+      "创建"
+    ],
+    "aliases": [],
+    "subgroup": "creation"
+  },
+  "percent": {
+    "title": "Percent",
+    "titleZh": "百分比",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "phone": {
+    "title": "Phone",
+    "titleZh": "手机",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [
+      "mobile"
+    ],
+    "subgroup": "communication"
+  },
+  "pie-chart": {
+    "title": "Pie Chart",
+    "titleZh": "饼图",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "data",
+      "数据"
+    ],
+    "aliases": [],
+    "subgroup": "data"
+  },
+  "pin-off": {
+    "title": "Pin Off",
+    "titleZh": "取消固定",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "management",
+      "管理"
+    ],
+    "aliases": [],
+    "subgroup": "management"
+  },
+  "pin": {
+    "title": "Pin",
+    "titleZh": "图钉",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "management",
+      "管理"
+    ],
+    "aliases": [],
+    "subgroup": "management"
+  },
+  "plane": {
+    "title": "Plane",
+    "titleZh": "飞机",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "mobility",
+      "出行"
+    ],
+    "aliases": [],
+    "subgroup": "mobility"
+  },
+  "planet": {
+    "title": "Planet",
+    "titleZh": "行星",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "place",
+      "地点"
+    ],
+    "aliases": [],
+    "subgroup": "place"
+  },
+  "play": {
+    "title": "Play",
+    "titleZh": "播放",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [
+      "start"
+    ],
+    "subgroup": "playback"
+  },
+  "plus": {
+    "title": "Plus",
+    "titleZh": "添加",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [
+      "add",
+      "create"
+    ],
+    "subgroup": "editing"
+  },
+  "power": {
+    "title": "Power",
+    "titleZh": "电源",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "session",
+      "会话"
+    ],
+    "aliases": [
+      "shutdown"
+    ],
+    "subgroup": "session"
+  },
+  "print": {
+    "title": "Print",
+    "titleZh": "打印",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "qr-code": {
+    "title": "QR Code",
+    "titleZh": "二维码",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "quote": {
+    "title": "Quote",
+    "titleZh": "引用",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "radio": {
+    "title": "Radio",
+    "titleZh": "收音机",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "receipt": {
+    "title": "Receipt",
+    "titleZh": "收据",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "record": {
+    "title": "Record",
+    "titleZh": "录制",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [],
+    "subgroup": "playback"
+  },
+  "redo": {
+    "title": "Redo",
+    "titleZh": "重做",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "subgroup": "editing"
+  },
+  "refresh": {
+    "title": "Refresh",
+    "titleZh": "刷新",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "management",
+      "管理"
+    ],
+    "aliases": [
+      "reload"
+    ],
+    "motion": {
+      "semantic": [
+        "rotate"
+      ],
+      "transitions": []
+    },
+    "subgroup": "management"
+  },
+  "repeat": {
+    "title": "Repeat",
+    "titleZh": "重复播放",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [],
+    "subgroup": "playback"
+  },
+  "reply": {
+    "title": "Reply",
+    "titleZh": "回复",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "history",
+      "历史"
+    ],
+    "aliases": [],
+    "subgroup": "history"
+  },
+  "rewind": {
+    "title": "Rewind",
+    "titleZh": "快退",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [],
+    "subgroup": "playback"
+  },
+  "robot": {
+    "title": "Robot",
+    "titleZh": "机器人",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "rocket": {
+    "title": "Rocket",
+    "titleZh": "火箭",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "mobility",
+      "出行"
+    ],
+    "aliases": [
+      "launch"
+    ],
+    "subgroup": "mobility"
+  },
+  "rotate-left": {
+    "title": "Rotate Left",
+    "titleZh": "向左旋转",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "rotate-right": {
+    "title": "Rotate Right",
+    "titleZh": "向右旋转",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "ruler": {
+    "title": "Ruler",
+    "titleZh": "标尺",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "creation",
+      "创建"
+    ],
+    "aliases": [],
+    "subgroup": "creation"
+  },
+  "save": {
+    "title": "Save",
+    "titleZh": "保存",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "management",
+      "管理"
+    ],
+    "aliases": [],
+    "subgroup": "management"
+  },
+  "scan": {
+    "title": "Scan",
+    "titleZh": "扫描",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "view",
+      "视图"
+    ],
+    "aliases": [],
+    "subgroup": "view"
+  },
+  "search": {
+    "title": "Search",
+    "titleZh": "搜索",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "management",
+      "管理"
+    ],
+    "aliases": [],
+    "subgroup": "management"
+  },
+  "send": {
+    "title": "Send",
+    "titleZh": "发送",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
+    ],
+    "aliases": [],
+    "subgroup": "transfer"
+  },
+  "separator": {
+    "title": "Separator",
+    "titleZh": "分隔",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "server": {
+    "title": "Server",
+    "titleZh": "服务器",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "set-bottom": {
+    "title": "Set Bottom",
+    "titleZh": "置于底层",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "arrangement",
+      "排列"
+    ],
+    "aliases": [],
+    "subgroup": "arrangement"
+  },
+  "set-medium": {
+    "title": "Set Medium",
+    "titleZh": "置于中层",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "arrangement",
+      "排列"
+    ],
+    "aliases": [],
+    "subgroup": "arrangement"
+  },
+  "set-top": {
+    "title": "Set Top",
+    "titleZh": "置于顶层",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "arrangement",
+      "排列"
+    ],
+    "aliases": [],
+    "subgroup": "arrangement"
+  },
+  "setting": {
+    "title": "Setting",
+    "titleZh": "设置",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "controls",
+      "控件"
+    ],
+    "aliases": [
+      "settings",
+      "gear",
+      "preferences"
+    ],
+    "subgroup": "controls"
+  },
+  "share": {
+    "title": "Share",
+    "titleZh": "分享",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
+    ],
+    "aliases": [],
+    "subgroup": "transfer"
+  },
+  "shield-check": {
+    "title": "Shield Check",
+    "titleZh": "安全验证",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "security",
+      "安全"
+    ],
+    "aliases": [],
+    "subgroup": "security"
+  },
+  "shield": {
+    "title": "Shield",
+    "titleZh": "盾牌",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "security",
+      "安全"
+    ],
+    "aliases": [],
+    "subgroup": "security"
+  },
+  "ship-rudder": {
+    "title": "Ship Rudder",
+    "titleZh": "船舵",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "mobility",
+      "出行"
+    ],
+    "aliases": [],
+    "subgroup": "mobility"
+  },
+  "shopping-bag": {
+    "title": "Shopping Bag",
+    "titleZh": "购物袋",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "shopping-cart": {
+    "title": "Shopping Cart",
+    "titleZh": "购物车",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "shuffle": {
+    "title": "Shuffle",
+    "titleZh": "随机播放",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [],
+    "subgroup": "playback"
+  },
+  "sidebar-left": {
+    "title": "Sidebar Left",
+    "titleZh": "左侧边栏",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "sidebar-right": {
+    "title": "Sidebar Right",
+    "titleZh": "右侧边栏",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "skip-back": {
+    "title": "Skip Back",
+    "titleZh": "上一段",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [],
+    "subgroup": "playback"
+  },
+  "skip-forward": {
+    "title": "Skip Forward",
+    "titleZh": "下一段",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [],
+    "subgroup": "playback"
+  },
+  "skyscraper": {
+    "title": "Skyscraper",
+    "titleZh": "摩天大楼",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "place",
+      "地点"
+    ],
+    "aliases": [],
+    "subgroup": "place"
+  },
+  "smartphone": {
+    "title": "Smartphone",
+    "titleZh": "智能手机",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "smile": {
+    "title": "Smile",
+    "titleZh": "微笑",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "feedback",
+      "反馈"
+    ],
+    "aliases": [],
+    "subgroup": "feedback"
+  },
+  "sort": {
+    "title": "Sort",
+    "titleZh": "排序",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "management",
+      "管理"
+    ],
+    "aliases": [
+      "order"
+    ],
+    "subgroup": "management"
+  },
+  "space-shuttle": {
+    "title": "Space Shuttle",
+    "titleZh": "航天飞机",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "mobility",
+      "出行"
+    ],
+    "aliases": [
+      "spacecraft"
+    ],
+    "subgroup": "mobility"
+  },
+  "sparkle": {
+    "title": "Sparkle",
+    "titleZh": "闪光",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "achievement",
+      "成就"
+    ],
+    "aliases": [],
+    "subgroup": "achievement"
+  },
+  "split-screen": {
+    "title": "Split Screen",
+    "titleZh": "分屏",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "star": {
+    "title": "Star",
+    "titleZh": "星标",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "feedback",
+      "反馈"
+    ],
+    "aliases": [
+      "rating"
+    ],
+    "subgroup": "feedback"
+  },
+  "stop": {
+    "title": "Stop",
+    "titleZh": "停止",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "playback",
+      "播放"
+    ],
+    "aliases": [],
+    "subgroup": "playback"
+  },
+  "store": {
+    "title": "Store",
+    "titleZh": "商店",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "strikethrough": {
+    "title": "Strikethrough",
+    "titleZh": "删除线",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "formatting",
+      "格式"
+    ],
+    "aliases": [],
+    "subgroup": "formatting"
+  },
+  "student": {
+    "title": "Student",
+    "titleZh": "学生",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "professional",
+      "职业"
+    ],
+    "aliases": [],
+    "subgroup": "professional"
+  },
+  "subscription": {
+    "title": "Subscription",
+    "titleZh": "订阅套餐",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [
+      "membership"
+    ],
+    "subgroup": "commerce"
+  },
+  "subtract": {
+    "title": "Subtract",
+    "titleZh": "差集",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "success": {
+    "title": "Success",
+    "titleZh": "成功",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "feedback",
+      "反馈"
+    ],
+    "aliases": [],
+    "subgroup": "feedback"
+  },
+  "sun": {
+    "title": "Sun",
+    "titleZh": "太阳",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "appearance",
+      "外观"
+    ],
+    "aliases": [],
+    "subgroup": "appearance"
+  },
+  "sync": {
+    "title": "Sync",
+    "titleZh": "同步",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "management",
+      "管理"
+    ],
+    "aliases": [],
+    "subgroup": "management"
+  },
+  "table": {
+    "title": "Table",
+    "titleZh": "表格",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "tablet": {
+    "title": "Tablet",
+    "titleZh": "平板电脑",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "tabs": {
+    "title": "Tabs",
+    "titleZh": "标签页",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "controls",
+      "控件"
+    ],
+    "aliases": [],
+    "subgroup": "controls"
+  },
+  "tag": {
+    "title": "Tag",
+    "titleZh": "标签",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content"
+  },
+  "target-alt": {
+    "title": "Target Alt",
+    "titleZh": "靶心变体",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [],
+    "subgroup": "interaction"
+  },
+  "target": {
+    "title": "Target",
+    "titleZh": "靶心",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [],
+    "subgroup": "interaction"
+  },
+  "task": {
+    "title": "Task",
+    "titleZh": "任务",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [
+      "todo",
+      "clipboard"
+    ],
+    "subgroup": "content"
+  },
+  "terminal": {
+    "title": "Terminal",
+    "titleZh": "终端",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "text-align-center": {
+    "title": "Text Align Center",
+    "titleZh": "文本居中对齐",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "text-align",
+      "text align",
+      "文本对齐"
+    ],
+    "aliases": [],
+    "subgroup": "text-align"
+  },
+  "text-align-justify-alt": {
+    "title": "Text Align Justify Alt",
+    "titleZh": "文本两端对齐变体",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "text-align",
+      "text align",
+      "文本对齐"
+    ],
+    "aliases": [],
+    "subgroup": "text-align"
+  },
+  "text-align-justify": {
+    "title": "Text Align Justify",
+    "titleZh": "文本两端对齐",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "text-align",
+      "text align",
+      "文本对齐"
+    ],
+    "aliases": [],
+    "subgroup": "text-align"
+  },
+  "text-align-left": {
+    "title": "Text Align Left",
+    "titleZh": "文本左对齐",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "text-align",
+      "text align",
+      "文本对齐"
+    ],
+    "aliases": [],
+    "subgroup": "text-align"
+  },
+  "text-align-right": {
+    "title": "Text Align Right",
+    "titleZh": "文本右对齐",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "text-align",
+      "text align",
+      "文本对齐"
+    ],
+    "aliases": [],
+    "subgroup": "text-align"
+  },
+  "text-alt": {
+    "title": "Text Alt",
+    "titleZh": "文本变体",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "formatting",
+      "格式"
+    ],
+    "aliases": [],
+    "subgroup": "formatting"
+  },
+  "text": {
+    "title": "Text",
+    "titleZh": "文本",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "creation",
+      "创建"
+    ],
+    "aliases": [],
+    "subgroup": "creation"
+  },
+  "textarea": {
+    "title": "Textarea",
+    "titleZh": "文本区域",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "formatting",
+      "格式"
+    ],
+    "aliases": [],
+    "subgroup": "formatting"
+  },
+  "thumbs-down": {
+    "title": "Thumbs Down",
+    "titleZh": "点踩",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "feedback",
+      "反馈"
+    ],
+    "aliases": [
+      "thumb-down",
+      "dislike"
+    ],
+    "variants": [
+      "thumbs-up"
+    ],
+    "subgroup": "feedback"
+  },
+  "thumbs-up": {
+    "title": "Thumbs Up",
+    "titleZh": "点赞",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "feedback",
+      "反馈"
+    ],
+    "aliases": [],
+    "variants": [
+      "thumbs-down"
+    ],
+    "subgroup": "feedback"
+  },
+  "ticket-alt": {
+    "title": "Ticket Alt",
+    "titleZh": "门票（备选）",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "variants": [
+      "ticket"
+    ],
+    "subgroup": "commerce"
+  },
+  "ticket": {
+    "title": "Ticket",
+    "titleZh": "门票",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "variants": [
+      "ticket-alt"
+    ],
+    "subgroup": "commerce"
+  },
+  "timer": {
+    "title": "Timer",
+    "titleZh": "计时器",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "time",
+      "时间"
+    ],
+    "aliases": [],
+    "subgroup": "time"
+  },
+  "toggle": {
+    "title": "Toggle",
+    "titleZh": "开关",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "controls",
+      "控件"
+    ],
+    "aliases": [],
+    "subgroup": "controls"
+  },
+  "touchpad": {
+    "title": "Touchpad",
+    "titleZh": "触控板",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
+    ],
+    "aliases": [],
+    "subgroup": "interaction"
+  },
+  "transfer": {
+    "title": "Transfer",
+    "titleZh": "传输",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
+    ],
+    "aliases": [],
+    "subgroup": "transfer"
+  },
+  "transform": {
+    "title": "Transform",
+    "titleZh": "变换",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "translate": {
+    "title": "Translate",
+    "titleZh": "翻译",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [
+      "translation"
+    ],
+    "subgroup": "editing"
+  },
+  "trash": {
+    "title": "Trash",
+    "titleZh": "删除",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [
+      "delete"
+    ],
+    "subgroup": "editing"
+  },
+  "trending-down": {
+    "title": "Trending Down",
+    "titleZh": "下降趋势",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "trend",
+      "趋势"
+    ],
+    "aliases": [],
+    "subgroup": "trend"
+  },
+  "trending-up": {
+    "title": "Trending Up",
+    "titleZh": "上升趋势",
+    "categories": [
+      "navigation"
+    ],
+    "tags": [
+      "navigation",
+      "导航",
+      "trend",
+      "趋势"
+    ],
+    "aliases": [],
+    "subgroup": "trend"
+  },
+  "truck": {
+    "title": "Truck",
+    "titleZh": "卡车",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "mobility",
+      "出行"
+    ],
+    "aliases": [],
+    "subgroup": "mobility"
+  },
+  "underline": {
+    "title": "Underline",
+    "titleZh": "下划线",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "formatting",
+      "格式"
+    ],
+    "aliases": [],
+    "subgroup": "formatting"
+  },
+  "undo": {
+    "title": "Undo",
+    "titleZh": "撤销",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "subgroup": "editing"
+  },
+  "uninteresting": {
+    "title": "Uninteresting",
+    "titleZh": "不感兴趣",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "feedback",
+      "反馈"
+    ],
+    "aliases": [],
+    "subgroup": "feedback"
+  },
+  "union": {
+    "title": "Union",
+    "titleZh": "并集",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "geometry",
+      "几何"
+    ],
+    "aliases": [],
+    "subgroup": "geometry"
+  },
+  "unlock": {
+    "title": "Unlock",
+    "titleZh": "解锁",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "security",
+      "安全"
+    ],
+    "aliases": [
+      "unlocked"
+    ],
+    "subgroup": "security"
+  },
+  "unsafe": {
+    "title": "Unsafe",
+    "titleZh": "不安全",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "security",
+      "安全"
+    ],
+    "aliases": [],
+    "subgroup": "security"
+  },
+  "upload": {
+    "title": "Upload",
+    "titleZh": "上传",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
+    ],
+    "aliases": [],
+    "subgroup": "transfer"
+  },
+  "url": {
+    "title": "URL",
+    "titleZh": "网址",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [],
+    "subgroup": "communication"
+  },
+  "user": {
+    "title": "User",
+    "titleZh": "用户",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "identity",
+      "身份"
+    ],
+    "aliases": [
+      "person",
+      "account"
+    ],
+    "subgroup": "identity"
+  },
+  "users": {
+    "title": "Users",
+    "titleZh": "用户组",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "identity",
+      "身份"
+    ],
+    "aliases": [],
+    "subgroup": "identity"
+  },
+  "video": {
+    "title": "Video",
+    "titleZh": "视频",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "visual",
+      "视觉"
+    ],
+    "aliases": [],
+    "subgroup": "visual"
+  },
+  "visualization": {
+    "title": "Visualization",
+    "titleZh": "可视化",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "structure",
+      "结构"
+    ],
+    "aliases": [],
+    "subgroup": "structure"
+  },
+  "volume-down": {
+    "title": "Volume Down",
+    "titleZh": "音量降低",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "volume-high": {
+    "title": "Volume High",
+    "titleZh": "高音量",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "volume-low": {
+    "title": "Volume Low",
+    "titleZh": "低音量",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "volume-off": {
+    "title": "Volume Off",
+    "titleZh": "静音",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "volume-up": {
+    "title": "Volume Up",
+    "titleZh": "音量增加",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "volume": {
+    "title": "Volume",
+    "titleZh": "音量",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "vr": {
+    "title": "VR",
+    "titleZh": "虚拟现实",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "visual",
+      "视觉"
+    ],
+    "aliases": [],
+    "subgroup": "visual"
+  },
+  "wallet": {
+    "title": "Wallet",
+    "titleZh": "钱包",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "commerce",
+      "商务"
+    ],
+    "aliases": [],
+    "subgroup": "commerce"
+  },
+  "warning": {
+    "title": "Warning",
+    "titleZh": "警告",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "alter",
+      "alert",
+      "警示"
+    ],
+    "aliases": [],
+    "subgroup": "alter"
+  },
+  "waveform": {
+    "title": "Waveform",
+    "titleZh": "波形",
+    "categories": [
+      "media"
+    ],
+    "tags": [
+      "media",
+      "媒体",
+      "audio",
+      "音频"
+    ],
+    "aliases": [],
+    "subgroup": "audio"
+  },
+  "wifi-off": {
+    "title": "Wi-Fi Off",
+    "titleZh": "关闭无线网络",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "wifi": {
+    "title": "Wi-Fi",
+    "titleZh": "无线网络",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "subgroup": "technology"
+  },
+  "zoom-in": {
+    "title": "Zoom In",
+    "titleZh": "放大",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "view",
+      "视图"
+    ],
+    "aliases": [],
+    "subgroup": "view"
+  },
+  "zoom-out": {
+    "title": "Zoom Out",
+    "titleZh": "缩小",
+    "categories": [
+      "actions"
+    ],
+    "tags": [
+      "actions",
+      "操作",
+      "view",
+      "视图"
+    ],
+    "aliases": [],
+    "subgroup": "view"
+  }
 }

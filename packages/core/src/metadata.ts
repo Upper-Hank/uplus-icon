@@ -1,5 +1,6 @@
 export { iconMeta } from './generated/metadata.js'
 export { iconCategories } from './generated/categories.js'
+export { iconSubgroups } from './generated/subgroups.js'
 export type { IconName } from './generated/names.js'
 export type { IconCategoryId } from './generated/category-names.js'
-export type { IconCategory, IconMeta, IconMotionCapabilities, IconMotionTransition, LocalizedText } from './types.js'
+export type { IconCategory, IconSubgroup, LocalizedText, PublicIconMeta as IconMeta } from './types.js'

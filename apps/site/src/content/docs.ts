@@ -1,5 +1,5 @@
 export type DocLocale = 'en' | 'zh-CN'
-export type DocGroup = 'foundations' | 'visual' | 'motion' | 'architecture' | 'governance' | 'usage'
+export type DocGroup = 'foundations' | 'visual' | 'architecture' | 'governance' | 'usage'
 export type DocSlug =
   | 'principles'
   | 'naming'
@@ -11,9 +11,6 @@ export type DocSlug =
   | 'workflow'
   | 'api'
   | 'react'
-  | 'web'
-  | 'motion-api'
-  | 'motion-authoring'
   | 'accessibility'
   | 'testing'
   | 'versioning'
@@ -40,23 +37,27 @@ export interface DocDocument {
 }
 
 const groupLabels = {
-  en: { foundations: 'Foundations', visual: 'Visual rules', motion: 'Motion', architecture: 'Architecture', governance: 'Governance', usage: 'Usage' },
-  zh: { foundations: '基础', visual: '视觉规则', motion: '动效', architecture: '架构', governance: '治理', usage: '使用' },
+  en: { foundations: 'Foundations', visual: 'Visual rules', architecture: 'Architecture', governance: 'Governance', usage: 'Usage' },
+  zh: { foundations: '基础', visual: '视觉规则', architecture: '架构', governance: '治理', usage: '使用' },
 } satisfies Record<'en' | 'zh', Record<DocGroup, string>>
 
 export function getDocGroupLabels(language: 'en' | 'zh') {
   return groupLabels[language]
 }
 
-const rawDocuments = import.meta.glob('../../../../docs/rules/*.md', {
+const rawDocuments = import.meta.glob([
+  '../../../../docs/rules/*.md',
+  '!../../../../docs/rules/12-motion-api.*.md',
+  '!../../../../docs/rules/13-motion-authoring.*.md',
+], {
   eager: true,
   query: '?raw',
   import: 'default',
 }) as Record<string, string>
 
 const requiredFields = ['slug', 'order', 'group', 'title', 'description', 'locale'] as const
-const slugs: DocSlug[] = ['principles', 'naming', 'canvas', 'optical', 'stroke', 'svg', 'metadata', 'workflow', 'api', 'react', 'web', 'motion-api', 'motion-authoring', 'accessibility', 'testing', 'versioning', 'contribution', 'figma', 'package-architecture', 'release-process']
-const groups: DocGroup[] = ['foundations', 'visual', 'motion', 'architecture', 'governance', 'usage']
+const slugs: DocSlug[] = ['principles', 'naming', 'canvas', 'optical', 'stroke', 'svg', 'metadata', 'workflow', 'api', 'react', 'accessibility', 'testing', 'versioning', 'contribution', 'figma', 'package-architecture', 'release-process']
+const groups: DocGroup[] = ['foundations', 'visual', 'architecture', 'governance', 'usage']
 
 function parseDocument(source: string, path: string): DocDocument {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/)

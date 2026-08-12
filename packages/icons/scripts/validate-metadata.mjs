@@ -1,4 +1,5 @@
 const versionPattern = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/
+const capabilityPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
 export function validateMetadataReferences(metadata, iconNames) {
   const names = iconNames instanceof Set ? iconNames : new Set(iconNames)
@@ -32,15 +33,20 @@ export function validateMetadataReferences(metadata, iconNames) {
     }
 
     if (details.motion === undefined) continue
-    for (const field of ['generic', 'semantic']) {
+    for (const field of ['semantic']) {
       const capabilities = details.motion[field]
       if (new Set(capabilities).size !== capabilities.length) {
         throw new Error(`Metadata field ${name}.motion.${field} contains duplicate capabilities`)
       }
+      if (capabilities.some((capability) => !capabilityPattern.test(capability))) {
+        throw new Error(`Metadata field ${name}.motion.${field} capabilities must use kebab-case`)
+      }
     }
-
     const transitionKeys = new Set()
     for (const transition of details.motion.transitions) {
+      if (!capabilityPattern.test(transition.name)) {
+        throw new Error(`Metadata field ${name}.motion.transitions names must use kebab-case`)
+      }
       if (!names.has(transition.to)) {
         throw new Error(`Metadata field ${name}.motion.transitions references missing icon "${transition.to}"`)
       }

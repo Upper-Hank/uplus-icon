@@ -3,7 +3,7 @@ slug: accessibility
 order: 14
 group: usage
 title: 可访问性
-description: 装饰图标、语义图标、按钮命名与动效降级
+description: 装饰图标、语义图标与按钮命名
 locale: zh-CN
 ---
 
@@ -21,4 +21,4 @@ Icon-only Button 的名称由按钮提供，例如“关闭对话框”，不是
 
 ## 状态与颜色
 
-不得只靠颜色区分状态。加载、错误、成功等状态需要文本、可访问名称或控件状态同步表达。动态图标必须遵守 Reduced Motion，并保持最终语义状态可感知。
+不得只靠颜色区分状态。加载、错误、成功等状态需要文本、可访问名称或控件状态同步表达。

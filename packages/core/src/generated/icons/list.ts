@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "list",
   "viewBox": "0 0 24 24",
-  "body": "\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"9\" y=\"6\" width=\"12\" height=\"2\" rx=\"1\" fill=\"currentColor\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"3\" y=\"5.5\" width=\"3\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"9\" y=\"11\" width=\"12\" height=\"2\" rx=\"1\" fill=\"currentColor\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"3\" y=\"10.5\" width=\"3\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"9\" y=\"16\" width=\"12\" height=\"2\" rx=\"1\" fill=\"currentColor\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"3\" y=\"15.5\" width=\"3\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n"
+  "body": "\n<rect x=\"3\" y=\"5.5\" width=\"3\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n<rect x=\"3\" y=\"10.5\" width=\"3\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n<rect x=\"3\" y=\"15.5\" width=\"3\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n<path d=\"M10 7H20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M10 12H20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M10 17H20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

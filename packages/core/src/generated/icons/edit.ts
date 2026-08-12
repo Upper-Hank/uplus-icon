@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "edit",
   "viewBox": "0 0 24 24",
-  "body": "\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M20 12V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H12\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linecap=\"round\"/>\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M19.5208 4.70711C20.3018 5.48816 20.3018 6.75449 19.5208 7.53553L12.7011 14.3552C12.4858 14.5706 12.224 14.7342 11.936 14.8331L9.85056 15.5485C8.66034 15.9567 7.52595 14.806 7.95159 13.6219L8.69184 11.5627C8.79155 11.2854 8.95166 11.0336 9.16002 10.8252L15.9853 4C16.7663 3.21895 18.0326 3.21895 18.8137 4L19.5208 4.70711Z\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\"/>\n"
+  "body": "\n<path d=\"M20 12V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7C4 5.34315 5.34315 4 7 4H12\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M15.9856 4.00015C16.7666 3.21917 18.0327 3.21913 18.8137 4.00015L19.5207 4.70718C20.3017 5.48821 20.3017 6.75426 19.5207 7.53531L12.7014 14.3556C12.486 14.571 12.2239 14.7343 11.9358 14.8332L9.84982 15.548C8.65969 15.956 7.52678 14.8063 7.95236 13.6222L8.69162 11.5627C8.79133 11.2854 8.952 11.0337 9.16037 10.8253L15.9856 4.00015Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

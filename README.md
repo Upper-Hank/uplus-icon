@@ -16,7 +16,7 @@ Consistent SVG icons, type-safe React components, and a focused browser for find
 
 ## About
 
-Uplus Icon is an open-source icon system for modern products. It brings carefully selected SVG assets, framework-neutral icon data, React components, native Web APIs, and a documentation site into one repository.
+Uplus Icon is an open-source icon system for modern products. It brings carefully selected SVG assets, framework-neutral icon data, React components, and a documentation site into one repository.
 
 The project values clarity, visual consistency, accessibility, and predictable production behavior. Raw SVG assets are reviewed and supplied by the maintainer; the build pipeline reads them without rewriting their visual data.
 
@@ -25,9 +25,8 @@ The project values clarity, visual consistency, accessibility, and predictable p
 - Modern, consistent SVG icons for user interfaces
 - Framework-neutral SVG definitions and searchable metadata
 - Type-safe React components with ref forwarding
-- Native DOM helpers and an optional Web Component
 - Static per-icon imports for small production bundles
-- Dynamic rendering by a typed icon name
+- Explicit name-based rendering for data-driven interfaces
 - Standard SVG props with source-faithful rendering
 - Accessible decorative and labelled icon behavior
 - Separate metadata for search, categories, tags, and aliases
@@ -36,7 +35,7 @@ The project values clarity, visual consistency, accessibility, and predictable p
 
 ## Project status
 
-Uplus Icon is currently in preview. The icon set, package APIs, and website are under active development. The `@uplus-icon/core`, `@uplus-icon/react`, and `@uplus-icon/web` packages have not been published publicly to npm yet. The future documentation site will be available at `icon.upper.website`.
+Uplus Icon is currently in preview. The icon set, package APIs, and website are under active development. The `@uplus-icon/core` and `@uplus-icon/react` packages have not been published publicly to npm yet. The future documentation site will be available at `icon.upper.website`.
 
 Until the first public release, install the repository locally for development:
 
@@ -80,39 +79,17 @@ import CheckIcon from '@uplus-icon/react/icons/check'
 <CheckIcon size={24} />
 ```
 
-### Dynamic icon
+### Name-based rendering
 
-Use the dynamic component when an icon name comes from configuration or data:
+Use the explicit dynamic entry for navigation data, CMS content, or other runtime names:
 
 ```tsx
-import { Icon, type IconName } from '@uplus-icon/react/dynamic'
+import { Icon } from '@uplus-icon/react/dynamic'
 
-const name: IconName = 'check'
-
-<Icon name={name} size={24} />
+<Icon name="check" size={24} />
 ```
 
-Dynamic rendering includes the icon registry. Prefer static component imports for fixed application icons. Searchable catalog data is available from `@uplus-icon/core/metadata` and does not contain SVG bodies.
-
-### Native Web
-
-Use a per-icon DOM factory when React is not present:
-
-```ts
-import { CheckIcon } from '@uplus-icon/web'
-
-document.body.append(CheckIcon({ size: 24, ariaLabel: 'Complete' }))
-```
-
-An explicit side-effect entry registers the optional custom element:
-
-```ts
-import '@uplus-icon/web/element'
-```
-
-```html
-<uplus-icon name="check" size="24" aria-label="Complete"></uplus-icon>
-```
+This entry contains the complete registry. Fixed UI should keep named or per-icon imports.
 
 ## Props
 
@@ -121,8 +98,8 @@ Every icon accepts standard React SVG attributes in addition to the following pr
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `size` | `number \| string` | `24` | Sets both width and height. |
-| `strokeWidth` | `number` | SVG source | Overrides source strokes and is clamped to `0.5–2`. |
-| `absoluteStrokeWidth` | `boolean` | `false` | Keeps the stroke width in CSS pixels instead of scaling with `size`. |
+| `weight` | `number` | `2` | Scales strokes by `weight ÷ 2` and supported solid details continuously by `(weight + 1) ÷ 3`. Clamped to `0.5–2`. |
+| `absoluteWeight` | `boolean` | `false` | Keeps weight in CSS pixels for numeric sizes; string sizes safely use relative weight. |
 | `title` | `string` | — | Adds an SVG title and exposes the icon as an image. |
 | `color` | `string` | — | Standard SVG color prop; its effect follows the supplied SVG source. |
 | `aria-label` | `string` | — | Gives a meaningful icon an accessible name. |
@@ -151,8 +128,7 @@ uplus-icon/
 │   │   ├── metadata/         Search and classification metadata
 │   │   └── scripts/          Unified code generation
 │   ├── core/                 Framework-neutral definitions and metadata
-│   ├── react/                React components
-│   └── web/                  Native DOM API and Web Component
+│   └── react/                React components
 ├── .github/workflows/        Continuous integration
 ├── CONTRIBUTING.md
 └── LICENSE

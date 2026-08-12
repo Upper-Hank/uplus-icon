@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "clock",
   "viewBox": "0 0 24 24",
-  "body": "\n<circle vector-effect=\"var(--uplus-icon-vector-effect, none)\" cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"11\" y=\"6\" width=\"2\" height=\"7\" rx=\"1\" fill=\"currentColor\"/>\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"16\" y=\"11\" width=\"2\" height=\"5\" rx=\"1\" transform=\"rotate(90 16 11)\" fill=\"currentColor\"/>\n"
+  "body": "\n<path d=\"M12 12V7\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M15 12H12\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

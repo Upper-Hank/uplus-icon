@@ -1,0 +1,35 @@
+{
+  "name": "@uplus-icon/motion",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Animation rules and controls for Uplus Icon",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/Upper-Hank/uplus-icon.git", "directory": "packages/motion" },
+  "bugs": { "url": "https://github.com/Upper-Hank/uplus-icon/issues" },
+  "homepage": "https://icon.upper.website",
+  "keywords": ["icon", "icons", "motion", "animation", "uplus"],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./react": { "types": "./dist/react.d.ts", "import": "./dist/react.js" }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@uplus-icon/core": "^0.0.0",
+    "@uplus-icon/react": "^0.0.0"
+  },
+  "peerDependencies": { "react": ">=18" },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "react": "^19.1.0",
+    "typescript": "^5.8.3"
+  }
+}

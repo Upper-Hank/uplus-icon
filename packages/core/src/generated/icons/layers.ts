@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "layers",
   "viewBox": "0 0 24 24",
-  "body": "\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M12 4L19.5 8L12 12L4.5 8L12 4Z\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linejoin=\"round\"/>\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M19.5 12L12 16L4.5 12\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M19.5 16L12 20L4.5 16\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n"
+  "body": "\n<path d=\"M11.0588 4.50196C11.6471 4.18823 12.3529 4.18823 12.9412 4.50196L19.5 8L12.9412 11.498C12.3529 11.8118 11.6471 11.8118 11.0588 11.498L4.5 8L11.0588 4.50196Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n<path d=\"M19.5 12L12.9412 15.498C12.3529 15.8118 11.6471 15.8118 11.0588 15.498L4.5 12\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M19.5 16L12.9412 19.498C12.3529 19.8118 11.6471 19.8118 11.0588 19.498L4.5 16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

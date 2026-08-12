@@ -23,8 +23,8 @@ function routeMetadata(route: Route, language: Language) {
     return {
       title: `${label ?? route.name} (${route.name}) — Uplus Icon`,
       description: zh
-        ? `查看 ${route.name} 图标、预览不同尺寸并复制 React、Web Component 或 SVG 用法。`
-        : `Preview the ${route.name} icon and copy its React, Web Component, or SVG usage.`,
+        ? `查看 ${route.name} 图标、预览不同尺寸并复制 React、Core 或 SVG 用法。`
+        : `Preview the ${route.name} icon and copy its React, Core, or SVG usage.`,
       robots: 'index,follow',
     }
   }
@@ -40,7 +40,7 @@ function routeMetadata(route: Route, language: Language) {
     },
     guide: {
       title: zh ? '使用指南 — Uplus Icon' : 'Get started — Uplus Icon',
-      description: zh ? '安装并在 React 或原生 Web 项目中使用 Uplus Icon。' : 'Install and use Uplus Icon in React or native Web projects.',
+      description: zh ? '安装并在 React 项目中使用 Uplus Icon。' : 'Install and use Uplus Icon in React projects.',
     },
     docs: {
       title: zh ? '规范文档 — Uplus Icon' : 'Documentation — Uplus Icon',

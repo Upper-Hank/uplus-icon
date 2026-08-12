@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
-import { iconCategories, iconMeta } from '@uplus-icon/core/metadata'
+import { iconCategories, iconMeta, iconSubgroups } from '@uplus-icon/core/metadata'
 import { useI18n } from '../i18n'
 import { IconCollection, type IconViewMode } from '../components/IconCollection'
 import { SegmentedControl } from '../components/LibraryControls'
@@ -16,15 +16,20 @@ interface IconsPageProps {
   selectedIcon?: IconName
 }
 
+const VIEW_MODE_KEY = 'uplus-icon-view-3'
+
 export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
   const { language, t } = useI18n()
   const [query, setQuery] = useState('')
   const [sortOrder, setSortOrder] = useState<SortOrder>('published')
-  const [viewMode, setViewMode] = useState<IconViewMode>(() => localStorage.getItem('uplus-icon-view') === 'collection' ? 'collection' : 'flat')
+  const [viewMode, setViewMode] = useState<IconViewMode>(() => {
+    const saved = localStorage.getItem(VIEW_MODE_KEY)
+    return saved === 'collection' ? 'collection' : 'flat'
+  })
   const searchRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    localStorage.setItem('uplus-icon-view', viewMode)
+    localStorage.setItem(VIEW_MODE_KEY, viewMode)
   }, [viewMode])
 
   useEffect(() => {
@@ -40,12 +45,15 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
 
   const filtered = useMemo(() => {
     const value = query.trim().toLowerCase()
-    const matches = iconMeta.map((icon, index) => ({ icon, index })).filter(({ icon: { name, title, titleZh, tags, aliases, categories } }) => {
+    const matches = iconMeta.map((icon, index) => ({ icon, index })).filter(({ icon: { name, title, titleZh, tags, aliases, categories, subgroup } }) => {
       if (!value) return true
       const categoryTerms = iconCategories
         .filter(({ id }) => categories.includes(id))
         .flatMap(({ id, title: categoryTitle, titleZh: categoryTitleZh }) => [id, categoryTitle, categoryTitleZh])
-      return [name, title, titleZh, ...tags, ...aliases, ...categoryTerms].some((term) => term.toLowerCase().includes(value))
+      const subgroupTerms = iconSubgroups
+        .filter((entry) => entry.categoryId === categories[0] && entry.id === subgroup)
+        .flatMap(({ id, title: subgroupTitle, titleZh: subgroupTitleZh }) => [id, subgroupTitle, subgroupTitleZh])
+      return [name, title, titleZh, subgroup, ...tags, ...aliases, ...categoryTerms, ...subgroupTerms].some((term) => term.toLowerCase().includes(value))
     })
     matches.sort((a, b) => {
       if (sortOrder === 'name') return a.icon.name.localeCompare(b.icon.name) || a.index - b.index
@@ -56,10 +64,22 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
   }, [query, sortOrder])
 
   const groups = useMemo(() => {
-    return iconCategories.map((entry) => ({
-      category: entry,
-      icons: filtered.filter((icon) => icon.categories[0] === entry.id),
-    })).filter(({ icons }) => icons.length > 0)
+    return iconCategories.map((category) => {
+      const categoryIcons = filtered.filter((icon) => icon.categories[0] === category.id)
+      const subgroups = iconSubgroups
+        .filter((subgroup) => subgroup.categoryId === category.id)
+        .map((subgroup) => ({
+          subgroup,
+          icons: categoryIcons.filter((icon) => icon.subgroup === subgroup.id),
+        }))
+        .filter(({ icons }) => icons.length > 0)
+
+      return {
+        category,
+        subgroups,
+        icons: categoryIcons,
+      }
+    }).filter(({ icons }) => icons.length > 0)
   }, [filtered])
 
   const viewOptions = useMemo(() => [
@@ -106,7 +126,7 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
     </div>
     <div className="library-content" data-reveal>
       {filtered.length ? <IconCollection groups={groups} icons={filtered} language={language} navigate={navigate} viewMode={viewMode} />
-        : <div className="empty"><Icon name="grid" size={32} /><h2>{t('noIcon')}</h2><p>{t('noIconText')}</p></div>}
+        : <div className="empty"><Icon name="search" size={32} /><h2>{t('noIcon')}</h2><p>{t('noIconText')}</p></div>}
     </div>
     {selectedIcon && <IconDetailDrawer key={selectedIcon} name={selectedIcon} onClose={() => navigate('/icons')} />}
   </section>

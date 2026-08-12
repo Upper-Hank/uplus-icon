@@ -4,7 +4,7 @@ import type { IconDefinition } from '../../types.js'
 const icon = {
   "name": "power",
   "viewBox": "0 0 24 24",
-  "body": "\n<rect vector-effect=\"var(--uplus-icon-vector-effect, none)\" x=\"10.9999\" y=\"2\" width=\"2\" height=\"8\" rx=\"1\" fill=\"currentColor\"/>\n<path vector-effect=\"var(--uplus-icon-vector-effect, none)\" d=\"M16.7023 5.52788C18.0691 6.52091 19.0864 7.92114 19.6085 9.52788C20.1305 11.1346 20.1305 12.8654 19.6085 14.4722C19.0864 16.0789 18.0691 17.4791 16.7023 18.4722C15.3355 19.4652 13.6895 20 12 20C10.3106 20 8.66453 19.4652 7.29775 18.4722C5.93097 17.4791 4.91364 16.0789 4.39158 14.4722C3.86951 12.8654 3.86951 11.1346 4.39158 9.52788C4.91364 7.92114 5.93097 6.52091 7.29775 5.52788\" stroke=\"currentColor\" stroke-width=\"var(--uplus-icon-stroke-width, 2)\" stroke-linecap=\"round\"/>\n"
+  "body": "\n<path d=\"M16.7023 5.52789C18.0691 6.52091 19.0864 7.92114 19.6085 9.52789C20.1306 11.1346 20.1306 12.8654 19.6085 14.4722C19.0864 16.0789 18.0691 17.4791 16.7023 18.4722C15.3356 19.4652 13.6895 20 12.0001 20C10.3106 20 8.66455 19.4652 7.29777 18.4722C5.93099 17.4791 4.91366 16.0789 4.3916 14.4722C3.86953 12.8654 3.86953 11.1346 4.3916 9.52789C4.91366 7.92114 5.93099 6.52091 7.29777 5.52789\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 3V9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
 } as const satisfies IconDefinition
 
 export default icon

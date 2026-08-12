@@ -1,10 +1,16 @@
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
-import type { IconCategory, IconMeta } from '@uplus-icon/core/metadata'
+import type { IconCategory, IconMeta, IconSubgroup } from '@uplus-icon/core/metadata'
 
 export type IconViewMode = 'flat' | 'collection'
 
+export type IconSubgroupGroup = {
+  subgroup: IconSubgroup
+  icons: readonly IconMeta[]
+}
+
 export type IconGroup = {
   category: IconCategory
+  subgroups: readonly IconSubgroupGroup[]
   icons: readonly IconMeta[]
 }
 
@@ -48,7 +54,45 @@ function IconCollectionGroup({ group, language, navigate }: Pick<CollectionProps
         <h2 id={`category-${group.category.id}`}>{title}</h2>
         <span>{group.icons.length}</span>
       </header>
-      <IconGrid icons={group.icons} navigate={navigate} />
+      <div className="collection-subgroups">
+        {group.subgroups.map(({ subgroup, icons }) => (
+          <IconSubgroupSection
+            categoryId={group.category.id}
+            icons={icons}
+            language={language}
+            navigate={navigate}
+            subgroup={subgroup}
+            key={`${group.category.id}-${subgroup.id}`}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function IconSubgroupSection({
+  categoryId,
+  icons,
+  language,
+  navigate,
+  subgroup,
+}: {
+  categoryId: string
+  icons: readonly IconMeta[]
+  language: 'en' | 'zh'
+  navigate: (path: string) => void
+  subgroup: IconSubgroup
+}) {
+  const title = language === 'zh' ? subgroup.titleZh : subgroup.title
+  const headingId = `subgroup-${categoryId}-${subgroup.id}`
+
+  return (
+    <section className="collection-subgroup" aria-labelledby={headingId}>
+      <header className="collection-subheading">
+        <h3 id={headingId}>{title}</h3>
+        <span>{icons.length}</span>
+      </header>
+      <IconGrid icons={icons} navigate={navigate} />
     </section>
   )
 }

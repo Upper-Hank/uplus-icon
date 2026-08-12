@@ -13,7 +13,7 @@ Package SemVer is the release contract. Per-icon `publishedIn`, `updatedIn`, and
 
 ## Breaking changes
 
-A major release or explicit compatibility layer is required to remove or rename exports, change a canonical name without an alias, remove or rename `data-part`, break Motion part mappings, or narrow an existing prop input.
+A major release or explicit compatibility layer is required to remove or rename exports, change a canonical name without an alias, remove or rename `data-part`, or narrow an existing prop input.
 
 ## Deprecation process
 

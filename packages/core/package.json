@@ -1,6 +1,6 @@
 {
   "name": "@uplus-icon/core",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "Framework-agnostic SVG data and metadata for Uplus Icon",
   "license": "MIT",
   "repository": { "type": "git", "url": "git+https://github.com/Upper-Hank/uplus-icon.git", "directory": "packages/core" },
@@ -15,6 +15,7 @@
   "exports": {
     ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
     "./dynamic": { "types": "./dist/dynamic.d.ts", "import": "./dist/dynamic.js" },
+    "./internal/weight": { "types": "./dist/weight.d.ts", "import": "./dist/weight.js" },
     "./metadata": { "types": "./dist/metadata.d.ts", "import": "./dist/metadata.js" },
     "./icons/*": { "types": "./dist/generated/icons/*.d.ts", "import": "./dist/generated/icons/*.js" }
   },

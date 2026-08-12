@@ -109,8 +109,16 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
             <div className="install-command">
               <span>npm</span>
               <code>{installCommand}</code>
-              <button type="button" onClick={copyInstall} aria-label={copyFailed ? (language === 'zh' ? '复制失败' : 'Copy failed') : copied ? t('copied') : 'Copy install command'}>
-                <Icon name={copied ? 'check' : 'copy'} size={17} />
+              <button
+                className={copied ? 'is-copied' : undefined}
+                type="button"
+                onClick={copyInstall}
+                aria-label={copyFailed ? (language === 'zh' ? '复制失败' : 'Copy failed') : copied ? t('copied') : 'Copy install command'}
+              >
+                <span className="install-copy-icon" aria-hidden="true">
+                  <Icon className="install-copy-default" name="copy" size={17} />
+                  <Icon className="install-copy-success" name="check" size={17} />
+                </span>
               </button>
             </div>
             <button

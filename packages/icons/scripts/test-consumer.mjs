@@ -10,11 +10,11 @@ const temp = await mkdtemp(join(tmpdir(), 'uplus-icon-consumer-'))
 const npmEnv = { ...process.env, npm_config_cache: join(temp, '.npm-cache') }
 
 try {
-  for (const packageName of ['@uplus-icon/core', '@uplus-icon/react', '@uplus-icon/web']) {
+  for (const packageName of ['@uplus-icon/core', '@uplus-icon/react']) {
     execFileSync('npm', ['pack', '--pack-destination', temp, '-w', packageName], { cwd: workspace, env: npmEnv, stdio: 'pipe' })
   }
   const tarballs = (await readdir(temp)).filter((file) => file.endsWith('.tgz')).map((file) => join(temp, file))
-  if (tarballs.length !== 3) throw new Error(`Expected three package tarballs, found ${tarballs.length}`)
+  if (tarballs.length !== 2) throw new Error(`Expected two package tarballs, found ${tarballs.length}`)
 
   await writeFile(join(temp, 'package.json'), JSON.stringify({ name: 'uplus-icon-consumer', private: true, type: 'module' }))
   execFileSync('npm', ['install', '--ignore-scripts', ...tarballs, 'react@18', 'react-dom@18', '@types/react@18', '@types/react-dom@18', 'typescript@5'], { cwd: temp, env: npmEnv, stdio: 'pipe' })
@@ -25,15 +25,14 @@ try {
   await writeFile(join(temp, 'consumer.tsx'), `
 import type { IconName } from '@uplus-icon/core'
 import { iconMeta } from '@uplus-icon/core/metadata'
-import { CheckIcon } from '@uplus-icon/react'
-import CheckIconDirect from '@uplus-icon/react/icons/check'
-import { Icon } from '@uplus-icon/react/dynamic'
-import { CheckIcon as createCheckIcon } from '@uplus-icon/web'
+import { PlusIcon } from '@uplus-icon/react'
+import { Icon as DynamicIcon } from '@uplus-icon/react/dynamic'
+import PlusIconDirect from '@uplus-icon/react/icons/plus'
 import { renderToStaticMarkup } from 'react-dom/server'
 
-const name: IconName = 'check'
-const markup = renderToStaticMarkup(<><CheckIcon strokeWidth={1.5} absoluteStrokeWidth /><CheckIconDirect strokeWidth={0.5} /><Icon name={name} strokeWidth={3} /></>)
-if (!markup.includes('<svg') || !markup.includes('--uplus-icon-stroke-width:1.5') || !markup.includes('--uplus-icon-stroke-width:2') || !markup.includes('--uplus-icon-vector-effect:non-scaling-stroke') || !markup.includes('vector-effect="var(--uplus-icon-vector-effect, none)"') || iconMeta.length === 0 || typeof createCheckIcon !== 'function') {
+const name: IconName = 'plus'
+const markup = renderToStaticMarkup(<><PlusIcon weight={1.5} /><PlusIconDirect size={48} weight={2} absoluteWeight /><DynamicIcon name="bell" /></>)
+if (name !== 'plus' || !markup.includes('<svg') || !markup.includes('stroke-width="1.5"') || !markup.includes('stroke-width="1"') || iconMeta.length === 0) {
   throw new Error('Installed packages did not expose the expected APIs')
 }
 console.log('Rendered installed packages with', iconMeta.length, 'metadata entries')

@@ -16,6 +16,7 @@
       "@uplus-icon/react": ["../../packages/react/src/index.ts"],
       "@uplus-icon/react/dynamic": ["../../packages/react/src/dynamic.ts"],
       "@uplus-icon/core": ["../../packages/core/src/index.ts"],
+      "@uplus-icon/core/internal/weight": ["../../packages/core/src/weight.ts"],
       "@uplus-icon/core/dynamic": ["../../packages/core/src/dynamic.ts"],
       "@uplus-icon/core/metadata": ["../../packages/core/src/metadata.ts"]
     },
