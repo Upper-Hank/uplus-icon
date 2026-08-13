@@ -9,6 +9,7 @@
     "@uplus-icon/motion": "0.0.0"
   },
   "changesets": [
-    "modern-package-boundaries"
+    "modern-package-boundaries",
+    "wide-absolute-weight"
   ]
 }
