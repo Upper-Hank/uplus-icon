@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_5e611147-d30e-4e7e-a831-d5479f484379",
   "name": "lamp",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4.67654 9.01948L6.92654 5.01948C7.28078 4.38972 7.94715 4 8.66969 4H15.3303C16.0529 4 16.7192 4.38972 17.0735 5.01948L19.3235 9.01948C20.0734 10.3527 19.11 12 17.5803 12H6.41969C4.89004 12 3.92661 10.3527 4.67654 9.01948Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 12V20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M6 20L18 20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M17 12V14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<circle cx=\"17\" cy=\"16.5\" r=\"1\" fill=\"currentColor\"/>\n"

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_378834f5-c4d7-441d-8523-2c4669117b37",
   "name": "hand",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4.15166 16.8481C5.5 19.5 8.5 21 12 21C18.1932 21 21 16.5 21 13\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M5 11.7205V7.5C5 7.5 5 5.5 7 5.5C9 5.5 9 7.5 9 7.5V10.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M4.15166 16.8481L3.15761 14.7624C3.15761 14.7624 2.15761 13.0303 3.88966 12.0303C5.62171 11.0303 6.62171 12.7624 6.62171 12.7624L7.8259 14.7268\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 10.5V5C9 5 9 3 11 3C13 3 13 5 13 5V10.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M13 10.5V6.5C13 6.5 13 4.5 15 4.5C17 4.5 17 6.5 17 6.5V11.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M17 11.5V10C17 10 17 8 19 8C21 8 21 10 21 10V13\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

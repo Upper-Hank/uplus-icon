@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_c5339a5d-37ea-43c7-b7b7-eb66f2847223",
   "name": "rotate-right",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M13.4142 9.34305C12.6332 8.562 11.3669 8.562 10.5858 9.34305L6.34317 13.5857C5.56212 14.3667 5.56212 15.6331 6.34317 16.4141L10.5858 20.6568C11.3669 21.4378 12.6332 21.4378 13.4142 20.6568L17.6569 16.4141C18.4379 15.6331 18.4379 14.3667 17.6569 13.5857L13.4142 9.34305Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M16.004 8H19.004C19.5563 8 20.004 7.55228 20.004 7V4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M5.64001 6.63604C7.31146 4.96458 9.64017 4 12.004 4C14.3678 4 16.6965 4.96458 18.3679 6.63604C18.759 7.02712 19.1122 7.45244 19.4238 7.90622\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_5fb17900-8672-4c13-8fb6-d1f5a2fdf7d5",
   "name": "scan",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4 9.33333V7C4 5.34315 5.34315 4 7 4H17C18.6569 4 20 5.34315 20 7V9.33333M4 14.6667V17C4 18.6569 5.34315 20 7 20H17C18.6569 20 20 18.6569 20 17V14.6667\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n<path d=\"M9 12H15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

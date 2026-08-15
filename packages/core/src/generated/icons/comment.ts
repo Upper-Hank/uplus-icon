@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_534025ee-5b91-4b6b-8656-a9af9efd4572",
   "name": "comment",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M21 11.5C21 15.6421 17.1944 19 12.5 19C10.8715 19 7.9561 19 5.99993 19C4.89536 19 4 18.106 4 17.0014C4 15.1875 4 12.6292 4 11.5C4 7.35786 7.80558 4 12.5 4C17.1944 4 21 7.35786 21 11.5Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M9 9H14.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 12H17\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 15H13\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

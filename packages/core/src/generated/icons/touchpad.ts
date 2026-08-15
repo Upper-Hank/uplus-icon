@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_b3f4a5f4-7857-401e-b9f1-a95b3f6b1723",
   "name": "touchpad",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M3 15V16C3 17.6569 4.34315 19 6 19H12M3 15V8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V15M3 15H12M21 15V16C21 17.6569 19.6569 19 18 19H12M21 15H12M12 15V19\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M3 15H21\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 15V19\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

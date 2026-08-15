@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_bd951669-ec54-461c-be08-66552d36b764",
   "name": "map",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M19 15L15.2494 18.0005C14.519 18.5849 13.481 18.5849 12.7506 18.0005L10.2494 15.9995C9.51895 15.4152 8.48105 15.4152 7.75061 15.9995L5.6247 17.7003C4.96993 18.2241 4 17.7579 4 16.9194V8.96128C4 8.35371 4.27618 7.77909 4.75061 7.39954L7.75061 4.99954C8.48105 4.41519 9.51895 4.41519 10.2494 4.99954L12.7506 7.00052C13.481 7.58487 14.519 7.58487 15.2494 7.00052L17.3753 5.29979C18.0301 4.77598 19 5.24215 19 6.08065V14.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 4.56128V15.5613\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M14 7.43872V18.4388\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

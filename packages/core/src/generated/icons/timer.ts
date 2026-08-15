@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_a5fd8722-4ff8-431b-9730-60b7bb36a23e",
   "name": "timer",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M10 2H14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 2V4.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<circle cx=\"12\" cy=\"12.5\" r=\"8\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 12.25V8.25\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 12.25H14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

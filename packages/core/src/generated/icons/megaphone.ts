@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_79264618-f299-467e-8c70-831161d8d873",
   "name": "megaphone",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4 12.8902V9.1098C4 8.16992 4.65444 7.35685 5.57261 7.156L17.5726 4.531C18.8199 4.25816 20 5.20802 20 6.4848V15.5152C20 16.792 18.8199 17.7419 17.5726 17.469L5.57261 14.844C4.65444 14.6432 4 13.8301 4 12.8902Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M7 15.1563C7 15.1563 7 18.5 10 18.5C13 18.5 13 16.4688 13 16.4688\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

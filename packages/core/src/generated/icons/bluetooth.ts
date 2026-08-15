@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_ffc512a3-68d3-4f42-a7fb-e36c1c0ea58f",
   "name": "bluetooth",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M11 12V3.99998C11 3.17594 11.9408 2.70556 12.6 3.19998L17.7056 7.02916C18.3003 7.47519 18.2177 8.39114 17.5528 8.72359L11 12ZM11 12V20C11 20.824 11.9408 21.2944 12.6 20.8L17.7056 16.9708C18.3003 16.5248 18.2177 15.6088 17.5528 15.2764L11 12ZM11 12L5 8.99998M11 12L5 15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

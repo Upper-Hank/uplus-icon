@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_e4ebcc4d-ff81-404d-afa1-2293999198d1",
   "name": "control-horizon",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M7.5 11V21M7.5 6V3\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M10 8.5C10 9.88071 8.88071 11 7.5 11C6.11929 11 5 9.88071 5 8.5C5 7.11929 6.11929 6 7.5 6C8.88071 6 10 7.11929 10 8.5Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 17.5V21M16 12.5V3\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M18.5 15C18.5 16.3807 17.3807 17.5 16 17.5C14.6193 17.5 13.5 16.3807 13.5 15C13.5 13.6193 14.6193 12.5 16 12.5C17.3807 12.5 18.5 13.6193 18.5 15Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

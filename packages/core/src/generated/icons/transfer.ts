@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_487d96dc-ceef-4b0f-8516-ee4bd8064f76",
   "name": "transfer",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M3.00005 10H19.3459C19.7837 10 20.0101 9.47736 19.7107 9.15803L16.75 6\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M20.75 14H3.9571C3.51165 14 3.28857 14.5386 3.60355 14.8536L6.75 18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

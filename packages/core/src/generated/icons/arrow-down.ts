@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_861ab4ba-925d-41be-b5a2-5fd89b38d0c8",
   "name": "arrow-down",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M18 14.4143L12.7071 19.7072C12.3166 20.0977 11.6834 20.0977 11.2929 19.7072L6 14.4143\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12.0001 4V20.0001\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

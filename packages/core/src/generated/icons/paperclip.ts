@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_9f68ae75-6282-4f16-b1d3-a413da3a2175",
   "name": "paperclip",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M7 8C7 8 7 13 7 16C7 19 8.5 21 12 21C15.5 21 17 19 17 16V5.5C17 3.69977 16 2.5 13.5 2.5C11 2.5 10 4 10 5.5V15C10 16 10.5 17 12 17C13.5 17 14 16 14 15V8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

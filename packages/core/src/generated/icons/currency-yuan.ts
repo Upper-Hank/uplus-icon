@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_421c5cfa-1385-4fd1-8f1a-670be62322f0",
   "name": "currency-yuan",
   "viewBox": "0 0 24 24",
   "body": "\n<circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M8 6L12 10\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M16 6L12 10\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M7 11L17 11\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M7 14L17 14\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 10V19\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

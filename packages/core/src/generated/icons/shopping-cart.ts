@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_21932498-6638-4adf-8293-d38f31d04f4f",
   "name": "shopping-cart",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M3 4.5H4.07987C4.59996 4.5 5.03322 4.89866 5.07641 5.41695L5.92359 15.583C5.96678 16.1013 6.40004 16.5 6.92013 16.5H16.3501C16.7453 16.5 17.1034 16.2673 17.2639 15.9061L20.375 8.90614C20.669 8.24485 20.1849 7.5 19.4612 7.5H8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<circle cx=\"7.5\" cy=\"19.5\" r=\"1.5\" fill=\"currentColor\"/>\n<circle cx=\"15.5\" cy=\"19.5\" r=\"1.5\" fill=\"currentColor\"/>\n"

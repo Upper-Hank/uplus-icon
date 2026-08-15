@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_2317a36b-ecbf-4fc8-9eea-026ca74a9d99",
   "name": "fast-forward",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M6.91421 6.41426L11.0858 10.5858C11.8668 11.3669 11.8668 12.6332 11.0858 13.4143L6.91421 17.5858C5.65428 18.8458 3.5 17.9534 3.5 16.1716V7.82847C3.5 6.04667 5.65428 5.15433 6.91421 6.41426Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M15.9142 6.41426L20.0858 10.5858C20.8668 11.3669 20.8668 12.6332 20.0858 13.4143L15.9142 17.5858C14.6543 18.8458 12.5 17.9534 12.5 16.1716V7.82847C12.5 6.04667 14.6543 5.15433 15.9142 6.41426Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

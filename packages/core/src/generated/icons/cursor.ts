@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_3c3db73c-c27b-4887-a94f-b23db8da6ee5",
   "name": "cursor",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M7.83857 19.9625L6.93237 4.86504C6.883 4.04247 7.79389 3.51657 8.48157 3.97061L21.1032 12.3041C21.9052 12.8336 21.5715 14.0793 20.6122 14.1368L14.0616 14.53C13.7475 14.5489 13.4605 14.7146 13.2871 14.9772L9.67129 20.4536C9.14178 21.2555 7.89615 20.9218 7.83857 19.9625Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

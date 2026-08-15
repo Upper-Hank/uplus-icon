@@ -8,6 +8,7 @@
     "version": "changeset version",
     "release": "changeset publish",
     "generate": "npm run generate -w @uplus-icon/source",
+    "icons:assign-ids": "npm run assign-ids -w @uplus-icon/source",
     "dev": "npm run dev -w uplus-icon-site",
     "build": "npm run generate && npm run build -w @uplus-icon/core && npm run build -w @uplus-icon/react && npm run build -w @uplus-icon/motion && npm run build -w uplus-icon-site",
     "build:icons": "npm run generate && npm run build -w @uplus-icon/core && npm run build -w @uplus-icon/react",
@@ -15,7 +16,7 @@
     "test:docs": "npm run test:docs -w uplus-icon-site",
     "check:generated": "npm run generate && git diff --exit-code -- packages/core/src/generated packages/react/src/generated",
     "check:raw": "npm run generate && git diff --exit-code -- packages/icons/raw",
-    "check": "npm run test:docs && npm run typecheck && npm run test:preview-svg -w uplus-icon-site && npm run build && npm run test:production -w uplus-icon-site && npm run test:package -w @uplus-icon/source && npm run test:runtime -w @uplus-icon/source && npm run test:motion -w @uplus-icon/source && npm run test:metadata -w @uplus-icon/source && npm run test:fidelity -w @uplus-icon/source && npm run test:weight-audit -w @uplus-icon/source && npm run test:size -w @uplus-icon/source && npm run test:consumer -w @uplus-icon/source && npm run check:generated && npm run check:raw"
+    "check": "npm run test:docs && npm run typecheck && npm run test:preview-svg -w uplus-icon-site && npm run build && npm run test:production -w uplus-icon-site && npm run test:package -w @uplus-icon/source && npm run test:runtime -w @uplus-icon/source && npm run test:motion -w @uplus-icon/source && npm run test:metadata -w @uplus-icon/source && npm run test:identity -w @uplus-icon/source && npm run test:rename-fixture -w @uplus-icon/source && npm run check:identity -w @uplus-icon/source && npm run test:fidelity -w @uplus-icon/source && npm run test:weight-audit -w @uplus-icon/source && npm run test:size -w @uplus-icon/source && npm run test:consumer -w @uplus-icon/source && npm run check:generated && npm run check:raw"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.0"

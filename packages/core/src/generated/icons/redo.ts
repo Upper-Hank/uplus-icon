@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_663c8891-bdd6-45a4-bef4-61ee5024a5d3",
   "name": "redo",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M19.7938 8C19.7938 8 12.8313 8.00015 7.83125 8.00013C3.83125 8.00012 4.00105 10.7907 4.00105 12.9999C4.00105 15.209 3.83125 18.0001 7.83125 18.0001C12.127 18.0001 16.0009 18 16.0009 18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 12L19.6465 8.35355C19.8417 8.15829 19.8417 7.84171 19.6465 7.64645L16 4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

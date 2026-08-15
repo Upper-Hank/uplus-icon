@@ -71,7 +71,7 @@
 - Header remains fixed and shared navigation, appearance, language, and layout controls use one measured sliding indicator.
 - Search matches name, localized title, tags, aliases, and category terms.
 - `Cmd/Ctrl + K` focuses search.
-- Sort supports published order and name order with stable fallbacks.
+- Sort supports catalog, published order, and name order with stable fallbacks.
 - Flat/collection mode is controlled by one typed state value and persisted locally.
 - Appearance and language choices remain persisted locally.
 - Icon tiles update to the shareable detail route and open a bottom drawer over the library context.

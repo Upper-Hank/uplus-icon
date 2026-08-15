@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_ef08b765-a065-4a05-91ab-59e5780a48a9",
   "name": "toggle",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M3 12C3 8.68629 5.68629 6 9 6H15C18.3137 6 21 8.68629 21 12C21 15.3137 18.3137 18 15 18H9C5.68629 18 3 15.3137 3 12Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M11 12C11 13.1046 10.1046 14 9 14C7.89543 14 7 13.1046 7 12C7 10.8954 7.89543 10 9 10C10.1046 10 11 10.8954 11 12Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

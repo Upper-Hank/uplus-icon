@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_47e3925f-db8e-4e86-b6cd-d331e51e6d9c",
   "name": "headset",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M19 16C19 16 17.9825 17.7267 17 18.5C15.689 19.5318 14 19.5 14 19.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M15.5 19.5C15.5 20.3284 14.8284 21 14 21C13.1716 21 12.5 20.3284 12.5 19.5C12.5 18.6716 13.1716 18 14 18C14.8284 18 15.5 18.6716 15.5 19.5Z\" fill=\"currentColor\"/>\n<path d=\"M5 10C5 10 5 3 12 3C19 3 19 10 19 10\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12V14C7 15.1046 6.10457 16 5 16C3.89543 16 3 15.1046 3 14V12Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12V14C21 15.1046 20.1046 16 19 16C17.8954 16 17 15.1046 17 14V12Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_c7e86444-2c88-4746-83d4-5344aca956e6",
   "name": "minimize-alt",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M20 15H17.1429C15.9594 15 15 15.9594 15 17.1429V20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 4V6.85714C9 8.04061 8.04061 9 6.85714 9H4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 20V17.1429C9 15.9594 8.04061 15 6.85714 15H4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M20 9H17.1429C15.9594 9 15 8.04061 15 6.85714V4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

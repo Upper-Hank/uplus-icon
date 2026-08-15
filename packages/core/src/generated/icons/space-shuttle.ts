@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_21ff8aeb-37a8-4d68-b71b-6075de60098c",
   "name": "space-shuttle",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M8 11.0001C8 7 9 3 12 3C15 3 16 7 16 11.0001C16 14 20 13.0001 20.7363 14.7648C20.9922 15.378 20.994 16.4262 20.9309 17.3264C20.8629 18.2979 20.0245 19.0001 19.0506 19.0001H4.92154C3.96001 19.0001 3.12795 18.3151 3.05223 17.3565C2.9806 16.4497 2.97946 15.3849 3.26372 14.7648C4.07263 13.0001 8 14 8 11.0001Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8 11V19\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M11 9H13\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 11V19\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8 12H16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 15V21\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8.68645 6L15.3136 6\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

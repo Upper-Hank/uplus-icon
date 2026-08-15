@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_3880eb44-e6e5-4dd6-8c88-b90f4848ffb2",
   "name": "set-bottom",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M12.0001 16.5002V3.00018\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M7 11.7073L11.6464 16.3537C11.8417 16.549 12.1583 16.549 12.3536 16.3537L17 11.7073\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M6 21H18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

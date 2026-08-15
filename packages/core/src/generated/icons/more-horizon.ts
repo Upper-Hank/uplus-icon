@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_c587b5d0-6c37-445f-a1ed-a01c7ffcbfa6",
   "name": "more-horizon",
   "viewBox": "0 0 24 24",
   "body": "\n<rect x=\"2.5\" y=\"10\" width=\"4\" height=\"4\" rx=\"2\" fill=\"currentColor\"/>\n<rect x=\"10\" y=\"10\" width=\"4\" height=\"4\" rx=\"2\" fill=\"currentColor\"/>\n<rect x=\"17.5\" y=\"10\" width=\"4\" height=\"4\" rx=\"2\" fill=\"currentColor\"/>\n"

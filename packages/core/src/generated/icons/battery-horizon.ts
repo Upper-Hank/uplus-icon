@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_d17ae126-8be0-4f66-870a-077931b2432a",
   "name": "battery-horizon",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M2.75 9C2.75 7.89543 3.64543 7 4.75 7H16.75C17.8546 7 18.75 7.89543 18.75 9V15C18.75 16.1046 17.8546 17 16.75 17H4.75C3.64543 17 2.75 16.1046 2.75 15V9Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M21 10V14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

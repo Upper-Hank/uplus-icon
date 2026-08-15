@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_648b2a4b-72a2-44a5-943f-f9dc767ae36b",
   "name": "wifi",
   "viewBox": "0 0 24 24",
   "body": "\n<circle cx=\"12\" cy=\"17.5\" r=\"2\" fill=\"currentColor\"/>\n<path d=\"M4 7.5C4 7.5 6 4 12 4C18 4 20 7.5 20 7.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8 14C8 14 9.33338 12 12 12C14.6667 12 16 14 16 14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M6 10.5C6 10.5 8 8 12 8C16 8 18 10.5 18 10.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

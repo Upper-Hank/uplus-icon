@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_b45e35a7-e1ec-4c73-880a-6d718b3ef784",
   "name": "separator",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M15.0782 3.54285L8.92181 20.4573\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

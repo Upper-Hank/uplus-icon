@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.0-beta.1] - 2026-08-15
+
+### Added
+
+- Four diagonal arrow icons: `arrow-top-left`, `arrow-top-right`, `arrow-bottom-left`, and `arrow-bottom-right`.
+- `catalogOrder` metadata for recommended icon browsing order on the documentation site.
+
+### Changed
+
+- Realigned icon categories, subgroups, and default catalog ordering with the approved Figma taxonomy.
+- Refined the `lightbulb` icon geometry.
+- Extended absolute-weight support for numeric CSS pixel sizes from 0.5 to 8.
+
 ## [0.1.0-beta.0] - 2026-08-12
 
 First public beta of Uplus Icon.

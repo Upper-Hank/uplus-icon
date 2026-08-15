@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_83d9832d-463e-4526-a555-b2c0c4f8e9f9",
   "name": "maximize-alt",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M9 4H6.14286C4.95939 4 4 4.95939 4 6.14286V9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M20 15V17.8571C20 19.0406 19.0406 20 17.8571 20H15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M20 9V6.14286C20 4.95939 19.0406 4 17.8571 4H15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 20H6.14286C4.95939 20 4 19.0406 4 17.8571V15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

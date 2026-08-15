@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_9a255cbc-e047-4543-a896-dd04587a8d17",
   "name": "control-vertical",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M12 16.5H21M6 16.5H3\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M6.5 16.5C6.5 15.1193 7.61929 14 9 14C10.3807 14 11.5 15.1193 11.5 16.5C11.5 17.8807 10.3807 19 9 19C7.61929 19 6.5 17.8807 6.5 16.5Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12.5 8C12.5 6.61929 13.6193 5.5 15 5.5C16.3807 5.5 17.5 6.61929 17.5 8C17.5 9.38071 16.3807 10.5 15 10.5C13.6193 10.5 12.5 9.38071 12.5 8Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M18 8H21M12 8H3\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

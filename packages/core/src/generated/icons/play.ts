@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_13d9afe6-a8a7-4e5a-b71c-564813b48c00",
   "name": "play",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4.5 5.72363C4.5 4.18807 6.15891 3.22466 7.49219 3.98633L18.4766 10.2637C19.8202 11.0315 19.8202 12.9685 18.4766 13.7363L7.49219 20.0137C6.15891 20.7753 4.5 19.8119 4.5 18.2764V5.72363Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_09cdbdfe-d41f-429a-bca2-01cca084e586",
   "name": "receipt",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M7.05867 20.4501C6.39445 20.8975 5.5 20.4216 5.5 19.6207V5.5C5.5 4.39543 6.39543 3.5 7.5 3.5H16.5C17.6046 3.5 18.5 4.39543 18.5 5.5V19.6207C18.5 20.4216 17.6056 20.8975 16.9413 20.4501M7 20.5L8.25061 19.4995C8.98105 18.9152 10.0196 18.9157 10.75 19.5C11.4804 20.0844 12.5196 20.0844 13.25 19.5C13.9804 18.9157 15.019 18.9152 15.7494 19.4995L17 20.5\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M9 6.5L12 6.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 9.5L15 9.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 12.5L14 12.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 15.5L15 15.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

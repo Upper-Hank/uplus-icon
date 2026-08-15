@@ -45,8 +45,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@uplus-icon/core": "^0.1.0-beta.0",
-    "@uplus-icon/react": "^0.1.0-beta.0"
+    "@uplus-icon/core": "^0.1.0-beta.1",
+    "@uplus-icon/react": "^0.1.0-beta.1"
   },
   "peerDependencies": {
     "react": ">=18"

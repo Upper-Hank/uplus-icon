@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_c039765c-3e17-4b76-9036-bf5ecd90e17c",
   "name": "truck",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M8.73244 16H16V7C16 5.89543 15.1046 5 14 5H5C3.89543 5 3 5.89543 3 7V14C3 15.1046 3.89543 16 5 16H5.26756\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 16H17.2676M16 8L21.2425 9.31063C21.6877 9.42193 22 9.82191 22 10.2808V15C22 15.5523 21.5523 16 21 16H20.7324\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<circle cx=\"7\" cy=\"17\" r=\"2\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<circle cx=\"19\" cy=\"17\" r=\"2\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

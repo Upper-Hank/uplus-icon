@@ -44,6 +44,7 @@ const react = await import(join(dist('react'), 'index.js'))
 if (Object.keys(core).length !== 0) throw new Error('Core root should only expose TypeScript types')
 if (!Array.isArray(metadata.iconMeta) || !Array.isArray(metadata.iconCategories)) throw new Error('Core metadata exports are missing')
 if (metadata.iconMeta.some((icon) => icon.categories.length === 0 || icon.tags.length === 0)) throw new Error('Generated icon metadata is incomplete')
+if (metadata.iconMeta.some((icon) => typeof icon.catalogOrder !== 'number')) throw new Error('Generated icon metadata is missing catalogOrder')
 if (metadata.iconMeta.some((icon) => 'motion' in icon)) throw new Error('Public metadata must not expose incubating Motion capabilities')
 if (typeof react.PlusIcon !== 'object') throw new Error('React static exports are missing')
 

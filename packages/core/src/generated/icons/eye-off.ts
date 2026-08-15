@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_f96873e7-a422-432f-ab8f-61285fe47d0d",
   "name": "eye-off",
   "viewBox": "0 0 24 24",
   "body": "\n<circle cx=\"12\" cy=\"12\" r=\"3\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 5.5C5.9827 5.50002 3.29061 10.3031 2.65334 11.6517C2.54757 11.8755 2.54757 12.1245 2.65334 12.3483C3.29061 13.6969 5.98269 18.5 12 18.5C18.0173 18.5 20.7094 13.6969 21.3467 12.3483C21.4524 12.1245 21.4524 11.8755 21.3467 11.6517C20.7094 10.3031 18.0173 5.49998 12 5.5Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M4 4L20 20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

@@ -1,8 +1,15 @@
 import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises'
-import { basename, dirname, join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import {
+  buildLegacyNameEntries,
+  resolvePublicName,
+  resolvePublicReference,
+  validateIconIdentityMetadata,
+} from './icon-identity.mjs'
 import { validateMetadataReferences } from './validate-metadata.mjs'
 import { compileRuntimeSvgBody } from './svg-adapter.mjs'
+import { buildCatalogOrderBySourceKey } from './catalog-order.mjs'
 
 const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const releaseFeatures = { motion: false }
@@ -135,14 +142,27 @@ function validateSvgBody(file, body, viewBox) {
   return parts
 }
 
-const files = (await readdir(rawDir)).filter((file) => file.endsWith('.svg')).sort()
+function mapPublicReferences(values, publicNameBySourceKey) {
+  return values.map((value) => resolvePublicReference(value, publicNameBySourceKey))
+}
+
+function mapMotionTransitions(transitions, publicNameBySourceKey) {
+  return transitions.map((transition) => ({
+    ...transition,
+    to: resolvePublicReference(transition.to, publicNameBySourceKey),
+  }))
+}
+
 const metadata = JSON.parse(await readFile(metadataFile, 'utf8'))
 const categories = JSON.parse(await readFile(categoriesFile, 'utf8'))
 const subgroups = JSON.parse(await readFile(subgroupsFile, 'utf8'))
-const names = files.map((file) => basename(file, '.svg'))
-const nameSet = new Set(names)
-const unknownMetadata = Object.keys(metadata).filter((name) => !nameSet.has(name))
-const missingMetadata = names.filter((name) => !(name in metadata))
+const sourceKeys = Object.keys(metadata)
+const sourceKeySet = new Set(sourceKeys)
+const svgFiles = (await readdir(rawDir)).filter((file) => file.endsWith('.svg')).sort()
+const svgSourceKeys = svgFiles.map((file) => file.replace(/\.svg$/, ''))
+const svgSourceKeySet = new Set(svgSourceKeys)
+const unknownMetadata = sourceKeys.filter((sourceKey) => !svgSourceKeySet.has(sourceKey))
+const missingMetadata = svgSourceKeys.filter((sourceKey) => !sourceKeySet.has(sourceKey))
 
 if (unknownMetadata.length > 0) {
   throw new Error(`Metadata references missing icons: ${unknownMetadata.join(', ')}`)
@@ -151,6 +171,9 @@ if (missingMetadata.length > 0) {
   throw new Error(`Icons are missing metadata: ${missingMetadata.join(', ')}`)
 }
 if (!Array.isArray(categories) || categories.length === 0) throw new Error('Category metadata must be a non-empty array')
+
+const { publicNameBySourceKey } = validateIconIdentityMetadata(metadata)
+validateMetadataReferences(metadata, sourceKeySet, publicNameBySourceKey)
 
 const categoryIds = new Set()
 for (const [index, category] of categories.entries()) {
@@ -180,11 +203,13 @@ for (const [index, subgroup] of subgroups.entries()) {
   subgroupKeys.add(key)
 }
 
+const catalogOrderBySourceKey = buildCatalogOrderBySourceKey(metadata, sourceKeys)
 const icons = []
 
-for (const file of files) {
-  const name = basename(file, '.svg')
-  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name)) throw new Error(`Invalid icon filename: ${file}`)
+for (const sourceKey of sourceKeys) {
+  const file = `${sourceKey}.svg`
+  const publicName = resolvePublicName(sourceKey, metadata[sourceKey])
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(sourceKey)) throw new Error(`Invalid icon filename: ${file}`)
 
   const svg = await readFile(join(rawDir, file), 'utf8')
   const match = svg.match(/^\s*<svg\b([^>]*)>([\s\S]*)<\/svg>\s*$/)
@@ -203,65 +228,78 @@ for (const file of files) {
   if (rootAttributes.width !== '24' || rootAttributes.height !== '24') throw new Error(`${file} root width and height must both be 24`)
   const svgParts = validateSvgBody(file, body, viewBoxMatches[0][2])
 
-  const details = metadata[name]
-  const allowedMetadata = ['title', 'titleZh', 'description', 'categories', 'subgroup', 'tags', 'aliases', 'related', 'variants', 'parts', 'motion', 'contributors', 'deprecated', 'publishedIn', 'updatedIn']
+  const details = metadata[sourceKey]
+  const allowedMetadata = ['id', 'name', 'legacyNames', 'title', 'titleZh', 'description', 'categories', 'subgroup', 'tags', 'aliases', 'related', 'variants', 'parts', 'motion', 'contributors', 'deprecated', 'publishedIn', 'updatedIn']
   const unknownFields = Object.keys(details).filter((field) => !allowedMetadata.includes(field))
-  if (unknownFields.length > 0) throw new Error(`Unsupported metadata for ${name}: ${unknownFields.join(', ')}`)
+  if (unknownFields.length > 0) throw new Error(`Unsupported metadata for ${sourceKey}: ${unknownFields.join(', ')}`)
   for (const field of ['categories', 'tags', 'aliases']) {
-    if (!Array.isArray(details[field])) throw new Error(`Metadata field ${name}.${field} must be an array`)
-    if (details[field].some((value) => typeof value !== 'string' || !value.trim())) throw new Error(`Metadata field ${name}.${field} must only contain non-empty strings`)
-    if (new Set(details[field]).size !== details[field].length) throw new Error(`Metadata field ${name}.${field} contains duplicate values`)
+    if (!Array.isArray(details[field])) throw new Error(`Metadata field ${sourceKey}.${field} must be an array`)
+    if (details[field].some((value) => typeof value !== 'string' || !value.trim())) throw new Error(`Metadata field ${sourceKey}.${field} must only contain non-empty strings`)
+    if (new Set(details[field]).size !== details[field].length) throw new Error(`Metadata field ${sourceKey}.${field} contains duplicate values`)
     if (new Set(details[field].map((value) => value.toLocaleLowerCase())).size !== details[field].length) {
-      throw new Error(`Metadata field ${name}.${field} contains case-insensitive duplicate values`)
+      throw new Error(`Metadata field ${sourceKey}.${field} contains case-insensitive duplicate values`)
+    }
+  }
+  if (details.legacyNames !== undefined) {
+    if (!Array.isArray(details.legacyNames)) throw new Error(`Metadata field ${sourceKey}.legacyNames must be an array`)
+    for (const legacy of details.legacyNames) {
+      if (!legacy || typeof legacy !== 'object' || typeof legacy.name !== 'string' || typeof legacy.renamedIn !== 'string') {
+        throw new Error(`Metadata field ${sourceKey}.legacyNames contains an invalid entry`)
+      }
     }
   }
   for (const field of ['related', 'variants', 'parts', 'contributors']) {
     if (details[field] === undefined) continue
     if (!Array.isArray(details[field]) || details[field].some((value) => typeof value !== 'string' || !value.trim())) {
-      throw new Error(`Metadata field ${name}.${field} must only contain non-empty strings`)
+      throw new Error(`Metadata field ${sourceKey}.${field} must only contain non-empty strings`)
     }
-    if (new Set(details[field]).size !== details[field].length) throw new Error(`Metadata field ${name}.${field} contains duplicate values`)
+    if (new Set(details[field]).size !== details[field].length) throw new Error(`Metadata field ${sourceKey}.${field} contains duplicate values`)
   }
   const metadataParts = details.parts ?? []
   if (metadataParts.length !== svgParts.length || metadataParts.some((part, index) => part !== svgParts[index])) {
-    throw new Error(`Metadata field ${name}.parts must exactly match SVG data-part values in document order`)
+    throw new Error(`Metadata field ${sourceKey}.parts must exactly match SVG data-part values in document order`)
   }
   if (details.description !== undefined && (
     typeof details.description !== 'object' || details.description === null ||
     typeof details.description.en !== 'string' || !details.description.en.trim() ||
     typeof details.description.zh !== 'string' || !details.description.zh.trim()
-  )) throw new Error(`Metadata field ${name}.description must contain non-empty en and zh strings`)
+  )) throw new Error(`Metadata field ${sourceKey}.description must contain non-empty en and zh strings`)
   if (details.motion !== undefined) {
     const { semantic, transitions } = details.motion
     if (!Array.isArray(semantic) || !Array.isArray(transitions)) {
-      throw new Error(`Metadata field ${name}.motion must contain semantic and transitions arrays`)
+      throw new Error(`Metadata field ${sourceKey}.motion must contain semantic and transitions arrays`)
     }
     if (semantic.some((value) => typeof value !== 'string' || !value.trim())) {
-      throw new Error(`Metadata field ${name}.motion capabilities must be non-empty strings`)
+      throw new Error(`Metadata field ${sourceKey}.motion capabilities must be non-empty strings`)
     }
     if (transitions.some((entry) => typeof entry !== 'object' || entry === null || typeof entry.to !== 'string' || !entry.to || typeof entry.name !== 'string' || !entry.name)) {
-      throw new Error(`Metadata field ${name}.motion.transitions contains an invalid transition`)
+      throw new Error(`Metadata field ${sourceKey}.motion.transitions contains an invalid transition`)
     }
   }
-  if (typeof details.title !== 'string' || !details.title.trim()) throw new Error(`Metadata field ${name}.title must be a non-empty string`)
-  if (typeof details.titleZh !== 'string' || !details.titleZh.trim()) throw new Error(`Metadata field ${name}.titleZh must be a non-empty string`)
-  if (!/[\u3400-\u9fff]/.test(details.titleZh)) throw new Error(`Metadata field ${name}.titleZh must contain a Chinese name`)
-  if (details.categories.length === 0) throw new Error(`Metadata field ${name}.categories must include a primary category`)
-  if (typeof details.subgroup !== 'string' || !details.subgroup.trim()) throw new Error(`Metadata field ${name}.subgroup must be a non-empty string`)
+  if (typeof details.title !== 'string' || !details.title.trim()) throw new Error(`Metadata field ${sourceKey}.title must be a non-empty string`)
+  if (typeof details.titleZh !== 'string' || !details.titleZh.trim()) throw new Error(`Metadata field ${sourceKey}.titleZh must be a non-empty string`)
+  if (!/[\u3400-\u9fff]/.test(details.titleZh)) throw new Error(`Metadata field ${sourceKey}.titleZh must contain a Chinese name`)
+  if (details.categories.length === 0) throw new Error(`Metadata field ${sourceKey}.categories must include a primary category`)
+  if (typeof details.subgroup !== 'string' || !details.subgroup.trim()) throw new Error(`Metadata field ${sourceKey}.subgroup must be a non-empty string`)
   if (!subgroupKeys.has(`${details.categories[0]}\0${details.subgroup}`)) {
-    throw new Error(`Metadata for ${name} references unknown subgroup: ${details.categories[0]}/${details.subgroup}`)
+    throw new Error(`Metadata for ${sourceKey} references unknown subgroup: ${details.categories[0]}/${details.subgroup}`)
   }
-  if (details.tags.length === 0) throw new Error(`Metadata field ${name}.tags must not be empty`)
+  if (details.tags.length === 0) throw new Error(`Metadata field ${sourceKey}.tags must not be empty`)
   if (!details.tags.includes(details.categories[0]) || !details.tags.includes(details.subgroup)) {
-    throw new Error(`Metadata field ${name}.tags must include its primary category and subgroup`)
+    throw new Error(`Metadata field ${sourceKey}.tags must include its primary category and subgroup`)
   }
   const aliasTagOverlap = details.aliases.filter((alias) => details.tags.some((tag) => tag.toLocaleLowerCase() === alias.toLocaleLowerCase()))
-  if (aliasTagOverlap.length > 0) throw new Error(`Metadata for ${name} uses aliases as classification tags: ${aliasTagOverlap.join(', ')}`)
+  if (aliasTagOverlap.length > 0) throw new Error(`Metadata for ${sourceKey} uses aliases as classification tags: ${aliasTagOverlap.join(', ')}`)
   const unknownCategories = details.categories.filter((category) => !categoryIds.has(category))
-  if (unknownCategories.length > 0) throw new Error(`Metadata for ${name} references unknown categories: ${unknownCategories.join(', ')}`)
+  if (unknownCategories.length > 0) throw new Error(`Metadata for ${sourceKey} references unknown categories: ${unknownCategories.join(', ')}`)
+
+  const legacyNames = details.legacyNames ?? []
   icons.push({
-    name,
-    componentName: `${toPascal(name)}Icon`,
+    sourceKey,
+    id: details.id,
+    name: publicName,
+  ...(legacyNames.length > 0 ? { legacyNames } : {}),
+    componentName: `${toPascal(publicName)}Icon`,
     viewBox: viewBoxMatches[0][2],
     body: compileRuntimeSvgBody(body),
     title: details.title,
@@ -271,18 +309,22 @@ for (const file of files) {
     tags: details.tags,
     aliases: details.aliases,
     ...(details.description === undefined ? {} : { description: details.description }),
-    ...(details.related === undefined ? {} : { related: details.related }),
-    ...(details.variants === undefined ? {} : { variants: details.variants }),
+    ...(details.related === undefined ? {} : { related: mapPublicReferences(details.related, publicNameBySourceKey) }),
+    ...(details.variants === undefined ? {} : { variants: mapPublicReferences(details.variants, publicNameBySourceKey) }),
     ...(details.parts === undefined ? {} : { parts: details.parts }),
-    ...(!releaseFeatures.motion || details.motion === undefined ? {} : { motion: details.motion }),
+    ...(!releaseFeatures.motion || details.motion === undefined ? {} : {
+      motion: {
+        semantic: details.motion.semantic,
+        transitions: mapMotionTransitions(details.motion.transitions, publicNameBySourceKey),
+      },
+    }),
     ...(details.contributors === undefined ? {} : { contributors: details.contributors }),
     deprecated: details.deprecated ?? false,
     publishedIn: details.publishedIn ?? null,
     updatedIn: details.updatedIn ?? null,
+    catalogOrder: catalogOrderBySourceKey.get(sourceKey),
   })
 }
-
-validateMetadataReferences(metadata, nameSet)
 
 for (const path of Object.values(temporaryRoots)) {
   await rm(path, { recursive: true, force: true })
@@ -290,25 +332,49 @@ for (const path of Object.values(temporaryRoots)) {
 }
 
 const generatedNotice = '// Generated by packages/icons/scripts/generate.mjs. Do not edit directly.\n'
-const iconNameType = names.map((name) => `  | '${name}'`).join('\n')
-await writeFile(join(temporaryRoots.core, 'names.ts'), `${generatedNotice}export type IconName =\n${iconNameType}\n`)
+const currentNames = [...new Set(icons.map((icon) => icon.name))].sort()
+const legacyNameEntries = buildLegacyNameEntries(metadata)
+const legacyNames = [...new Set(legacyNameEntries.map((entry) => entry.legacyName))].sort()
+const currentIconNameType = currentNames.map((name) => `  | '${name}'`).join('\n')
+const legacyIconNameType = legacyNames.map((name) => `  | '${name}'`).join('\n')
+const namesType = legacyNames.length > 0
+  ? `${generatedNotice}export type CurrentIconName =\n${currentIconNameType}\n\nexport type LegacyIconName =\n${legacyIconNameType}\n\nexport type IconName = CurrentIconName | LegacyIconName\n`
+  : `${generatedNotice}export type CurrentIconName =\n${currentIconNameType}\n\nexport type LegacyIconName = never\n\nexport type IconName = CurrentIconName | LegacyIconName\n`
+await writeFile(join(temporaryRoots.core, 'names.ts'), namesType)
+
+const legacyNameMapEntries = legacyNameEntries.map((entry) => `  ['${entry.legacyName}', { currentName: '${entry.currentName}', renamedIn: '${entry.renamedIn}', id: '${entry.id}' }],`).join('\n')
+await writeFile(join(temporaryRoots.core, 'legacy-names.ts'), `${generatedNotice}import type { IconId } from '../types.js'\n\nexport interface LegacyIconNameInfo {\n  currentName: string\n  renamedIn: string\n  id: IconId\n}\n\nexport const legacyIconNameMap = new Map<string, LegacyIconNameInfo>([\n${legacyNameMapEntries}\n])\n`)
+
 const categoryIdType = categories.map(({ id }) => `  | '${id}'`).join('\n')
 await writeFile(join(temporaryRoots.core, 'category-names.ts'), `${generatedNotice}export type IconCategoryId =\n${categoryIdType}\n`)
 await writeFile(join(temporaryRoots.core, 'categories.ts'), `${generatedNotice}import type { IconCategory } from '../types.js'\n\nexport const iconCategories: readonly IconCategory[] = ${JSON.stringify(categories, null, 2)}\n`)
 await writeFile(join(temporaryRoots.core, 'subgroups.ts'), `${generatedNotice}import type { IconSubgroup } from '../types.js'\n\nexport const iconSubgroups: readonly IconSubgroup[] = ${JSON.stringify(subgroups, null, 2)}\n`)
 
-const definitions = icons.map(({ name, viewBox, body }) => ({ name, viewBox, body }))
+const definitions = icons.map(({ id, name, viewBox, body }) => ({ id, name, viewBox, body }))
 await writeFile(join(temporaryRoots.core, 'definitions.ts'), `${generatedNotice}import type { IconDefinition } from '../types.js'\n\nexport const iconDefinitions: readonly IconDefinition[] = ${JSON.stringify(definitions, null, 2)}\n`)
 
-const catalog = icons.map(({ body: _body, viewBox: _viewBox, ...entry }) => entry)
+const catalog = icons.map(({ sourceKey: _sourceKey, body: _body, viewBox: _viewBox, ...entry }) => entry)
 await writeFile(join(temporaryRoots.core, 'metadata.ts'), `${generatedNotice}import type { PublicIconMeta } from '../types.js'\n\nexport const iconMeta: readonly PublicIconMeta[] = ${JSON.stringify(catalog, null, 2)}\n`)
 
-await writeFile(join(temporaryRoots.react, 'components.ts'), `${generatedNotice}${icons.map(({ name, componentName }) => `export { ${componentName} } from './icons/${name}.js'`).join('\n')}\n`)
+const componentExports = icons.map(({ name, componentName }) => `export { ${componentName} } from './icons/${name}.js'`)
+for (const entry of legacyNameEntries) {
+  const legacyComponentName = `${toPascal(entry.legacyName)}Icon`
+  const currentComponentName = `${toPascal(entry.currentName)}Icon`
+  componentExports.push(`/** @deprecated Renamed to ${currentComponentName} in ${entry.renamedIn}. */\nexport { ${currentComponentName} as ${legacyComponentName} } from './icons/${entry.currentName}.js'`)
+}
+await writeFile(join(temporaryRoots.react, 'components.ts'), `${generatedNotice}${componentExports.join('\n')}\n`)
 
-for (const { name, componentName, viewBox, body } of icons) {
-  const definition = JSON.stringify({ name, viewBox, body }, null, 2)
+for (const { name, componentName, id, viewBox, body } of icons) {
+  const definition = JSON.stringify({ id, name, viewBox, body }, null, 2)
   await writeFile(join(temporaryRoots.core, 'icons', `${name}.ts`), `${generatedNotice}import type { IconDefinition } from '../../types.js'\n\nconst icon = ${definition} as const satisfies IconDefinition\n\nexport default icon\n`)
   await writeFile(join(temporaryRoots.react, 'icons', `${name}.tsx`), `${generatedNotice}import icon from '@uplus-icon/core/icons/${name}'\nimport { createIcon } from '../../createIcon.js'\n\nexport const ${componentName} = createIcon(icon)\nexport default ${componentName}\n`)
+}
+
+for (const entry of legacyNameEntries) {
+  const legacyComponentName = `${toPascal(entry.legacyName)}Icon`
+  const currentComponentName = `${toPascal(entry.currentName)}Icon`
+  await writeFile(join(temporaryRoots.core, 'icons', `${entry.legacyName}.ts`), `${generatedNotice}/** @deprecated Renamed to ${entry.currentName} in ${entry.renamedIn}. */\nexport { default } from './${entry.currentName}.js'\n`)
+  await writeFile(join(temporaryRoots.react, 'icons', `${entry.legacyName}.tsx`), `${generatedNotice}/** @deprecated Renamed to ${currentComponentName} in ${entry.renamedIn}. */\nexport { ${currentComponentName} as ${legacyComponentName}, ${currentComponentName} as default } from './${entry.currentName}.js'\n`)
 }
 
 for (const [name, path] of Object.entries(outputRoots)) {

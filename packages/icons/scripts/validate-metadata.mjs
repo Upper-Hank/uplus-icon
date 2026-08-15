@@ -1,9 +1,22 @@
+import { validateIconIdentityMetadata } from './icon-identity.mjs'
+
 const versionPattern = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/
 const capabilityPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
-export function validateMetadataReferences(metadata, iconNames) {
+export function validateMetadataReferences(metadata, iconNames, publicNameBySourceKey = null) {
   const names = iconNames instanceof Set ? iconNames : new Set(iconNames)
+  const resolvedPublicNames = publicNameBySourceKey ?? new Map(
+    [...names].map((sourceKey) => [sourceKey, metadata[sourceKey]?.name ?? sourceKey]),
+  )
+  const publicNames = new Set(resolvedPublicNames.values())
+  const allLegacyNames = new Set()
   const aliasOwners = new Map()
+
+  for (const details of Object.values(metadata)) {
+    for (const legacy of details.legacyNames ?? []) {
+      allLegacyNames.add(legacy.name)
+    }
+  }
 
   for (const [name, details] of Object.entries(metadata)) {
     if (details.deprecated !== undefined && typeof details.deprecated !== 'boolean') {
@@ -19,7 +32,9 @@ export function validateMetadataReferences(metadata, iconNames) {
     }
 
     for (const alias of details.aliases) {
-      if (names.has(alias)) throw new Error(`Metadata alias "${alias}" for ${name} conflicts with an icon name`)
+      if (names.has(alias)) throw new Error(`Metadata alias "${alias}" for ${name} conflicts with a source key`)
+      if (publicNames.has(alias)) throw new Error(`Metadata alias "${alias}" for ${name} conflicts with a current public name`)
+      if (allLegacyNames.has(alias)) throw new Error(`Metadata alias "${alias}" for ${name} conflicts with a legacy public name`)
       const owner = aliasOwners.get(alias)
       if (owner) throw new Error(`Metadata alias "${alias}" belongs to both ${owner} and ${name}`)
       aliasOwners.set(alias, name)
@@ -61,3 +76,5 @@ export function validateMetadataReferences(metadata, iconNames) {
     }
   }
 }
+
+export { validateIconIdentityMetadata }

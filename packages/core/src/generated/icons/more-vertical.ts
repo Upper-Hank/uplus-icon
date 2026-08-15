@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_4ea36894-0a23-4d22-a732-51841148e698",
   "name": "more-vertical",
   "viewBox": "0 0 24 24",
   "body": "\n<rect x=\"14\" y=\"2.5\" width=\"4\" height=\"4\" rx=\"2\" transform=\"rotate(90 14 2.5)\" fill=\"currentColor\"/>\n<rect x=\"14\" y=\"10\" width=\"4\" height=\"4\" rx=\"2\" transform=\"rotate(90 14 10)\" fill=\"currentColor\"/>\n<rect x=\"14\" y=\"17.5\" width=\"4\" height=\"4\" rx=\"2\" transform=\"rotate(90 14 17.5)\" fill=\"currentColor\"/>\n"

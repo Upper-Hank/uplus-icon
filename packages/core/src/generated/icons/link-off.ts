@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_05b23427-5349-4fc6-945a-6aa5ffb2df92",
   "name": "link-off",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M12.8481 16.5311L11.0981 19.5622C10.2696 20.9971 8.43487 21.4887 6.99999 20.6603C5.56512 19.8319 5.07349 17.9971 5.90192 16.5622L7.65192 13.5311\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16.5981 10.036L18.0981 7.43792C18.9266 6.00304 18.4349 4.16827 17.0001 3.33984C15.5652 2.51142 13.7304 3.00304 12.902 4.43792L11.402 7.036\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M4 4L20 20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
