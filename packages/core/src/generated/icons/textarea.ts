@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_4c3b4259-e74d-4715-9ef9-c32fc6e7c7ca",
   "name": "textarea",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M3 7C3 5.89543 3.89543 5 5 5H19C20.1046 5 21 5.89543 21 7V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V7Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M19 16.5V14.2071C19 13.7617 18.4614 13.5386 18.1464 13.8536L15.8535 16.1465C15.5386 16.4614 15.7617 17 16.2071 17H18.5C18.7761 17 19 16.7762 19 16.5Z\" fill=\"currentColor\"/>\n<path d=\"M6 8V11\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

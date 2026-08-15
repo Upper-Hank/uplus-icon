@@ -1,5 +1,18 @@
 # 更新日志
 
+## [0.1.0-beta.1] - 2026-08-15
+
+### 新增
+
+- 四个对角箭头图标：`arrow-top-left`、`arrow-top-right`、`arrow-bottom-left`、`arrow-bottom-right`。
+- 元数据新增 `catalogOrder`，用于文档站推荐浏览顺序。
+
+### 变更
+
+- 按 Figma 分类稿重排图标分类、子分组与默认目录顺序。
+- 优化 `lightbulb` 图标几何结构。
+- 扩展 absolute weight，支持 0.5–8 CSS 像素的数值尺寸。
+
 ## [0.1.0-beta.0] - 2026-08-12
 
 Uplus Icon 的第一个公开 Beta 版本。

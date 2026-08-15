@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_fbee0fb7-5a1e-4bff-8544-fb075aee63bc",
   "name": "mouse",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M5 7C5 4.79086 6.79086 3 9 3H15C17.2091 3 19 4.79086 19 7V17C19 19.2091 17.2091 21 15 21H9C6.79086 21 5 19.2091 5 17V7Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M5 10H19\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 10V3\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

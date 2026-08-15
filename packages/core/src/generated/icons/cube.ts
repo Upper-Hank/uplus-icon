@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_d3e3c75a-8292-4b15-a5bc-ddc386f1a7c4",
   "name": "cube",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M5.01948 6.92653L11.0195 3.55153C11.6283 3.20906 12.3717 3.20906 12.9805 3.55153L18.9805 6.92653C19.6103 7.28076 20 7.94713 20 8.66968V15.3303C20 16.0528 19.6103 16.7192 18.9805 17.0734L12.9805 20.4484C12.3717 20.7909 11.6283 20.7909 11.0195 20.4484L5.01948 17.0734C4.38972 16.7192 4 16.0528 4 15.3303V8.66968C4 7.94713 4.38972 7.28076 5.01948 6.92653Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M7 9L12 11M12 11L17 9M12 11V18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

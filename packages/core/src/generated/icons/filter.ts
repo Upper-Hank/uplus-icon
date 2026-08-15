@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_34b950cb-c1f6-4e1e-9f2b-c5b3b8c41952",
   "name": "filter",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M10 17V10.3699C10 10.1312 9.91461 9.90038 9.75926 9.71913L5.41496 4.65079C4.85896 4.00212 5.31987 3 6.17422 3H17.8257C18.68 3 19.141 4.00211 18.585 4.65078L14.2407 9.71913C14.0854 9.90038 14 10.1312 14 10.3699V21\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_d4c58805-6902-43a1-826c-d8c2da3f232f",
   "name": "video",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M17 10V8C17 6.89543 16.1046 6 15 6H5C3.89543 6 3 6.89543 3 8L3 16C3 17.1046 3.89543 18 5 18H15C16.1046 18 17 17.1046 17 16V14M17 10L19.47 8.45625C20.136 8.03997 21 8.51881 21 9.30425V15C21 15.824 20.0592 16.2944 19.4 15.8L17 14M17 10V14\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

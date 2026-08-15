@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_072c1f18-048d-4cd2-9fc2-6ac9c0c88bdc",
   "name": "vr",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M19 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18H6.27378C6.75103 18 7.2214 17.8861 7.64582 17.6679L11.0853 15.899C11.6594 15.6038 12.3406 15.6038 12.9147 15.899L16.3542 17.6679C16.7786 17.8861 17.249 18 17.7262 18H19C20.1046 18 21 17.1046 21 16V8C21 6.89543 20.1046 6 19 6Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<circle cx=\"8\" cy=\"11\" r=\"2\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<circle cx=\"16\" cy=\"11\" r=\"2\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_d4fc6602-09b4-42cc-a97f-526e5d171926",
   "name": "anchor-curve",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M5 17C5 8 19 16 19 7\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M17 4.5C17 3.67157 17.6716 3 18.5 3H19.5C20.3284 3 21 3.67157 21 4.5V5.5C21 6.32843 20.3284 7 19.5 7H18.5C17.6716 7 17 6.32843 17 5.5V4.5Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M3 18.5C3 17.6716 3.67157 17 4.5 17H5.5C6.32843 17 7 17.6716 7 18.5V19.5C7 20.3284 6.32843 21 5.5 21H4.5C3.67157 21 3 20.3284 3 19.5V18.5Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

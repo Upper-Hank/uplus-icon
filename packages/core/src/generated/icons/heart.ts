@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_fa465401-c365-41ea-a8db-4a02e1ce65cc",
   "name": "heart",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M16 5C14.3714 5 13.3325 5.88322 12.7229 6.69121C12.4334 7.07486 11.5663 7.07501 11.2768 6.6914C10.6669 5.88336 9.62791 5 8 5C4.96243 5 3 7.5 3 10.5C3 14.4532 8.62597 18.7189 10.9817 20.3318C11.6008 20.7557 12.3992 20.7557 13.0183 20.3318C15.374 18.7189 21 14.4532 21 10.5C21 7.5 19 5 16 5Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

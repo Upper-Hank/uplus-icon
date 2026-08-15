@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_7cde70f7-baa7-4547-871a-725479dd1f27",
   "name": "drag",
   "viewBox": "0 0 24 24",
   "body": "\n<circle cx=\"9\" cy=\"6\" r=\"2\" fill=\"currentColor\"/>\n<circle cx=\"15\" cy=\"6\" r=\"2\" fill=\"currentColor\"/>\n<circle cx=\"15\" cy=\"12\" r=\"2\" fill=\"currentColor\"/>\n<circle cx=\"15\" cy=\"18\" r=\"2\" fill=\"currentColor\"/>\n<circle cx=\"9\" cy=\"18\" r=\"2\" fill=\"currentColor\"/>\n<circle cx=\"9\" cy=\"12\" r=\"2\" fill=\"currentColor\"/>\n"

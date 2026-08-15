@@ -18,6 +18,7 @@ export type DocSlug =
   | 'figma'
   | 'package-architecture'
   | 'release-process'
+  | 'identity'
 
 export interface DocHeading {
   depth: 2 | 3
@@ -56,7 +57,7 @@ const rawDocuments = import.meta.glob([
 }) as Record<string, string>
 
 const requiredFields = ['slug', 'order', 'group', 'title', 'description', 'locale'] as const
-const slugs: DocSlug[] = ['principles', 'naming', 'canvas', 'optical', 'stroke', 'svg', 'metadata', 'workflow', 'api', 'react', 'accessibility', 'testing', 'versioning', 'contribution', 'figma', 'package-architecture', 'release-process']
+const slugs: DocSlug[] = ['principles', 'naming', 'canvas', 'optical', 'stroke', 'svg', 'metadata', 'workflow', 'api', 'react', 'accessibility', 'testing', 'versioning', 'contribution', 'figma', 'package-architecture', 'release-process', 'identity']
 const groups: DocGroup[] = ['foundations', 'visual', 'architecture', 'governance', 'usage']
 
 function parseDocument(source: string, path: string): DocDocument {

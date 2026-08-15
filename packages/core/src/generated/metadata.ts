@@ -3,6 +3,7 @@ import type { PublicIconMeta } from '../types.js'
 
 export const iconMeta: readonly PublicIconMeta[] = [
   {
+    "id": "uicon_ee1846c0-d48b-42c8-8d5a-1a8b1ece273d",
     "name": "activity",
     "componentName": "ActivityIcon",
     "title": "Activity",
@@ -20,9 +21,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 295
   },
   {
+    "id": "uicon_396e1b2d-9726-4d35-bdf5-9a0e74118058",
     "name": "alarm-clock",
     "componentName": "AlarmClockIcon",
     "title": "Alarm Clock",
@@ -40,9 +43,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 227
   },
   {
+    "id": "uicon_d4fc6602-09b4-42cc-a97f-526e5d171926",
     "name": "anchor-curve",
     "componentName": "AnchorCurveIcon",
     "title": "Anchor Curve",
@@ -50,19 +55,21 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "interface"
     ],
-    "subgroup": "creation",
+    "subgroup": "design",
     "tags": [
       "interface",
       "界面",
-      "creation",
-      "创建"
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 102
   },
   {
+    "id": "uicon_ec95170b-be4f-41b2-978c-e80bfdd954a7",
     "name": "anchor-point",
     "componentName": "AnchorPointIcon",
     "title": "Anchor Point",
@@ -70,19 +77,21 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "interface"
     ],
-    "subgroup": "creation",
+    "subgroup": "design",
     "tags": [
       "interface",
       "界面",
-      "creation",
-      "创建"
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 103
   },
   {
+    "id": "uicon_239233be-3e28-457d-8536-3542278ed12a",
     "name": "archive",
     "componentName": "ArchiveIcon",
     "title": "Archive",
@@ -100,9 +109,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 53
   },
   {
+    "id": "uicon_861ab4ba-925d-41be-b5a2-5fd89b38d0c8",
     "name": "arrow-down",
     "componentName": "ArrowDownIcon",
     "title": "Arrow Down",
@@ -122,9 +133,55 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 65
   },
   {
+    "id": "uicon_c9143945-531e-481c-af8f-a330b8342675",
+    "name": "arrow-bottom-left",
+    "componentName": "ArrowBottomLeftIcon",
+    "title": "Arrow Bottom Left",
+    "titleZh": "向左下箭头",
+    "categories": [
+      "navigation"
+    ],
+    "subgroup": "arrow",
+    "tags": [
+      "navigation",
+      "导航",
+      "arrow",
+      "箭头"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 70
+  },
+  {
+    "id": "uicon_9729a493-09a2-4002-8cd0-8d7498eb449b",
+    "name": "arrow-bottom-right",
+    "componentName": "ArrowBottomRightIcon",
+    "title": "Arrow Bottom Right",
+    "titleZh": "向右下箭头",
+    "categories": [
+      "navigation"
+    ],
+    "subgroup": "arrow",
+    "tags": [
+      "navigation",
+      "导航",
+      "arrow",
+      "箭头"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 71
+  },
+  {
+    "id": "uicon_94cb0619-b6c5-4f20-981e-7f074861594a",
     "name": "arrow-left",
     "componentName": "ArrowLeftIcon",
     "title": "Arrow Left",
@@ -145,9 +202,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 66
   },
   {
+    "id": "uicon_8d968324-5252-4636-947f-faec0903e652",
     "name": "arrow-right",
     "componentName": "ArrowRightIcon",
     "title": "Arrow Right",
@@ -168,9 +227,55 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 67
   },
   {
+    "id": "uicon_c9a2c8f4-dd2e-4f73-aa9a-ab4e6c23f70a",
+    "name": "arrow-top-left",
+    "componentName": "ArrowTopLeftIcon",
+    "title": "Arrow Top Left",
+    "titleZh": "向左上箭头",
+    "categories": [
+      "navigation"
+    ],
+    "subgroup": "arrow",
+    "tags": [
+      "navigation",
+      "导航",
+      "arrow",
+      "箭头"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 68
+  },
+  {
+    "id": "uicon_abea798f-d18c-4e0f-b215-92994a2b9f72",
+    "name": "arrow-top-right",
+    "componentName": "ArrowTopRightIcon",
+    "title": "Arrow Top Right",
+    "titleZh": "向右上箭头",
+    "categories": [
+      "navigation"
+    ],
+    "subgroup": "arrow",
+    "tags": [
+      "navigation",
+      "导航",
+      "arrow",
+      "箭头"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 69
+  },
+  {
+    "id": "uicon_7cca8d35-3bf2-42ce-bfd4-0a56c2751cf1",
     "name": "arrow-up",
     "componentName": "ArrowUpIcon",
     "title": "Arrow Up",
@@ -190,9 +295,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 64
   },
   {
+    "id": "uicon_92ed99f2-c5a8-4a72-8ba1-5a56c1d0ea1f",
     "name": "artboard",
     "componentName": "ArtboardIcon",
     "title": "Artboard",
@@ -200,19 +307,21 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "interface"
     ],
-    "subgroup": "creation",
+    "subgroup": "design",
     "tags": [
       "interface",
       "界面",
-      "creation",
-      "创建"
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 97
   },
   {
+    "id": "uicon_5de6e330-266c-470d-bfce-7817c4b00699",
     "name": "at-sign",
     "componentName": "AtSignIcon",
     "title": "At Sign",
@@ -232,9 +341,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 198
   },
   {
+    "id": "uicon_5d4fded9-e9db-45fb-b2b4-03f33a0a0add",
     "name": "badge",
     "componentName": "BadgeIcon",
     "title": "Badge",
@@ -252,9 +363,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 302
   },
   {
+    "id": "uicon_43ad983c-a01c-4d8c-8ab2-448116f0f6c5",
     "name": "barcode",
     "componentName": "BarcodeIcon",
     "title": "Barcode",
@@ -272,9 +385,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 208
   },
   {
+    "id": "uicon_d17ae126-8be0-4f66-870a-077931b2432a",
     "name": "battery-horizon",
     "componentName": "BatteryHorizonIcon",
     "title": "Horizontal Battery",
@@ -292,29 +407,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 209
   },
   {
+    "id": "uicon_21f926e8-e933-4ac2-af5b-4279c899d6bc",
     "name": "battery-vertical",
     "componentName": "BatteryVerticalIcon",
     "title": "Battery Vertical",
     "titleZh": "纵向电池",
     "categories": [
-      "objects"
+      "interface"
     ],
-    "subgroup": "technology",
+    "subgroup": "controls",
     "tags": [
-      "objects",
-      "对象",
-      "technology",
-      "技术"
+      "interface",
+      "界面",
+      "controls",
+      "控件"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 79
   },
   {
+    "id": "uicon_7413b818-0bcd-4f23-9e85-a5af95e609a8",
     "name": "bell-off",
     "componentName": "BellOffIcon",
     "title": "Bell Off",
@@ -332,9 +451,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 194
   },
   {
+    "id": "uicon_6c6366b9-614c-4201-97e4-622fdeb8f484",
     "name": "bell",
     "componentName": "BellIcon",
     "title": "Bell",
@@ -354,9 +475,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 193
   },
   {
+    "id": "uicon_97ad3250-a2ca-4c86-9e64-d1e496aed298",
     "name": "bluetooth-off",
     "componentName": "BluetoothOffIcon",
     "title": "Bluetooth Off",
@@ -374,9 +497,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 222
   },
   {
+    "id": "uicon_ffc512a3-68d3-4f42-a7fb-e36c1c0ea58f",
     "name": "bluetooth",
     "componentName": "BluetoothIcon",
     "title": "Bluetooth",
@@ -394,29 +519,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 221
   },
   {
+    "id": "uicon_ad0513b4-3d0e-425e-9808-cce70e9e0610",
     "name": "bold",
     "componentName": "BoldIcon",
     "title": "Bold",
     "titleZh": "粗体",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "formatting",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "formatting",
-      "格式"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 92
   },
   {
+    "id": "uicon_66fa2c90-5257-4bec-b0cf-8d6d4ed8770c",
     "name": "book",
     "componentName": "BookIcon",
     "title": "Book",
@@ -434,9 +563,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 184
   },
   {
+    "id": "uicon_4c90278e-b9ed-4003-a138-0aac1c995f6c",
     "name": "bookmark",
     "componentName": "BookmarkIcon",
     "title": "Bookmark",
@@ -454,9 +585,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 186
   },
   {
+    "id": "uicon_9eca509b-b26c-4de1-b9ee-f632cc1ebdbf",
     "name": "braces",
     "componentName": "BracesIcon",
     "title": "Braces",
@@ -474,9 +607,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 183
   },
   {
+    "id": "uicon_6bac3872-865c-43f5-848d-c00d1f532f8a",
     "name": "briefcase",
     "componentName": "BriefcaseIcon",
     "title": "Briefcase",
@@ -494,9 +629,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 272
   },
   {
+    "id": "uicon_2760f007-0150-4445-b82c-db6a2fadd680",
     "name": "broadcast",
     "componentName": "BroadcastIcon",
     "title": "Broadcast",
@@ -517,29 +654,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 224
   },
   {
+    "id": "uicon_e51aca20-264c-4612-9273-345e1aaf17ed",
     "name": "bug",
     "componentName": "BugIcon",
     "title": "Bug",
     "titleZh": "程序错误",
     "categories": [
-      "status"
+      "objects"
     ],
-    "subgroup": "system",
+    "subgroup": "technology",
     "tags": [
-      "status",
-      "状态",
-      "system",
-      "系统"
+      "objects",
+      "对象",
+      "technology",
+      "技术"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 218
   },
   {
+    "id": "uicon_7809b09c-a00f-48e9-963e-eec4118cca22",
     "name": "calculator",
     "componentName": "CalculatorIcon",
     "title": "Calculator",
@@ -557,9 +698,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 80
   },
   {
+    "id": "uicon_7905ef1d-d7ff-4aab-bb5c-e4abd5bd6e51",
     "name": "calendar",
     "componentName": "CalendarIcon",
     "title": "Calendar",
@@ -577,9 +720,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 229
   },
   {
+    "id": "uicon_6196629f-1d4d-46e4-bea7-cdb01bace839",
     "name": "camera",
     "componentName": "CameraIcon",
     "title": "Camera",
@@ -597,9 +742,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 175
   },
   {
+    "id": "uicon_550c8768-5852-4b8b-a4a4-0f9f73f1c5f6",
     "name": "card",
     "componentName": "CardIcon",
     "title": "Card",
@@ -617,9 +764,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 248
   },
   {
+    "id": "uicon_b9e03eaf-1af3-4b97-8d6a-93f88761abc2",
     "name": "cast",
     "componentName": "CastIcon",
     "title": "Cast",
@@ -627,19 +776,21 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "media"
     ],
-    "subgroup": "visual",
+    "subgroup": "playback",
     "tags": [
       "media",
       "媒体",
-      "visual",
-      "视觉"
+      "playback",
+      "播放"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 165
   },
   {
+    "id": "uicon_db7015c2-80f5-43d7-8f88-adcf8c1bd935",
     "name": "charge",
     "componentName": "ChargeIcon",
     "title": "Charge",
@@ -657,9 +808,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 213
   },
   {
+    "id": "uicon_ef9cbb19-2452-4a78-963b-1f1625e226f8",
     "name": "chart-column-up",
     "componentName": "ChartColumnUpIcon",
     "title": "Chart Column Up",
@@ -677,9 +830,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 131
   },
   {
+    "id": "uicon_205b5d76-372a-4985-831e-ee760b752892",
     "name": "chart-column",
     "componentName": "ChartColumnIcon",
     "title": "Chart Column",
@@ -697,9 +852,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 130
   },
   {
+    "id": "uicon_83302029-55cd-47a7-b3dc-e64c9ac7ccb8",
     "name": "check",
     "componentName": "CheckIcon",
     "title": "Check",
@@ -717,9 +874,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 12
   },
   {
+    "id": "uicon_25dd1a92-69fd-45ef-aaa2-9ff3a895b968",
     "name": "checkbox",
     "componentName": "CheckboxIcon",
     "title": "Checkbox",
@@ -737,9 +896,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 75
   },
   {
+    "id": "uicon_1a19cc00-7528-45fe-800c-b7d86297aee4",
     "name": "chevron-down",
     "componentName": "ChevronDownIcon",
     "title": "Chevron Down",
@@ -759,9 +920,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 57
   },
   {
+    "id": "uicon_fd901456-5a82-4059-963d-0815fb2b5278",
     "name": "chevron-left",
     "componentName": "ChevronLeftIcon",
     "title": "Chevron Left",
@@ -781,9 +944,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 58
   },
   {
+    "id": "uicon_279b70a3-418b-421d-be6a-54a13d7a4fe8",
     "name": "chevron-right",
     "componentName": "ChevronRightIcon",
     "title": "Chevron Right",
@@ -803,9 +968,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 59
   },
   {
+    "id": "uicon_ff77f96c-9188-4bc2-85be-3dc669f6f099",
     "name": "chevron-up",
     "componentName": "ChevronUpIcon",
     "title": "Chevron Up",
@@ -825,9 +992,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 56
   },
   {
+    "id": "uicon_761e8fe5-8eae-4101-97dd-462458cb2489",
     "name": "chevrons-down",
     "componentName": "ChevronsDownIcon",
     "title": "Chevrons Down",
@@ -845,9 +1014,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 61
   },
   {
+    "id": "uicon_f70540eb-b76d-4278-ba11-c91d29a1af30",
     "name": "chevrons-left",
     "componentName": "ChevronsLeftIcon",
     "title": "Chevrons Left",
@@ -865,9 +1036,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 62
   },
   {
+    "id": "uicon_051e1876-76c2-4bdb-a76c-de9000291e42",
     "name": "chevrons-right",
     "componentName": "ChevronsRightIcon",
     "title": "Chevrons Right",
@@ -885,9 +1058,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 63
   },
   {
+    "id": "uicon_8c6b348e-2f30-47de-9ed6-90c12e534b77",
     "name": "chevrons-up",
     "componentName": "ChevronsUpIcon",
     "title": "Chevrons Up",
@@ -905,9 +1080,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 60
   },
   {
+    "id": "uicon_7a9693fe-4b79-4be8-bd72-9e7a21efe85a",
     "name": "chip",
     "componentName": "ChipIcon",
     "title": "Chip",
@@ -925,9 +1102,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 210
   },
   {
+    "id": "uicon_42a485b6-ce72-439e-86ae-fd11d1b7bfac",
     "name": "clarity",
     "componentName": "ClarityIcon",
     "title": "Clarity",
@@ -945,9 +1124,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 85
   },
   {
+    "id": "uicon_4d87ec3b-69b3-43dc-ba79-2914cfd193ee",
     "name": "clock",
     "componentName": "ClockIcon",
     "title": "Clock",
@@ -965,9 +1146,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 226
   },
   {
+    "id": "uicon_23b269f5-28d4-4f18-acc1-be0073bdaacb",
     "name": "close",
     "componentName": "CloseIcon",
     "title": "Close",
@@ -988,9 +1171,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 11
   },
   {
+    "id": "uicon_43b759d4-6cc6-430e-af53-7491d98e9f83",
     "name": "cloud-download",
     "componentName": "CloudDownloadIcon",
     "title": "Cloud Download",
@@ -1008,9 +1193,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 7
   },
   {
+    "id": "uicon_c3f18292-2382-4644-9419-0e54a15c501f",
     "name": "cloud-upload",
     "componentName": "CloudUploadIcon",
     "title": "Cloud Upload",
@@ -1028,9 +1215,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 8
   },
   {
+    "id": "uicon_ca420352-aed6-4e5b-9b3d-d0e17cf1194d",
     "name": "cloud",
     "componentName": "CloudIcon",
     "title": "Cloud",
@@ -1038,39 +1227,43 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "objects"
     ],
-    "subgroup": "place",
+    "subgroup": "technology",
     "tags": [
       "objects",
       "对象",
-      "place",
-      "地点"
+      "technology",
+      "技术"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 223
   },
   {
+    "id": "uicon_9d794c2a-b016-4645-bb58-fdff80595f37",
     "name": "code-block",
     "componentName": "CodeBlockIcon",
     "title": "Code Block",
     "titleZh": "代码块",
     "categories": [
-      "objects"
+      "interface"
     ],
-    "subgroup": "content",
+    "subgroup": "design",
     "tags": [
-      "objects",
-      "对象",
-      "content",
-      "内容"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 96
   },
   {
+    "id": "uicon_2292d78c-ad2f-48d6-aef3-3af079574370",
     "name": "color-wheel",
     "componentName": "ColorWheelIcon",
     "title": "Color Wheel",
@@ -1088,9 +1281,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 87
   },
   {
+    "id": "uicon_eb896b6b-6559-4ec0-a932-5575f61192ff",
     "name": "color",
     "componentName": "ColorIcon",
     "title": "Color",
@@ -1108,9 +1303,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 86
   },
   {
+    "id": "uicon_534025ee-5b91-4b6b-8656-a9af9efd4572",
     "name": "comment",
     "componentName": "CommentIcon",
     "title": "Comment",
@@ -1131,9 +1328,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 191
   },
   {
+    "id": "uicon_6d43be0f-a5cb-4baa-a6ae-06fd58579d0e",
     "name": "compass",
     "componentName": "CompassIcon",
     "title": "Compass",
@@ -1151,9 +1350,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 55
   },
   {
+    "id": "uicon_ce43cecb-a01b-4cc4-afad-8d3d88f2cf72",
     "name": "computer",
     "componentName": "ComputerIcon",
     "title": "Computer",
@@ -1171,9 +1372,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 203
   },
   {
+    "id": "uicon_e4ebcc4d-ff81-404d-afa1-2293999198d1",
     "name": "control-horizon",
     "componentName": "ControlHorizonIcon",
     "title": "Horizontal Control",
@@ -1191,9 +1394,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 73
   },
   {
+    "id": "uicon_9a255cbc-e047-4543-a896-dd04587a8d17",
     "name": "control-vertical",
     "componentName": "ControlVerticalIcon",
     "title": "Control Vertical",
@@ -1211,9 +1416,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 74
   },
   {
+    "id": "uicon_8bcd9fed-b70d-4ebe-8cb1-80f156349560",
     "name": "copy",
     "componentName": "CopyIcon",
     "title": "Copy",
@@ -1231,9 +1438,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 13
   },
   {
+    "id": "uicon_95976ec6-4335-47af-8655-60a724b93374",
     "name": "coupon",
     "componentName": "CouponIcon",
     "title": "Coupon",
@@ -1253,9 +1462,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 251
   },
   {
+    "id": "uicon_c85bca95-66a3-42e0-b1b5-f478b46f055f",
     "name": "credit-card",
     "componentName": "CreditCardIcon",
     "title": "Credit Card",
@@ -1273,9 +1484,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 250
   },
   {
+    "id": "uicon_aae1132c-7bfa-4446-8eeb-9fcd735f8af2",
     "name": "crop",
     "componentName": "CropIcon",
     "title": "Crop",
@@ -1283,19 +1496,21 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "interface"
     ],
-    "subgroup": "creation",
+    "subgroup": "design",
     "tags": [
       "interface",
       "界面",
-      "creation",
-      "创建"
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 104
   },
   {
+    "id": "uicon_d3e3c75a-8292-4b15-a5bc-ddc386f1a7c4",
     "name": "cube",
     "componentName": "CubeIcon",
     "title": "Cube",
@@ -1313,9 +1528,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 211
   },
   {
+    "id": "uicon_b1c7f317-b1c3-4c3d-858f-8f6ec3a03f0e",
     "name": "cup",
     "componentName": "CupIcon",
     "title": "Cup",
@@ -1333,9 +1550,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 264
   },
   {
+    "id": "uicon_2179ee63-1664-43e5-9565-e077a8c3a5f7",
     "name": "currency-dollar",
     "componentName": "CurrencyDollarIcon",
     "title": "Currency Dollar",
@@ -1353,9 +1572,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 257
   },
   {
+    "id": "uicon_3bd4d302-dbad-457a-8795-56e3cf0c0f5e",
     "name": "currency-euro",
     "componentName": "CurrencyEuroIcon",
     "title": "Currency Euro",
@@ -1373,9 +1594,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 256
   },
   {
+    "id": "uicon_6590fa6d-7f41-439d-9bf2-7889c7121741",
     "name": "currency-yen",
     "componentName": "CurrencyYenIcon",
     "title": "Currency Yen",
@@ -1393,9 +1616,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 255
   },
   {
+    "id": "uicon_421c5cfa-1385-4fd1-8f1a-670be62322f0",
     "name": "currency-yuan",
     "componentName": "CurrencyYuanIcon",
     "title": "Currency Yuan",
@@ -1413,9 +1638,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 254
   },
   {
+    "id": "uicon_362ce0b7-2cf4-4fc2-8452-2fa0537b2d5b",
     "name": "currency",
     "componentName": "CurrencyIcon",
     "title": "Currency",
@@ -1433,9 +1660,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 253
   },
   {
+    "id": "uicon_3c3db73c-c27b-4887-a94f-b23db8da6ee5",
     "name": "cursor",
     "componentName": "CursorIcon",
     "title": "Cursor",
@@ -1453,9 +1682,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 124
   },
   {
+    "id": "uicon_2552ea94-736f-4ec1-86c2-d32d4874d4b5",
     "name": "cut",
     "componentName": "CutIcon",
     "title": "Cut",
@@ -1473,9 +1704,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 15
   },
   {
+    "id": "uicon_5c802a67-b6c7-4a30-89fd-e2a27bb77a15",
     "name": "danger",
     "componentName": "DangerIcon",
     "title": "Danger",
@@ -1494,9 +1727,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 291
   },
   {
+    "id": "uicon_4b01f614-7995-4111-886f-b78e4ae135b4",
     "name": "database",
     "componentName": "DatabaseIcon",
     "title": "Database",
@@ -1514,9 +1749,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 212
   },
   {
+    "id": "uicon_a677e903-a35b-4eec-8fb4-cc95020b3fd2",
     "name": "dial",
     "componentName": "DialIcon",
     "title": "Dial",
@@ -1534,9 +1771,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 133
   },
   {
+    "id": "uicon_c59da850-1cbc-46c5-a8fb-0c972d31396a",
     "name": "diamond",
     "componentName": "DiamondIcon",
     "title": "Diamond",
@@ -1554,9 +1793,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 263
   },
   {
+    "id": "uicon_e911aedd-5c8b-409b-8341-be0e4f1233b2",
     "name": "download",
     "componentName": "DownloadIcon",
     "title": "Download",
@@ -1576,9 +1817,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 0
   },
   {
+    "id": "uicon_a565a056-ce8d-4014-a927-03fc4e472e78",
     "name": "drag-alt",
     "componentName": "DragAltIcon",
     "title": "Drag Alt",
@@ -1596,9 +1839,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 127
   },
   {
+    "id": "uicon_7cde70f7-baa7-4547-871a-725479dd1f27",
     "name": "drag",
     "componentName": "DragIcon",
     "title": "Drag",
@@ -1616,29 +1861,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 128
   },
   {
+    "id": "uicon_18985d16-ca1e-4f91-ab3d-5418dc71b979",
     "name": "duplicate",
     "componentName": "DuplicateIcon",
     "title": "Duplicate",
     "titleZh": "创建副本",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "editing",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "editing",
-      "编辑"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 109
   },
   {
+    "id": "uicon_38b71163-d01f-4a2c-bef0-bf344d3bf958",
     "name": "earth",
     "componentName": "EarthIcon",
     "title": "Earth",
@@ -1656,9 +1905,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 231
   },
   {
+    "id": "uicon_408ca218-62f6-47d6-ad8d-f7210e5da5d7",
     "name": "edit",
     "componentName": "EditIcon",
     "title": "Edit",
@@ -1676,51 +1927,57 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 16
   },
   {
+    "id": "uicon_8db52fc8-fb4a-4698-9141-3570453efcf7",
     "name": "eraser",
     "componentName": "EraserIcon",
     "title": "Eraser",
     "titleZh": "橡皮擦",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "editing",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "editing",
-      "编辑"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [
       "erase"
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 116
   },
   {
+    "id": "uicon_2309bb23-43c5-4579-aa56-6977d3417d7e",
     "name": "exclude",
     "componentName": "ExcludeIcon",
     "title": "Exclude",
     "titleZh": "排除",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 113
   },
   {
+    "id": "uicon_0e372c46-1c59-42a2-86be-b10667f33d85",
     "name": "expand-collapse",
     "componentName": "ExpandCollapseIcon",
     "title": "Expand Collapse",
@@ -1738,9 +1995,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 27
   },
   {
+    "id": "uicon_1c77112d-2c56-4693-b0ff-67515aa4ee3f",
     "name": "export",
     "componentName": "ExportIcon",
     "title": "Export",
@@ -1758,9 +2017,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 2
   },
   {
+    "id": "uicon_e2319d5d-3a29-4748-8566-a1106a5d306f",
     "name": "external-link",
     "componentName": "ExternalLinkIcon",
     "title": "External Link",
@@ -1778,9 +2039,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 3
   },
   {
+    "id": "uicon_f96873e7-a422-432f-ab8f-61285fe47d0d",
     "name": "eye-off",
     "componentName": "EyeOffIcon",
     "title": "Eye Off",
@@ -1798,9 +2061,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 82
   },
   {
+    "id": "uicon_627a8ea1-aa39-409c-94fc-66cdc22c720e",
     "name": "eye",
     "componentName": "EyeIcon",
     "title": "Eye",
@@ -1818,9 +2083,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 81
   },
   {
+    "id": "uicon_56e67a0d-3f6b-481f-9924-bdef2f3990ac",
     "name": "eyedropper",
     "componentName": "EyedropperIcon",
     "title": "Eyedropper",
@@ -1828,19 +2095,21 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "interface"
     ],
-    "subgroup": "creation",
+    "subgroup": "design",
     "tags": [
       "interface",
       "界面",
-      "creation",
-      "创建"
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 101
   },
   {
+    "id": "uicon_2317a36b-ecbf-4fc8-9eea-026ca74a9d99",
     "name": "fast-forward",
     "componentName": "FastForwardIcon",
     "title": "Fast Forward",
@@ -1858,9 +2127,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 160
   },
   {
+    "id": "uicon_b61f2721-d377-4a55-b171-3e47be6a3952",
     "name": "file",
     "componentName": "FileIcon",
     "title": "File",
@@ -1880,9 +2151,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 179
   },
   {
+    "id": "uicon_34b950cb-c1f6-4e1e-9f2b-c5b3b8c41952",
     "name": "filter",
     "componentName": "FilterIcon",
     "title": "Filter",
@@ -1900,9 +2173,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 51
   },
   {
+    "id": "uicon_b3f90275-e510-4c34-aa62-f0704556f6d3",
     "name": "fingerprint",
     "componentName": "FingerprintIcon",
     "title": "Fingerprint",
@@ -1922,30 +2197,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 262
   },
   {
+    "id": "uicon_cf459383-ceae-4555-babd-c267028f1e66",
     "name": "flag",
     "componentName": "FlagIcon",
     "title": "Flag",
     "titleZh": "旗帜",
     "categories": [
-      "status"
+      "objects"
     ],
-    "subgroup": "alter",
+    "subgroup": "place",
     "tags": [
-      "status",
-      "状态",
-      "alter",
-      "alert",
-      "警示"
+      "objects",
+      "对象",
+      "place",
+      "地点"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 235
   },
   {
+    "id": "uicon_9eecfc89-cb2a-44dd-a93c-edb4372e24b5",
     "name": "flash",
     "componentName": "FlashIcon",
     "title": "Flash",
@@ -1963,9 +2241,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 296
   },
   {
+    "id": "uicon_2e0002fd-a99f-4912-b10a-7a1ea87b87c4",
     "name": "flashlight",
     "componentName": "FlashlightIcon",
     "title": "Flashlight",
@@ -1983,49 +2263,55 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 266
   },
   {
+    "id": "uicon_1ab9e966-688e-45db-9ff4-6120b50b6770",
     "name": "flip-horizontal",
     "componentName": "FlipHorizontalIcon",
     "title": "Flip Horizontal",
     "titleZh": "水平翻转",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 107
   },
   {
+    "id": "uicon_429b91f1-5b74-4a0e-bf45-e913968b1be3",
     "name": "flip-vertical",
     "componentName": "FlipVerticalIcon",
     "title": "Flip Vertical",
     "titleZh": "垂直翻转",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 108
   },
   {
+    "id": "uicon_1b704497-8b3e-4aa8-a55b-3e3ea3bc9b19",
     "name": "floppy-disk",
     "componentName": "FloppyDiskIcon",
     "title": "Floppy Disk",
@@ -2043,9 +2329,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 215
   },
   {
+    "id": "uicon_dde352b8-3758-4f52-b810-5c9591a0afdc",
     "name": "folder-open",
     "componentName": "FolderOpenIcon",
     "title": "Folder Open",
@@ -2063,9 +2351,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 181
   },
   {
+    "id": "uicon_6c1aeb50-948f-4f6a-b097-0ad2a6f78235",
     "name": "folder",
     "componentName": "FolderIcon",
     "title": "Folder",
@@ -2083,9 +2373,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 180
   },
   {
+    "id": "uicon_b717cfab-6333-4667-a054-a52bcd6d6fd2",
     "name": "football",
     "componentName": "FootballIcon",
     "title": "Football",
@@ -2103,9 +2395,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 269
   },
   {
+    "id": "uicon_3d40242e-a92f-4995-a9c0-83c8086c9ad3",
     "name": "game-handle",
     "componentName": "GameHandleIcon",
     "title": "Game Handle",
@@ -2123,9 +2417,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 178
   },
   {
+    "id": "uicon_1765232c-aaa1-4f82-8ac3-9cf2a4708666",
     "name": "gauge",
     "componentName": "GaugeIcon",
     "title": "Gauge",
@@ -2143,9 +2439,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 132
   },
   {
+    "id": "uicon_364ea249-cb3e-4703-a22f-ec3ed15eb3aa",
     "name": "gender-female",
     "componentName": "GenderFemaleIcon",
     "title": "Gender Female",
@@ -2163,9 +2461,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 243
   },
   {
+    "id": "uicon_a9a813a5-47f4-4d5b-a8cd-3458dc3e9bbe",
     "name": "gender-male",
     "componentName": "GenderMaleIcon",
     "title": "Gender Male",
@@ -2183,9 +2483,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 240
   },
   {
+    "id": "uicon_38fa5777-cbd4-40dd-9a18-f6af562c0497",
     "name": "gender-neutral",
     "componentName": "GenderNeutralIcon",
     "title": "Gender Neutral",
@@ -2203,9 +2505,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 242
   },
   {
+    "id": "uicon_bb7abf64-2705-4fca-aa8b-c8ee01bac19e",
     "name": "gender-transgender",
     "componentName": "GenderTransgenderIcon",
     "title": "Gender Transgender",
@@ -2223,9 +2527,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 241
   },
   {
+    "id": "uicon_3b0113cd-9b94-4066-b437-4434254c6f83",
     "name": "gift",
     "componentName": "GiftIcon",
     "title": "Gift",
@@ -2243,9 +2549,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 249
   },
   {
+    "id": "uicon_301ae31f-d063-456e-8110-ef1480756b93",
     "name": "git",
     "componentName": "GitIcon",
     "title": "Git",
@@ -2263,29 +2571,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 214
   },
   {
+    "id": "uicon_29278065-561d-4867-991b-3447543c394e",
     "name": "glasses",
     "componentName": "GlassesIcon",
     "title": "Glasses",
     "titleZh": "眼镜",
     "categories": [
-      "interface"
+      "objects"
     ],
-    "subgroup": "appearance",
+    "subgroup": "life",
     "tags": [
-      "interface",
-      "界面",
-      "appearance",
-      "外观"
+      "objects",
+      "对象",
+      "life",
+      "生活"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 267
   },
   {
+    "id": "uicon_d8a61303-32d2-4eaf-8c51-88916c3438b5",
     "name": "global",
     "componentName": "GlobalIcon",
     "title": "Global",
@@ -2307,9 +2619,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 232
   },
   {
+    "id": "uicon_9f1b2a92-66cb-481d-b304-6f52956683e4",
     "name": "grid-alt",
     "componentName": "GridAltIcon",
     "title": "Grid Alt",
@@ -2327,9 +2641,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 148
   },
   {
+    "id": "uicon_6cb874e8-a9a3-4bb4-8d66-a94e2cb50bbc",
     "name": "grid",
     "componentName": "GridIcon",
     "title": "Grid",
@@ -2347,9 +2663,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 147
   },
   {
+    "id": "uicon_378834f5-c4d7-441d-8523-2c4669117b37",
     "name": "hand",
     "componentName": "HandIcon",
     "title": "Hand",
@@ -2369,9 +2687,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 123
   },
   {
+    "id": "uicon_7c0cc71e-47ab-420f-a8e2-9ef12fe88006",
     "name": "hard-drive",
     "componentName": "HardDriveIcon",
     "title": "Hard Drive",
@@ -2389,9 +2709,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 216
   },
   {
+    "id": "uicon_8eea28f2-5f96-454d-9c6e-d0dc4394f4f3",
     "name": "hashtag",
     "componentName": "HashtagIcon",
     "title": "Hashtag",
@@ -2411,29 +2733,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 185
   },
   {
+    "id": "uicon_5bfac2a8-6af7-496b-80cc-70264b71f166",
     "name": "heading",
     "componentName": "HeadingIcon",
     "title": "Heading",
     "titleZh": "标题",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "formatting",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "formatting",
-      "格式"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 94
   },
   {
+    "id": "uicon_47e3925f-db8e-4e86-b6cd-d331e51e6d9c",
     "name": "headset",
     "componentName": "HeadsetIcon",
     "title": "Headset",
@@ -2451,9 +2777,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 196
   },
   {
+    "id": "uicon_fa465401-c365-41ea-a8db-4a02e1ce65cc",
     "name": "heart",
     "componentName": "HeartIcon",
     "title": "Heart",
@@ -2474,9 +2802,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 279
   },
   {
+    "id": "uicon_29f301cd-e494-46f9-8e6f-e43e41921d68",
     "name": "help",
     "componentName": "HelpIcon",
     "title": "Help",
@@ -2495,9 +2825,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 292
   },
   {
+    "id": "uicon_2df4fd7a-2bbb-44b5-bc47-754602835be9",
     "name": "home",
     "componentName": "HomeIcon",
     "title": "Home",
@@ -2517,9 +2849,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 54
   },
   {
+    "id": "uicon_1fd821a6-dd10-473c-a999-f266eb864548",
     "name": "hourglass",
     "componentName": "HourglassIcon",
     "title": "Hourglass",
@@ -2537,9 +2871,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 297
   },
   {
+    "id": "uicon_f3df7474-ec6f-46ae-b646-3ae60937a2ea",
     "name": "image",
     "componentName": "ImageIcon",
     "title": "Image",
@@ -2557,9 +2893,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 177
   },
   {
+    "id": "uicon_f43c3171-38ca-4a9b-b8a7-bb97b44c9d3c",
     "name": "info",
     "componentName": "InfoIcon",
     "title": "Info",
@@ -2577,49 +2915,55 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 190
   },
   {
+    "id": "uicon_6d37289d-5e5e-42a0-b0c2-16fabf8dd3de",
     "name": "intersect",
     "componentName": "IntersectIcon",
     "title": "Intersect",
     "titleZh": "交集",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 112
   },
   {
+    "id": "uicon_48c5e14c-1af3-41e1-a503-d1beac56136a",
     "name": "italic",
     "componentName": "ItalicIcon",
     "title": "Italic",
     "titleZh": "斜体",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "formatting",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "formatting",
-      "格式"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 93
   },
   {
+    "id": "uicon_59ba61d9-3aa2-4bf6-8d39-bb5536fba7fb",
     "name": "jeep",
     "componentName": "JeepIcon",
     "title": "Jeep",
@@ -2637,9 +2981,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 275
   },
   {
+    "id": "uicon_8624b8eb-6b85-4d5c-8159-4b0d46dee82c",
     "name": "key",
     "componentName": "KeyIcon",
     "title": "Key",
@@ -2657,9 +3003,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 261
   },
   {
+    "id": "uicon_a792f3b9-8ad6-46e7-9dfb-34fb2b70e639",
     "name": "keyboard",
     "componentName": "KeyboardIcon",
     "title": "Keyboard",
@@ -2679,9 +3027,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 122
   },
   {
+    "id": "uicon_0a75ac35-d5ab-427f-9387-220ca972ff18",
     "name": "lab",
     "componentName": "LabIcon",
     "title": "Lab",
@@ -2699,9 +3049,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 271
   },
   {
+    "id": "uicon_5e611147-d30e-4e7e-a831-d5479f484379",
     "name": "lamp",
     "componentName": "LampIcon",
     "title": "Lamp",
@@ -2719,9 +3071,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 265
   },
   {
+    "id": "uicon_9f6371d3-63c1-4158-897a-22d333933ad1",
     "name": "laptop",
     "componentName": "LaptopIcon",
     "title": "Laptop",
@@ -2739,9 +3093,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 202
   },
   {
+    "id": "uicon_baa4ccd4-afe9-4714-bcaf-a015b1b46ef7",
     "name": "laurel",
     "componentName": "LaurelIcon",
     "title": "Laurel",
@@ -2759,9 +3115,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 301
   },
   {
+    "id": "uicon_9a6e030e-47db-4e90-b76e-75631760f2f3",
     "name": "layers",
     "componentName": "LayersIcon",
     "title": "Layers",
@@ -2781,9 +3139,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 141
   },
   {
+    "id": "uicon_eb84f881-7de9-498d-8205-9838cd3996f9",
     "name": "lightbulb",
     "componentName": "LightbulbIcon",
     "title": "Lightbulb",
@@ -2803,9 +3163,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 268
   },
   {
+    "id": "uicon_05b23427-5349-4fc6-945a-6aa5ffb2df92",
     "name": "link-off",
     "componentName": "LinkOffIcon",
     "title": "Link Off",
@@ -2823,9 +3185,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 199
   },
   {
+    "id": "uicon_3c0f62b5-61a2-4ce2-a472-17e4327786bc",
     "name": "link",
     "componentName": "LinkIcon",
     "title": "Link",
@@ -2845,9 +3209,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 197
   },
   {
+    "id": "uicon_1e2f6f68-c627-4076-881e-02d9a020fdb5",
     "name": "list-ordered",
     "componentName": "ListOrderedIcon",
     "title": "List Ordered",
@@ -2865,9 +3231,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 143
   },
   {
+    "id": "uicon_edf52ef9-f3ad-4172-b2b5-3c4b219801a4",
     "name": "list",
     "componentName": "ListIcon",
     "title": "List",
@@ -2887,9 +3255,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 142
   },
   {
+    "id": "uicon_b3e60803-584f-480c-81e8-7cd21b097ad3",
     "name": "loading",
     "componentName": "LoadingIcon",
     "title": "Loading",
@@ -2907,9 +3277,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 300
   },
   {
+    "id": "uicon_2a214b0a-e86d-4025-8553-583b3a9568c9",
     "name": "location",
     "componentName": "LocationIcon",
     "title": "Location",
@@ -2927,9 +3299,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 230
   },
   {
+    "id": "uicon_9e8ff4c0-913f-4318-b0db-c6ad7e056372",
     "name": "lock",
     "componentName": "LockIcon",
     "title": "Lock",
@@ -2949,9 +3323,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 286
   },
   {
+    "id": "uicon_8605381a-3751-4dad-bfae-e49dd21de91c",
     "name": "login",
     "componentName": "LoginIcon",
     "title": "Login",
@@ -2969,9 +3345,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 23
   },
   {
+    "id": "uicon_a2ea7fef-e500-4bd3-8dcb-314f163a1eaa",
     "name": "logout",
     "componentName": "LogoutIcon",
     "title": "Logout",
@@ -2989,9 +3367,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 24
   },
   {
+    "id": "uicon_792a4959-4691-4c3e-8326-ec0ef8686d4a",
     "name": "mail",
     "componentName": "MailIcon",
     "title": "Mail",
@@ -3009,9 +3389,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 188
   },
   {
+    "id": "uicon_bd951669-ec54-461c-be08-66552d36b764",
     "name": "map",
     "componentName": "MapIcon",
     "title": "Map",
@@ -3029,29 +3411,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 236
   },
   {
+    "id": "uicon_e073e6e7-e9ec-4758-86d3-d80c38eff259",
     "name": "mask",
     "componentName": "MaskIcon",
     "title": "Mask",
     "titleZh": "遮罩",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 115
   },
   {
+    "id": "uicon_64d4eb8a-b861-4622-9858-e5184425ecbd",
     "name": "masonry-alt",
     "componentName": "MasonryAltIcon",
     "title": "Masonry Alt",
@@ -3069,9 +3455,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 150
   },
   {
+    "id": "uicon_38c30905-d617-4eeb-a2ff-a1d74a9e168d",
     "name": "masonry",
     "componentName": "MasonryIcon",
     "title": "Masonry",
@@ -3089,9 +3477,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 149
   },
   {
+    "id": "uicon_83d9832d-463e-4526-a555-b2c0c4f8e9f9",
     "name": "maximize-alt",
     "componentName": "MaximizeAltIcon",
     "title": "Maximize Alt",
@@ -3109,9 +3499,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 25
   },
   {
+    "id": "uicon_573b7576-f87a-4905-96a4-6666fe4e3d56",
     "name": "maximize",
     "componentName": "MaximizeIcon",
     "title": "Maximize",
@@ -3129,9 +3521,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 28
   },
   {
+    "id": "uicon_79264618-f299-467e-8c70-831161d8d873",
     "name": "megaphone",
     "componentName": "MegaphoneIcon",
     "title": "Megaphone",
@@ -3151,9 +3545,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 192
   },
   {
+    "id": "uicon_bc7b5144-6b42-4777-bd04-2f78bdeca6fe",
     "name": "menu",
     "componentName": "MenuIcon",
     "title": "Menu",
@@ -3173,9 +3569,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 152
   },
   {
+    "id": "uicon_5b163ae9-424a-4bb8-9ce5-c3ce9c87381a",
     "name": "microphone",
     "componentName": "MicrophoneIcon",
     "title": "Microphone",
@@ -3193,9 +3591,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 166
   },
   {
+    "id": "uicon_c7e86444-2c88-4746-83d4-5344aca956e6",
     "name": "minimize-alt",
     "componentName": "MinimizeAltIcon",
     "title": "Minimize Alt",
@@ -3213,9 +3613,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 26
   },
   {
+    "id": "uicon_8d2b5c8b-1651-4380-9495-9d4487de625a",
     "name": "minimize",
     "componentName": "MinimizeIcon",
     "title": "Minimize",
@@ -3233,9 +3635,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 29
   },
   {
+    "id": "uicon_3c5f469c-852c-4a61-9080-8539aa0fc5eb",
     "name": "minus",
     "componentName": "MinusIcon",
     "title": "Minus",
@@ -3253,9 +3657,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 10
   },
   {
+    "id": "uicon_f3c3b323-9968-4524-9d09-64696fcb6681",
     "name": "mistake",
     "componentName": "MistakeIcon",
     "title": "Mistake",
@@ -3274,29 +3680,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 293
   },
   {
+    "id": "uicon_280e1f1e-064a-45c9-bd38-35bb332a39fe",
     "name": "monitor",
     "componentName": "MonitorIcon",
     "title": "Monitor",
     "titleZh": "显示器",
     "categories": [
-      "objects"
+      "interface"
     ],
-    "subgroup": "technology",
+    "subgroup": "interaction",
     "tags": [
-      "objects",
-      "对象",
-      "technology",
-      "技术"
+      "interface",
+      "界面",
+      "interaction",
+      "交互"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 120
   },
   {
+    "id": "uicon_30514dc1-c863-4b78-a6ed-b8d6bf1d8b87",
     "name": "moon",
     "componentName": "MoonIcon",
     "title": "Moon",
@@ -3314,9 +3724,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 84
   },
   {
+    "id": "uicon_c587b5d0-6c37-445f-a1ed-a01c7ffcbfa6",
     "name": "more-horizon",
     "componentName": "MoreHorizonIcon",
     "title": "More Horizontal",
@@ -3334,9 +3746,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 153
   },
   {
+    "id": "uicon_4ea36894-0a23-4d22-a732-51841148e698",
     "name": "more-vertical",
     "componentName": "MoreVerticalIcon",
     "title": "More Vertical",
@@ -3354,9 +3768,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 154
   },
   {
+    "id": "uicon_723c7043-d0c1-4f22-933a-4c174959ff72",
     "name": "mountain",
     "componentName": "MountainIcon",
     "title": "Mountain",
@@ -3374,9 +3790,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 237
   },
   {
+    "id": "uicon_75266fa7-298d-421d-a0ba-351d577c25a1",
     "name": "mouse-alt",
     "componentName": "MouseAltIcon",
     "title": "Mouse Alt",
@@ -3394,9 +3812,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 119
   },
   {
+    "id": "uicon_fbee0fb7-5a1e-4bff-8544-fb075aee63bc",
     "name": "mouse",
     "componentName": "MouseIcon",
     "title": "Mouse",
@@ -3414,9 +3834,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 118
   },
   {
+    "id": "uicon_7c9bbd63-7105-4576-92aa-f1597772a149",
     "name": "music",
     "componentName": "MusicIcon",
     "title": "Music",
@@ -3434,9 +3856,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 174
   },
   {
+    "id": "uicon_82eec36d-2510-4464-8d19-c9c26238c214",
     "name": "notebook",
     "componentName": "NotebookIcon",
     "title": "Notebook",
@@ -3454,9 +3878,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 189
   },
   {
+    "id": "uicon_6b826939-b0c7-4313-96fd-c5e419847233",
     "name": "object-align-center",
     "componentName": "ObjectAlignCenterIcon",
     "title": "Object Align Center",
@@ -3475,9 +3901,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 42
   },
   {
+    "id": "uicon_5a7ff927-b3be-4f00-a48c-a194509e2683",
     "name": "object-align-justify-alt",
     "componentName": "ObjectAlignJustifyAltIcon",
     "title": "Object Align Justify Alt",
@@ -3496,9 +3924,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 45
   },
   {
+    "id": "uicon_c19ca119-656f-4c2e-91d4-5935b7816f7e",
     "name": "object-align-justify",
     "componentName": "ObjectAlignJustifyIcon",
     "title": "Object Align Justify",
@@ -3517,9 +3947,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 44
   },
   {
+    "id": "uicon_2da3aa63-768c-4b13-ac00-917a23bd6bf5",
     "name": "object-align-left",
     "componentName": "ObjectAlignLeftIcon",
     "title": "Object Align Left",
@@ -3538,9 +3970,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 41
   },
   {
+    "id": "uicon_7141474c-7bb2-4a7f-8dfd-50304e1b2f08",
     "name": "object-align-right",
     "componentName": "ObjectAlignRightIcon",
     "title": "Object Align Right",
@@ -3559,9 +3993,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 43
   },
   {
+    "id": "uicon_9644f195-d0da-4b40-ad99-b09e9af8cbe5",
     "name": "panel-left",
     "componentName": "PanelLeftIcon",
     "title": "Panel Left",
@@ -3579,9 +4015,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 139
   },
   {
+    "id": "uicon_d012cd4b-636d-434c-86b7-3f590bdf6f0d",
     "name": "panel-right",
     "componentName": "PanelRightIcon",
     "title": "Panel Right",
@@ -3599,31 +4037,35 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 140
   },
   {
+    "id": "uicon_9f68ae75-6282-4f16-b1d3-a413da3a2175",
     "name": "paperclip",
     "componentName": "PaperclipIcon",
     "title": "Paperclip",
     "titleZh": "附件",
     "categories": [
-      "objects"
+      "actions"
     ],
-    "subgroup": "content",
+    "subgroup": "editing",
     "tags": [
-      "objects",
-      "对象",
-      "content",
-      "内容"
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
     ],
     "aliases": [
       "attachment"
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 20
   },
   {
+    "id": "uicon_c30e4df8-bba4-493d-a24a-1256d2b9fe93",
     "name": "pause",
     "componentName": "PauseIcon",
     "title": "Pause",
@@ -3641,9 +4083,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 157
   },
   {
+    "id": "uicon_8fe96bc0-5f0b-477d-8920-168c67ab4cf9",
     "name": "pen",
     "componentName": "PenIcon",
     "title": "Pen",
@@ -3651,19 +4095,21 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "interface"
     ],
-    "subgroup": "creation",
+    "subgroup": "design",
     "tags": [
       "interface",
       "界面",
-      "creation",
-      "创建"
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 98
   },
   {
+    "id": "uicon_f6f71607-6775-4b09-9b2e-534be6bd4bbc",
     "name": "pencil",
     "componentName": "PencilIcon",
     "title": "Pencil",
@@ -3671,39 +4117,43 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "interface"
     ],
-    "subgroup": "creation",
+    "subgroup": "design",
     "tags": [
       "interface",
       "界面",
-      "creation",
-      "创建"
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 99
   },
   {
+    "id": "uicon_a875f1e5-30b5-4f48-a027-5bb014f9b14b",
     "name": "percent",
     "componentName": "PercentIcon",
     "title": "Percent",
     "titleZh": "百分比",
     "categories": [
-      "objects"
+      "interface"
     ],
-    "subgroup": "commerce",
+    "subgroup": "data",
     "tags": [
-      "objects",
-      "对象",
-      "commerce",
-      "商务"
+      "interface",
+      "界面",
+      "data",
+      "数据"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 136
   },
   {
+    "id": "uicon_b38d6e7c-a398-4124-b80b-d4bb090409ec",
     "name": "phone",
     "componentName": "PhoneIcon",
     "title": "Phone",
@@ -3723,9 +4173,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 195
   },
   {
+    "id": "uicon_eea91df8-1c2d-4d0f-9815-c644f6455258",
     "name": "pie-chart",
     "componentName": "PieChartIcon",
     "title": "Pie Chart",
@@ -3743,9 +4195,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 129
   },
   {
+    "id": "uicon_62161f52-66cc-44ee-a1e7-a6f0236682be",
     "name": "pin-off",
     "componentName": "PinOffIcon",
     "title": "Pin Off",
@@ -3763,9 +4217,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 50
   },
   {
+    "id": "uicon_483bdd02-1ece-44cc-b89e-c54e076385c0",
     "name": "pin",
     "componentName": "PinIcon",
     "title": "Pin",
@@ -3783,9 +4239,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 49
   },
   {
+    "id": "uicon_472adc64-18db-48f4-9ffd-8ba80665aa9a",
     "name": "plane",
     "componentName": "PlaneIcon",
     "title": "Plane",
@@ -3803,9 +4261,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 276
   },
   {
+    "id": "uicon_f3701a37-e1be-42ec-a0de-add7061325b1",
     "name": "planet",
     "componentName": "PlanetIcon",
     "title": "Planet",
@@ -3823,9 +4283,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 233
   },
   {
+    "id": "uicon_13d9afe6-a8a7-4e5a-b71c-564813b48c00",
     "name": "play",
     "componentName": "PlayIcon",
     "title": "Play",
@@ -3845,9 +4307,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 155
   },
   {
+    "id": "uicon_67bf02c3-e5d7-4ab0-948a-b1ebbe0ffc27",
     "name": "plus",
     "componentName": "PlusIcon",
     "title": "Plus",
@@ -3868,9 +4332,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 9
   },
   {
+    "id": "uicon_ac0a3c13-d67d-40d8-a5f2-ab655597e031",
     "name": "power",
     "componentName": "PowerIcon",
     "title": "Power",
@@ -3890,9 +4356,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 22
   },
   {
+    "id": "uicon_43d07978-179e-432e-a7ca-505cde72f8e6",
     "name": "print",
     "componentName": "PrintIcon",
     "title": "Print",
@@ -3910,9 +4378,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 205
   },
   {
+    "id": "uicon_7e3d101d-b954-468a-8d27-8f666c7a799a",
     "name": "qr-code",
     "componentName": "QrCodeIcon",
     "title": "QR Code",
@@ -3930,49 +4400,55 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 207
   },
   {
+    "id": "uicon_edc9b7c4-38c0-47b9-9734-14114a04fb6b",
     "name": "quote",
     "componentName": "QuoteIcon",
     "title": "Quote",
     "titleZh": "引用",
     "categories": [
-      "objects"
+      "interface"
     ],
-    "subgroup": "content",
+    "subgroup": "design",
     "tags": [
-      "objects",
-      "对象",
-      "content",
-      "内容"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 95
   },
   {
+    "id": "uicon_29a66196-c9d4-4417-b551-48197a7bc01a",
     "name": "radio",
     "componentName": "RadioIcon",
     "title": "Radio",
     "titleZh": "收音机",
     "categories": [
-      "media"
+      "interface"
     ],
-    "subgroup": "audio",
+    "subgroup": "controls",
     "tags": [
-      "media",
-      "媒体",
-      "audio",
-      "音频"
+      "interface",
+      "界面",
+      "controls",
+      "控件"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 77
   },
   {
+    "id": "uicon_09cdbdfe-d41f-429a-bca2-01cca084e586",
     "name": "receipt",
     "componentName": "ReceiptIcon",
     "title": "Receipt",
@@ -3990,9 +4466,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 252
   },
   {
+    "id": "uicon_2ed9c2d9-bef9-4129-8e92-3f0467df9378",
     "name": "record",
     "componentName": "RecordIcon",
     "title": "Record",
@@ -4010,9 +4488,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 164
   },
   {
+    "id": "uicon_663c8891-bdd6-45a4-bef4-61ee5024a5d3",
     "name": "redo",
     "componentName": "RedoIcon",
     "title": "Redo",
@@ -4030,9 +4510,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 18
   },
   {
+    "id": "uicon_81256b9e-ebc9-4774-ae88-b30a7ba5ab0d",
     "name": "refresh",
     "componentName": "RefreshIcon",
     "title": "Refresh",
@@ -4052,9 +4534,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 47
   },
   {
+    "id": "uicon_ef0b773e-8c12-42e2-9b96-d42e2fd59ca0",
     "name": "repeat",
     "componentName": "RepeatIcon",
     "title": "Repeat",
@@ -4072,29 +4556,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 162
   },
   {
+    "id": "uicon_7141cb9a-696e-45a2-a8e1-a842c83b68cf",
     "name": "reply",
     "componentName": "ReplyIcon",
     "title": "Reply",
     "titleZh": "回复",
     "categories": [
-      "navigation"
+      "actions"
     ],
-    "subgroup": "history",
+    "subgroup": "transfer",
     "tags": [
-      "navigation",
-      "导航",
-      "history",
-      "历史"
+      "actions",
+      "操作",
+      "transfer",
+      "传输"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 5
   },
   {
+    "id": "uicon_ed6299e7-4633-4280-94cc-02448fe29b9c",
     "name": "rewind",
     "componentName": "RewindIcon",
     "title": "Rewind",
@@ -4112,9 +4600,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 161
   },
   {
+    "id": "uicon_61a07d02-7b85-41a1-ae4c-f6ae68505752",
     "name": "robot",
     "componentName": "RobotIcon",
     "title": "Robot",
@@ -4132,9 +4622,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 204
   },
   {
+    "id": "uicon_6981c54e-8cf3-4ee4-9a97-91021adf085a",
     "name": "rocket",
     "componentName": "RocketIcon",
     "title": "Rocket",
@@ -4154,49 +4646,55 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 277
   },
   {
+    "id": "uicon_188f648b-b02f-4085-adb4-2eca8c86f363",
     "name": "rotate-left",
     "componentName": "RotateLeftIcon",
     "title": "Rotate Left",
     "titleZh": "向左旋转",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 105
   },
   {
+    "id": "uicon_c5339a5d-37ea-43c7-b7b7-eb66f2847223",
     "name": "rotate-right",
     "componentName": "RotateRightIcon",
     "title": "Rotate Right",
     "titleZh": "向右旋转",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 106
   },
   {
+    "id": "uicon_176f3de4-041a-4883-950e-86c967a35675",
     "name": "ruler",
     "componentName": "RulerIcon",
     "title": "Ruler",
@@ -4204,19 +4702,21 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "interface"
     ],
-    "subgroup": "creation",
+    "subgroup": "design",
     "tags": [
       "interface",
       "界面",
-      "creation",
-      "创建"
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 100
   },
   {
+    "id": "uicon_b29db72f-1fa9-4689-80b1-5fb691410172",
     "name": "save",
     "componentName": "SaveIcon",
     "title": "Save",
@@ -4224,19 +4724,21 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "actions"
     ],
-    "subgroup": "management",
+    "subgroup": "editing",
     "tags": [
       "actions",
       "操作",
-      "management",
-      "管理"
+      "editing",
+      "编辑"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 19
   },
   {
+    "id": "uicon_5fb17900-8672-4c13-8fb6-d1f5a2fdf7d5",
     "name": "scan",
     "componentName": "ScanIcon",
     "title": "Scan",
@@ -4254,9 +4756,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 32
   },
   {
+    "id": "uicon_68d449ba-66e3-421c-b4ef-8519176eab0d",
     "name": "search",
     "componentName": "SearchIcon",
     "title": "Search",
@@ -4274,9 +4778,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 48
   },
   {
+    "id": "uicon_7c2ebbc7-74cc-4fdf-9c6c-ca7c6df6bed9",
     "name": "send",
     "componentName": "SendIcon",
     "title": "Send",
@@ -4294,9 +4800,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 6
   },
   {
+    "id": "uicon_b45e35a7-e1ec-4c73-880a-6d718b3ef784",
     "name": "separator",
     "componentName": "SeparatorIcon",
     "title": "Separator",
@@ -4314,9 +4822,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 145
   },
   {
+    "id": "uicon_3c7997ec-f801-418a-9a1c-d1a5f6140704",
     "name": "server",
     "componentName": "ServerIcon",
     "title": "Server",
@@ -4334,9 +4844,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 206
   },
   {
+    "id": "uicon_3880eb44-e6e5-4dd6-8c88-b90f4848ffb2",
     "name": "set-bottom",
     "componentName": "SetBottomIcon",
     "title": "Set Bottom",
@@ -4354,9 +4866,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 35
   },
   {
+    "id": "uicon_ef5abcc2-74d5-44c1-ae7b-17f05ad7cd21",
     "name": "set-medium",
     "componentName": "SetMediumIcon",
     "title": "Set Medium",
@@ -4374,9 +4888,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 34
   },
   {
+    "id": "uicon_e6bb9bc0-cabb-4b10-99c8-a2e13cc118a6",
     "name": "set-top",
     "componentName": "SetTopIcon",
     "title": "Set Top",
@@ -4394,9 +4910,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 33
   },
   {
+    "id": "uicon_96418930-ca36-4477-9de4-9709531bbbbb",
     "name": "setting",
     "componentName": "SettingIcon",
     "title": "Setting",
@@ -4418,9 +4936,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 72
   },
   {
+    "id": "uicon_d0de3691-5cd0-4d06-ba8b-dedc78996e5a",
     "name": "share",
     "componentName": "ShareIcon",
     "title": "Share",
@@ -4438,9 +4958,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 4
   },
   {
+    "id": "uicon_a0bc37fd-ce38-49a8-b57f-770b6533251a",
     "name": "shield-check",
     "componentName": "ShieldCheckIcon",
     "title": "Shield Check",
@@ -4458,9 +4980,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 289
   },
   {
+    "id": "uicon_c4ddb117-0fc4-46d7-9fd8-bfe0b77611da",
     "name": "shield",
     "componentName": "ShieldIcon",
     "title": "Shield",
@@ -4478,9 +5002,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 287
   },
   {
+    "id": "uicon_90db5e58-d143-4cde-88b5-5b110672b41d",
     "name": "ship-rudder",
     "componentName": "ShipRudderIcon",
     "title": "Ship Rudder",
@@ -4498,9 +5024,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 273
   },
   {
+    "id": "uicon_f049b930-95bb-4621-86e8-7d287c5aa363",
     "name": "shopping-bag",
     "componentName": "ShoppingBagIcon",
     "title": "Shopping Bag",
@@ -4518,9 +5046,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 247
   },
   {
+    "id": "uicon_21932498-6638-4adf-8293-d38f31d04f4f",
     "name": "shopping-cart",
     "componentName": "ShoppingCartIcon",
     "title": "Shopping Cart",
@@ -4538,9 +5068,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 246
   },
   {
+    "id": "uicon_5d3c04d2-74c3-4281-b521-6f767039065d",
     "name": "shuffle",
     "componentName": "ShuffleIcon",
     "title": "Shuffle",
@@ -4558,9 +5090,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 163
   },
   {
+    "id": "uicon_bfdeffc9-8ad8-44c3-a57c-fd8b91277f24",
     "name": "sidebar-left",
     "componentName": "SidebarLeftIcon",
     "title": "Sidebar Left",
@@ -4578,9 +5112,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 137
   },
   {
+    "id": "uicon_3e97c4ba-72f7-4863-8a3a-f92d585b2150",
     "name": "sidebar-right",
     "componentName": "SidebarRightIcon",
     "title": "Sidebar Right",
@@ -4598,9 +5134,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 138
   },
   {
+    "id": "uicon_0425a2a2-8f47-4920-bef1-a7cdb6fbe6a2",
     "name": "skip-back",
     "componentName": "SkipBackIcon",
     "title": "Skip Back",
@@ -4618,9 +5156,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 159
   },
   {
+    "id": "uicon_fe4a2791-9300-4990-9269-f1b379e24caf",
     "name": "skip-forward",
     "componentName": "SkipForwardIcon",
     "title": "Skip Forward",
@@ -4638,9 +5178,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 158
   },
   {
+    "id": "uicon_22076ee6-c3bc-4438-8d1e-cef42f60f707",
     "name": "skyscraper",
     "componentName": "SkyscraperIcon",
     "title": "Skyscraper",
@@ -4658,29 +5200,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 234
   },
   {
+    "id": "uicon_922ea1e7-d0d6-4a3f-a8bc-a77d1937cf79",
     "name": "smartphone",
     "componentName": "SmartphoneIcon",
     "title": "Smartphone",
     "titleZh": "智能手机",
     "categories": [
-      "objects"
+      "actions"
     ],
-    "subgroup": "technology",
+    "subgroup": "management",
     "tags": [
-      "objects",
-      "对象",
-      "technology",
-      "技术"
+      "actions",
+      "操作",
+      "management",
+      "管理"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 46
   },
   {
+    "id": "uicon_5b653dd2-89fd-494b-86d5-003840b9f046",
     "name": "smile",
     "componentName": "SmileIcon",
     "title": "Smile",
@@ -4698,9 +5244,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 283
   },
   {
+    "id": "uicon_bea25487-a26d-4758-a6db-f77f5f6459a1",
     "name": "sort",
     "componentName": "SortIcon",
     "title": "Sort",
@@ -4720,9 +5268,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 52
   },
   {
+    "id": "uicon_21ff8aeb-37a8-4d68-b71b-6075de60098c",
     "name": "space-shuttle",
     "componentName": "SpaceShuttleIcon",
     "title": "Space Shuttle",
@@ -4742,9 +5292,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 278
   },
   {
+    "id": "uicon_aa17bd01-421c-42ff-a66c-80e8040e3f0a",
     "name": "sparkle",
     "componentName": "SparkleIcon",
     "title": "Sparkle",
@@ -4762,9 +5314,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 303
   },
   {
+    "id": "uicon_c9a6d0e9-0faa-4271-8d64-7b9866bb1df3",
     "name": "split-screen",
     "componentName": "SplitScreenIcon",
     "title": "Split Screen",
@@ -4782,9 +5336,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 146
   },
   {
+    "id": "uicon_884f9a81-d4fc-4b2e-8a9f-611edc796d55",
     "name": "star",
     "componentName": "StarIcon",
     "title": "Star",
@@ -4804,9 +5360,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 280
   },
   {
+    "id": "uicon_871c9b22-c49c-4d19-a874-ef1ca2a36671",
     "name": "stop",
     "componentName": "StopIcon",
     "title": "Stop",
@@ -4824,9 +5382,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 156
   },
   {
+    "id": "uicon_a5fa9b12-2444-430d-96ab-584906d8696f",
     "name": "store",
     "componentName": "StoreIcon",
     "title": "Store",
@@ -4844,29 +5404,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 244
   },
   {
+    "id": "uicon_91107ad7-1703-4458-8ca3-13e02bad0f2b",
     "name": "strikethrough",
     "componentName": "StrikethroughIcon",
     "title": "Strikethrough",
     "titleZh": "删除线",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "formatting",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "formatting",
-      "格式"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 91
   },
   {
+    "id": "uicon_28d75621-9524-4348-a3ff-d630e8068ac5",
     "name": "student",
     "componentName": "StudentIcon",
     "title": "Student",
@@ -4884,9 +5448,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 270
   },
   {
+    "id": "uicon_dfdf27e3-a016-45fe-a9ec-95e4aea1a02a",
     "name": "subscription",
     "componentName": "SubscriptionIcon",
     "title": "Subscription",
@@ -4906,29 +5472,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 258
   },
   {
+    "id": "uicon_8839fffd-3f3b-4a47-814b-c371085b64c2",
     "name": "subtract",
     "componentName": "SubtractIcon",
     "title": "Subtract",
     "titleZh": "差集",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 114
   },
   {
+    "id": "uicon_a70976d4-1419-4943-bde7-7fc4dcadc8a4",
     "name": "success",
     "componentName": "SuccessIcon",
     "title": "Success",
@@ -4936,19 +5506,22 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "status"
     ],
-    "subgroup": "feedback",
+    "subgroup": "alter",
     "tags": [
       "status",
       "状态",
-      "feedback",
-      "反馈"
+      "alter",
+      "alert",
+      "警示"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 294
   },
   {
+    "id": "uicon_5564941b-cb95-40aa-9e1c-d0d44330bc89",
     "name": "sun",
     "componentName": "SunIcon",
     "title": "Sun",
@@ -4966,29 +5539,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 83
   },
   {
+    "id": "uicon_1aadae8b-1c6a-49c1-a3f5-fda60742f322",
     "name": "sync",
     "componentName": "SyncIcon",
     "title": "Sync",
     "titleZh": "同步",
     "categories": [
-      "actions"
+      "status"
     ],
-    "subgroup": "management",
+    "subgroup": "system",
     "tags": [
-      "actions",
-      "操作",
-      "management",
-      "管理"
+      "status",
+      "状态",
+      "system",
+      "系统"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 299
   },
   {
+    "id": "uicon_9d5b1416-d03b-448b-8f7d-de4ca3793326",
     "name": "table",
     "componentName": "TableIcon",
     "title": "Table",
@@ -5006,9 +5583,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 144
   },
   {
+    "id": "uicon_4aeaa94c-9171-44e5-a73a-dd949d1fdd10",
     "name": "tablet",
     "componentName": "TabletIcon",
     "title": "Tablet",
@@ -5026,9 +5605,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 201
   },
   {
+    "id": "uicon_dc484f04-4eb5-4a20-be51-ee8c616b28da",
     "name": "tabs",
     "componentName": "TabsIcon",
     "title": "Tabs",
@@ -5046,9 +5627,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 78
   },
   {
+    "id": "uicon_6778ebdd-9480-40ab-b765-cdb8172b634b",
     "name": "tag",
     "componentName": "TagIcon",
     "title": "Tag",
@@ -5066,9 +5649,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 187
   },
   {
+    "id": "uicon_01e64e49-201c-4cdb-9777-a3be4ee9069e",
     "name": "target-alt",
     "componentName": "TargetAltIcon",
     "title": "Target Alt",
@@ -5086,9 +5671,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 126
   },
   {
+    "id": "uicon_b65f4db6-55da-44c0-b3d7-1b77496accdf",
     "name": "target",
     "componentName": "TargetIcon",
     "title": "Target",
@@ -5106,9 +5693,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 125
   },
   {
+    "id": "uicon_2e3e6817-17ba-4198-8930-bf19100aae67",
     "name": "task",
     "componentName": "TaskIcon",
     "title": "Task",
@@ -5129,9 +5718,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 182
   },
   {
+    "id": "uicon_4cbb46fb-5010-4ee0-9483-1ee287e2e773",
     "name": "terminal",
     "componentName": "TerminalIcon",
     "title": "Terminal",
@@ -5149,9 +5740,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 217
   },
   {
+    "id": "uicon_4c8e6260-a168-47e5-bac3-cb35ff57a85c",
     "name": "text-align-center",
     "componentName": "TextAlignCenterIcon",
     "title": "Text Align Center",
@@ -5170,9 +5763,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 38
   },
   {
+    "id": "uicon_fed01cb6-0b2b-46ee-a8a5-658be34549ff",
     "name": "text-align-justify-alt",
     "componentName": "TextAlignJustifyAltIcon",
     "title": "Text Align Justify Alt",
@@ -5191,9 +5786,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 40
   },
   {
+    "id": "uicon_c8c3d951-c43f-431a-96f2-77999180463e",
     "name": "text-align-justify",
     "componentName": "TextAlignJustifyIcon",
     "title": "Text Align Justify",
@@ -5212,9 +5809,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 39
   },
   {
+    "id": "uicon_26ae9782-a1e8-47f1-845c-d4cd245f52e0",
     "name": "text-align-left",
     "componentName": "TextAlignLeftIcon",
     "title": "Text Align Left",
@@ -5233,9 +5832,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 36
   },
   {
+    "id": "uicon_9ae05ac3-34d7-4f9b-b241-cb83f5515763",
     "name": "text-align-right",
     "componentName": "TextAlignRightIcon",
     "title": "Text Align Right",
@@ -5254,29 +5855,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 37
   },
   {
+    "id": "uicon_f3936a97-f377-4b7f-81ef-9d161b3d10a9",
     "name": "text-alt",
     "componentName": "TextAltIcon",
     "title": "Text Alt",
     "titleZh": "文本变体",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "formatting",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "formatting",
-      "格式"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 90
   },
   {
+    "id": "uicon_e5b5db03-93ee-4192-b19f-df1bf3e70151",
     "name": "text",
     "componentName": "TextIcon",
     "title": "Text",
@@ -5284,39 +5889,43 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "categories": [
       "interface"
     ],
-    "subgroup": "creation",
+    "subgroup": "design",
     "tags": [
       "interface",
       "界面",
-      "creation",
-      "创建"
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 88
   },
   {
+    "id": "uicon_4c3b4259-e74d-4715-9ef9-c32fc6e7c7ca",
     "name": "textarea",
     "componentName": "TextareaIcon",
     "title": "Textarea",
     "titleZh": "文本区域",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "formatting",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "formatting",
-      "格式"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 117
   },
   {
+    "id": "uicon_b694c7ca-49c2-4019-b36b-b8e8c4de09d5",
     "name": "thumbs-down",
     "componentName": "ThumbsDownIcon",
     "title": "Thumbs Down",
@@ -5340,9 +5949,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 282
   },
   {
+    "id": "uicon_a1d5e00b-7baf-434e-9822-35cf0f0f23f1",
     "name": "thumbs-up",
     "componentName": "ThumbsUpIcon",
     "title": "Thumbs Up",
@@ -5363,9 +5974,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 281
   },
   {
+    "id": "uicon_da6dd711-28e3-4bf1-96ab-f9b7cde83f89",
     "name": "ticket-alt",
     "componentName": "TicketAltIcon",
     "title": "Ticket Alt",
@@ -5386,9 +5999,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 260
   },
   {
+    "id": "uicon_63ecc9bb-636b-43a8-9fad-38e6eb4874e5",
     "name": "ticket",
     "componentName": "TicketIcon",
     "title": "Ticket",
@@ -5409,9 +6024,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 259
   },
   {
+    "id": "uicon_a5fd8722-4ff8-431b-9730-60b7bb36a23e",
     "name": "timer",
     "componentName": "TimerIcon",
     "title": "Timer",
@@ -5429,9 +6046,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 228
   },
   {
+    "id": "uicon_ef08b765-a065-4a05-91ab-59e5780a48a9",
     "name": "toggle",
     "componentName": "ToggleIcon",
     "title": "Toggle",
@@ -5449,9 +6068,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 76
   },
   {
+    "id": "uicon_b3f4a5f4-7857-401e-b9f1-a95b3f6b1723",
     "name": "touchpad",
     "componentName": "TouchpadIcon",
     "title": "Touchpad",
@@ -5469,49 +6090,55 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 121
   },
   {
+    "id": "uicon_487d96dc-ceef-4b0f-8516-ee4bd8064f76",
     "name": "transfer",
     "componentName": "TransferIcon",
     "title": "Transfer",
     "titleZh": "传输",
     "categories": [
-      "actions"
+      "status"
     ],
-    "subgroup": "transfer",
+    "subgroup": "system",
     "tags": [
-      "actions",
-      "操作",
-      "transfer",
-      "传输"
+      "status",
+      "状态",
+      "system",
+      "系统"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 298
   },
   {
+    "id": "uicon_842c0517-55ba-4203-8fe4-0f63bd8211ef",
     "name": "transform",
     "componentName": "TransformIcon",
     "title": "Transform",
     "titleZh": "变换",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 110
   },
   {
+    "id": "uicon_d34b21ef-24f7-481f-8d6f-c242e69d9107",
     "name": "translate",
     "componentName": "TranslateIcon",
     "title": "Translate",
@@ -5531,9 +6158,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 21
   },
   {
+    "id": "uicon_a3bf6e10-9917-4ea3-a98b-f9102aee797e",
     "name": "trash",
     "componentName": "TrashIcon",
     "title": "Trash",
@@ -5553,49 +6182,55 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 14
   },
   {
+    "id": "uicon_e48a5062-a70c-4e41-b3d0-f1d60b5e7b29",
     "name": "trending-down",
     "componentName": "TrendingDownIcon",
     "title": "Trending Down",
     "titleZh": "下降趋势",
     "categories": [
-      "navigation"
+      "interface"
     ],
-    "subgroup": "trend",
+    "subgroup": "data",
     "tags": [
-      "navigation",
-      "导航",
-      "trend",
-      "趋势"
+      "interface",
+      "界面",
+      "data",
+      "数据"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 135
   },
   {
+    "id": "uicon_41b8bd62-bf63-4267-873a-d7cc1ee5f8ca",
     "name": "trending-up",
     "componentName": "TrendingUpIcon",
     "title": "Trending Up",
     "titleZh": "上升趋势",
     "categories": [
-      "navigation"
+      "interface"
     ],
-    "subgroup": "trend",
+    "subgroup": "data",
     "tags": [
-      "navigation",
-      "导航",
-      "trend",
-      "趋势"
+      "interface",
+      "界面",
+      "data",
+      "数据"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 134
   },
   {
+    "id": "uicon_c039765c-3e17-4b76-9036-bf5ecd90e17c",
     "name": "truck",
     "componentName": "TruckIcon",
     "title": "Truck",
@@ -5613,29 +6248,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 274
   },
   {
+    "id": "uicon_8c123770-ddb5-41d9-8ea8-72fd2233f3ac",
     "name": "underline",
     "componentName": "UnderlineIcon",
     "title": "Underline",
     "titleZh": "下划线",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "formatting",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "formatting",
-      "格式"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 89
   },
   {
+    "id": "uicon_a24af0de-06dd-44be-8009-0ff3577a458d",
     "name": "undo",
     "componentName": "UndoIcon",
     "title": "Undo",
@@ -5653,9 +6292,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 17
   },
   {
+    "id": "uicon_175df87c-1d53-4186-b2fe-0fb7162b4323",
     "name": "uninteresting",
     "componentName": "UninterestingIcon",
     "title": "Uninteresting",
@@ -5673,29 +6314,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 284
   },
   {
+    "id": "uicon_cdf0cfa9-9ba2-493e-b942-1eff844f3195",
     "name": "union",
     "componentName": "UnionIcon",
     "title": "Union",
     "titleZh": "并集",
     "categories": [
-      "actions"
+      "interface"
     ],
-    "subgroup": "geometry",
+    "subgroup": "design",
     "tags": [
-      "actions",
-      "操作",
-      "geometry",
-      "几何"
+      "interface",
+      "界面",
+      "design",
+      "设计"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 111
   },
   {
+    "id": "uicon_987c7756-ab87-452e-b1e8-6b33ba7a26af",
     "name": "unlock",
     "componentName": "UnlockIcon",
     "title": "Unlock",
@@ -5715,9 +6360,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 285
   },
   {
+    "id": "uicon_f278c34d-e3ae-407d-b9ed-6554625b5664",
     "name": "unsafe",
     "componentName": "UnsafeIcon",
     "title": "Unsafe",
@@ -5735,9 +6382,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 288
   },
   {
+    "id": "uicon_ae9efc84-40c8-4b58-ac79-e281487235fb",
     "name": "upload",
     "componentName": "UploadIcon",
     "title": "Upload",
@@ -5755,9 +6404,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 1
   },
   {
+    "id": "uicon_125085cf-dbdc-4cbe-8bfb-0bb637929b57",
     "name": "url",
     "componentName": "UrlIcon",
     "title": "URL",
@@ -5775,9 +6426,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 200
   },
   {
+    "id": "uicon_6142ff3b-3da2-4fd1-8d0c-f3687c2bdf8e",
     "name": "user",
     "componentName": "UserIcon",
     "title": "User",
@@ -5798,9 +6451,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     ],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 238
   },
   {
+    "id": "uicon_3b33fd85-f4b2-4b1b-b4d7-7fac9d791643",
     "name": "users",
     "componentName": "UsersIcon",
     "title": "Users",
@@ -5818,9 +6473,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 239
   },
   {
+    "id": "uicon_d4c58805-6902-43a1-826c-d8c2da3f232f",
     "name": "video",
     "componentName": "VideoIcon",
     "title": "Video",
@@ -5838,9 +6495,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 176
   },
   {
+    "id": "uicon_644c3668-9508-4514-a8a5-524479a1cbbb",
     "name": "visualization",
     "componentName": "VisualizationIcon",
     "title": "Visualization",
@@ -5858,9 +6517,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 151
   },
   {
+    "id": "uicon_ac17ce7b-ee11-4322-ad3e-e3460aef5c3f",
     "name": "volume-down",
     "componentName": "VolumeDownIcon",
     "title": "Volume Down",
@@ -5878,9 +6539,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 168
   },
   {
+    "id": "uicon_74f25f7e-4fed-4196-8690-0ceeffe23613",
     "name": "volume-high",
     "componentName": "VolumeHighIcon",
     "title": "Volume High",
@@ -5898,9 +6561,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 169
   },
   {
+    "id": "uicon_a6fc094d-ec22-425b-be82-dc437bd6b48c",
     "name": "volume-low",
     "componentName": "VolumeLowIcon",
     "title": "Volume Low",
@@ -5918,9 +6583,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 170
   },
   {
+    "id": "uicon_d1c54ea8-909a-48c5-b272-b5ead0227ce4",
     "name": "volume-off",
     "componentName": "VolumeOffIcon",
     "title": "Volume Off",
@@ -5938,9 +6605,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 171
   },
   {
+    "id": "uicon_a694c013-39ce-45e5-ace8-6f73730e1bd9",
     "name": "volume-up",
     "componentName": "VolumeUpIcon",
     "title": "Volume Up",
@@ -5958,9 +6627,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 167
   },
   {
+    "id": "uicon_1d92a9fc-9c5b-4bfa-9464-0618766b80ca",
     "name": "volume",
     "componentName": "VolumeIcon",
     "title": "Volume",
@@ -5978,29 +6649,33 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 172
   },
   {
+    "id": "uicon_072c1f18-048d-4cd2-9fc2-6ac9c0c88bdc",
     "name": "vr",
     "componentName": "VrIcon",
     "title": "VR",
     "titleZh": "虚拟现实",
     "categories": [
-      "media"
+      "objects"
     ],
-    "subgroup": "visual",
+    "subgroup": "technology",
     "tags": [
-      "media",
-      "媒体",
-      "visual",
-      "视觉"
+      "objects",
+      "对象",
+      "technology",
+      "技术"
     ],
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 225
   },
   {
+    "id": "uicon_bc0fdf89-de7a-4471-87e6-73cdc73d5659",
     "name": "wallet",
     "componentName": "WalletIcon",
     "title": "Wallet",
@@ -6018,9 +6693,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 245
   },
   {
+    "id": "uicon_36b6027d-0d64-4413-a8a9-ea5a3f4d642f",
     "name": "warning",
     "componentName": "WarningIcon",
     "title": "Warning",
@@ -6039,9 +6716,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 290
   },
   {
+    "id": "uicon_3ede140e-f9ea-4738-a229-aa6b90f06595",
     "name": "waveform",
     "componentName": "WaveformIcon",
     "title": "Waveform",
@@ -6059,9 +6738,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 173
   },
   {
+    "id": "uicon_7741193e-7dec-46ce-bec6-6e87d4957506",
     "name": "wifi-off",
     "componentName": "WifiOffIcon",
     "title": "Wi-Fi Off",
@@ -6079,9 +6760,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 220
   },
   {
+    "id": "uicon_648b2a4b-72a2-44a5-943f-f9dc767ae36b",
     "name": "wifi",
     "componentName": "WifiIcon",
     "title": "Wi-Fi",
@@ -6099,9 +6782,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 219
   },
   {
+    "id": "uicon_844dd45b-5136-43ac-9242-506012ae3e43",
     "name": "zoom-in",
     "componentName": "ZoomInIcon",
     "title": "Zoom In",
@@ -6119,9 +6804,11 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 30
   },
   {
+    "id": "uicon_18c440c6-fca7-44da-bf4c-c97721853cff",
     "name": "zoom-out",
     "componentName": "ZoomOutIcon",
     "title": "Zoom Out",
@@ -6139,6 +6826,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "aliases": [],
     "deprecated": false,
     "publishedIn": null,
-    "updatedIn": null
+    "updatedIn": null,
+    "catalogOrder": 31
   }
 ]

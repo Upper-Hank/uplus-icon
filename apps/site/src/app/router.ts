@@ -27,6 +27,7 @@ const docRoutes: Record<string, DocSlug> = {
   '/docs/figma': 'figma',
   '/docs/package-architecture': 'package-architecture',
   '/docs/release-process': 'release-process',
+  '/docs/identity': 'identity',
 }
 
 export function resolveRoute(pathname: string): Route {

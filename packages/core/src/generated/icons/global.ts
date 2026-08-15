@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_d8a61303-32d2-4eaf-8c51-88916c3438b5",
   "name": "global",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M12 21C12 21 15.375 15.9296 15.375 12C15.375 8.07043 14.2375 6.23036 12 3\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"bevel\"/>\n<path d=\"M12 21C12 21 8.625 15.9296 8.625 12C8.625 8.07043 9.76252 6.23036 12 3\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"bevel\"/>\n<path d=\"M3 12H21\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

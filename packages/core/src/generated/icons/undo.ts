@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_a24af0de-06dd-44be-8009-0ff3577a458d",
   "name": "undo",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4.20709 8C4.20709 8 11.1696 8.00016 16.1696 8.00014C20.1696 8.00012 19.9998 10.7907 19.9998 12.9999C19.9998 15.209 20.1696 18.0001 16.1696 18.0001C11.8739 18.0001 7.99999 18 7.99999 18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M7.99998 12L4.35354 8.35355C4.15828 8.15829 4.15828 7.84171 4.35354 7.64645L7.99998 4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

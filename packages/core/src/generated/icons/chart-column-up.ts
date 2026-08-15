@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_ef9cbb19-2452-4a78-963b-1f1625e226f8",
   "name": "chart-column-up",
   "viewBox": "0 0 24 24",
   "body": "\n<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"3\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 12V19\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M7 14V19\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M17 9V19\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

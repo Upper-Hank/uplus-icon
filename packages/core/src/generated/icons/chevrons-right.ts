@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_051e1876-76c2-4bdb-a76c-de9000291e42",
   "name": "chevrons-right",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M5 4L11.5858 10.5858C12.3668 11.3668 12.3668 12.6332 11.5858 13.4142L5 20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 4L18.5858 10.5858C19.3668 11.3668 19.3668 12.6332 18.5858 13.4142L12 20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

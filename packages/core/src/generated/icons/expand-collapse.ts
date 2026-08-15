@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_0e372c46-1c59-42a2-86be-b10667f33d85",
   "name": "expand-collapse",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M6 8L10.6486 3.73883C11.4132 3.0379 12.5868 3.0379 13.3514 3.73883L18 8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M6 16L10.6486 20.2612C11.4132 20.9621 12.5868 20.9621 13.3514 20.2612L18 16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_2292d78c-ad2f-48d6-aef3-3af079574370",
   "name": "color-wheel",
   "viewBox": "0 0 24 24",
   "body": "\n<circle cx=\"12\" cy=\"12\" r=\"9\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M18.3641 5.63591L14.8284 9.17151M12 8V3M21 12H16M18.3641 18.3641L14.8284 14.8285M12 21V16M9.17163 14.8285L5.63617 18.3638M8 12H3M9.17163 9.17151L5.63617 5.63617\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<circle cx=\"12\" cy=\"12\" r=\"4\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

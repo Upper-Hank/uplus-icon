@@ -26,6 +26,7 @@ const expected = [
   ['figma', 18, 'architecture'],
   ['package-architecture', 19, 'architecture'],
   ['release-process', 20, 'governance'],
+  ['identity', 21, 'governance'],
 ]
 const expectedBySlug = new Map(expected.map(([slug, order, group]) => [slug, { order, group }]))
 const requiredFields = ['slug', 'order', 'group', 'title', 'description', 'locale']
@@ -66,7 +67,7 @@ for (const filename of files) {
     expectedBySlug.get(document.slug),
     `${filename}: unexpected order or group`,
   )
-  if (document.order <= 20 && !['api', 'react'].includes(document.slug)) {
+  if (document.order <= 21 && !['api', 'react'].includes(document.slug)) {
     const normative = document.locale === 'zh-CN' ? /\*\*(必须|应该|可以|禁止)\*\*/ : /\*\*(MUST|SHOULD|MAY|MUST NOT)\*\*/
     assert(normative.test(document.body), `${filename}: core rule document has no normative level marker`)
   }

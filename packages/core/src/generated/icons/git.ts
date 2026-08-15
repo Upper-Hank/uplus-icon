@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_301ae31f-d063-456e-8110-ef1480756b93",
   "name": "git",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12M16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12M16 12H22M8 12H2\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

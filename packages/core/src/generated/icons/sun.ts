@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_5564941b-cb95-40aa-9e1c-d0d44330bc89",
   "name": "sun",
   "viewBox": "0 0 24 24",
   "body": "\n<circle cx=\"12\" cy=\"12\" r=\"4\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 3V5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M5.63605 5.63599L7.05026 7.0502\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M3 12H5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M5.63605 18.3639L7.05026 16.9497\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 21V19\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M18.364 18.3639L16.9498 16.9497\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M21 12H19\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M18.364 5.63599L16.9498 7.0502\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

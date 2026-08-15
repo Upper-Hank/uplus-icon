@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_7c0cc71e-47ab-420f-a8e2-9ef12fe88006",
   "name": "hard-drive",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M5 5C5 3.89543 5.89543 3 7 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V5Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<circle cx=\"8\" cy=\"18\" r=\"1\" fill=\"currentColor\"/>\n<circle cx=\"16\" cy=\"18\" r=\"1\" fill=\"currentColor\"/>\n<circle cx=\"16\" cy=\"6\" r=\"1\" fill=\"currentColor\"/>\n<circle cx=\"8\" cy=\"6\" r=\"1\" fill=\"currentColor\"/>\n<path d=\"M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M13 13L16 16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

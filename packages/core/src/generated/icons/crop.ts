@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_aae1132c-7bfa-4446-8eeb-9fcd735f8af2",
   "name": "crop",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M3 7.5H15.5C16.6046 7.5 17.5 8.39543 17.5 9.5V19\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M5 10V14.5C5 15.6046 5.89543 16.5 7 16.5H15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M20 16.5H21\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M5 4V5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

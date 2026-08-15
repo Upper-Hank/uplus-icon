@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_7809b09c-a00f-48e9-963e-eec4118cca22",
   "name": "calculator",
   "viewBox": "0 0 24 24",
   "body": "\n<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M5.5 12H11.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8.5 9V15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M14.5 12L18.5 12\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

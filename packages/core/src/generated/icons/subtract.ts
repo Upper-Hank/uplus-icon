@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_8839fffd-3f3b-4a47-814b-c371085b64c2",
   "name": "subtract",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4 18V10C4 8.89543 4.89543 8 6 8H14C15.1046 8 16 8.89543 16 10V18C16 19.1046 15.1046 20 14 20H6C4.89543 20 4 19.1046 4 18Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8 8V6C8 4.89543 8.89543 4 10 4H18C19.1046 4 20 4.89543 20 6V14C20 15.1046 19.1046 16 18 16H16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8.58032 4.59125L12 8M19.4162 15.4123L16 12\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M14 4L20 10\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

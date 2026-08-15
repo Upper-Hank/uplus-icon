@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_d1c54ea8-909a-48c5-b272-b5ead0227ce4",
   "name": "volume-off",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M5 8.00005H5.42641C5.80125 8.00005 6.16854 7.89471 6.4864 7.69605L10.94 4.91255C12.2721 4.07999 14 5.03767 14 6.60855V17.3916C14 18.9624 12.2721 19.9201 10.94 19.0876L6.48641 16.3041C6.16854 16.1054 5.80125 16 5.42641 16H5C3.89543 16 3 15.1046 3 14V10C3 8.89548 3.89543 8.00005 5 8.00005Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M4 4L20 20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

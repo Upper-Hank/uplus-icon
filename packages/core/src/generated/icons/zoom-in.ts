@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_844dd45b-5136-43ac-9242-506012ae3e43",
   "name": "zoom-in",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M15.182 4.78243C17.9156 7.5161 17.9156 11.9483 15.182 14.6819C12.4483 17.4156 8.01613 17.4156 5.28246 14.6819C2.54879 11.9483 2.54879 7.5161 5.28246 4.78243C8.01613 2.04876 12.4483 2.04876 15.182 4.78243Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M7.5 9.5H12.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M10 7V12\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M15.1819 14.6819L18.7175 18.2175\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

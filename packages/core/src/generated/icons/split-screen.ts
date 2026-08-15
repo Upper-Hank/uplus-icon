@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_c9a6d0e9-0faa-4271-8d64-7b9866bb1df3",
   "name": "split-screen",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M9.5 18H5C3.89543 18 3 17.1046 3 16V8C3 6.89543 3.89543 6 5 6H9.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M14.5 18H19C20.1046 18 21 17.1046 21 16V8C21 6.89543 20.1046 6 19 6H14.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 20V4\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

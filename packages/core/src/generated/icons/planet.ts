@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_f3701a37-e1be-42ec-a0de-add7061325b1",
   "name": "planet",
   "viewBox": "0 0 24 24",
   "body": "\n<circle cx=\"12\" cy=\"12\" r=\"7\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M4.00008 16.9994C2.49996 19.9994 9.00005 19.2132 14.5 14.4995C20 9.78578 21.5001 4 18.5001 5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

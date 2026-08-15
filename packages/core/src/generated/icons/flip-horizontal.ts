@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_1ab9e966-688e-45db-9ff4-6120b50b6770",
   "name": "flip-horizontal",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M12 3V21\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M4 16.2967V7.70324C4 6.77483 5.15506 6.34755 5.75926 7.05244L8.88436 10.6984C9.52634 11.4474 9.52634 12.5526 8.88436 13.3016L5.75926 16.9475C5.15506 17.6524 4 17.2251 4 16.2967Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M20 16.2967V7.70324C20 6.77483 18.8449 6.34755 18.2407 7.05244L15.1156 10.6984C14.4737 11.4474 14.4737 12.5526 15.1156 13.3016L18.2407 16.9475C18.8449 17.6524 20 17.2251 20 16.2967Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

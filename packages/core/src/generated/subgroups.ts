@@ -27,34 +27,22 @@ export const iconSubgroups: readonly IconSubgroup[] = [
     "titleZh": "视图"
   },
   {
-    "id": "geometry",
-    "categoryId": "actions",
-    "title": "Geometry",
-    "titleZh": "几何"
-  },
-  {
-    "id": "formatting",
-    "categoryId": "actions",
-    "title": "Formatting",
-    "titleZh": "格式"
-  },
-  {
     "id": "arrangement",
     "categoryId": "actions",
     "title": "Arrangement",
     "titleZh": "排列"
   },
   {
-    "id": "object-align",
-    "categoryId": "actions",
-    "title": "Object align",
-    "titleZh": "对象对齐"
-  },
-  {
     "id": "text-align",
     "categoryId": "actions",
     "title": "Text align",
     "titleZh": "文本对齐"
+  },
+  {
+    "id": "object-align",
+    "categoryId": "actions",
+    "title": "Object align",
+    "titleZh": "对象对齐"
   },
   {
     "id": "management",
@@ -87,18 +75,6 @@ export const iconSubgroups: readonly IconSubgroup[] = [
     "titleZh": "箭头"
   },
   {
-    "id": "history",
-    "categoryId": "navigation",
-    "title": "History",
-    "titleZh": "历史"
-  },
-  {
-    "id": "trend",
-    "categoryId": "navigation",
-    "title": "Trend",
-    "titleZh": "趋势"
-  },
-  {
     "id": "controls",
     "categoryId": "interface",
     "title": "Controls",
@@ -111,10 +87,10 @@ export const iconSubgroups: readonly IconSubgroup[] = [
     "titleZh": "外观"
   },
   {
-    "id": "creation",
+    "id": "design",
     "categoryId": "interface",
-    "title": "Creation",
-    "titleZh": "创建"
+    "title": "Design",
+    "titleZh": "设计"
   },
   {
     "id": "interaction",

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_c85bca95-66a3-42e0-b1b5-f478b46f055f",
   "name": "credit-card",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M3 8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V16C21 17.6569 19.6569 19 18 19H6C4.34315 19 3 17.6569 3 16V8Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M2.99994 9H21\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<rect x=\"17\" y=\"15\" width=\"2\" height=\"2\" rx=\"1\" fill=\"currentColor\"/>\n<rect x=\"14\" y=\"15\" width=\"2\" height=\"2\" rx=\"1\" fill=\"currentColor\"/>\n<rect x=\"11\" y=\"15\" width=\"2\" height=\"2\" rx=\"1\" fill=\"currentColor\"/>\n"

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_723c7043-d0c1-4f22-933a-4c174959ff72",
   "name": "mountain",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M3 20C3.66667 14.6667 5.8 4 9 4C12.2 4 13.8333 14.6667 15 20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M3 20H20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M20 20C19.3195 16.6667 18.3667 10 16.5 10C15.4168 10 14.5431 12.2451 13.9245 14.7809\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

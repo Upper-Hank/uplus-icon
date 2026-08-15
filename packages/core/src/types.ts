@@ -1,6 +1,14 @@
 import type { IconCategoryId } from './generated/category-names.js'
 
+export type IconId = `uicon_${string}`
+
+export interface IconLegacyName {
+  name: string
+  renamedIn: string
+}
+
 export interface IconDefinition {
+  id: IconId
   name: string
   viewBox: string
   body: string
@@ -36,7 +44,9 @@ export interface IconMotionCapabilities {
 }
 
 export interface IconMeta {
+  id: IconId
   name: string
+  legacyNames?: readonly IconLegacyName[]
   componentName: string
   title: string
   titleZh: string
@@ -53,6 +63,7 @@ export interface IconMeta {
   deprecated: boolean
   publishedIn: string | null
   updatedIn: string | null
+  catalogOrder: number
 }
 
 export type PublicIconMeta = Omit<IconMeta, 'motion'>

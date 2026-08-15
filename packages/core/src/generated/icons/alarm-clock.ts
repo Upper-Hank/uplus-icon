@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_396e1b2d-9726-4d35-bdf5-9a0e74118058",
   "name": "alarm-clock",
   "viewBox": "0 0 24 24",
   "body": "\n<circle cx=\"12\" cy=\"12\" r=\"8\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M3 5L5 3\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M19 3L21 5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 12V8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 12H14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_7905ef1d-d7ff-4aab-bb5c-e4abd5bd6e51",
   "name": "calendar",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M3 8C3 6.34315 4.34315 5 6 5H18C19.6569 5 21 6.34315 21 8V10V16C21 17.6569 19.6569 19 18 19H6C4.34315 19 3 17.6569 3 16V10V8Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M3 10H12H21\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M8 3V7\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 3V7\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M6 13H8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M6 16H8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M11 13H13\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 13H18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M11 16H13\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 16H18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

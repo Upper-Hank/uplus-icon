@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_91107ad7-1703-4458-8ca3-13e02bad0f2b",
   "name": "strikethrough",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4 12H20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M17 6C17 6 16 4 12 4C9 4 7 6 7 7.99997C7 9.99999 9.5 11.5 12 12C14.5 12.5 17 14 17 16C17 18 15 20 12 20C8 20 7 18 7 18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

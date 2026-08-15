@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_987c7756-ab87-452e-b1e8-6b33ba7a26af",
   "name": "unlock",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4 13C4 11.3431 5.34315 10 7 10H17C18.6569 10 20 11.3431 20 13V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V13Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 7.23345V6C16 4.34315 14.6569 3 13 3H11C9.34315 3 8 4.34315 8 6V10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<circle cx=\"12\" cy=\"14\" r=\"1\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M12 14V17\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

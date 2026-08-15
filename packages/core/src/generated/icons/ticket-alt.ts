@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_da6dd711-28e3-4bf1-96ab-f9b7cde83f89",
   "name": "ticket-alt",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M8 13.5V14.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8 9.5V10.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M3 16L3 8C3 6.89543 3.89543 6 5 6H5.17157C5.70201 6 6.21071 6.21071 6.58579 6.58579C7.36684 7.36683 8.63316 7.36683 9.41421 6.58579C9.78929 6.21071 10.298 6 10.8284 6H19C20.1046 6 21 6.89543 21 8V16C21 17.1046 20.1046 18 19 18H10.8284C10.298 18 9.78929 17.7893 9.41421 17.4142C8.63316 16.6332 7.36684 16.6332 6.58579 17.4142C6.21071 17.7893 5.70201 18 5.17157 18H5C3.89543 18 3 17.1046 3 16Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

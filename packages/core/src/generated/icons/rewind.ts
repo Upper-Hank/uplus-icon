@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_ed6299e7-4633-4280-94cc-02448fe29b9c",
   "name": "rewind",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M17.0858 6.41426L12.9142 10.5858C12.1332 11.3669 12.1332 12.6332 12.9142 13.4143L17.0858 17.5858C18.3457 18.8458 20.5 17.9534 20.5 16.1716V7.82847C20.5 6.04667 18.3457 5.15433 17.0858 6.41426Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M8.08579 6.41426L3.91422 10.5858C3.13317 11.3669 3.13317 12.6332 3.91422 13.4143L8.08579 17.5858C9.34572 18.8458 11.5 17.9534 11.5 16.1716V7.82847C11.5 6.04667 9.34572 5.15433 8.08579 6.41426Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

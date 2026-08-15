@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_0425a2a2-8f47-4920-bef1-a7cdb6fbe6a2",
   "name": "skip-back",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M6 4V20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M14.5858 6.41426L10.4142 10.5858C9.63317 11.3669 9.63317 12.6332 10.4142 13.4143L14.5858 17.5858C15.8457 18.8458 18 17.9534 18 16.1716V7.82847C18 6.04667 15.8457 5.15433 14.5858 6.41426Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

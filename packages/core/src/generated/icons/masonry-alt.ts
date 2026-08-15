@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_64d4eb8a-b861-4622-9858-e5184425ecbd",
   "name": "masonry-alt",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M4 16C4 14.8954 4.89543 14 6 14H7C8.10457 14 9 14.8954 9 16V18C9 19.1046 8.10457 20 7 20H6C4.89543 20 4 19.1046 4 18V16Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M4 6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V8C20 9.10457 19.1046 10 18 10H6C4.89543 10 4 9.10457 4 8V6Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M13 16C13 14.8954 13.8954 14 15 14H18C19.1046 14 20 14.8954 20 16V18C20 19.1046 19.1046 20 18 20H15C13.8954 20 13 19.1046 13 18V16Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

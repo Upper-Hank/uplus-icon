@@ -9,7 +9,7 @@ import { IconDetailDrawer } from '../components/IconDetailDrawer'
 import { UiIcon } from '../components/UiIcon'
 import { SelectMenu } from '../components/SelectMenu'
 
-type SortOrder = 'published' | 'name'
+type SortOrder = 'catalog' | 'published' | 'name'
 
 interface IconsPageProps {
   navigate: (path: string) => void
@@ -17,11 +17,15 @@ interface IconsPageProps {
 }
 
 const VIEW_MODE_KEY = 'uplus-icon-view-3'
+const SORT_ORDER_KEY = 'uplus-icon-sort'
 
 export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
   const { language, t } = useI18n()
   const [query, setQuery] = useState('')
-  const [sortOrder, setSortOrder] = useState<SortOrder>('published')
+  const [sortOrder, setSortOrder] = useState<SortOrder>(() => {
+    const saved = localStorage.getItem(SORT_ORDER_KEY)
+    return saved === 'published' || saved === 'name' || saved === 'catalog' ? saved : 'catalog'
+  })
   const [viewMode, setViewMode] = useState<IconViewMode>(() => {
     const saved = localStorage.getItem(VIEW_MODE_KEY)
     return saved === 'collection' ? 'collection' : 'flat'
@@ -31,6 +35,10 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
   useEffect(() => {
     localStorage.setItem(VIEW_MODE_KEY, viewMode)
   }, [viewMode])
+
+  useEffect(() => {
+    localStorage.setItem(SORT_ORDER_KEY, sortOrder)
+  }, [sortOrder])
 
   useEffect(() => {
     const focusSearch = (event: KeyboardEvent) => {
@@ -57,8 +65,12 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
     })
     matches.sort((a, b) => {
       if (sortOrder === 'name') return a.icon.name.localeCompare(b.icon.name) || a.index - b.index
-      const byVersion = (b.icon.publishedIn ?? '').localeCompare(a.icon.publishedIn ?? '', undefined, { numeric: true })
-      return byVersion || a.index - b.index
+      if (sortOrder === 'published') {
+        const byVersion = (b.icon.publishedIn ?? '').localeCompare(a.icon.publishedIn ?? '', undefined, { numeric: true })
+        return byVersion || a.index - b.index
+      }
+      const byCatalog = a.icon.catalogOrder - b.icon.catalogOrder
+      return byCatalog || a.icon.id.localeCompare(b.icon.id) || a.index - b.index
     })
     return matches.map(({ icon }) => icon)
   }, [query, sortOrder])
@@ -87,6 +99,7 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
     { value: 'collection', label: language === 'zh' ? '集合形式' : 'Collection view', content: <UiIconSlot name="collection"><UiIcon name="list" /></UiIconSlot> },
   ] as const, [language])
   const sortOptions = useMemo(() => [
+    { value: 'catalog', label: language === 'zh' ? '推荐顺序' : 'Catalog' },
     { value: 'published', label: language === 'zh' ? '按发布时间' : 'Published' },
     { value: 'name', label: language === 'zh' ? '按名称' : 'Name' },
   ] as const, [language])

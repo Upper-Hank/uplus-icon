@@ -3,7 +3,9 @@ import { readFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import test from 'node:test'
+import { generateIconId, isValidIconId, validateIconIdentityMetadata } from './icon-identity.mjs'
 import { validateMetadataReferences } from './validate-metadata.mjs'
+import { buildCatalogOrderBySourceKey } from './catalog-order.mjs'
 
 const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const metadata = JSON.parse(await readFile(join(sourceRoot, 'metadata', 'icons.json'), 'utf8'))
@@ -12,7 +14,16 @@ const subgroups = JSON.parse(await readFile(join(sourceRoot, 'metadata', 'subgro
 const names = new Set(Object.keys(metadata))
 
 test('repository metadata passes reference validation', () => {
-  assert.doesNotThrow(() => validateMetadataReferences(metadata, names))
+  const { publicNameBySourceKey } = validateIconIdentityMetadata(metadata)
+  assert.doesNotThrow(() => validateMetadataReferences(metadata, names, publicNameBySourceKey))
+})
+
+test('repository metadata includes stable ids and public names', () => {
+  for (const [sourceKey, details] of Object.entries(metadata)) {
+    assert.ok(isValidIconId(details.id), `${sourceKey} must have a valid icon id`)
+    assert.equal(typeof details.name, 'string')
+    assert.match(details.name, /^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+  }
 })
 
 test('repository metadata has localized names and classification-only tags', () => {
@@ -45,7 +56,16 @@ test('repository metadata has localized names and classification-only tags', () 
   }
 })
 
+test('repository metadata has a complete catalog order', () => {
+  const catalogOrder = buildCatalogOrderBySourceKey(metadata)
+  assert.equal(catalogOrder.size, names.size)
+  assert.equal(catalogOrder.get('arrow-up'), catalogOrder.get('arrow-down') - 1)
+  assert.ok(catalogOrder.get('arrow-top-right') > catalogOrder.get('arrow-right'))
+})
+
 const entry = (overrides = {}) => ({
+  id: generateIconId(),
+  name: overrides.name ?? 'alpha',
   aliases: [],
   related: [],
   variants: [],
@@ -57,14 +77,14 @@ const entry = (overrides = {}) => ({
 test('reference validation rejects ambiguous aliases', () => {
   assert.throws(
     () => validateMetadataReferences({
-      alpha: entry({ aliases: ['shared'] }),
-      beta: entry({ aliases: ['shared'] }),
+      alpha: entry({ name: 'alpha', aliases: ['shared'] }),
+      beta: entry({ name: 'beta', aliases: ['shared'] }),
     }, ['alpha', 'beta']),
     /belongs to both alpha and beta/,
   )
   assert.throws(
-    () => validateMetadataReferences({ alpha: entry({ aliases: ['beta'] }), beta: entry() }, ['alpha', 'beta']),
-    /conflicts with an icon name/,
+    () => validateMetadataReferences({ alpha: entry({ name: 'alpha', aliases: ['gamma'] }), beta: entry({ name: 'gamma' }) }, ['alpha', 'beta']),
+    /conflicts with a current public name/,
   )
 })
 
@@ -105,5 +125,23 @@ test('reference validation rejects invalid release state and duplicate motion en
       alpha: entry({ motion: { semantic: ['Bad Name'], transitions: [] } }),
     }, ['alpha']),
     /capabilities must use kebab-case/,
+  )
+})
+
+test('reference validation rejects aliases that conflict with legacy names regardless of entry order', () => {
+  const publicNames = new Map([['alpha', 'alpha'], ['beta', 'beta']])
+  assert.throws(
+    () => validateMetadataReferences({
+      alpha: entry({ name: 'alpha', aliases: ['legacy-name'] }),
+      beta: entry({ name: 'beta', legacyNames: [{ name: 'legacy-name', renamedIn: '0.2.0' }] }),
+    }, ['alpha', 'beta'], publicNames),
+    /conflicts with a legacy public name/,
+  )
+  assert.throws(
+    () => validateMetadataReferences({
+      beta: entry({ name: 'beta', legacyNames: [{ name: 'legacy-name', renamedIn: '0.2.0' }] }),
+      alpha: entry({ name: 'alpha', aliases: ['legacy-name'] }),
+    }, ['alpha', 'beta'], publicNames),
+    /conflicts with a legacy public name/,
   )
 })

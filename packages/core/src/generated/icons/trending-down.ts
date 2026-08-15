@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_e48a5062-a70c-4e41-b3d0-f1d60b5e7b29",
   "name": "trending-down",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M20 19L16.2288 12.0704C15.8671 11.4058 14.9269 11.3682 14.5132 12.0017L11.7725 16.1983C11.3588 16.8318 10.4186 16.7942 10.0569 16.1296L4 5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

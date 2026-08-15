@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_f3936a97-f377-4b7f-81ef-9d161b3d10a9",
   "name": "text-alt",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M6 7V6C6 4.89543 6.89543 4 8 4H12M18 7V6C18 4.89543 17.1046 4 16 4H12M12 4V17M12 17H8.5M12 17H15.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M4 20H20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"

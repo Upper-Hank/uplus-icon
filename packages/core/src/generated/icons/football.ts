@@ -2,6 +2,7 @@
 import type { IconDefinition } from '../../types.js'
 
 const icon = {
+  "id": "uicon_b717cfab-6333-4667-a054-a52bcd6d6fd2",
   "name": "football",
   "viewBox": "0 0 24 24",
   "body": "\n<path d=\"M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM12 3V7.5M12 7.5L8 11M12 7.5L16 11M16 11L20.5 9M16 11L14 15M14 15L17 19.5M14 15H10M10 15L7 19.5M10 15L8 11M8 11L3.5 9\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"

@@ -23,6 +23,7 @@
 - [可访问性](./rules/14-accessibility.zh-CN.md)
 - [测试与质量门禁](./rules/15-testing.zh-CN.md)
 - [版本、弃用与兼容性](./rules/16-versioning.zh-CN.md)
+- [稳定身份与重命名兼容](./rules/21-identity.zh-CN.md)
 - [贡献规范](./rules/17-contribution.zh-CN.md)
 - [Figma 资产协作](./rules/18-figma.zh-CN.md)
 - [包与生成架构](./rules/19-package-architecture.zh-CN.md)
