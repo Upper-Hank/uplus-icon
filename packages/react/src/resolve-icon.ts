@@ -1,6 +1,12 @@
 import { iconDefinitions, legacyIconNameMap } from '@uplus-icon/core/dynamic'
 import type { IconDefinition } from '@uplus-icon/core'
 
+declare const process: {
+  readonly env: {
+    readonly NODE_ENV?: string
+  }
+}
+
 const iconMap = new Map<string, IconDefinition>()
 for (const icon of iconDefinitions) iconMap.set(icon.name, icon)
 for (const [legacyName, info] of legacyIconNameMap.entries()) {
