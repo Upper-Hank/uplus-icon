@@ -19,6 +19,12 @@
     </style>
     <script>
       (() => {
+        const savedLanguage = localStorage.getItem('uplus-language')
+        const language = savedLanguage === 'en' || savedLanguage === 'zh'
+          ? savedLanguage
+          : navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en'
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'
+
         const savedTheme = localStorage.getItem('uplus-theme')
         const themePreference = savedTheme === 'light' || savedTheme === 'dark' || savedTheme === 'system'
           ? savedTheme

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import { iconMeta } from '@uplus-icon/core/metadata'
 import { useI18n } from '../i18n'
 import type { Route } from '../app/router'
@@ -25,8 +25,7 @@ export function Header({ route, navigate }: { route: Route; navigate: (path: str
   const [theme, setTheme] = useState<ThemePreference>(() => {
     const saved = localStorage.getItem('uplus-theme')
     if (saved === 'light' || saved === 'dark' || saved === 'system') return saved
-    const initialTheme = document.documentElement.dataset.theme
-    return initialTheme === 'dark' ? 'dark' : 'light'
+    return 'system'
   })
 
   useLayoutEffect(() => {
@@ -45,6 +44,16 @@ export function Header({ route, navigate }: { route: Route; navigate: (path: str
     mediaQuery.addEventListener('change', applyTheme)
     return () => mediaQuery.removeEventListener('change', applyTheme)
   }, [theme])
+
+  useEffect(() => {
+    const syncTheme = (event: StorageEvent) => {
+      if (event.key !== 'uplus-theme') return
+      const preference = event.newValue
+      setTheme(preference === 'light' || preference === 'dark' || preference === 'system' ? preference : 'system')
+    }
+    window.addEventListener('storage', syncTheme)
+    return () => window.removeEventListener('storage', syncTheme)
+  }, [])
 
   const appearanceOptions = useMemo(() => [
     { value: 'system', label: language === 'zh' ? '跟随系统' : 'System', content: <UiIconSlot name="system"><UiIcon name="system" /></UiIconSlot> },

@@ -15,11 +15,17 @@ const DocsContent = lazy(() => import('./pages/DocsPage').then((module) => ({ de
 const GuideContent = lazy(() => import('./pages/GuidePage').then((module) => ({ default: module.GuideContent })))
 const ChangelogContent = lazy(() => import('./pages/ChangelogPage').then((module) => ({ default: module.ChangelogContent })))
 
+function getInitialLanguage(): Language {
+  const saved = localStorage.getItem('uplus-language')
+  if (saved === 'en' || saved === 'zh') return saved
+  return navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en'
+}
+
 export function App() {
   const interactionProps = useInteractiveMotion()
   const [route, navigate] = useRoute()
   const mainRef = useRef<HTMLElement>(null)
-  const [language, setLanguage] = useState<Language>(() => localStorage.getItem('uplus-language') === 'zh' ? 'zh' : 'en')
+  const [language, setLanguage] = useState<Language>(getInitialLanguage)
   useDocumentMetadata(route, language)
   const routeMotionKey = route.page === 'detail'
     ? 'icons'
@@ -31,6 +37,19 @@ export function App() {
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'
     localStorage.setItem('uplus-language', language)
   }, [language])
+
+  useEffect(() => {
+    const syncLanguage = (event: StorageEvent) => {
+      if (event.key !== 'uplus-language') return
+      if (event.newValue === 'en' || event.newValue === 'zh') {
+        setLanguage(event.newValue)
+      } else {
+        setLanguage(navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en')
+      }
+    }
+    window.addEventListener('storage', syncLanguage)
+    return () => window.removeEventListener('storage', syncLanguage)
+  }, [])
 
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
