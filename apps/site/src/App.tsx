@@ -3,6 +3,7 @@ import { Icon, type IconName } from '@uplus-icon/react/dynamic'
 import { iconMeta } from '@uplus-icon/core/metadata'
 import { I18nProvider, useI18n, type Language } from './i18n'
 import { copyText } from './app/copyText'
+import { currentVersionLabel } from './app/releaseInfo'
 import { useRoute } from './app/router'
 import { useDocumentMetadata } from './app/useDocumentMetadata'
 import { useInteractiveMotion } from './app/useInteractiveMotion'
@@ -105,6 +106,10 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
         <div className="home-hero-content">
           <h1 data-reveal>{t('heroTitle')}</h1>
           <p className="home-intro" data-reveal>{t('heroIntro')}</p>
+          <button className="home-release" type="button" onClick={() => navigate('/changelog')} data-reveal>
+            <span>{language === 'zh' ? '公开 Beta' : 'Public Beta'}</span>
+            <strong>{currentVersionLabel}</strong>
+          </button>
           <div className="home-install" data-reveal>
             <div className="install-command">
               <span>npm</span>

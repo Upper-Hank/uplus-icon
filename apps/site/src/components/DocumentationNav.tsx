@@ -1,4 +1,5 @@
 import { getDocGroupLabels, getDocPath, type DocDocument, type DocGroup, type DocSlug } from '../content/docs'
+import { currentVersionLabel } from '../app/releaseInfo'
 
 interface DocumentationNavProps {
   active?: DocSlug | 'guide' | 'changelog'
@@ -62,7 +63,7 @@ export function DocumentationNav({ active, documents, language, mobileIndex = fa
           aria-current={active === 'changelog' ? 'page' : undefined}
         >
           <strong>{language === 'zh' ? '更新日志' : 'Changelog'}</strong>
-          <span className="docs-index-featured-badge" aria-hidden="true">DEV</span>
+          <span className="docs-index-featured-badge">{currentVersionLabel}</span>
         </button>
       </div>
     </nav>

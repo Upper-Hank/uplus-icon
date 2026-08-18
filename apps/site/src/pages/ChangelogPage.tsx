@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { PageHeading } from '../components/PageHeading'
 import { SelectMenu } from '../components/SelectMenu'
+import { currentVersionLabel } from '../app/releaseInfo'
 import { changelogVersionId, getChangelog } from '../content/changelog'
 import { useI18n } from '../i18n'
 
@@ -45,7 +46,7 @@ export function ChangelogContent() {
           label={language === 'zh' ? '版本记录' : 'Release history'}
           title={language === 'zh' ? '更新日志' : 'Changelog'}
           description={language === 'zh' ? '记录 Uplus Icon 从第一个公开 Beta 开始的版本变化。' : 'Uplus Icon release history starting with the first public beta.'}
-          meta={<span>{language === 'zh' ? '公开 Beta' : 'Public beta'}</span>}
+          meta={<span>{language === 'zh' ? `最新版本 · ${currentVersionLabel}` : `Latest · ${currentVersionLabel}`}</span>}
         />
         <div className="changelog-version-select">
           <SelectMenu ariaLabel={language === 'zh' ? '选择版本' : 'Select version'} options={versionOptions} value={activeVersion} onChange={selectVersion} />
