@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { readFile, readdir } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { solidPathAnchors } from '../../core/dist/weight.js'
 
 const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const rawDir = join(sourceRoot, 'raw')
@@ -11,11 +12,10 @@ const reviewedComplexFillCounts = new Map([
   ['gender-male.svg', 1],
   ['gender-transgender.svg', 1],
 ])
-const anchoredPathCounts = new Map([
-  ['headset.svg', 1],
-  ['qr-code.svg', 3],
-  ['textarea.svg', 1],
-])
+// Derived from the runtime registry so the audit and the renderer cannot drift.
+const anchoredPathCounts = new Map(
+  Object.entries(solidPathAnchors).map(([name, anchors]) => [`${name}.svg`, anchors.length]),
+)
 
 const files = (await readdir(rawDir)).filter((file) => file.endsWith('.svg')).sort()
 const auto = []

@@ -119,7 +119,7 @@ test('identity check compares against the latest earlier manifest, not the curre
   assert.match(output, /user -> account/)
 })
 
-test('identity check uses an existing current-version manifest as an immutable baseline', async (t) => {
+test('identity check ignores a current-version manifest and compares the previous release', async (t) => {
   const fixture = await setupRenameFixtureWorkspace()
   t.after(() => fixture.cleanup())
 
@@ -135,17 +135,13 @@ test('identity check uses an existing current-version manifest as an immutable b
     }],
   }, null, 2)}\n`)
 
-  assert.throws(
-    () => execFileSync('node', ['scripts/check-icon-identity.mjs'], {
-      cwd: fixture.iconsRoot,
-      encoding: 'utf8',
-      stdio: ['pipe', 'pipe', 'pipe'],
-    }),
-    (error) => {
-      const output = `${error.stdout ?? ''}${error.stderr ?? ''}`
-      return /Compared against release manifest 0\.2\.0/.test(output) && /was removed without a deprecation record/.test(output)
-    },
-  )
+  const output = execFileSync('node', ['scripts/check-icon-identity.mjs'], {
+    cwd: fixture.iconsRoot,
+    encoding: 'utf8',
+  })
+  assert.match(output, /Compared against release manifest 0\.1\.0/)
+  assert.match(output, /user -> account/)
+  assert.doesNotMatch(output, /Compared against release manifest 0\.2\.0/)
 })
 
 test('create-identity-manifest refuses to overwrite an existing release file', async (t) => {

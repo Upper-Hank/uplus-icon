@@ -15,20 +15,30 @@ for (const [legacyName, info] of legacyIconNameMap.entries()) {
 }
 
 const warnedLegacyNames = new Set<string>()
+const warnedUnknownNames = new Set<string>()
 
 export function resetLegacyNameWarningsForTests() {
   warnedLegacyNames.clear()
+  warnedUnknownNames.clear()
 }
+
+const isDevelopment = () => process.env.NODE_ENV !== 'production'
 
 export function resolveIconByName(name: string) {
   const legacy = legacyIconNameMap.get(name)
-  if (legacy && process.env.NODE_ENV !== 'production' && !warnedLegacyNames.has(name)) {
+  if (legacy && isDevelopment() && !warnedLegacyNames.has(name)) {
     warnedLegacyNames.add(name)
     console.warn(
       `[uplus-icon] "${name}" was renamed to "${legacy.currentName}" in ${legacy.renamedIn}. Use <Icon name="${legacy.currentName}" />. Stable ID: ${legacy.id}.`,
     )
   }
-  return iconMap.get(name)
+
+  const icon = iconMap.get(name)
+  if (!icon && isDevelopment() && !warnedUnknownNames.has(name)) {
+    warnedUnknownNames.add(name)
+    console.warn(`[uplus-icon] No icon is registered for "${name}", so nothing was rendered. Check the name against the published icon list.`)
+  }
+  return icon
 }
 
 export { iconMap }

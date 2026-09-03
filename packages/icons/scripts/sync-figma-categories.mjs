@@ -1,65 +1,51 @@
+/**
+ * Rewrites the category and subgroup registries plus every icon's
+ * classification from metadata/taxonomy.mjs.
+ *
+ * This overwrites committed metadata, so it previews by default. Run it after
+ * editing taxonomy.mjs, then commit the diff; `npm run test:metadata` fails if
+ * the committed JSON ever drifts from the taxonomy again.
+ */
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { categoryRegistry, figmaTaxonomy, subgroupLabels } from '../metadata/taxonomy.mjs'
+import { buildTaxonomyProjection, diffTaxonomyProjection } from './taxonomy-sync.mjs'
 
 const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const metadataFile = join(sourceRoot, 'metadata', 'icons.json')
 const categoriesFile = join(sourceRoot, 'metadata', 'categories.json')
 const subgroupsFile = join(sourceRoot, 'metadata', 'subgroups.json')
 
-const assignments = new Map()
-const subgroupRegistry = []
-
-for (const [categoryId, groups] of Object.entries(figmaTaxonomy)) {
-  for (const [groupId, icons] of Object.entries(groups)) {
-    const [title, titleZh] = subgroupLabels[groupId] ?? [groupId, groupId]
-    subgroupRegistry.push({ id: groupId, categoryId, title, titleZh })
-    for (const icon of icons) {
-      if (assignments.has(icon)) throw new Error(`Duplicate Figma assignment for ${icon}`)
-      assignments.set(icon, { categoryId, groupId })
-    }
-  }
-}
-
+const apply = process.argv.includes('--apply')
 const metadata = JSON.parse(await readFile(metadataFile, 'utf8'))
-const iconNames = Object.keys(metadata).sort()
+const categories = JSON.parse(await readFile(categoriesFile, 'utf8'))
+const subgroups = JSON.parse(await readFile(subgroupsFile, 'utf8'))
 
-for (const name of iconNames) {
-  const assignment = assignments.get(name)
-  if (!assignment) throw new Error(`Missing Figma category for ${name}`)
-  const details = metadata[name]
-  const { categoryId, groupId } = assignment
-  const categoryMeta = categoryRegistry.find((entry) => entry.id === categoryId)
-  const subgroupMeta = subgroupRegistry.find((entry) => entry.id === groupId && entry.categoryId === categoryId)
-  if (!categoryMeta) throw new Error(`Missing category registry for ${categoryId}`)
-  if (!subgroupMeta) throw new Error(`Missing subgroup registry for ${categoryId}/${groupId}`)
-  const tags = [...new Set([
-    categoryMeta.id,
-    categoryMeta.title.toLowerCase(),
-    categoryMeta.titleZh,
-    subgroupMeta.id,
-    subgroupMeta.title.toLowerCase(),
-    subgroupMeta.titleZh,
-  ])]
-
-  metadata[name] = {
-    ...details,
-    categories: [categoryId],
-    subgroup: groupId,
-    tags,
-  }
+const differences = diffTaxonomyProjection(metadata, categories, subgroups)
+if (differences.length === 0) {
+  console.log(`Metadata already matches the Figma taxonomy for ${Object.keys(metadata).length} icons.`)
+  process.exit(0)
 }
 
-const unassigned = [...assignments.keys()].filter((name) => !(name in metadata))
-if (unassigned.length > 0) throw new Error(`Figma taxonomy references missing metadata: ${unassigned.join(', ')}`)
+console.log(`Pending taxonomy changes (${differences.length}):`)
+for (const difference of differences) console.log(`  ${difference}`)
 
-await writeFile(categoriesFile, `${JSON.stringify(categoryRegistry, null, 2)}\n`, 'utf8')
-await writeFile(subgroupsFile, `${JSON.stringify(subgroupRegistry, null, 2)}\n`, 'utf8')
+if (!apply) {
+  console.log('\nPreview only. Re-run with --apply to write the taxonomy into metadata.')
+  process.exit(0)
+}
+
+const projection = buildTaxonomyProjection(metadata)
+for (const [sourceKey, classification] of projection.classification) {
+  metadata[sourceKey] = { ...metadata[sourceKey], ...classification }
+}
+
+await writeFile(categoriesFile, `${JSON.stringify(projection.categories, null, 2)}\n`, 'utf8')
+await writeFile(subgroupsFile, `${JSON.stringify(projection.subgroups, null, 2)}\n`, 'utf8')
 await writeFile(metadataFile, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8')
 
-const counts = Object.fromEntries(categoryRegistry.map(({ id }) => [id, 0]))
-for (const { categories } of Object.values(metadata)) counts[categories[0]] += 1
+const counts = Object.fromEntries(projection.categories.map(({ id }) => [id, 0]))
+for (const { categories: iconCategories } of Object.values(metadata)) counts[iconCategories[0]] += 1
 
-console.log(`Synced ${iconNames.length} icons to Figma taxonomy with ${subgroupRegistry.length} subgroups`)
+console.log(`\nSynced ${projection.classification.size} icons to the Figma taxonomy with ${projection.subgroups.length} subgroups`)
 console.log(counts)

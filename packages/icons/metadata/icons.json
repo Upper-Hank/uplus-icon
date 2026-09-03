@@ -267,8 +267,8 @@
     "name": "at-sign"
   },
   "badge": {
-    "title": "Badge",
-    "titleZh": "徽章",
+    "title": "Medal",
+    "titleZh": "奖牌",
     "categories": [
       "status"
     ],
@@ -280,8 +280,14 @@
     ],
     "aliases": [],
     "subgroup": "achievement",
+    "legacyNames": [
+      {
+        "name": "badge",
+        "renamedIn": "0.1.0-beta.2"
+      }
+    ],
     "id": "uicon_5d4fded9-e9db-45fb-b2b4-03f33a0a0add",
-    "name": "badge"
+    "name": "medal"
   },
   "barcode": {
     "title": "Barcode",
@@ -299,6 +305,23 @@
     "subgroup": "technology",
     "id": "uicon_43ad983c-a01c-4d8c-8ab2-448116f0f6c5",
     "name": "barcode"
+  },
+  "basketball": {
+    "title": "Basketball",
+    "titleZh": "篮球",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "sport",
+      "运动"
+    ],
+    "aliases": [],
+    "subgroup": "sport",
+    "id": "uicon_afb7d87a-c15c-4154-9c0b-f3a8f4c018da",
+    "name": "basketball"
   },
   "battery-horizon": {
     "title": "Horizontal Battery",
@@ -896,6 +919,23 @@
     "subgroup": "time",
     "id": "uicon_4d87ec3b-69b3-43dc-ba79-2914cfd193ee",
     "name": "clock"
+  },
+  "clipboard": {
+    "title": "Clipboard",
+    "titleZh": "剪贴板",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content",
+    "id": "uicon_16f10119-da2a-43dd-868b-d35959e0e857",
+    "name": "clipboard"
   },
   "close": {
     "title": "Close",
@@ -1832,6 +1872,23 @@
     "id": "uicon_dde352b8-3758-4f52-b810-5c9591a0afdc",
     "name": "folder-open"
   },
+  "folder-plus": {
+    "title": "Folder Plus",
+    "titleZh": "新建文件夹",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "subgroup": "content",
+    "id": "uicon_622f5c60-d087-4952-b7a4-2bc436445882",
+    "name": "folder-plus"
+  },
   "folder": {
     "title": "Folder",
     "titleZh": "文件夹",
@@ -2259,6 +2316,23 @@
     "subgroup": "visual",
     "id": "uicon_f3df7474-ec6f-46ae-b646-3ae60937a2ea",
     "name": "image"
+  },
+  "inbox": {
+    "title": "Inbox",
+    "titleZh": "收件箱",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [],
+    "subgroup": "communication",
+    "id": "uicon_3cde7e32-310c-4e77-81ef-b10385143740",
+    "name": "inbox"
   },
   "info": {
     "title": "Info",
@@ -3235,6 +3309,23 @@
     "subgroup": "data",
     "id": "uicon_a875f1e5-30b5-4f48-a027-5bb014f9b14b",
     "name": "percent"
+  },
+  "pet": {
+    "title": "Pet",
+    "titleZh": "宠物",
+    "categories": [
+      "objects"
+    ],
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [],
+    "subgroup": "life",
+    "id": "uicon_eadd14c0-0e0e-4f62-b959-d00b72148e97",
+    "name": "pet"
   },
   "phone": {
     "title": "Phone",
@@ -4454,8 +4545,7 @@
       "内容"
     ],
     "aliases": [
-      "todo",
-      "clipboard"
+      "todo"
     ],
     "subgroup": "content",
     "id": "uicon_2e3e6817-17ba-4198-8930-bf19100aae67",
@@ -4858,6 +4948,23 @@
     "subgroup": "data",
     "id": "uicon_41b8bd62-bf63-4267-873a-d7cc1ee5f8ca",
     "name": "trending-up"
+  },
+  "trophy": {
+    "title": "Trophy",
+    "titleZh": "奖杯",
+    "categories": [
+      "status"
+    ],
+    "tags": [
+      "status",
+      "状态",
+      "achievement",
+      "成就"
+    ],
+    "aliases": [],
+    "subgroup": "achievement",
+    "id": "uicon_28f48cd2-0a64-4247-8951-7265109d5d4b",
+    "name": "trophy"
   },
   "truck": {
     "title": "Truck",

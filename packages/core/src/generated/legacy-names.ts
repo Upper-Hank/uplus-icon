@@ -8,5 +8,5 @@ export interface LegacyIconNameInfo {
 }
 
 export const legacyIconNameMap = new Map<string, LegacyIconNameInfo>([
-
+  ['badge', { currentName: 'medal', renamedIn: '0.1.0-beta.2', id: 'uicon_5d4fded9-e9db-45fb-b2b4-03f33a0a0add' }],
 ])

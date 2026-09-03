@@ -1,0 +1,40 @@
+{
+  "name": "uplus-icon",
+  "version": "0.1.0+codex.20260820091518",
+  "description": "Find and integrate Uplus Icon components in React projects.",
+  "author": {
+    "name": "Uplus",
+    "url": "https://icon.upper.website"
+  },
+  "homepage": "https://icon.upper.website",
+  "repository": "https://github.com/Upper-Hank/uplus-icon",
+  "license": "MIT",
+  "keywords": [
+    "icons",
+    "react",
+    "uplus",
+    "accessibility",
+    "tree-shaking"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Uplus Icon",
+    "shortDescription": "Find and integrate Uplus icons in React",
+    "longDescription": "Choose existing Uplus icons by product meaning, integrate the React package with the correct import strategy, and preserve accessibility and tree shaking.",
+    "developerName": "Uplus",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://icon.upper.website",
+    "defaultPrompt": [
+      "Find the best Uplus icon for this interface and integrate it.",
+      "Migrate this React component to Uplus Icon.",
+      "Review this page's Uplus icon imports and accessibility."
+    ],
+    "brandColor": "#11110F",
+    "composerIcon": "./assets/uplus-icon.svg",
+    "logo": "./assets/uplus-icon.svg"
+  }
+}

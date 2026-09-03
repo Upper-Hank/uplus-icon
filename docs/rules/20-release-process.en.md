@@ -17,7 +17,7 @@ Confirm asset approval, metadata completeness, public API changes, and document 
 2. Generate and confirm the raw SVG diff is empty.
 3. Run types, package builds, site build, consumer, fidelity, and bundle-size tests.
 4. Review changesets, changelog, and deprecation notes.
-5. Publish in dependency order: Core → React → Site.
+5. Publish public packages in dependency order: Core → React. Then deploy the documentation site. Do not publish the private site package or the incubating Motion package.
 
 - **MUST** stop when a required gate fails.
 - **MUST NOT** auto-fix or overwrite SVGs to pass a gate.

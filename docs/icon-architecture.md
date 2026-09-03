@@ -18,6 +18,15 @@
 - [公共 API](./rules/09-api.zh-CN.md)
 - [React 使用](./rules/10-react.zh-CN.md)
 
+规则编号 11 预留给后续使用文档，当前仓库中不存在 `11-*` 文件。
+
+## Motion（孵化中，尚未发布）
+
+`@uplus-icon/motion` 仍是私有包，不随 Core / React 发布，文档网站也不会展示这些规则。契约正文保留在仓库中，供实现与首次公开发布前对照：
+
+- [Motion 公共 API](./rules/12-motion-api.zh-CN.md)
+- [Motion 编写规则](./rules/13-motion-authoring.zh-CN.md)
+
 ## 架构与治理
 
 - [可访问性](./rules/14-accessibility.zh-CN.md)

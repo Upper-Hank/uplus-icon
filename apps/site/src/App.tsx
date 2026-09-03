@@ -1,12 +1,15 @@
 import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
 import { iconMeta } from '@uplus-icon/core/metadata'
-import { I18nProvider, useI18n, type Language } from './i18n'
+import { I18nProvider, messages, useI18n, type Language } from './i18n'
 import { copyText } from './app/copyText'
 import { currentVersionLabel } from './app/releaseInfo'
 import { useRoute } from './app/router'
 import { useDocumentMetadata } from './app/useDocumentMetadata'
 import { useInteractiveMotion } from './app/useInteractiveMotion'
+import { usePrefersReducedMotion } from './app/usePrefersReducedMotion'
+import { AppLink } from './components/AppLink'
+import { ErrorBoundary } from './components/ErrorBoundary'
 import { Header } from './components/SiteChrome'
 
 const DocumentationShell = lazy(() => import('./components/DocumentationShell').then((module) => ({ default: module.DocumentationShell })))
@@ -26,6 +29,7 @@ export function App() {
   const [route, navigate] = useRoute()
   const mainRef = useRef<HTMLElement>(null)
   const [language, setLanguage] = useState<Language>(getInitialLanguage)
+  const reducedMotion = usePrefersReducedMotion()
   useDocumentMetadata(route, language)
   const routeMotionKey = route.page === 'detail'
     ? 'icons'
@@ -52,20 +56,21 @@ export function App() {
   }, [])
 
   useLayoutEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (reducedMotion) return
     const animations = [...(mainRef.current?.querySelectorAll<HTMLElement>('[data-reveal]') ?? [])]
       .map((element, index) => element.animate(
         [{ transform: 'translateY(20px)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }],
         { duration: 750, delay: index * 60, easing: 'cubic-bezier(.22, 1, .36, 1)', fill: 'backwards' },
       ))
     return () => animations.forEach((animation) => animation.cancel())
-  }, [routeMotionKey])
+  }, [reducedMotion, routeMotionKey])
 
   return <I18nProvider value={{ language, setLanguage }}>
     <div className="shell" {...interactionProps}>
       <Header route={route} navigate={navigate} />
       <main ref={mainRef}>
-        <Suspense fallback={<div className="route-loading" role="status">{language === 'zh' ? '正在加载…' : 'Loading…'}</div>}>
+        <ErrorBoundary language={language}>
+        <Suspense fallback={<div className="route-loading" role="status">{language === 'zh' ? messages.zh.loading : messages.en.loading}</div>}>
           {route.page === 'home' && <Home navigate={navigate} />}
           {(route.page === 'icons' || route.page === 'detail') && (
             <IconsPage navigate={navigate} selectedIcon={route.page === 'detail' ? route.name : undefined} />
@@ -85,13 +90,14 @@ export function App() {
           )}
           {route.page === 'not-found' && <NotFound navigate={navigate} />}
         </Suspense>
+        </ErrorBoundary>
       </main>
     </div>
   </I18nProvider>
 }
 
 function Home({ navigate }: { navigate: (path: string) => void }) {
-  const { language, t } = useI18n()
+  const { t } = useI18n()
   const [copied, setCopied] = useState(false)
   const [copyFailed, setCopyFailed] = useState(false)
   const copyTimerRef = useRef<number | undefined>(undefined)
@@ -110,7 +116,7 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
     }, 1600)
   }
 
-  const moveExploreArrow = (button: HTMLButtonElement, x: number) => {
+  const moveExploreArrow = (button: HTMLElement, x: number) => {
     const arrow = button.querySelector('svg')
     if (!arrow) return
     arrow.style.transition = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -125,10 +131,10 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
         <div className="home-hero-content">
           <h1 data-reveal>{t('heroTitle')}</h1>
           <p className="home-intro" data-reveal>{t('heroIntro')}</p>
-          <button className="home-release" type="button" onClick={() => navigate('/changelog')} data-reveal>
-            <span>{language === 'zh' ? '公开 Beta' : 'Public Beta'}</span>
+          <AppLink className="home-release" to="/changelog" navigate={navigate} data-reveal>
+            <span>{t('publicBeta')}</span>
             <strong>{currentVersionLabel}</strong>
-          </button>
+          </AppLink>
           <div className="home-install" data-reveal>
             <div className="install-command">
               <span>npm</span>
@@ -137,7 +143,7 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
                 className={copied ? 'is-copied' : undefined}
                 type="button"
                 onClick={copyInstall}
-                aria-label={copyFailed ? (language === 'zh' ? '复制失败' : 'Copy failed') : copied ? t('copied') : 'Copy install command'}
+                aria-label={copyFailed ? t('copyFailed') : copied ? t('copied') : t('copyInstallCommand')}
               >
                 <span className="install-copy-icon" aria-hidden="true">
                   <Icon className="install-copy-default" name="copy" size={17} />
@@ -145,23 +151,26 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
                 </span>
               </button>
             </div>
-            <button
+            <span className="sr-only" role="status" aria-live="polite">
+              {copyFailed ? t('copyFailed') : copied ? t('installCopied') : ''}
+            </span>
+            <AppLink
               className="explore-link"
-              type="button"
-              onClick={() => navigate('/icons')}
+              to="/icons"
+              navigate={navigate}
               onPointerEnter={(event) => moveExploreArrow(event.currentTarget, 3)}
               onPointerLeave={(event) => moveExploreArrow(event.currentTarget, 0)}
               onFocus={(event) => moveExploreArrow(event.currentTarget, 3)}
               onBlur={(event) => moveExploreArrow(event.currentTarget, 0)}
             >
               {t('explore')} <Icon name="arrow-right" size={17} />
-            </button>
+            </AppLink>
           </div>
         </div>
 
         <div className="home-visual" data-reveal>
           <div className="home-visual-header">
-            <span>{language === 'zh' ? '实时图标场' : 'Live icon field'}</span>
+            <span>{t('liveIconField')}</span>
             <span>{t('clickAnywhere')}</span>
           </div>
           <div className="home-physics"><PhysicsShowcase /></div>
@@ -172,15 +181,15 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
 }
 
 function NotFound({ navigate }: { navigate: (path: string) => void }) {
-  const { language } = useI18n()
+  const { t } = useI18n()
   return (
     <section className="not-found" data-reveal>
       <p>404</p>
-      <h1>{language === 'zh' ? '页面不存在' : 'Page not found'}</h1>
-      <span>{language === 'zh' ? '这个地址可能已变更，或者从未存在。' : 'This address may have changed or never existed.'}</span>
+      <h1>{t('pageNotFound')}</h1>
+      <span>{t('pageNotFoundText')}</span>
       <div>
-        <button type="button" onClick={() => navigate('/')}>{language === 'zh' ? '返回首页' : 'Go home'}</button>
-        <button type="button" onClick={() => navigate('/icons')}>{language === 'zh' ? '浏览图标' : 'Browse icons'}</button>
+        <AppLink to="/" navigate={navigate}>{t('goHome')}</AppLink>
+        <AppLink to="/icons" navigate={navigate}>{t('browseIcons')}</AppLink>
       </div>
     </section>
   )
@@ -198,9 +207,21 @@ type Particle = {
   angularVelocity: number
 }
 
-const particleIcons: IconName[] = iconMeta.map(({ name }) => name as IconName)
+// The field recycles a small pool, so only the pool needs to exist in the DOM.
+// Icons are sampled across the catalog so the sample stays varied as it grows.
+const PARTICLE_POOL_SIZE = 40
+const particleIcons: IconName[] = (() => {
+  const step = Math.max(1, Math.floor(iconMeta.length / PARTICLE_POOL_SIZE))
+  const sampled: IconName[] = []
+  for (let index = 0; index < iconMeta.length && sampled.length < PARTICLE_POOL_SIZE; index += step) {
+    sampled.push(iconMeta[index].name as IconName)
+  }
+  return sampled
+})()
 
 function PhysicsShowcase() {
+  const { t } = useI18n()
+  const reducedMotion = usePrefersReducedMotion()
   const boxRef = useRef<HTMLDivElement>(null)
   const nodesRef = useRef<(HTMLSpanElement | null)[]>([])
   const particlesRef = useRef<Particle[]>(particleIcons.map(() => ({
@@ -214,6 +235,27 @@ function PhysicsShowcase() {
     let previous = performance.now()
     const radius = 20
     const box = boxRef.current
+    if (reducedMotion) {
+      // Lay the sample out in its resting arrangement and never start the loop.
+      const restingBox = box
+      if (!restingBox) return
+      const columns = Math.max(3, Math.min(8, Math.floor(restingBox.clientWidth / 72)))
+      const visible = Math.min(12, particleIcons.length)
+      for (let index = 0; index < visible; index += 1) {
+        const particle = particlesRef.current[index]
+        const column = index % columns
+        const row = Math.floor(index / columns)
+        particle.active = true
+        particle.x = restingBox.clientWidth * ((column + 1) / (columns + 1))
+        particle.y = restingBox.clientHeight - radius - row * (radius * 2 + 8)
+        particle.angle = 0
+        const node = nodesRef.current[index]
+        if (!node) continue
+        node.style.opacity = '1'
+        node.style.transform = `translate3d(${particle.x - radius}px, ${particle.y - radius}px, 0)`
+      }
+      return
+    }
     if (box) {
       const initialPositions = box.clientWidth < 680
         ? [[0.16, 0.15], [0.84, 0.18], [0.1, 0.72], [0.9, 0.68], [0.28, 0.9], [0.72, 0.88]]
@@ -339,9 +381,10 @@ function PhysicsShowcase() {
 
     frame = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(frame)
-  }, [])
+  }, [reducedMotion])
 
   useEffect(() => {
+    if (reducedMotion) return
     let previousScrollY = window.scrollY
     let previousTime = performance.now()
 
@@ -366,9 +409,10 @@ function PhysicsShowcase() {
 
     window.addEventListener('scroll', reactToScroll, { passive: true })
     return () => window.removeEventListener('scroll', reactToScroll)
-  }, [])
+  }, [reducedMotion])
 
   const onPointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (reducedMotion) return
     event.preventDefault()
     const box = boxRef.current
     if (!box) return
@@ -512,13 +556,15 @@ function PhysicsShowcase() {
     <div
       className="icon-showcase physics-showcase"
       ref={boxRef}
+      role="img"
+      aria-label={reducedMotion ? t('physicsSample') : t('physicsInteractive')}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={releaseDrag}
       onPointerCancel={releaseDrag}
     >
       {particleIcons.map((name, index) => (
-        <span className="physics-icon" key={name} ref={(node) => { nodesRef.current[index] = node }}>
+        <span className="physics-icon" key={name} aria-hidden="true" ref={(node) => { nodesRef.current[index] = node }}>
           <Icon name={name} size={32} />
         </span>
       ))}

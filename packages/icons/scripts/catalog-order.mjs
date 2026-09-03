@@ -24,7 +24,3 @@ export function buildCatalogOrderBySourceKey(metadata, sourceKeys = Object.keys(
 
   return orderBySourceKey
 }
-
-export function validateCatalogTaxonomy(metadata) {
-  buildCatalogOrderBySourceKey(metadata)
-}

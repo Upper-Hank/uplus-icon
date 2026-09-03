@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict'
+import { readFile } from 'node:fs/promises'
 import test from 'node:test'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { ObjectAlignJustifyIcon, PlusIcon, QrCodeIcon, TextareaIcon } from '../../react/dist/index.js'
 import { applyIconWeight, resolveAbsoluteIconWeight, resolveIconWeight, resolveIconWeightScale } from '../../core/dist/weight.js'
+import moreVerticalDefinition from '../../core/dist/generated/icons/more-vertical.js'
 import objectAlignJustifyDefinition from '../../core/dist/generated/icons/object-align-justify.js'
 import qrCodeDefinition from '../../core/dist/generated/icons/qr-code.js'
 import textareaDefinition from '../../core/dist/generated/icons/textarea.js'
@@ -119,10 +121,95 @@ test('React weight renders transformed geometry and preserves caller styles', ()
   assert.doesNotMatch(styled, /--uplus-icon-/)
 })
 
-test('React dynamic icons render known names and ignore unknown runtime names', async () => {
+test('React dynamic icons render known names and warn once about unknown runtime names', async () => {
   const { Icon: ReactIcon } = await import('../../react/dist/dynamic.js')
+  const { resetLegacyNameWarningsForTests } = await import('../../react/dist/resolve-icon.js')
+  resetLegacyNameWarningsForTests()
+
   assert.match(renderToStaticMarkup(createElement(ReactIcon, { name: 'plus' })), /<svg/)
-  assert.equal(renderToStaticMarkup(createElement(ReactIcon, { name: 'missing-at-runtime' })), '')
+
+  const warnings = []
+  const originalWarn = console.warn
+  console.warn = (message) => warnings.push(message)
+  try {
+    assert.equal(renderToStaticMarkup(createElement(ReactIcon, { name: 'missing-at-runtime' })), '')
+    assert.equal(renderToStaticMarkup(createElement(ReactIcon, { name: 'missing-at-runtime' })), '')
+  } finally {
+    console.warn = originalWarn
+    resetLegacyNameWarningsForTests()
+  }
+
+  assert.equal(warnings.length, 1, 'an unknown icon name must warn exactly once in development')
+  assert.match(warnings[0], /No icon is registered for "missing-at-runtime"/)
+})
+
+test('aria-labelledby marks an icon as a semantic graphic', () => {
+  const markup = renderToStaticMarkup(createElement(PlusIcon, { 'aria-labelledby': 'plus-label' }))
+  assert.match(markup, /aria-labelledby="plus-label"/)
+  assert.match(markup, /role="img"/)
+  assert.doesNotMatch(markup, /aria-hidden=/)
+})
+
+test('caller props cannot break the accessibility contract', () => {
+  const labelledButHidden = renderToStaticMarkup(createElement(PlusIcon, { 'aria-label': 'Add', 'aria-hidden': true }))
+  assert.match(labelledButHidden, /aria-label="Add"/)
+  assert.match(labelledButHidden, /role="img"/)
+  assert.doesNotMatch(labelledButHidden, /aria-hidden=/)
+
+  const decorativeButExposed = renderToStaticMarkup(createElement(PlusIcon, { 'aria-hidden': false }))
+  assert.match(decorativeButExposed, /aria-hidden="true"/)
+  assert.doesNotMatch(decorativeButExposed, /role="img"/)
+
+  const reshaped = renderToStaticMarkup(createElement(PlusIcon, { viewBox: '0 0 48 48' }))
+  assert.match(reshaped, /viewBox="0 0 24 24"/)
+})
+
+test('explicit width and height override size per axis and drive absolute weight', () => {
+  const mixed = renderToStaticMarkup(createElement(PlusIcon, { size: 20, width: 32 }))
+  assert.match(mixed, /width="32"/)
+  assert.match(mixed, /height="20"/)
+
+  const bySize = renderToStaticMarkup(createElement(PlusIcon, { absoluteWeight: true, size: 48, weight: 1 }))
+  const byWidth = renderToStaticMarkup(createElement(PlusIcon, { absoluteWeight: true, width: 48, height: 48, weight: 1 }))
+  assert.equal(
+    byWidth.match(/<g>([\s\S]*?)<\/g>/)?.[1],
+    bySize.match(/<g>([\s\S]*?)<\/g>/)?.[1],
+    'absolute weight must follow the rendered width, not just the size prop',
+  )
+})
+
+test('IconBase renders without React hooks so named icons stay server-renderable', async () => {
+  const { IconBase } = await import('../../react/dist/index.js')
+  assert.equal(IconBase.displayName, 'IconBase')
+  const source = await readFile(new URL('../../react/dist/IconBase.js', import.meta.url), 'utf8')
+  assert.doesNotMatch(source, /\buse[A-Z]\w*\s*\(/, 'IconBase must not call React hooks')
+})
+
+test('transformed solid geometry keeps its rendered position while it scales', () => {
+  const rect = /<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)"/
+  const centerOf = (body) => {
+    const [, x, y, width, height] = body.match(rect).map(Number)
+    return [x + width / 2, y + height / 2]
+  }
+
+  const full = moreVerticalDefinition.body
+  assert.match(full, /transform="rotate\(90 14 2\.5\)"/)
+
+  for (const weight of [0.5, 1, 1.5]) {
+    const weighted = applyIconWeight(full, { name: 'more-vertical', weight })
+    const [weightedX, weightedY] = centerOf(weighted)
+    const [sourceX, sourceY] = centerOf(full)
+    // Attribute values are rounded to four decimals, so allow that much drift.
+    assert.ok(Math.abs(weightedX - sourceX) < 1e-3, `weight ${weight} must not move the rect center on x`)
+    assert.ok(Math.abs(weightedY - sourceY) < 1e-3, `weight ${weight} must not move the rect center on y`)
+    assert.equal(
+      (weighted.match(/transform="rotate\(90 14 2\.5\)"/g) ?? []).length,
+      1,
+      'the rotation pivot must stay untouched so the rotated dot keeps its place',
+    )
+    const [, , , width] = weighted.match(rect).map(Number)
+    assert.ok(width < 4, `weight ${weight} must shrink the dot`)
+  }
 })
 
 test('textarea anchored handle renders the audited geometry at supported weights', () => {

@@ -54,6 +54,17 @@ npm install @uplus-icon/react
 
 ## 使用方式
 
+### Codex Plugin 预览
+
+仓库提供了一个面向使用者的 Codex Plugin，用于在 React 项目中查找和接入已发布的 Uplus 图标。它不负责维护原始 SVG，也不包含图标库发布流程。
+
+```bash
+codex plugin marketplace add Upper-Hank/uplus-icon
+codex plugin add uplus-icon@personal
+```
+
+安装后新建一个 Codex 任务，可以显式调用 `$use-uplus-icon`，也可以要求 Codex 在 React 项目中使用 Uplus Icon。Skill 会读取消费项目实际安装版本的元数据，不维护另一份图标目录。
+
 ### React 组件
 
 ```tsx
@@ -99,7 +110,7 @@ import { Icon } from '@uplus-icon/react/dynamic'
 | --- | --- | --- | --- |
 | `size` | `number \| string` | `24` | 同时设置宽度和高度。 |
 | `weight` | `number` | `2` | 描边按 `weight ÷ 2` 缩放；受支持的实心细节按 `(weight + 1) ÷ 3` 连续缩放。运行时限制在 `0.5–2`。 |
-| `absoluteWeight` | `boolean` | `false` | 数值尺寸下保持 CSS 像素重量；字符串尺寸安全回退为相对重量。 |
+| `absoluteWeight` | `boolean` | `false` | 数值尺寸下把 `weight` 当作 CSS 像素，并限制在 `0.5–8`；字符串尺寸安全回退为相对重量 `0.5–2`。 |
 | `title` | `string` | — | 添加 SVG 标题，并将图标暴露为图像。 |
 | `color` | `string` | — | 标准 SVG 颜色属性，实际效果取决于提供的 SVG 源文件。 |
 | `aria-label` | `string` | — | 为具有独立语义的图标提供无障碍名称。 |
@@ -128,7 +139,11 @@ uplus-icon/
 │   │   ├── metadata/         搜索和分类元数据
 │   │   └── scripts/          统一代码生成工具
 │   ├── core/                 框架无关 definition 和元数据
-│   └── react/                React 组件
+│   ├── react/                React 组件
+│   └── motion/               孵化中的动画规则（私有，尚未发布）
+├── plugins/
+│   └── uplus-icon/           面向使用者的 Codex Plugin 与 Skill
+├── .agents/plugins/          仓库级 Plugin marketplace
 ├── .github/workflows/        持续集成
 ├── CONTRIBUTING.md
 └── LICENSE
@@ -151,6 +166,7 @@ npm run dev
 | --- | --- |
 | `npm run dev` | 启动文档网站。 |
 | `npm run generate` | 根据已确认的 SVG 生成组件。 |
+| `npm run test:plugin` | 验证面向使用者的 Codex Plugin 行为。 |
 | `npm run typecheck` | 检查图标包和网站的 TypeScript。 |
 | `npm run build` | 构建全部图标包和文档网站。 |
 | `npm run check` | 执行完整 CI 检查。 |
@@ -171,7 +187,7 @@ npm run dev
 
 ## 参与贡献
 
-欢迎贡献代码、文档、测试和工程工具。提交 Pull Request 前请阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)。
+欢迎贡献代码、文档、测试和工程工具。提交 Pull Request 前请阅读 [CONTRIBUTING.md](./CONTRIBUTING.md)。安全问题请走 [SECURITY.md](./SECURITY.md)，不要公开提交 Issue。
 
 原始 SVG 采用更严格的流程：除非维护者明确提供或批准最终文件，否则禁止新增、修改、重绘、优化或替换 `packages/icons/raw` 中的文件。发现图标缺失或错误时，请先提交 Issue。
 

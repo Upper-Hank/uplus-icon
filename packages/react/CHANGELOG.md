@@ -1,5 +1,13 @@
 # @uplus-icon/react
 
+## 0.1.0-beta.2
+
+### Patch Changes
+
+- Add clipboard, folder-plus, inbox, pet, trophy, and basketball icons; update file, folder, and pet artwork; move inbox into communication; and rename badge to medal with deprecated compatibility exports.
+- Updated dependencies
+  - @uplus-icon/core@0.1.0-beta.2
+
 ## 0.1.0-beta.1
 
 ### Patch Changes

@@ -13,7 +13,7 @@ The supported baseline is a `24×24` master, default stroke `2`, and recommended
 
 ## Automated gates
 
-- **MUST** verify TypeScript plus all three public packages and the site build.
+- **MUST** verify TypeScript plus the two public packages (`@uplus-icon/core`, `@uplus-icon/react`) and the site build. `@uplus-icon/motion` is private and incubating; it is typechecked and unit-tested, but it is not a public release gate.
 - **MUST** prove per-icon entries do not bundle the full registry.
 - **MUST** prove generation is reproducible and never rewrites raw SVGs.
 - **MUST** validate the mapping among names, categories, metadata, and routes.
@@ -21,6 +21,7 @@ The supported baseline is a `24×24` master, default stroke `2`, and recommended
 - **MUST** test named, per-icon, and dynamic React entries.
 - **MUST** inspect packed artifacts for required documentation and validate the lowest supported React peer version.
 - **MUST** enforce route-level metadata, sitemap coverage, SPA fallback, and production JavaScript budgets for the site.
+- **MUST** validate the consumer-side Codex plugin (`npm run test:plugin`) whenever plugin assets or search behavior change.
 
 ## Visual matrix
 

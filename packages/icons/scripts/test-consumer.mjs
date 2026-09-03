@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 
 const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const workspace = join(sourceRoot, '..', '..')
+const pluginSearch = join(workspace, 'plugins', 'uplus-icon', 'skills', 'use-uplus-icon', 'scripts', 'search-icons.mjs')
 const temp = await mkdtemp(join(tmpdir(), 'uplus-icon-consumer-'))
 const npmEnv = { ...process.env, npm_config_cache: join(temp, '.npm-cache') }
 
@@ -39,7 +40,13 @@ console.log('Rendered installed packages with', iconMeta.length, 'metadata entri
 `)
   execFileSync(join(temp, 'node_modules', '.bin', 'tsc'), [], { cwd: temp, stdio: 'pipe' })
   const output = execFileSync('node', ['build/consumer.js'], { cwd: temp, encoding: 'utf8' }).trim()
+  const checkResults = JSON.parse(execFileSync(process.execPath, [pluginSearch, '--cwd', temp, 'check'], { cwd: temp, encoding: 'utf8' }))
+  const deleteResults = JSON.parse(execFileSync(process.execPath, [pluginSearch, '--cwd', temp, '删除'], { cwd: temp, encoding: 'utf8' }))
+  if (checkResults[0]?.name !== 'check' || deleteResults[0]?.name !== 'trash') {
+    throw new Error('Consumer-side plugin search did not use the installed package metadata')
+  }
   console.log(output)
+  console.log('Searched installed package metadata through the consumer-side plugin')
 } finally {
   await rm(temp, { recursive: true, force: true })
 }

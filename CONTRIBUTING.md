@@ -39,5 +39,7 @@ npm run check
 - 不手工编辑 `packages/core/src/generated` 或 `packages/react/src/generated`。
 - 修改生成逻辑后运行 `npm run generate` 并提交生成结果。
 - 新行为应包含与风险相称的测试或验证。
+- 面向使用者的 Codex plugin 位于 `plugins/uplus-icon`；改动后运行 `npm run test:plugin`。它只帮助消费者查找和接入已发布的图标，不管理源 SVG 或发布流程。
 
 本项目的代码和图标资产均采用 MIT License。
+安全报告见 [SECURITY.md](./SECURITY.md)。

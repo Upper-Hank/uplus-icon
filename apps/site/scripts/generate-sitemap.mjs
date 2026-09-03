@@ -20,7 +20,7 @@ const paths = [
   '/docs',
   '/changelog',
   ...docSlugs.map((slug) => `/docs/${slug}`),
-  ...Object.keys(metadata).sort().map((name) => `/icons/${name}`),
+  ...Object.values(metadata).map((icon) => `/icons/${icon.name}`).sort(),
 ]
 
 const sitemap = [

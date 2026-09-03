@@ -53,7 +53,7 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
 
   const filtered = useMemo(() => {
     const value = query.trim().toLowerCase()
-    const matches = iconMeta.map((icon, index) => ({ icon, index })).filter(({ icon: { name, title, titleZh, tags, aliases, categories, subgroup } }) => {
+    const matches = iconMeta.map((icon, index) => ({ icon, index })).filter(({ icon: { name, title, titleZh, tags, aliases, legacyNames, categories, subgroup } }) => {
       if (!value) return true
       const categoryTerms = iconCategories
         .filter(({ id }) => categories.includes(id))
@@ -61,7 +61,8 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
       const subgroupTerms = iconSubgroups
         .filter((entry) => entry.categoryId === categories[0] && entry.id === subgroup)
         .flatMap(({ id, title: subgroupTitle, titleZh: subgroupTitleZh }) => [id, subgroupTitle, subgroupTitleZh])
-      return [name, title, titleZh, subgroup, ...tags, ...aliases, ...categoryTerms, ...subgroupTerms].some((term) => term.toLowerCase().includes(value))
+      const legacyTerms = (legacyNames ?? []).map((legacy) => legacy.name)
+      return [name, title, titleZh, subgroup, ...tags, ...aliases, ...legacyTerms, ...categoryTerms, ...subgroupTerms].some((term) => term.toLowerCase().includes(value))
     })
     matches.sort((a, b) => {
       if (sortOrder === 'name') return a.icon.name.localeCompare(b.icon.name) || a.index - b.index
@@ -108,17 +109,17 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
     <div className="library-toolbar">
       <div className="icon-search" role="search">
         {query
-          ? <button className="search-clear" type="button" aria-label={language === 'zh' ? '清除搜索' : 'Clear search'} onClick={() => {
+          ? <button className="search-clear" type="button" aria-label={t('clearSearch')} onClick={() => {
             setQuery('')
             searchRef.current?.focus()
           }}><Icon name="close" size={18} /></button>
           : <UiIconSlot name="search"><UiIcon name="search" /></UiIconSlot>}
         <input
           ref={searchRef}
-          aria-label={language === 'zh' ? '搜索图标' : 'Search icons'}
+          aria-label={t('searchIcons')}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder={language === 'zh' ? '搜索Icon' : 'Search icons'}
+          placeholder={t('search')}
         />
       </div>
       <div className="library-toolbar-actions">
