@@ -4,14 +4,14 @@
 
 ### 新增
 
-- 六个图标：`clipboard`、`folder-plus`、`inbox`、`pet`、`trophy`、`basketball`。
+- 七个图标：`clipboard`、`folder-plus`、`inbox`、`pet`、`trophy`、`basketball`、`setting-alt`。
 - `badge` 公共名称与 `BadgeIcon` 导出改为 `medal`，并保留弃用兼容。
 
 ### 变更
 
 - 按批准真源更新 `file`、`folder`、`pet`。
 - 将 `inbox` 调整到沟通分组。
-- 目录现为 310 个图标。
+- 目录现为 311 个图标。
 
 ## [0.1.0-beta.1] - 2026-08-15
 

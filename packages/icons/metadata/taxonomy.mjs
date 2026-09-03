@@ -18,7 +18,7 @@ export const figmaTaxonomy = {
     arrow: ['arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-top-left', 'arrow-top-right', 'arrow-bottom-left', 'arrow-bottom-right'],
   },
   interface: {
-    controls: ['setting', 'control-horizon', 'control-vertical', 'checkbox', 'toggle', 'radio', 'tabs', 'battery-vertical', 'calculator'],
+    controls: ['setting', 'setting-alt', 'control-horizon', 'control-vertical', 'checkbox', 'toggle', 'radio', 'tabs', 'battery-vertical', 'calculator'],
     appearance: ['eye', 'eye-off', 'sun', 'moon', 'clarity', 'color', 'color-wheel'],
     design: [
       'text', 'underline', 'text-alt', 'strikethrough', 'bold', 'italic', 'heading', 'quote', 'code-block', 'artboard',
