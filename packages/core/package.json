@@ -52,7 +52,8 @@
   ],
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "publishConfig": {
     "access": "public"
