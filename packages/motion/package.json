@@ -45,14 +45,20 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@uplus-icon/core": "^0.1.0-beta.1",
-    "@uplus-icon/react": "^0.1.0-beta.1"
+    "@uplus-icon/core": "^0.1.0-beta.2"
   },
   "peerDependencies": {
+    "@uplus-icon/react": "^0.1.0-beta.2",
     "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "@uplus-icon/react": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@types/react": "^19.1.8",
+    "@uplus-icon/react": "^0.1.0-beta.2",
     "react": "^19.1.0",
     "typescript": "^5.8.3"
   }

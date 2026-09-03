@@ -13,7 +13,7 @@ locale: zh-CN
 
 ## 自动化门禁
 
-- **必须**验证 TypeScript、三个公共包和站点构建。
+- **必须**验证 TypeScript、两个公共包（`@uplus-icon/core`、`@uplus-icon/react`）和站点构建。`@uplus-icon/motion` 仍是私有孵化包，会做类型检查和单元测试，但不作为公开发布门禁。
 - **必须**验证逐图标入口不会打包完整图标表。
 - **必须**验证生成可复现且不改写 Raw SVG。
 - **必须**验证元数据名称、分类和路由的一一对应。
@@ -21,6 +21,7 @@ locale: zh-CN
 - **必须**验证 React 具名、逐图标和动态入口。
 - **必须**检查发布包所需文档，并验证声明支持的最低 React Peer 版本。
 - **必须**验证站点路由元数据、Sitemap 覆盖、SPA 回退和生产 JavaScript 预算。
+- **必须**在 plugin 资产或搜索行为变化时验证面向使用者的 Codex plugin（`npm run test:plugin`）。
 
 ## 视觉矩阵
 

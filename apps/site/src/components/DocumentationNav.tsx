@@ -1,5 +1,6 @@
 import { getDocGroupLabels, getDocPath, type DocDocument, type DocGroup, type DocSlug } from '../content/docs'
 import { currentVersionLabel } from '../app/releaseInfo'
+import { AppLink } from './AppLink'
 
 interface DocumentationNavProps {
   active?: DocSlug | 'guide' | 'changelog'
@@ -26,45 +27,45 @@ export function DocumentationNav({ active, documents, language, mobileIndex = fa
   return (
     <nav aria-label={language === 'zh' ? '文档目录' : 'Documentation'}>
       <div className="docs-index-fixed docs-index-fixed-top">
-        <button
+        <AppLink
           className={`docs-index-featured${active === 'guide' ? ' active' : ''}`}
-          type="button"
-          onClick={() => navigate('/guide')}
+          to="/guide"
+          navigate={navigate}
           aria-current={active === 'guide' ? 'page' : undefined}
         >
           <strong>{language === 'zh' ? '使用指南' : 'Get started'}</strong>
           <span className="docs-index-featured-badge" aria-hidden="true">START</span>
-        </button>
+        </AppLink>
       </div>
       <div className="docs-index-scroll">
         {documentGroups.map(({ group, documents: groupDocuments }, groupIndex) => (
           <div className="docs-index-group" key={`${group}-${groupIndex}`}>
             <h2>{labels[group]}</h2>
             {groupDocuments.map((item) => (
-              <button
+              <AppLink
                 className={active === item.slug ? 'active' : ''}
-                type="button"
-                onClick={() => navigate(mobileIndex ? `/docs/${item.slug}` : getDocPath(item.slug))}
+                to={mobileIndex ? `/docs/${item.slug}` : getDocPath(item.slug)}
+                navigate={navigate}
                 aria-current={active === item.slug ? 'page' : undefined}
                 key={item.slug}
               >
                 <b>{String(item.order).padStart(2, '0')}</b>
                 <span><strong>{item.title}</strong></span>
-              </button>
+              </AppLink>
             ))}
           </div>
         ))}
       </div>
       <div className="docs-index-fixed docs-index-fixed-bottom">
-        <button
+        <AppLink
           className={`docs-index-featured${active === 'changelog' ? ' active' : ''}`}
-          type="button"
-          onClick={() => navigate('/changelog')}
+          to="/changelog"
+          navigate={navigate}
           aria-current={active === 'changelog' ? 'page' : undefined}
         >
           <strong>{language === 'zh' ? '更新日志' : 'Changelog'}</strong>
           <span className="docs-index-featured-badge">{currentVersionLabel}</span>
-        </button>
+        </AppLink>
       </div>
     </nav>
   )

@@ -8,7 +8,7 @@ import {
   isValidSemver,
   manifestVersionFromFilename,
   resolvePublicName,
-  selectManifestVersion,
+  selectPreviousManifestVersion,
   validateIconIdentityMetadata,
 } from './icon-identity.mjs'
 
@@ -35,7 +35,7 @@ async function resolvePreviousManifest(previousArg, currentVersion) {
   const manifestVersions = (await readdir(releasesDir))
     .map((filename) => manifestVersionFromFilename(filename))
     .filter(Boolean)
-  const previousVersion = selectManifestVersion(manifestVersions, currentVersion)
+  const previousVersion = selectPreviousManifestVersion(manifestVersions, currentVersion)
   if (!previousVersion) return null
   return JSON.parse(await readFile(join(releasesDir, `${previousVersion}.json`), 'utf8'))
 }

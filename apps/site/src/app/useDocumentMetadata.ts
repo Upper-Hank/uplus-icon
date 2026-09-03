@@ -82,7 +82,11 @@ export function useDocumentMetadata(route: Route, language: Language) {
     setMeta('meta[property="og:title"]', { property: 'og:title' }, metadata.title)
     setMeta('meta[property="og:description"]', { property: 'og:description' }, metadata.description)
     setMeta('meta[property="og:url"]', { property: 'og:url' }, canonicalUrl)
-    setMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary')
+    setMeta('meta[property="og:image"]', { property: 'og:image' }, `${siteUrl}/og.svg`)
+    setMeta('meta[property="og:locale"]', { property: 'og:locale' }, language === 'zh' ? 'zh_CN' : 'en_US')
+    setMeta('meta[property="og:locale:alternate"]', { property: 'og:locale:alternate' }, language === 'zh' ? 'en_US' : 'zh_CN')
+    setMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary_large_image')
+    setMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, `${siteUrl}/og.svg`)
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (!canonical) {
@@ -91,5 +95,22 @@ export function useDocumentMetadata(route: Route, language: Language) {
       document.head.append(canonical)
     }
     canonical.href = canonicalUrl
+
+    const hreflang = [
+      { hreflang: 'en', href: canonicalUrl },
+      { hreflang: 'zh-CN', href: canonicalUrl },
+      { hreflang: 'x-default', href: canonicalUrl },
+    ]
+    for (const alternate of hreflang) {
+      const selector = `link[rel="alternate"][hreflang="${alternate.hreflang}"]`
+      let link = document.head.querySelector<HTMLLinkElement>(selector)
+      if (!link) {
+        link = document.createElement('link')
+        link.rel = 'alternate'
+        link.hreflang = alternate.hreflang
+        document.head.append(link)
+      }
+      link.href = alternate.href
+    }
   }, [language, route])
 }

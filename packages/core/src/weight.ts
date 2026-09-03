@@ -13,7 +13,13 @@ export interface IconWeightOptions {
 const numericAttribute = (name: string) => new RegExp(`(\\b${name}\\s*=\\s*)(["'])((?:-?\\d+(?:\\.\\d+)?)|(?:-?\\.\\d+))\\2`)
 
 const formatNumber = (value: number) => String(Number(value.toFixed(4)))
-const solidPathAnchors: Record<string, Array<[number, number]>> = {
+
+/**
+ * Filled paths that may scale around an audited anchor instead of staying fixed.
+ * Any other filled path keeps its source geometry. The weight audit reads this
+ * registry so approved anchors are declared in exactly one place.
+ */
+export const solidPathAnchors: Readonly<Record<string, ReadonlyArray<readonly [number, number]>>> = {
   headset: [[14, 19.5]],
   'qr-code': [[7, 7], [17, 7], [7, 17]],
   textarea: [[19, 17]],

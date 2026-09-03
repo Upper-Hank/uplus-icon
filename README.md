@@ -54,6 +54,17 @@ npm install @uplus-icon/react
 
 ## Usage
 
+### Codex plugin preview
+
+The repository includes a consumer-side Codex plugin for finding and integrating published Uplus icons in React projects. It does not manage source SVGs or the library release workflow.
+
+```bash
+codex plugin marketplace add Upper-Hank/uplus-icon
+codex plugin add uplus-icon@personal
+```
+
+Start a new Codex task after installation, then invoke `$use-uplus-icon` or ask Codex to use Uplus Icon in a React project. The skill searches the metadata from the version installed in that consumer project instead of bundling a separate icon catalog.
+
 ### React component
 
 ```tsx
@@ -99,7 +110,7 @@ Every icon accepts standard React SVG attributes in addition to the following pr
 | --- | --- | --- | --- |
 | `size` | `number \| string` | `24` | Sets both width and height. |
 | `weight` | `number` | `2` | Scales strokes by `weight ÷ 2` and supported solid details continuously by `(weight + 1) ÷ 3`. Clamped to `0.5–2`. |
-| `absoluteWeight` | `boolean` | `false` | Keeps weight in CSS pixels for numeric sizes; string sizes safely use relative weight. |
+| `absoluteWeight` | `boolean` | `false` | For numeric sizes, treats `weight` as CSS pixels and clamps it to `0.5–8`. String sizes safely use the relative `0.5–2` range. |
 | `title` | `string` | — | Adds an SVG title and exposes the icon as an image. |
 | `color` | `string` | — | Standard SVG color prop; its effect follows the supplied SVG source. |
 | `aria-label` | `string` | — | Gives a meaningful icon an accessible name. |
@@ -128,7 +139,11 @@ uplus-icon/
 │   │   ├── metadata/         Search and classification metadata
 │   │   └── scripts/          Unified code generation
 │   ├── core/                 Framework-neutral definitions and metadata
-│   └── react/                React components
+│   ├── react/                React components
+│   └── motion/               Incubating animation rules (private, unpublished)
+├── plugins/
+│   └── uplus-icon/           Consumer-side Codex plugin and skill
+├── .agents/plugins/          Repo marketplace entry
 ├── .github/workflows/        Continuous integration
 ├── CONTRIBUTING.md
 └── LICENSE
@@ -151,6 +166,7 @@ Useful commands:
 | --- | --- |
 | `npm run dev` | Start the documentation site. |
 | `npm run generate` | Generate components from approved SVG sources. |
+| `npm run test:plugin` | Validate the consumer-side Codex plugin behavior. |
 | `npm run typecheck` | Check the package and site with TypeScript. |
 | `npm run build` | Build all packages and the documentation site. |
 | `npm run check` | Run the complete CI validation. |
@@ -171,7 +187,7 @@ The roadmap intentionally prioritizes a small, dependable core over adding frame
 
 ## Contributing
 
-Code, documentation, tests, and tooling contributions are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
+Code, documentation, tests, and tooling contributions are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request. Security reports go through [SECURITY.md](./SECURITY.md), not public issues.
 
 Raw SVG files follow a stricter process: do not add, edit, redraw, optimize, or replace files in `packages/icons/raw` unless the maintainer has explicitly supplied or approved the final SVG. If an icon is missing or incorrect, open an issue first.
 

@@ -22,7 +22,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 295
+    "catalogOrder": 300
   },
   {
     "id": "uicon_396e1b2d-9726-4d35-bdf5-9a0e74118058",
@@ -44,7 +44,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 227
+    "catalogOrder": 230
   },
   {
     "id": "uicon_d4fc6602-09b4-42cc-a97f-526e5d171926",
@@ -342,14 +342,20 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 198
+    "catalogOrder": 201
   },
   {
     "id": "uicon_5d4fded9-e9db-45fb-b2b4-03f33a0a0add",
-    "name": "badge",
-    "componentName": "BadgeIcon",
-    "title": "Badge",
-    "titleZh": "徽章",
+    "name": "medal",
+    "legacyNames": [
+      {
+        "name": "badge",
+        "renamedIn": "0.1.0-beta.2"
+      }
+    ],
+    "componentName": "MedalIcon",
+    "title": "Medal",
+    "titleZh": "奖牌",
     "categories": [
       "status"
     ],
@@ -364,7 +370,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 302
+    "catalogOrder": 307
   },
   {
     "id": "uicon_43ad983c-a01c-4d8c-8ab2-448116f0f6c5",
@@ -386,7 +392,29 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 208
+    "catalogOrder": 211
+  },
+  {
+    "id": "uicon_afb7d87a-c15c-4154-9c0b-f3a8f4c018da",
+    "name": "basketball",
+    "componentName": "BasketballIcon",
+    "title": "Basketball",
+    "titleZh": "篮球",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "sport",
+    "tags": [
+      "objects",
+      "对象",
+      "sport",
+      "运动"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 273
   },
   {
     "id": "uicon_d17ae126-8be0-4f66-870a-077931b2432a",
@@ -408,7 +436,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 209
+    "catalogOrder": 212
   },
   {
     "id": "uicon_21f926e8-e933-4ac2-af5b-4279c899d6bc",
@@ -452,7 +480,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 194
+    "catalogOrder": 197
   },
   {
     "id": "uicon_6c6366b9-614c-4201-97e4-622fdeb8f484",
@@ -476,7 +504,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 193
+    "catalogOrder": 196
   },
   {
     "id": "uicon_97ad3250-a2ca-4c86-9e64-d1e496aed298",
@@ -498,7 +526,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 222
+    "catalogOrder": 225
   },
   {
     "id": "uicon_ffc512a3-68d3-4f42-a7fb-e36c1c0ea58f",
@@ -520,7 +548,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 221
+    "catalogOrder": 224
   },
   {
     "id": "uicon_ad0513b4-3d0e-425e-9808-cce70e9e0610",
@@ -564,7 +592,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 184
+    "catalogOrder": 186
   },
   {
     "id": "uicon_4c90278e-b9ed-4003-a138-0aac1c995f6c",
@@ -586,7 +614,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 186
+    "catalogOrder": 188
   },
   {
     "id": "uicon_9eca509b-b26c-4de1-b9ee-f632cc1ebdbf",
@@ -608,7 +636,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 183
+    "catalogOrder": 185
   },
   {
     "id": "uicon_6bac3872-865c-43f5-848d-c00d1f532f8a",
@@ -630,7 +658,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 272
+    "catalogOrder": 277
   },
   {
     "id": "uicon_2760f007-0150-4445-b82c-db6a2fadd680",
@@ -655,7 +683,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 224
+    "catalogOrder": 227
   },
   {
     "id": "uicon_e51aca20-264c-4612-9273-345e1aaf17ed",
@@ -677,7 +705,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 218
+    "catalogOrder": 221
   },
   {
     "id": "uicon_7809b09c-a00f-48e9-963e-eec4118cca22",
@@ -721,7 +749,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 229
+    "catalogOrder": 232
   },
   {
     "id": "uicon_6196629f-1d4d-46e4-bea7-cdb01bace839",
@@ -765,7 +793,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 248
+    "catalogOrder": 251
   },
   {
     "id": "uicon_b9e03eaf-1af3-4b97-8d6a-93f88761abc2",
@@ -809,7 +837,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 213
+    "catalogOrder": 216
   },
   {
     "id": "uicon_ef9cbb19-2452-4a78-963b-1f1625e226f8",
@@ -1103,7 +1131,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 210
+    "catalogOrder": 213
   },
   {
     "id": "uicon_42a485b6-ce72-439e-86ae-fd11d1b7bfac",
@@ -1147,7 +1175,29 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 226
+    "catalogOrder": 229
+  },
+  {
+    "id": "uicon_16f10119-da2a-43dd-868b-d35959e0e857",
+    "name": "clipboard",
+    "componentName": "ClipboardIcon",
+    "title": "Clipboard",
+    "titleZh": "剪贴板",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "content",
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 183
   },
   {
     "id": "uicon_23b269f5-28d4-4f18-acc1-be0073bdaacb",
@@ -1238,7 +1288,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 223
+    "catalogOrder": 226
   },
   {
     "id": "uicon_9d794c2a-b016-4645-bb58-fdff80595f37",
@@ -1329,7 +1379,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 191
+    "catalogOrder": 193
   },
   {
     "id": "uicon_6d43be0f-a5cb-4baa-a6ae-06fd58579d0e",
@@ -1373,7 +1423,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 203
+    "catalogOrder": 206
   },
   {
     "id": "uicon_e4ebcc4d-ff81-404d-afa1-2293999198d1",
@@ -1463,7 +1513,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 251
+    "catalogOrder": 254
   },
   {
     "id": "uicon_c85bca95-66a3-42e0-b1b5-f478b46f055f",
@@ -1485,7 +1535,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 250
+    "catalogOrder": 253
   },
   {
     "id": "uicon_aae1132c-7bfa-4446-8eeb-9fcd735f8af2",
@@ -1529,7 +1579,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 211
+    "catalogOrder": 214
   },
   {
     "id": "uicon_b1c7f317-b1c3-4c3d-858f-8f6ec3a03f0e",
@@ -1551,7 +1601,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 264
+    "catalogOrder": 267
   },
   {
     "id": "uicon_2179ee63-1664-43e5-9565-e077a8c3a5f7",
@@ -1573,7 +1623,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 257
+    "catalogOrder": 260
   },
   {
     "id": "uicon_3bd4d302-dbad-457a-8795-56e3cf0c0f5e",
@@ -1595,7 +1645,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 256
+    "catalogOrder": 259
   },
   {
     "id": "uicon_6590fa6d-7f41-439d-9bf2-7889c7121741",
@@ -1617,7 +1667,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 255
+    "catalogOrder": 258
   },
   {
     "id": "uicon_421c5cfa-1385-4fd1-8f1a-670be62322f0",
@@ -1639,7 +1689,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 254
+    "catalogOrder": 257
   },
   {
     "id": "uicon_362ce0b7-2cf4-4fc2-8452-2fa0537b2d5b",
@@ -1661,7 +1711,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 253
+    "catalogOrder": 256
   },
   {
     "id": "uicon_3c3db73c-c27b-4887-a94f-b23db8da6ee5",
@@ -1728,7 +1778,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 291
+    "catalogOrder": 296
   },
   {
     "id": "uicon_4b01f614-7995-4111-886f-b78e4ae135b4",
@@ -1750,7 +1800,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 212
+    "catalogOrder": 215
   },
   {
     "id": "uicon_a677e903-a35b-4eec-8fb4-cc95020b3fd2",
@@ -1794,7 +1844,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 263
+    "catalogOrder": 266
   },
   {
     "id": "uicon_e911aedd-5c8b-409b-8341-be0e4f1233b2",
@@ -1906,7 +1956,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 231
+    "catalogOrder": 234
   },
   {
     "id": "uicon_408ca218-62f6-47d6-ad8d-f7210e5da5d7",
@@ -2198,7 +2248,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 262
+    "catalogOrder": 265
   },
   {
     "id": "uicon_cf459383-ceae-4555-babd-c267028f1e66",
@@ -2220,7 +2270,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 235
+    "catalogOrder": 238
   },
   {
     "id": "uicon_9eecfc89-cb2a-44dd-a93c-edb4372e24b5",
@@ -2242,7 +2292,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 296
+    "catalogOrder": 301
   },
   {
     "id": "uicon_2e0002fd-a99f-4912-b10a-7a1ea87b87c4",
@@ -2264,7 +2314,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 266
+    "catalogOrder": 269
   },
   {
     "id": "uicon_1ab9e966-688e-45db-9ff4-6120b50b6770",
@@ -2330,7 +2380,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 215
+    "catalogOrder": 218
   },
   {
     "id": "uicon_dde352b8-3758-4f52-b810-5c9591a0afdc",
@@ -2353,6 +2403,28 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "publishedIn": null,
     "updatedIn": null,
     "catalogOrder": 181
+  },
+  {
+    "id": "uicon_622f5c60-d087-4952-b7a4-2bc436445882",
+    "name": "folder-plus",
+    "componentName": "FolderPlusIcon",
+    "title": "Folder Plus",
+    "titleZh": "新建文件夹",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "content",
+    "tags": [
+      "objects",
+      "对象",
+      "content",
+      "内容"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 182
   },
   {
     "id": "uicon_6c1aeb50-948f-4f6a-b097-0ad2a6f78235",
@@ -2396,7 +2468,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 269
+    "catalogOrder": 274
   },
   {
     "id": "uicon_3d40242e-a92f-4995-a9c0-83c8086c9ad3",
@@ -2462,7 +2534,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 243
+    "catalogOrder": 246
   },
   {
     "id": "uicon_a9a813a5-47f4-4d5b-a8cd-3458dc3e9bbe",
@@ -2484,7 +2556,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 240
+    "catalogOrder": 243
   },
   {
     "id": "uicon_38fa5777-cbd4-40dd-9a18-f6af562c0497",
@@ -2506,7 +2578,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 242
+    "catalogOrder": 245
   },
   {
     "id": "uicon_bb7abf64-2705-4fca-aa8b-c8ee01bac19e",
@@ -2528,7 +2600,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 241
+    "catalogOrder": 244
   },
   {
     "id": "uicon_3b0113cd-9b94-4066-b437-4434254c6f83",
@@ -2550,7 +2622,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 249
+    "catalogOrder": 252
   },
   {
     "id": "uicon_301ae31f-d063-456e-8110-ef1480756b93",
@@ -2572,7 +2644,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 214
+    "catalogOrder": 217
   },
   {
     "id": "uicon_29278065-561d-4867-991b-3447543c394e",
@@ -2594,7 +2666,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 267
+    "catalogOrder": 270
   },
   {
     "id": "uicon_d8a61303-32d2-4eaf-8c51-88916c3438b5",
@@ -2620,7 +2692,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 232
+    "catalogOrder": 235
   },
   {
     "id": "uicon_9f1b2a92-66cb-481d-b304-6f52956683e4",
@@ -2710,7 +2782,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 216
+    "catalogOrder": 219
   },
   {
     "id": "uicon_8eea28f2-5f96-454d-9c6e-d0dc4394f4f3",
@@ -2734,7 +2806,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 185
+    "catalogOrder": 187
   },
   {
     "id": "uicon_5bfac2a8-6af7-496b-80cc-70264b71f166",
@@ -2778,7 +2850,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 196
+    "catalogOrder": 199
   },
   {
     "id": "uicon_fa465401-c365-41ea-a8db-4a02e1ce65cc",
@@ -2803,7 +2875,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 279
+    "catalogOrder": 284
   },
   {
     "id": "uicon_29f301cd-e494-46f9-8e6f-e43e41921d68",
@@ -2826,7 +2898,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 292
+    "catalogOrder": 297
   },
   {
     "id": "uicon_2df4fd7a-2bbb-44b5-bc47-754602835be9",
@@ -2872,7 +2944,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 297
+    "catalogOrder": 302
   },
   {
     "id": "uicon_f3df7474-ec6f-46ae-b646-3ae60937a2ea",
@@ -2897,6 +2969,28 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "catalogOrder": 177
   },
   {
+    "id": "uicon_3cde7e32-310c-4e77-81ef-b10385143740",
+    "name": "inbox",
+    "componentName": "InboxIcon",
+    "title": "Inbox",
+    "titleZh": "收件箱",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "communication",
+    "tags": [
+      "objects",
+      "对象",
+      "communication",
+      "沟通"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 194
+  },
+  {
     "id": "uicon_f43c3171-38ca-4a9b-b8a7-bb97b44c9d3c",
     "name": "info",
     "componentName": "InfoIcon",
@@ -2916,7 +3010,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 190
+    "catalogOrder": 192
   },
   {
     "id": "uicon_6d37289d-5e5e-42a0-b0c2-16fabf8dd3de",
@@ -2982,7 +3076,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 275
+    "catalogOrder": 280
   },
   {
     "id": "uicon_8624b8eb-6b85-4d5c-8159-4b0d46dee82c",
@@ -3004,7 +3098,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 261
+    "catalogOrder": 264
   },
   {
     "id": "uicon_a792f3b9-8ad6-46e7-9dfb-34fb2b70e639",
@@ -3050,7 +3144,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 271
+    "catalogOrder": 276
   },
   {
     "id": "uicon_5e611147-d30e-4e7e-a831-d5479f484379",
@@ -3072,7 +3166,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 265
+    "catalogOrder": 268
   },
   {
     "id": "uicon_9f6371d3-63c1-4158-897a-22d333933ad1",
@@ -3094,7 +3188,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 202
+    "catalogOrder": 205
   },
   {
     "id": "uicon_baa4ccd4-afe9-4714-bcaf-a015b1b46ef7",
@@ -3116,7 +3210,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 301
+    "catalogOrder": 306
   },
   {
     "id": "uicon_9a6e030e-47db-4e90-b76e-75631760f2f3",
@@ -3164,7 +3258,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 268
+    "catalogOrder": 271
   },
   {
     "id": "uicon_05b23427-5349-4fc6-945a-6aa5ffb2df92",
@@ -3186,7 +3280,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 199
+    "catalogOrder": 202
   },
   {
     "id": "uicon_3c0f62b5-61a2-4ce2-a472-17e4327786bc",
@@ -3210,7 +3304,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 197
+    "catalogOrder": 200
   },
   {
     "id": "uicon_1e2f6f68-c627-4076-881e-02d9a020fdb5",
@@ -3278,7 +3372,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 300
+    "catalogOrder": 305
   },
   {
     "id": "uicon_2a214b0a-e86d-4025-8553-583b3a9568c9",
@@ -3300,7 +3394,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 230
+    "catalogOrder": 233
   },
   {
     "id": "uicon_9e8ff4c0-913f-4318-b0db-c6ad7e056372",
@@ -3324,7 +3418,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 286
+    "catalogOrder": 291
   },
   {
     "id": "uicon_8605381a-3751-4dad-bfae-e49dd21de91c",
@@ -3390,7 +3484,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 188
+    "catalogOrder": 190
   },
   {
     "id": "uicon_bd951669-ec54-461c-be08-66552d36b764",
@@ -3412,7 +3506,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 236
+    "catalogOrder": 239
   },
   {
     "id": "uicon_e073e6e7-e9ec-4758-86d3-d80c38eff259",
@@ -3546,7 +3640,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 192
+    "catalogOrder": 195
   },
   {
     "id": "uicon_bc7b5144-6b42-4777-bd04-2f78bdeca6fe",
@@ -3681,7 +3775,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 293
+    "catalogOrder": 298
   },
   {
     "id": "uicon_280e1f1e-064a-45c9-bd38-35bb332a39fe",
@@ -3791,7 +3885,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 237
+    "catalogOrder": 240
   },
   {
     "id": "uicon_75266fa7-298d-421d-a0ba-351d577c25a1",
@@ -3879,7 +3973,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 189
+    "catalogOrder": 191
   },
   {
     "id": "uicon_6b826939-b0c7-4313-96fd-c5e419847233",
@@ -4153,6 +4247,28 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "catalogOrder": 136
   },
   {
+    "id": "uicon_eadd14c0-0e0e-4f62-b959-d00b72148e97",
+    "name": "pet",
+    "componentName": "PetIcon",
+    "title": "Pet",
+    "titleZh": "宠物",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "life",
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 272
+  },
+  {
     "id": "uicon_b38d6e7c-a398-4124-b80b-d4bb090409ec",
     "name": "phone",
     "componentName": "PhoneIcon",
@@ -4174,7 +4290,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 195
+    "catalogOrder": 198
   },
   {
     "id": "uicon_eea91df8-1c2d-4d0f-9815-c644f6455258",
@@ -4262,7 +4378,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 276
+    "catalogOrder": 281
   },
   {
     "id": "uicon_f3701a37-e1be-42ec-a0de-add7061325b1",
@@ -4284,7 +4400,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 233
+    "catalogOrder": 236
   },
   {
     "id": "uicon_13d9afe6-a8a7-4e5a-b71c-564813b48c00",
@@ -4379,7 +4495,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 205
+    "catalogOrder": 208
   },
   {
     "id": "uicon_7e3d101d-b954-468a-8d27-8f666c7a799a",
@@ -4401,7 +4517,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 207
+    "catalogOrder": 210
   },
   {
     "id": "uicon_edc9b7c4-38c0-47b9-9734-14114a04fb6b",
@@ -4467,7 +4583,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 252
+    "catalogOrder": 255
   },
   {
     "id": "uicon_2ed9c2d9-bef9-4129-8e92-3f0467df9378",
@@ -4623,7 +4739,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 204
+    "catalogOrder": 207
   },
   {
     "id": "uicon_6981c54e-8cf3-4ee4-9a97-91021adf085a",
@@ -4647,7 +4763,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 277
+    "catalogOrder": 282
   },
   {
     "id": "uicon_188f648b-b02f-4085-adb4-2eca8c86f363",
@@ -4845,7 +4961,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 206
+    "catalogOrder": 209
   },
   {
     "id": "uicon_3880eb44-e6e5-4dd6-8c88-b90f4848ffb2",
@@ -4981,7 +5097,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 289
+    "catalogOrder": 294
   },
   {
     "id": "uicon_c4ddb117-0fc4-46d7-9fd8-bfe0b77611da",
@@ -5003,7 +5119,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 287
+    "catalogOrder": 292
   },
   {
     "id": "uicon_90db5e58-d143-4cde-88b5-5b110672b41d",
@@ -5025,7 +5141,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 273
+    "catalogOrder": 278
   },
   {
     "id": "uicon_f049b930-95bb-4621-86e8-7d287c5aa363",
@@ -5047,7 +5163,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 247
+    "catalogOrder": 250
   },
   {
     "id": "uicon_21932498-6638-4adf-8293-d38f31d04f4f",
@@ -5069,7 +5185,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 246
+    "catalogOrder": 249
   },
   {
     "id": "uicon_5d3c04d2-74c3-4281-b521-6f767039065d",
@@ -5201,7 +5317,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 234
+    "catalogOrder": 237
   },
   {
     "id": "uicon_922ea1e7-d0d6-4a3f-a8bc-a77d1937cf79",
@@ -5245,7 +5361,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 283
+    "catalogOrder": 288
   },
   {
     "id": "uicon_bea25487-a26d-4758-a6db-f77f5f6459a1",
@@ -5293,7 +5409,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 278
+    "catalogOrder": 283
   },
   {
     "id": "uicon_aa17bd01-421c-42ff-a66c-80e8040e3f0a",
@@ -5315,7 +5431,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 303
+    "catalogOrder": 309
   },
   {
     "id": "uicon_c9a6d0e9-0faa-4271-8d64-7b9866bb1df3",
@@ -5361,7 +5477,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 280
+    "catalogOrder": 285
   },
   {
     "id": "uicon_871c9b22-c49c-4d19-a874-ef1ca2a36671",
@@ -5405,7 +5521,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 244
+    "catalogOrder": 247
   },
   {
     "id": "uicon_91107ad7-1703-4458-8ca3-13e02bad0f2b",
@@ -5449,7 +5565,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 270
+    "catalogOrder": 275
   },
   {
     "id": "uicon_dfdf27e3-a016-45fe-a9ec-95e4aea1a02a",
@@ -5473,7 +5589,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 258
+    "catalogOrder": 261
   },
   {
     "id": "uicon_8839fffd-3f3b-4a47-814b-c371085b64c2",
@@ -5518,7 +5634,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 294
+    "catalogOrder": 299
   },
   {
     "id": "uicon_5564941b-cb95-40aa-9e1c-d0d44330bc89",
@@ -5562,7 +5678,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 299
+    "catalogOrder": 304
   },
   {
     "id": "uicon_9d5b1416-d03b-448b-8f7d-de4ca3793326",
@@ -5606,7 +5722,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 201
+    "catalogOrder": 204
   },
   {
     "id": "uicon_dc484f04-4eb5-4a20-be51-ee8c616b28da",
@@ -5650,7 +5766,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 187
+    "catalogOrder": 189
   },
   {
     "id": "uicon_01e64e49-201c-4cdb-9777-a3be4ee9069e",
@@ -5713,13 +5829,12 @@ export const iconMeta: readonly PublicIconMeta[] = [
       "内容"
     ],
     "aliases": [
-      "todo",
-      "clipboard"
+      "todo"
     ],
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 182
+    "catalogOrder": 184
   },
   {
     "id": "uicon_4cbb46fb-5010-4ee0-9483-1ee287e2e773",
@@ -5741,7 +5856,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 217
+    "catalogOrder": 220
   },
   {
     "id": "uicon_4c8e6260-a168-47e5-bac3-cb35ff57a85c",
@@ -5950,7 +6065,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 282
+    "catalogOrder": 287
   },
   {
     "id": "uicon_a1d5e00b-7baf-434e-9822-35cf0f0f23f1",
@@ -5975,7 +6090,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 281
+    "catalogOrder": 286
   },
   {
     "id": "uicon_da6dd711-28e3-4bf1-96ab-f9b7cde83f89",
@@ -6000,7 +6115,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 260
+    "catalogOrder": 263
   },
   {
     "id": "uicon_63ecc9bb-636b-43a8-9fad-38e6eb4874e5",
@@ -6025,7 +6140,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 259
+    "catalogOrder": 262
   },
   {
     "id": "uicon_a5fd8722-4ff8-431b-9730-60b7bb36a23e",
@@ -6047,7 +6162,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 228
+    "catalogOrder": 231
   },
   {
     "id": "uicon_ef08b765-a065-4a05-91ab-59e5780a48a9",
@@ -6113,7 +6228,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 298
+    "catalogOrder": 303
   },
   {
     "id": "uicon_842c0517-55ba-4203-8fe4-0f63bd8211ef",
@@ -6230,6 +6345,28 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "catalogOrder": 134
   },
   {
+    "id": "uicon_28f48cd2-0a64-4247-8951-7265109d5d4b",
+    "name": "trophy",
+    "componentName": "TrophyIcon",
+    "title": "Trophy",
+    "titleZh": "奖杯",
+    "categories": [
+      "status"
+    ],
+    "subgroup": "achievement",
+    "tags": [
+      "status",
+      "状态",
+      "achievement",
+      "成就"
+    ],
+    "aliases": [],
+    "deprecated": false,
+    "publishedIn": null,
+    "updatedIn": null,
+    "catalogOrder": 308
+  },
+  {
     "id": "uicon_c039765c-3e17-4b76-9036-bf5ecd90e17c",
     "name": "truck",
     "componentName": "TruckIcon",
@@ -6249,7 +6386,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 274
+    "catalogOrder": 279
   },
   {
     "id": "uicon_8c123770-ddb5-41d9-8ea8-72fd2233f3ac",
@@ -6315,7 +6452,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 284
+    "catalogOrder": 289
   },
   {
     "id": "uicon_cdf0cfa9-9ba2-493e-b942-1eff844f3195",
@@ -6361,7 +6498,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 285
+    "catalogOrder": 290
   },
   {
     "id": "uicon_f278c34d-e3ae-407d-b9ed-6554625b5664",
@@ -6383,7 +6520,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 288
+    "catalogOrder": 293
   },
   {
     "id": "uicon_ae9efc84-40c8-4b58-ac79-e281487235fb",
@@ -6427,7 +6564,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 200
+    "catalogOrder": 203
   },
   {
     "id": "uicon_6142ff3b-3da2-4fd1-8d0c-f3687c2bdf8e",
@@ -6452,7 +6589,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 238
+    "catalogOrder": 241
   },
   {
     "id": "uicon_3b33fd85-f4b2-4b1b-b4d7-7fac9d791643",
@@ -6474,7 +6611,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 239
+    "catalogOrder": 242
   },
   {
     "id": "uicon_d4c58805-6902-43a1-826c-d8c2da3f232f",
@@ -6672,7 +6809,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 225
+    "catalogOrder": 228
   },
   {
     "id": "uicon_bc0fdf89-de7a-4471-87e6-73cdc73d5659",
@@ -6694,7 +6831,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 245
+    "catalogOrder": 248
   },
   {
     "id": "uicon_36b6027d-0d64-4413-a8a9-ea5a3f4d642f",
@@ -6717,7 +6854,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 290
+    "catalogOrder": 295
   },
   {
     "id": "uicon_3ede140e-f9ea-4738-a229-aa6b90f06595",
@@ -6761,7 +6898,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 220
+    "catalogOrder": 223
   },
   {
     "id": "uicon_648b2a4b-72a2-44a5-943f-f9dc767ae36b",
@@ -6783,7 +6920,7 @@ export const iconMeta: readonly PublicIconMeta[] = [
     "deprecated": false,
     "publishedIn": null,
     "updatedIn": null,
-    "catalogOrder": 219
+    "catalogOrder": 222
   },
   {
     "id": "uicon_844dd45b-5136-43ac-9242-506012ae3e43",

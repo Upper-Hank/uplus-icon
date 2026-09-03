@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, type HTMLAttributes, type KeyboardEvent, type MouseEvent, type TouchEvent } from 'react'
 
-const selector = 'button:not(:disabled):not([data-motion="none"]), summary:not([data-motion="none"])'
+const selector = 'button:not(:disabled):not([data-motion="none"]), a[href]:not([data-motion="none"]), summary:not([data-motion="none"])'
 
 const findControl = (target: EventTarget | null) => target instanceof Element
   ? target.closest<HTMLElement>(selector)

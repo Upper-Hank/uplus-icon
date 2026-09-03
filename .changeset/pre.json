@@ -9,6 +9,7 @@
     "@uplus-icon/motion": "0.0.0"
   },
   "changesets": [
-    "beta-1-release"
+    "beta-1-release",
+    "beta-2-release"
   ]
 }

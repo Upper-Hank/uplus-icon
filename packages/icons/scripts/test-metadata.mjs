@@ -6,6 +6,7 @@ import test from 'node:test'
 import { generateIconId, isValidIconId, validateIconIdentityMetadata } from './icon-identity.mjs'
 import { validateMetadataReferences } from './validate-metadata.mjs'
 import { buildCatalogOrderBySourceKey } from './catalog-order.mjs'
+import { buildTaxonomyProjection, diffTaxonomyProjection } from './taxonomy-sync.mjs'
 
 const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const metadata = JSON.parse(await readFile(join(sourceRoot, 'metadata', 'icons.json'), 'utf8'))
@@ -61,6 +62,42 @@ test('repository metadata has a complete catalog order', () => {
   assert.equal(catalogOrder.size, names.size)
   assert.equal(catalogOrder.get('arrow-up'), catalogOrder.get('arrow-down') - 1)
   assert.ok(catalogOrder.get('arrow-top-right') > catalogOrder.get('arrow-right'))
+
+  const positions = [...catalogOrder.values()].sort((left, right) => left - right)
+  assert.deepEqual(positions, positions.map((_value, index) => index), 'catalog order must be a dense 0-based sequence')
+})
+
+test('catalog order groups every icon by its primary category and subgroup', () => {
+  const catalogOrder = buildCatalogOrderBySourceKey(metadata)
+  const sourceKeysInOrder = [...catalogOrder.entries()]
+    .sort(([, left], [, right]) => left - right)
+    .map(([sourceKey]) => sourceKey)
+
+  const seenGroups = new Set()
+  let previousGroup = null
+  for (const sourceKey of sourceKeysInOrder) {
+    const details = metadata[sourceKey]
+    const group = `${details.categories[0]}/${details.subgroup}`
+    if (group === previousGroup) continue
+    assert.ok(!seenGroups.has(group), `catalog order revisits ${group} after leaving it`)
+    seenGroups.add(group)
+    previousGroup = group
+  }
+})
+
+test('committed metadata matches the Figma taxonomy registry', () => {
+  assert.deepEqual(diffTaxonomyProjection(metadata, categories, subgroups), [])
+})
+
+test('the Figma taxonomy covers every icon exactly once', () => {
+  const projection = buildTaxonomyProjection(metadata)
+  assert.equal(projection.classification.size, names.size)
+  for (const subgroup of projection.subgroups) {
+    assert.ok(
+      categories.some((category) => category.id === subgroup.categoryId),
+      `subgroup ${subgroup.id} must belong to a registered category`,
+    )
+  }
 })
 
 const entry = (overrides = {}) => ({

@@ -15,8 +15,8 @@ export type CurrentIconName =
   | 'arrow-up'
   | 'artboard'
   | 'at-sign'
-  | 'badge'
   | 'barcode'
+  | 'basketball'
   | 'battery-horizon'
   | 'battery-vertical'
   | 'bell'
@@ -50,6 +50,7 @@ export type CurrentIconName =
   | 'chevrons-up'
   | 'chip'
   | 'clarity'
+  | 'clipboard'
   | 'clock'
   | 'close'
   | 'cloud'
@@ -106,6 +107,7 @@ export type CurrentIconName =
   | 'floppy-disk'
   | 'folder'
   | 'folder-open'
+  | 'folder-plus'
   | 'football'
   | 'game-handle'
   | 'gauge'
@@ -129,6 +131,7 @@ export type CurrentIconName =
   | 'home'
   | 'hourglass'
   | 'image'
+  | 'inbox'
   | 'info'
   | 'intersect'
   | 'italic'
@@ -157,6 +160,7 @@ export type CurrentIconName =
   | 'masonry-alt'
   | 'maximize'
   | 'maximize-alt'
+  | 'medal'
   | 'megaphone'
   | 'menu'
   | 'microphone'
@@ -185,6 +189,7 @@ export type CurrentIconName =
   | 'pen'
   | 'pencil'
   | 'percent'
+  | 'pet'
   | 'phone'
   | 'pie-chart'
   | 'pin'
@@ -277,6 +282,7 @@ export type CurrentIconName =
   | 'trash'
   | 'trending-down'
   | 'trending-up'
+  | 'trophy'
   | 'truck'
   | 'underline'
   | 'undo'
@@ -305,6 +311,7 @@ export type CurrentIconName =
   | 'zoom-in'
   | 'zoom-out'
 
-export type LegacyIconName = never
+export type LegacyIconName =
+  | 'badge'
 
 export type IconName = CurrentIconName | LegacyIconName

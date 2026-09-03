@@ -14,6 +14,7 @@ const SCRIPT_FILES = [
   'catalog-order.mjs',
   'icon-identity.mjs',
   'svg-adapter.mjs',
+  'svg-source.mjs',
   'validate-metadata.mjs',
   'check-icon-identity.mjs',
   'create-identity-manifest.mjs',

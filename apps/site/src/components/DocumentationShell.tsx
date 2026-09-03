@@ -2,6 +2,7 @@ import type { PropsWithChildren } from 'react'
 import { Icon } from '@uplus-icon/react/dynamic'
 import { getDocuments, type DocSlug } from '../content/docs'
 import { useI18n } from '../i18n'
+import { AppLink } from './AppLink'
 import { DocumentationNav } from './DocumentationNav'
 
 interface DocumentationShellProps extends PropsWithChildren {
@@ -30,10 +31,10 @@ export function DocumentationShell({ active, children, mobileIndex, navigate }: 
         </div>
       </div>
 
-      <button className="docs-mobile-back" type="button" onClick={() => navigate('/docs')}>
+      <AppLink className="docs-mobile-back" to="/docs" navigate={navigate}>
         <Icon name="chevron-left" size={16} />
         {language === 'zh' ? '全部文档' : 'All documentation'}
-      </button>
+      </AppLink>
 
       {children}
     </section>

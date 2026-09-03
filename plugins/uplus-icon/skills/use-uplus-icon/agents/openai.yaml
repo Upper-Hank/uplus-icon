@@ -1,0 +1,4 @@
+interface:
+  display_name: "Use Uplus Icon"
+  short_description: "Find and integrate Uplus icons in React"
+  default_prompt: "Use $use-uplus-icon to find and integrate the right Uplus icon in this React project."

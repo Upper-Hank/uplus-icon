@@ -1,6 +1,5 @@
-import { validateIconIdentityMetadata } from './icon-identity.mjs'
+import { isValidSemver, validateIconIdentityMetadata } from './icon-identity.mjs'
 
-const versionPattern = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/
 const capabilityPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 
 export function validateMetadataReferences(metadata, iconNames, publicNameBySourceKey = null) {
@@ -26,7 +25,7 @@ export function validateMetadataReferences(metadata, iconNames, publicNameBySour
     for (const field of ['publishedIn', 'updatedIn']) {
       const version = details[field]
       if (version === undefined || version === null) continue
-      if (typeof version !== 'string' || !versionPattern.test(version)) {
+      if (!isValidSemver(version)) {
         throw new Error(`Metadata field ${name}.${field} must be a semantic version or null`)
       }
     }

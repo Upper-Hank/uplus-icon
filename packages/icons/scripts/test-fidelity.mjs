@@ -3,9 +3,11 @@ import { basename, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { iconDefinitions } from '../../core/dist/generated/definitions.js'
 import { adaptDesignSvgBody, compileRuntimeSvgBody } from './svg-adapter.mjs'
+import { resolvePublicName } from './icon-identity.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const rawDir = join(root, 'raw')
+const metadata = JSON.parse(await readFile(join(root, 'metadata', 'icons.json'), 'utf8'))
 const definitions = new Map(iconDefinitions.map((icon) => [icon.name, icon]))
 const files = (await readdir(rawDir)).filter((file) => file.endsWith('.svg')).sort()
 
@@ -14,7 +16,10 @@ for (const file of files) {
   const match = source.match(/^\s*<svg\b([^>]*)>([\s\S]*)<\/svg>\s*$/)
   if (!match) throw new Error(`Cannot verify malformed source: ${file}`)
   const viewBox = match[1].match(/\bviewBox\s*=\s*(["'])(.*?)\1/)?.[2]
-  const definition = definitions.get(basename(file, '.svg'))
+  const sourceKey = basename(file, '.svg')
+  const details = metadata[sourceKey]
+  if (!details) throw new Error(`Missing metadata for ${file}`)
+  const definition = definitions.get(resolvePublicName(sourceKey, details))
   if (!definition) throw new Error(`Missing generated definition for ${file}`)
   if (definition.viewBox !== viewBox) throw new Error(`viewBox changed during generation: ${file}`)
   const adaptedBody = adaptDesignSvgBody(match[2])

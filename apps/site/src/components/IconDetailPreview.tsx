@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import type { IconDefinition } from '@uplus-icon/core'
-import { animateIcon, type MotionControls, type MotionDirection, type MotionEasing, type MotionName } from '@uplus-icon/motion'
+import type { MotionControls, MotionDirection, MotionEasing, MotionName } from '@uplus-icon/motion'
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
 import { MAX_ABSOLUTE_ICON_WEIGHT, MAX_ICON_WEIGHT, MIN_ICON_WEIGHT } from '@uplus-icon/core/internal/weight'
 import { releaseFeatures } from '../app/releaseFeatures'
@@ -244,36 +244,44 @@ export function IconDetailPreview({
     const shouldPlay = motionPlayingRef.current || enteringMotionPreview || motionChanged || playReverse
     if (shouldPlay) motionPlayingRef.current = true
 
-    const controls = animateIcon(target, name, motionName, {
-      animationTarget: showSkeleton && host ? host : undefined,
-      autoplay: shouldPlay && !playReverse,
-      direction: motionDirection,
-      duration: motionDuration * 1000,
-      easing: motionEase,
-      loop: motionLoop,
-    })
-    motionControlsRef.current = controls
-    motionProgressRef.current = previousProgress
-    motionTimeRef.current = previousProgress * motionDuration
-    setMotionTime(previousProgress * motionDuration)
+    const animationTarget = showSkeleton && host ? host : undefined
+    let cancelled = false
+    let controls: MotionControls | null = null
 
-    if (playReverse) {
-      controls.playFrom(previousProgress, 'backward')
-      monitorDirectionFlip(previousProgress)
-    } else {
-      if (!shouldPlay || previousProgress > 0) {
-        controls.seek(previousProgress)
+    void import('@uplus-icon/motion').then(({ animateIcon }) => {
+      if (cancelled) return
+      controls = animateIcon(target, name, motionName, {
+        animationTarget,
+        autoplay: shouldPlay && !playReverse,
+        direction: motionDirection,
+        duration: motionDuration * 1000,
+        easing: motionEase,
+        loop: motionLoop,
+      })
+      motionControlsRef.current = controls
+      motionProgressRef.current = previousProgress
+      motionTimeRef.current = previousProgress * motionDuration
+      setMotionTime(previousProgress * motionDuration)
+
+      if (playReverse) {
+        controls.playFrom(previousProgress, 'backward')
+        monitorDirectionFlip(previousProgress)
+      } else {
+        if (!shouldPlay || previousProgress > 0) {
+          controls.seek(previousProgress)
+        }
+        if (shouldPlay) {
+          if (previousProgress > 0) controls.play()
+          monitorMotion(motionLoop)
+        }
       }
-      if (shouldPlay) {
-        if (previousProgress > 0) controls.play()
-        monitorMotion(motionLoop)
-      }
-    }
-    setMotionPlaying(shouldPlay)
+      setMotionPlaying(shouldPlay)
+    })
 
     return () => {
+      cancelled = true
       stopMotionMonitor()
-      controls.dispose()
+      controls?.dispose()
       motionControlsRef.current = null
     }
   }, [absoluteWeight, isMotionPreview, mode, monitorDirectionFlip, monitorMotion, motionDirection, motionDuration, motionEase, motionLoop, motionName, name, showSkeleton, size, stopMotionMonitor, weight])

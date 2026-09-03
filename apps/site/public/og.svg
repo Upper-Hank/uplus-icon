@@ -1,0 +1,9 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Uplus Icon">
+  <rect width="1200" height="630" fill="#f2f2ef"/>
+  <g transform="translate(96 214)" fill="none" stroke="#11110f" stroke-width="9.375" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17.812 76.591s73.57-20.68 83.148 4.798c6.623 17.618-15.046 25.428-29.265 17.991C43.457 84.687 70.453 17.812 70.453 17.812"/>
+    <path d="M46.525 29.208L70.453 17.812l13.16 23.991"/>
+  </g>
+  <text x="236" y="292" fill="#11110f" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="72" font-weight="450" letter-spacing="-2.4">Uplus Icon</text>
+  <text x="236" y="360" fill="#6e6e67" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="32" font-weight="350">A quiet icon library</text>
+</svg>

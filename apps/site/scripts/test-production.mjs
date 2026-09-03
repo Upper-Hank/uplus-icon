@@ -17,7 +17,9 @@ for (const marker of [
   'property="og:title"',
   'property="og:description"',
   'property="og:url"',
+  'property="og:image"',
   'rel="canonical"',
+  'hreflang="x-default"',
 ]) {
   assert(index.includes(marker), `Built index is missing ${marker}`)
 }
@@ -25,7 +27,8 @@ assert.match(robots, /Sitemap: https:\/\/icon\.upper\.website\/sitemap\.xml/)
 assert.equal(redirects.trim(), '/* /index.html 200')
 
 const metadata = JSON.parse(await readFile(join(siteRoot, '..', '..', 'packages', 'icons', 'metadata', 'icons.json'), 'utf8'))
-for (const path of ['/', '/icons', '/guide', '/docs', '/changelog', ...Object.keys(metadata).map((name) => `/icons/${name}`)]) {
+const iconPaths = Object.values(metadata).map((icon) => `/icons/${icon.name}`)
+for (const path of ['/', '/icons', '/guide', '/docs', '/changelog', ...iconPaths]) {
   assert(sitemap.includes(`<loc>https://icon.upper.website${path}</loc>`), `Sitemap is missing ${path}`)
 }
 for (const path of ['/docs/motion-api', '/docs/motion-authoring']) {

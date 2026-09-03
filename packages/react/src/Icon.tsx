@@ -11,3 +11,5 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon({ name, .
   if (!icon) return null
   return <IconBase ref={ref} icon={icon} {...props} />
 })
+
+Icon.displayName = 'Icon'

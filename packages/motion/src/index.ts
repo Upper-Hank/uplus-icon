@@ -5,6 +5,7 @@ export type MotionDirection = 'in' | 'out'
 export type MotionEasing = 'standard' | 'linear' | 'ease-in' | 'ease-out'
 
 export interface MotionOptions {
+  /** Element that receives the animation. Defaults to the icon's own `<svg>`. */
   animationTarget?: Element
   autoplay?: boolean
   direction?: MotionDirection
@@ -38,13 +39,11 @@ const emptyControls: MotionControls = {
   cancel() {}, dispose() {}, finish() {}, pause() {}, play() {}, playFrom() {}, progress: () => 0, reset() {}, reverse() {}, seek() {},
 }
 
-const prefersReducedMotion = (setting: MotionOptions['reducedMotion']) => setting === 'always' || (
-  setting !== 'never' && typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
-)
+export const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
 
-function reverseKeyframes(keyframes: readonly Keyframe[], direction: MotionDirection) {
-  return direction === 'out' ? [...keyframes].reverse() : [...keyframes]
-}
+const prefersReducedMotion = (setting: MotionOptions['reducedMotion']) => setting === 'always' || (
+  setting !== 'never' && typeof matchMedia === 'function' && matchMedia(REDUCED_MOTION_QUERY).matches
+)
 
 function animationTiming(rule: MotionRule, options: MotionOptions, reduced: boolean): KeyframeAnimationOptions {
   return {
@@ -91,41 +90,6 @@ function resetStrokePresentation(elements: readonly SVGGeometryElement[]) {
   }
 }
 
-function createAnimation(
-  target: Element,
-  keyframes: Keyframe[] | PropertyIndexedKeyframes,
-  timing: KeyframeAnimationOptions,
-  autoplay: boolean,
-) {
-  if (typeof KeyframeEffect !== 'undefined' && typeof Animation !== 'undefined') {
-    const animation = new Animation(new KeyframeEffect(target, keyframes, timing), document.timeline)
-    animation.currentTime = 0
-    if (autoplay) animation.play()
-    else animation.pause()
-    return animation
-  }
-  const animation = target.animate(keyframes, timing)
-  if (!autoplay) {
-    animation.pause()
-    animation.currentTime = 0
-    if (animation.playState !== 'paused' && animation.playState !== 'idle') {
-      void animation.ready.then(() => {
-        animation.pause()
-        animation.currentTime = 0
-      })
-    }
-  }
-  return animation
-}
-
-function strokeKeyframes(length: number, direction: MotionDirection) {
-  const hidden = `${length}`
-  const visible = '0'
-  return direction === 'out'
-    ? [{ strokeDashoffset: visible }, { strokeDashoffset: hidden }]
-    : [{ strokeDashoffset: hidden }, { strokeDashoffset: visible }]
-}
-
 function primeStrokePresentation(element: SVGGeometryElement, length: number, direction: MotionDirection) {
   const hidden = `${length}`
   const visible = '0'
@@ -133,28 +97,34 @@ function primeStrokePresentation(element: SVGGeometryElement, length: number, di
   element.style.strokeDashoffset = direction === 'out' ? visible : hidden
 }
 
-function strokeAnimations(
-  svg: SVGSVGElement,
-  rule: MotionRule,
-  options: MotionOptions,
-  reduced: boolean,
+/**
+ * Creates a paused-at-idle animation. An idle animation applies no keyframes, so
+ * an icon that has not been played yet renders exactly like the static icon.
+ */
+function createAnimation(
+  target: Element,
+  keyframes: Keyframe[] | PropertyIndexedKeyframes,
+  timing: KeyframeAnimationOptions,
   autoplay: boolean,
+  playbackRate: number,
+  startTime: number,
 ) {
-  ensureSvgLayout(svg)
-  const timing = animationTiming(rule, options, reduced)
-  const direction = options.direction ?? 'in'
-  const elements = Array.from(svg.querySelectorAll<SVGGeometryElement>('path, circle, ellipse, rect, line, polyline, polygon'))
-    .filter(hasDrawableStroke)
-  const animations: Animation[] = []
-  const strokeTargets: SVGGeometryElement[] = []
-  for (const element of elements) {
-    const length = readPathLength(element)
-    if (!length) continue
-    strokeTargets.push(element)
-    primeStrokePresentation(element, length, direction)
-    animations.push(createAnimation(element, strokeKeyframes(length, direction), timing, autoplay))
+  const animation = typeof KeyframeEffect !== 'undefined' && typeof Animation !== 'undefined'
+    ? new Animation(new KeyframeEffect(target, keyframes, timing), document.timeline)
+    : target.animate(keyframes, timing)
+
+  if (!autoplay) {
+    animation.cancel()
+    return animation
   }
-  return { animations, strokeTargets, pendingStrokeElements: elements.length }
+  animation.currentTime = startTime
+  animation.playbackRate = playbackRate
+  animation.play()
+  return animation
+}
+
+function strokeKeyframes(length: number) {
+  return [{ strokeDashoffset: `${length}` }, { strokeDashoffset: '0' }]
 }
 
 export function animateIcon(svg: SVGSVGElement, name: IconName, motion: MotionName, options: MotionOptions = {}): MotionControls {
@@ -166,70 +136,93 @@ export function animateIcon(svg: SVGSVGElement, name: IconName, motion: MotionNa
   if (typeof svg.animate !== 'function') return emptyControls
 
   const reduced = prefersReducedMotion(options.reducedMotion ?? 'auto')
-  const effectiveRule = reduced && motion !== 'fade'
-    ? resolveMotionRule(name, 'fade')!
-    : rule
+  const effectiveRule = reduced && motion !== 'fade' ? resolveMotionRule(name, 'fade')! : rule
   const timing = animationTiming(effectiveRule, options, reduced)
   const autoplay = options.autoplay ?? false
+  const direction: MotionDirection = options.direction ?? 'in'
+  // An exit is the entry animation played backwards, so the authored keyframes
+  // stay untouched and multi-step semantic motions reverse coherently.
+  const playbackRate = direction === 'out' ? -1 : 1
+
   let disposed = false
   let duration = Number(timing.duration) || 1
   let animations: Animation[] = []
   let strokeTargets: SVGGeometryElement[] = []
+  let strokeLengths = new Map<SVGGeometryElement, number>()
+
+  const startTime = () => (playbackRate < 0 ? duration : 0)
+
+  const clearStrokes = () => {
+    resetStrokePresentation(strokeTargets)
+  }
+
+  const primeStrokes = () => {
+    for (const element of strokeTargets) {
+      const length = strokeLengths.get(element)
+      if (length) primeStrokePresentation(element, length, direction)
+    }
+  }
 
   const clearAnimations = () => {
     animations.forEach((animation) => animation.cancel())
-    resetStrokePresentation(strokeTargets)
+    clearStrokes()
     animations = []
     strokeTargets = []
+    strokeLengths = new Map()
   }
 
   const presentationTarget = (options.animationTarget ?? svg) as HTMLElement | SVGSVGElement
+
+  const mountStroke = () => {
+    ensureSvgLayout(svg)
+    const elements = Array.from(svg.querySelectorAll<SVGGeometryElement>('path, circle, ellipse, rect, line, polyline, polygon'))
+      .filter(hasDrawableStroke)
+    for (const element of elements) {
+      const length = readPathLength(element)
+      if (!length) continue
+      strokeTargets.push(element)
+      strokeLengths.set(element, length)
+      animations.push(createAnimation(element, strokeKeyframes(length), timing, autoplay, playbackRate, playbackRate < 0 ? duration : 0))
+    }
+    if (autoplay) primeStrokes()
+    return elements.length
+  }
+
+  const mountIcon = (mountedRule: MotionRule, mountedTiming: KeyframeAnimationOptions) => {
+    animations = [createAnimation(
+      presentationTarget,
+      [...mountedRule.keyframes],
+      mountedTiming,
+      autoplay,
+      playbackRate,
+      playbackRate < 0 ? Number(mountedTiming.duration) || 1 : 0,
+    )]
+  }
 
   const mount = () => {
     clearAnimations()
     if (effectiveRule.origin) presentationTarget.style.transformOrigin = effectiveRule.origin
 
-    if (effectiveRule.target === 'stroke') {
-      const strokeResult = strokeAnimations(svg, effectiveRule, options, reduced, autoplay)
-      animations = strokeResult.animations
-      strokeTargets = strokeResult.strokeTargets
-    } else {
-      animations = [
-        createAnimation(
-          presentationTarget,
-          reverseKeyframes(effectiveRule.keyframes, options.direction ?? 'in'),
-          timing,
-          autoplay,
-        ),
-      ]
-    }
+    let pendingStrokeElements = 0
+    if (effectiveRule.target === 'stroke') pendingStrokeElements = mountStroke()
+    else mountIcon(effectiveRule, timing)
 
     if (!animations.length) {
       const fade = resolveMotionRule(name, 'fade')!
-      animations = [
-        createAnimation(
-          presentationTarget,
-          reverseKeyframes(fade.keyframes, options.direction ?? 'in'),
-          animationTiming(fade, options, reduced),
-          autoplay,
-        ),
-      ]
+      mountIcon(fade, animationTiming(fade, options, reduced))
     }
 
     duration = Number(timing.duration) || 1
+    return pendingStrokeElements
   }
 
-  mount()
+  const pendingStrokeElements = mount()
 
-  if (effectiveRule.target === 'stroke') {
-    const strokeElements = Array.from(svg.querySelectorAll<SVGGeometryElement>('path, circle, ellipse, rect, line, polyline, polygon'))
-      .filter(hasDrawableStroke)
-    if (strokeElements.length > 0 && animations.length === 0) {
-      requestAnimationFrame(() => {
-        if (disposed) return
-        mount()
-      })
-    }
+  if (effectiveRule.target === 'stroke' && pendingStrokeElements > 0 && strokeTargets.length === 0) {
+    requestAnimationFrame(() => {
+      if (disposed) return
+      mount()
+    })
   }
 
   const clampProgress = (value: number) => Math.min(1, Math.max(0, value))
@@ -240,6 +233,7 @@ export function animateIcon(svg: SVGSVGElement, name: IconName, motion: MotionNa
     })
   }
   const setProgress = (progress: number) => {
+    primeStrokes()
     const time = clampProgress(progress) * duration
     for (const animation of animations) {
       animation.pause()
@@ -247,12 +241,36 @@ export function animateIcon(svg: SVGSVGElement, name: IconName, motion: MotionNa
     }
   }
 
+  const rewindIfComplete = (animation: Animation, rate: number) => {
+    if (animation.playState === 'idle' || animation.currentTime === null) {
+      animation.currentTime = rate < 0 ? duration : 0
+      return
+    }
+    const elapsed = Number(animation.currentTime)
+    const complete = animation.playState === 'finished' || (rate < 0 ? elapsed <= 0 : elapsed >= duration)
+    if (complete) animation.currentTime = rate < 0 ? duration : 0
+  }
+
+  const start = (rate: number) => {
+    primeStrokes()
+    animations.forEach((animation) => {
+      rewindIfComplete(animation, rate)
+      animation.playbackRate = rate
+      animation.play()
+    })
+  }
+
+  /** Returns the icon to its static appearance by leaving every animation idle. */
+  const toStaticState = () => {
+    animations.forEach((animation) => animation.cancel())
+    clearStrokes()
+  }
+
   const controls: MotionControls = {
-    cancel: () => animations.forEach((animation) => animation.cancel()),
+    cancel: () => toStaticState(),
     dispose: () => {
       disposed = true
-      animations.forEach((animation) => animation.cancel())
-      resetStrokePresentation(strokeTargets)
+      toStaticState()
       presentationTarget.style.removeProperty('transform-origin')
     },
     finish: () => whenReady(() => {
@@ -264,50 +282,29 @@ export function animateIcon(svg: SVGSVGElement, name: IconName, motion: MotionNa
     pause: () => whenReady(() => {
       animations.forEach((animation) => animation.pause())
     }),
-    play: () => whenReady(() => {
-      animations.forEach((animation) => {
-        const elapsed = Number(animation.currentTime ?? 0)
-        if (animation.playState === 'finished' || elapsed >= duration) {
-          animation.currentTime = 0
-        }
-        animation.playbackRate = 1
-        animation.play()
-      })
-    }),
+    play: () => whenReady(() => start(playbackRate)),
     playFrom: (progress, playback) => whenReady(() => {
       setProgress(progress)
+      const rate = playback === 'backward' ? -1 : 1
       animations.forEach((animation) => {
-        if (playback === 'backward') {
-          animation.playbackRate = -1
-          animation.play()
-          return
-        }
-        animation.playbackRate = 1
+        animation.playbackRate = rate
         animation.play()
       })
     }),
     progress: () => {
       if (!animations.length) return 0
       const values = animations.map((animation) => {
-        const elapsed = Number(animation.currentTime ?? 0)
+        if (animation.playState === 'idle' || animation.currentTime === null) return playbackRate < 0 ? 1 : 0
+        const elapsed = Number(animation.currentTime)
         return timing.iterations === Infinity ? (elapsed % duration) / duration : elapsed / duration
       })
       return clampProgress(Math.max(...values))
     },
-    reset: () => whenReady(() => {
-      resetStrokePresentation(strokeTargets)
-      if (effectiveRule.target === 'stroke') {
-        const direction = options.direction ?? 'in'
-        for (const element of strokeTargets) {
-          const length = readPathLength(element)
-          if (length) primeStrokePresentation(element, length, direction)
-        }
-      }
-      setProgress(0)
-    }),
+    reset: () => whenReady(() => toStaticState()),
     reverse: () => whenReady(() => {
       animations.forEach((animation) => {
-        if (animation.currentTime === null || Number(animation.currentTime) === 0) animation.currentTime = duration
+        if (animation.playState === 'idle' || animation.currentTime === null) animation.currentTime = duration
+        else if (Number(animation.currentTime) === 0) animation.currentTime = duration
         animation.reverse()
       })
     }),

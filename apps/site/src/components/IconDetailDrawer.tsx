@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { gsap } from 'gsap'
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
 import { iconDefinitions } from '@uplus-icon/core/dynamic'
@@ -60,9 +61,14 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
     { value: 'core', label: 'Core', content: 'Core' },
     { value: 'react', label: 'React', content: 'React' },
   ] as const
-  const renderingType = definition
-    ? definition.body.includes('stroke=') && definition.body.includes('fill="currentColor"') ? 'Mixed'
-      : definition.body.includes('stroke=') ? 'Stroke' : 'Fill'
+  const renderingKind = definition
+    ? definition.body.includes('stroke=') && definition.body.includes('fill="currentColor"') ? 'mixed'
+      : definition.body.includes('stroke=') ? 'stroke' : 'fill'
+    : null
+  const renderingType = renderingKind
+    ? language === 'zh'
+      ? { mixed: '混合', stroke: '描边', fill: '填充' }[renderingKind]
+      : { mixed: 'Mixed', stroke: 'Stroke', fill: 'Fill' }[renderingKind]
     : '—'
   const handleWeightChange = (value: number) => {
     if (usesAbsoluteWeight) setAbsoluteWeightValue(value)
@@ -174,6 +180,12 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
       }
     }
 
+    // The drawer is portaled out of the page, so the rest of the site can be
+    // taken out of the accessibility tree entirely while it is open.
+    const shell = document.querySelector<HTMLElement>('.shell')
+    shell?.setAttribute('inert', '')
+    shell?.setAttribute('aria-hidden', 'true')
+
     document.body.style.overflow = 'hidden'
     document.body.style.position = 'fixed'
     document.body.style.top = `-${scrollY}px`
@@ -182,6 +194,8 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
     drawerRef.current?.focus()
 
     return () => {
+      shell?.removeAttribute('inert')
+      shell?.removeAttribute('aria-hidden')
       document.body.style.overflow = overflow
       document.body.style.position = position
       document.body.style.top = top
@@ -210,7 +224,7 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
       ? (language === 'zh' ? '已复制' : 'Copied')
       : fallback
 
-  return (
+  return createPortal(
     <div className="icon-detail-overlay" ref={overlayRef} role="presentation" onPointerDown={(event) => {
       if (event.target === event.currentTarget) requestClose()
     }}>
@@ -304,7 +318,17 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
             <pre><code>{usage}</code></pre>
           </div>
         </footer>
+        <span className="sr-only" role="status" aria-live="polite">
+          {copyFailed
+            ? (language === 'zh' ? '复制失败' : 'Copy failed')
+            : copied === 'name'
+              ? (language === 'zh' ? '图标名称已复制' : 'Icon name copied')
+              : copied === 'usage'
+                ? (language === 'zh' ? `${usageLabel} 代码已复制` : `${usageLabel} code copied`)
+                : ''}
+        </span>
       </aside>
-    </div>
+    </div>,
+    document.body,
   )
 }

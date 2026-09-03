@@ -34,8 +34,11 @@ export function resolveRoute(pathname: string): Route {
   const path = pathname.replace(/\/+$/, '') || '/'
   if (path.startsWith('/icons/')) {
     try {
-      const name = decodeURIComponent(path.slice(7)) as IconName
-      if (iconMeta.some((icon) => icon.name === name)) return { page: 'detail', name }
+      const name = decodeURIComponent(path.slice(7))
+      const icon = iconMeta.find((entry) => (
+        entry.name === name || entry.legacyNames?.some((legacy) => legacy.name === name)
+      ))
+      if (icon) return { page: 'detail', name: icon.name as IconName }
     } catch {
       return { page: 'not-found' }
     }

@@ -41,8 +41,8 @@ export const figmaTaxonomy = {
     gaming: ['game-handle'],
   },
   objects: {
-    content: ['file', 'folder', 'folder-open', 'task', 'braces', 'book', 'hashtag', 'bookmark', 'tag', 'mail', 'notebook'],
-    communication: ['info', 'comment', 'megaphone', 'bell', 'bell-off', 'phone', 'headset', 'link', 'at-sign', 'link-off', 'url'],
+    content: ['file', 'folder', 'folder-open', 'folder-plus', 'clipboard', 'task', 'braces', 'book', 'hashtag', 'bookmark', 'tag', 'mail', 'notebook'],
+    communication: ['info', 'comment', 'inbox', 'megaphone', 'bell', 'bell-off', 'phone', 'headset', 'link', 'at-sign', 'link-off', 'url'],
     technology: [
       'tablet', 'laptop', 'computer', 'robot', 'print', 'server', 'qr-code', 'barcode', 'battery-horizon', 'chip', 'cube',
       'database', 'charge', 'git', 'floppy-disk', 'hard-drive', 'terminal', 'bug', 'wifi', 'wifi-off', 'bluetooth',
@@ -57,8 +57,8 @@ export const figmaTaxonomy = {
     ],
     security: ['key', 'fingerprint'],
     mineral: ['diamond'],
-    life: ['cup', 'lamp', 'flashlight', 'glasses', 'lightbulb'],
-    sport: ['football'],
+    life: ['cup', 'lamp', 'flashlight', 'glasses', 'lightbulb', 'pet'],
+    sport: ['basketball', 'football'],
     professional: ['student', 'lab', 'briefcase'],
     mobility: ['ship-rudder', 'truck', 'jeep', 'plane', 'rocket', 'space-shuttle'],
   },
@@ -67,7 +67,7 @@ export const figmaTaxonomy = {
     security: ['unlock', 'lock', 'shield', 'unsafe', 'shield-check'],
     alter: ['warning', 'danger', 'help', 'mistake', 'success'],
     system: ['activity', 'flash', 'hourglass', 'transfer', 'sync', 'loading'],
-    achievement: ['laurel', 'badge', 'sparkle'],
+    achievement: ['laurel', 'badge', 'trophy', 'sparkle'],
   },
 }
 

@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import { iconMeta } from '@uplus-icon/core/metadata'
 import { useI18n } from '../i18n'
 import type { Route } from '../app/router'
+import { AppLink } from './AppLink'
 import { SegmentedControl } from './LibraryControls'
 import { UiIconSlot } from './UiIconSlot'
 import { UiIcon } from './UiIcon'
@@ -69,20 +70,36 @@ export function Header({ route, navigate }: { route: Route; navigate: (path: str
     : route.page === 'guide' || route.page === 'changelog'
       ? 'docs'
       : route.page
+  const navigationItems = [
+    { key: 'home', path: '/', label: t('home'), count: undefined },
+    { key: 'icons', path: '/icons', label: t('icons'), count: iconMeta.length },
+    { key: 'docs', path: '/docs', label: t('docs'), count: undefined },
+  ].map((item) => ({ ...item, active: activeNavigation === item.key }))
 
   return <header className={`header${route.page === 'icons' || route.page === 'detail' ? ' is-library' : ''}`}>
-    <button className="wordmark" onClick={() => navigate('/')} aria-label="Uplus Icon home">
+    <AppLink className="wordmark" to="/" navigate={navigate} aria-label={language === 'zh' ? 'Uplus Icon 首页' : 'Uplus Icon home'}>
       <span className="mark"><img src="/favicon.svg" alt="" /></span><span>Uplus Icon</span>
-    </button>
-    <nav aria-label="Main navigation">
+    </AppLink>
+    <nav aria-label={language === 'zh' ? '主导航' : 'Main navigation'}>
       <SlidingSurface activeKey={activeNavigation} className="header-nav-surface">
-        <button className={route.page === 'home' ? 'active' : ''} data-slide-key="home" data-motion="none" onClick={() => navigate('/')}>{t('home')}</button>
-        <button className={route.page === 'icons' || route.page === 'detail' ? 'active' : ''} data-slide-key="icons" data-motion="none" onClick={() => navigate('/icons')}>{t('icons')} <span className="count">{iconMeta.length}</span></button>
-        <button className={route.page === 'docs' || route.page === 'guide' || route.page === 'changelog' ? 'active' : ''} data-slide-key="docs" data-motion="none" onClick={() => navigate('/docs')}>{t('docs')}</button>
+        {navigationItems.map((item) => (
+          <AppLink
+            className={item.active ? 'active' : ''}
+            to={item.path}
+            navigate={navigate}
+            data-slide-key={item.key}
+            data-motion="none"
+            aria-current={item.active ? 'page' : undefined}
+            key={item.key}
+          >
+            {item.label}
+            {item.count === undefined ? null : <span className="count">{item.count}</span>}
+          </AppLink>
+        ))}
       </SlidingSurface>
     </nav>
     <div className="header-tools">
-      <SegmentedControl ariaLabel={language === 'zh' ? '外观' : 'Appearance'} options={appearanceOptions} value={theme} onChange={setTheme} />
+      <SegmentedControl ariaLabel={t('appearance')} options={appearanceOptions} value={theme} onChange={setTheme} />
       <button
         className="header-tool-compact"
         type="button"
@@ -91,7 +108,7 @@ export function Header({ route, navigate }: { route: Route; navigate: (path: str
       >
         <UiIconSlot name={theme}><UiIcon name={theme === 'light' ? 'sun' : theme === 'dark' ? 'moon' : 'system'} /></UiIconSlot>
       </button>
-      <SegmentedControl ariaLabel={language === 'zh' ? '语言' : 'Language'} options={languageOptions} value={language} onChange={setLanguage} />
+      <SegmentedControl ariaLabel={t('languageLabel')} options={languageOptions} value={language} onChange={setLanguage} />
       <button
         className="header-tool-compact"
         type="button"

@@ -6,6 +6,9 @@ const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const packagesRoot = dirname(sourceRoot)
 const reactDist = join(packagesRoot, 'react', 'dist')
 const budget = 5_000
+// The dynamic entry resolves names at runtime, so it necessarily carries the
+// whole registry. This budget exists to catch unexpected growth, not to shrink it.
+const dynamicBudget = 220_000
 
 async function bundleSize(options) {
   const result = await build({
@@ -25,7 +28,18 @@ const rootBytes = await bundleSize({
   alias: { '@uplus-icon/react': join(reactDist, 'index.js') },
 })
 
-for (const [label, bytes] of [['Per-icon React', directBytes], ['React root named import', rootBytes]]) {
-  if (bytes > budget) throw new Error(`${label} bundle is ${bytes} bytes, exceeding the ${budget} byte budget`)
-  console.log(`${label} bundle: ${bytes} bytes (budget: ${budget} bytes)`)
+const dynamicBytes = await bundleSize({
+  stdin: { contents: "import { Icon } from '@uplus-icon/react/dynamic'; console.log(Icon)", resolveDir: sourceRoot },
+  alias: { '@uplus-icon/react/dynamic': join(reactDist, 'dynamic.js') },
+})
+
+const measurements = [
+  ['Per-icon React', directBytes, budget],
+  ['React root named import', rootBytes, budget],
+  ['React dynamic name registry', dynamicBytes, dynamicBudget],
+]
+
+for (const [label, bytes, limit] of measurements) {
+  if (bytes > limit) throw new Error(`${label} bundle is ${bytes} bytes, exceeding the ${limit} byte budget`)
+  console.log(`${label} bundle: ${bytes} bytes (budget: ${limit} bytes)`)
 }

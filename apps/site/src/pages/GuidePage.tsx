@@ -1,4 +1,5 @@
 import { PageHeading } from '../components/PageHeading'
+import { AppLink } from '../components/AppLink'
 import { useI18n } from '../i18n'
 
 export function GuideContent({ navigate }: { navigate: (path: string) => void }) {
@@ -52,17 +53,20 @@ export function AddAction() {
               <GuideLink
                 title={zh ? 'React 使用' : 'React usage'}
                 description={zh ? '组件属性、ref、重量和类型。' : 'Component props, refs, weight, and types.'}
-                onClick={() => navigate('/docs/react')}
+                navigate={navigate}
+                to="/docs/react"
               />
               <GuideLink
                 title={zh ? 'API 与导入' : 'API and imports'}
                 description={zh ? '公共入口、按需加载和类型边界。' : 'Public entries, tree shaking, and type boundaries.'}
-                onClick={() => navigate('/docs/api')}
+                navigate={navigate}
+                to="/docs/api"
               />
               <GuideLink
                 title={zh ? '可访问性' : 'Accessibility'}
                 description={zh ? '装饰图标与语义图标的正确标注。' : 'Correct labeling for decorative and semantic icons.'}
-                onClick={() => navigate('/docs/accessibility')}
+                navigate={navigate}
+                to="/docs/accessibility"
               />
             </div>
           </section>
@@ -90,11 +94,11 @@ function CodeBlock({ children }: { children: string }) {
   )
 }
 
-function GuideLink({ description, onClick, title }: { description: string; onClick: () => void; title: string }) {
+function GuideLink({ description, navigate, title, to }: { description: string; navigate: (path: string) => void; title: string; to: string }) {
   return (
-    <button type="button" onClick={onClick}>
+    <AppLink to={to} navigate={navigate}>
       <strong>{title}</strong>
       <span>{description}</span>
-    </button>
+    </AppLink>
   )
 }
