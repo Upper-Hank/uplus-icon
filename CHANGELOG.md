@@ -4,14 +4,14 @@
 
 ### Added
 
-- Six icons: `clipboard`, `folder-plus`, `inbox`, `pet`, `trophy`, and `basketball`.
+- Seven icons: `clipboard`, `folder-plus`, `inbox`, `pet`, `trophy`, `basketball`, and `setting-alt`.
 - Deprecated compatibility for the `badge` public name and `BadgeIcon` export after renaming to `medal`.
 
 ### Changed
 
 - Updated `file`, `folder`, and `pet` artwork from the approved design source.
 - Moved `inbox` into the communication subgroup.
-- Catalog now includes 310 icons.
+- Catalog now includes 311 icons.
 
 ## [0.1.0-beta.1] - 2026-08-15
 

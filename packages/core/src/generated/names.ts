@@ -225,6 +225,7 @@ export type CurrentIconName =
   | 'set-medium'
   | 'set-top'
   | 'setting'
+  | 'setting-alt'
   | 'share'
   | 'shield'
   | 'shield-check'

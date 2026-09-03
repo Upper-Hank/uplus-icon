@@ -3945,6 +3945,23 @@
     "id": "uicon_96418930-ca36-4477-9de4-9709531bbbbb",
     "name": "setting"
   },
+  "setting-alt": {
+    "title": "Setting Alt",
+    "titleZh": "设置变体",
+    "categories": [
+      "interface"
+    ],
+    "tags": [
+      "interface",
+      "界面",
+      "controls",
+      "控件"
+    ],
+    "aliases": [],
+    "subgroup": "controls",
+    "id": "uicon_5ce47618-5aca-4904-80a4-49d3ef6ac2dc",
+    "name": "setting-alt"
+  },
   "share": {
     "title": "Share",
     "titleZh": "分享",

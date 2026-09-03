@@ -1353,6 +1353,12 @@
       "componentName": "SettingIcon"
     },
     {
+      "id": "uicon_5ce47618-5aca-4904-80a4-49d3ef6ac2dc",
+      "sourceKey": "setting-alt",
+      "name": "setting-alt",
+      "componentName": "SettingAltIcon"
+    },
+    {
       "id": "uicon_d0de3691-5cd0-4d06-ba8b-dedc78996e5a",
       "sourceKey": "share",
       "name": "share",
