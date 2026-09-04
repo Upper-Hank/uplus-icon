@@ -12,7 +12,7 @@ export const figmaTaxonomy = {
     management: ['smartphone', 'refresh', 'search', 'pin', 'pin-off', 'filter', 'sort', 'archive'],
   },
   navigation: {
-    destination: ['home', 'compass', 'exit'],
+    destination: ['home', 'compass', 'exit', 'signpost'],
     chevron: ['chevron-up', 'chevron-down', 'chevron-left', 'chevron-right'],
     chevrons: ['chevrons-up', 'chevrons-down', 'chevrons-left', 'chevrons-right'],
     arrow: ['arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-top-left', 'arrow-top-right', 'arrow-bottom-left', 'arrow-bottom-right'],
@@ -57,7 +57,7 @@ export const figmaTaxonomy = {
     ],
     security: ['key', 'fingerprint'],
     mineral: ['diamond'],
-    life: ['cup', 'lamp', 'flashlight', 'glasses', 'lightbulb', 'pet', 'leaf'],
+    life: ['cup', 'lamp', 'flashlight', 'glasses', 'lightbulb', 'pet', 'leaf', 'lifebuoy', 'droplet'],
     sport: ['basketball', 'football'],
     professional: ['student', 'lab', 'briefcase'],
     mobility: ['ship-rudder', 'truck', 'jeep', 'plane', 'rocket', 'space-shuttle'],
@@ -66,7 +66,7 @@ export const figmaTaxonomy = {
     feedback: ['heart', 'star', 'thumbs-up', 'thumbs-down', 'smile', 'uninteresting'],
     security: ['unlock', 'lock', 'shield', 'unsafe', 'shield-check'],
     alter: ['warning', 'danger', 'help', 'mistake', 'success'],
-    system: ['activity', 'flash', 'hourglass', 'transfer', 'sync', 'loading'],
+    system: ['activity', 'flash', 'fire', 'hourglass', 'transfer', 'sync', 'loading'],
     achievement: ['laurel', 'badge', 'trophy', 'sparkle'],
   },
 }

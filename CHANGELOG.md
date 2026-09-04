@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.0-beta.4] - 2026-09-04
+
+### Added
+
+- Four icons: `signpost`, `lifebuoy`, `fire`, and `droplet`.
+
+### Changed
+
+- Catalog now includes 320 icons.
+
 ## [0.1.0-beta.3] - 2026-09-04
 
 ### Added

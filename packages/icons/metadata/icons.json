@@ -5534,5 +5534,73 @@
     "aliases": [],
     "id": "uicon_86aa84d8-7b0d-46c8-a381-ff3703235b3c",
     "name": "screenshot"
+  },
+  "signpost": {
+    "title": "Signpost",
+    "titleZh": "路标",
+    "categories": [
+      "navigation"
+    ],
+    "subgroup": "destination",
+    "tags": [
+      "navigation",
+      "导航",
+      "destination",
+      "目的地"
+    ],
+    "aliases": [],
+    "id": "uicon_a1c1fba1-d7a9-474a-bbe0-0da268eb8dfc",
+    "name": "signpost"
+  },
+  "lifebuoy": {
+    "title": "Lifebuoy",
+    "titleZh": "救生圈",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "life",
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [],
+    "id": "uicon_8f056ecb-9b61-4b66-88d9-ca10692d5a64",
+    "name": "lifebuoy"
+  },
+  "fire": {
+    "title": "Fire",
+    "titleZh": "火焰",
+    "categories": [
+      "status"
+    ],
+    "subgroup": "system",
+    "tags": [
+      "status",
+      "状态",
+      "system",
+      "系统"
+    ],
+    "aliases": [],
+    "id": "uicon_d77bc3fb-6b02-4fd6-8ed6-a620b30e1101",
+    "name": "fire"
+  },
+  "droplet": {
+    "title": "Droplet",
+    "titleZh": "水滴",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "life",
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [],
+    "id": "uicon_6c9263fa-89c3-4dd4-9c8b-08ab2619b3e0",
+    "name": "droplet"
   }
 }
