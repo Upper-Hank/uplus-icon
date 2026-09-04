@@ -1,5 +1,13 @@
 # @uplus-icon/react
 
+## 0.1.0-beta.3
+
+### Patch Changes
+
+- Add paste, marquee, screenshot, leaf, and exit icons, and make history a search alias of clock.
+- Updated dependencies
+  - @uplus-icon/core@0.1.0-beta.3
+
 ## 0.1.0-beta.2
 
 ### Patch Changes

@@ -3,16 +3,16 @@
 export const figmaTaxonomy = {
   actions: {
     transfer: ['download', 'upload', 'export', 'external-link', 'share', 'reply', 'send', 'cloud-download', 'cloud-upload'],
-    editing: ['plus', 'minus', 'close', 'check', 'copy', 'trash', 'cut', 'edit', 'undo', 'redo', 'save', 'paperclip', 'translate'],
+    editing: ['plus', 'minus', 'close', 'check', 'copy', 'paste', 'trash', 'cut', 'edit', 'undo', 'redo', 'save', 'paperclip', 'translate', 'marquee'],
     session: ['power', 'login', 'logout'],
-    view: ['maximize-alt', 'minimize-alt', 'expand-collapse', 'maximize', 'minimize', 'zoom-in', 'zoom-out', 'scan'],
+    view: ['maximize-alt', 'minimize-alt', 'expand-collapse', 'maximize', 'minimize', 'zoom-in', 'zoom-out', 'scan', 'screenshot'],
     arrangement: ['set-top', 'set-medium', 'set-bottom'],
     'text-align': ['text-align-left', 'text-align-right', 'text-align-center', 'text-align-justify', 'text-align-justify-alt'],
     'object-align': ['object-align-left', 'object-align-center', 'object-align-right', 'object-align-justify', 'object-align-justify-alt'],
     management: ['smartphone', 'refresh', 'search', 'pin', 'pin-off', 'filter', 'sort', 'archive'],
   },
   navigation: {
-    destination: ['home', 'compass'],
+    destination: ['home', 'compass', 'exit'],
     chevron: ['chevron-up', 'chevron-down', 'chevron-left', 'chevron-right'],
     chevrons: ['chevrons-up', 'chevrons-down', 'chevrons-left', 'chevrons-right'],
     arrow: ['arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-top-left', 'arrow-top-right', 'arrow-bottom-left', 'arrow-bottom-right'],
@@ -57,7 +57,7 @@ export const figmaTaxonomy = {
     ],
     security: ['key', 'fingerprint'],
     mineral: ['diamond'],
-    life: ['cup', 'lamp', 'flashlight', 'glasses', 'lightbulb', 'pet'],
+    life: ['cup', 'lamp', 'flashlight', 'glasses', 'lightbulb', 'pet', 'leaf'],
     sport: ['basketball', 'football'],
     professional: ['student', 'lab', 'briefcase'],
     mobility: ['ship-rudder', 'truck', 'jeep', 'plane', 'rocket', 'space-shuttle'],
