@@ -1,5 +1,13 @@
 # @uplus-icon/react
 
+## 0.1.0-beta.4
+
+### Patch Changes
+
+- Add signpost, lifebuoy, fire, and droplet icons.
+- Updated dependencies
+  - @uplus-icon/core@0.1.0-beta.4
+
 ## 0.1.0-beta.3
 
 ### Patch Changes

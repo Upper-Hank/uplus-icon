@@ -1897,5 +1897,29 @@ export const iconDefinitions: readonly IconDefinition[] = [
     "name": "screenshot",
     "viewBox": "0 0 24 24",
     "body": "\n<path d=\"M20 8V6C20 4.89543 19.1046 4 18 4H16M20 16V18C20 19.1046 19.1046 20 18 20H16M8 20H6C4.89543 20 4 19.1046 4 18V16M4 8V6C4 4.89543 4.89543 4 6 4H8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 10C9 9.44772 9.44772 9 10 9H14C14.5523 9 15 9.44772 15 10V14C15 14.5523 14.5523 15 14 15H10C9.44772 15 9 14.5523 9 14V10Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"
+  },
+  {
+    "id": "uicon_a1c1fba1-d7a9-474a-bbe0-0da268eb8dfc",
+    "name": "signpost",
+    "viewBox": "0 0 24 24",
+    "body": "\n<path d=\"M12 21V14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M4 12V8C4 6.89543 4.89543 6 6 6H17.1402C17.79 6 18.3993 6.31573 18.7741 6.84663L20.1859 8.84663C20.6739 9.53809 20.6739 10.4619 20.1859 11.1534L18.7741 13.1534C18.3993 13.6843 17.79 14 17.1402 14H6C4.89543 14 4 13.1046 4 12Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M12 3V6\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
+  },
+  {
+    "id": "uicon_8f056ecb-9b61-4b66-88d9-ca10692d5a64",
+    "name": "lifebuoy",
+    "viewBox": "0 0 24 24",
+    "body": "\n<path d=\"M18.364 18.3641C14.8493 21.8788 9.15079 21.8788 5.63607 18.3641C2.12135 14.8494 2.12135 9.15088 5.63607 5.63616C9.15079 2.12144 14.8493 2.12144 18.364 5.63616C21.8787 9.15088 21.8787 14.8494 18.364 18.3641Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M14.8284 14.8285C13.2663 16.3906 10.7337 16.3906 9.17157 14.8285C7.60948 13.2665 7.60948 10.7338 9.17157 9.17169C10.7337 7.6096 13.2663 7.6096 14.8284 9.17169C16.3905 10.7338 16.3905 13.2665 14.8284 14.8285Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M9.17155 14.8285L5.63602 18.364\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M14.8284 14.8285L18.364 18.364\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M14.8284 9.17164L18.364 5.63611\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9.17155 9.17164L5.63602 5.63611\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
+  },
+  {
+    "id": "uicon_d77bc3fb-6b02-4fd6-8ed6-a620b30e1101",
+    "name": "fire",
+    "viewBox": "0 0 24 24",
+    "body": "\n<path d=\"M15.5822 6.97484C15.8089 6.44598 16.4265 6.24002 16.8441 6.63591C17.7314 7.47723 19 9.24863 19 12.5C19 15.5 17 19.9999 12 19.9999C7 19.9999 5 15.5 5 12.5C5 6.54457 8.30043 4.31388 10 3.5C10.515 3.2534 11.0937 3.46853 11.2057 4.0284L12.4495 10.2477C12.5366 10.6831 13.1042 10.7978 13.3512 10.4288C14.1677 9.20889 15.4583 7.26406 15.5822 6.97484Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"
+  },
+  {
+    "id": "uicon_6c9263fa-89c3-4dd4-9c8b-08ab2619b3e0",
+    "name": "droplet",
+    "viewBox": "0 0 24 24",
+    "body": "\n<path d=\"M5 14.5C5 9.69117 8.83138 5.42965 10.825 3.53768C11.4941 2.9028 12.506 2.9028 13.175 3.53768C15.1686 5.42965 19 9.69117 19 14.5C19 18.5 16 20.5 12 20.5C8 20.5 5 18.5 5 14.5Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
   }
 ]

@@ -1,5 +1,11 @@
 # @uplus-icon/core
 
+## 0.1.0-beta.4
+
+### Patch Changes
+
+- Add signpost, lifebuoy, fire, and droplet icons.
+
 ## 0.1.0-beta.3
 
 ### Patch Changes
