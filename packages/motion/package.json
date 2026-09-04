@@ -57,9 +57,9 @@
     }
   },
   "devDependencies": {
-    "@types/react": "^19.1.8",
+    "@types/react": "^19.2.18",
     "@uplus-icon/react": "^0.1.0-beta.4",
-    "react": "^19.1.0",
+    "react": "^19.2.8",
     "typescript": "^5.8.3"
   }
 }
