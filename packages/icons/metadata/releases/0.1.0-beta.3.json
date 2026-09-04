@@ -1,0 +1,1902 @@
+{
+  "schemaVersion": 1,
+  "packageVersion": "0.1.0-beta.3",
+  "icons": [
+    {
+      "id": "uicon_ee1846c0-d48b-42c8-8d5a-1a8b1ece273d",
+      "sourceKey": "activity",
+      "name": "activity",
+      "componentName": "ActivityIcon"
+    },
+    {
+      "id": "uicon_396e1b2d-9726-4d35-bdf5-9a0e74118058",
+      "sourceKey": "alarm-clock",
+      "name": "alarm-clock",
+      "componentName": "AlarmClockIcon"
+    },
+    {
+      "id": "uicon_d4fc6602-09b4-42cc-a97f-526e5d171926",
+      "sourceKey": "anchor-curve",
+      "name": "anchor-curve",
+      "componentName": "AnchorCurveIcon"
+    },
+    {
+      "id": "uicon_ec95170b-be4f-41b2-978c-e80bfdd954a7",
+      "sourceKey": "anchor-point",
+      "name": "anchor-point",
+      "componentName": "AnchorPointIcon"
+    },
+    {
+      "id": "uicon_239233be-3e28-457d-8536-3542278ed12a",
+      "sourceKey": "archive",
+      "name": "archive",
+      "componentName": "ArchiveIcon"
+    },
+    {
+      "id": "uicon_c9143945-531e-481c-af8f-a330b8342675",
+      "sourceKey": "arrow-bottom-left",
+      "name": "arrow-bottom-left",
+      "componentName": "ArrowBottomLeftIcon"
+    },
+    {
+      "id": "uicon_9729a493-09a2-4002-8cd0-8d7498eb449b",
+      "sourceKey": "arrow-bottom-right",
+      "name": "arrow-bottom-right",
+      "componentName": "ArrowBottomRightIcon"
+    },
+    {
+      "id": "uicon_861ab4ba-925d-41be-b5a2-5fd89b38d0c8",
+      "sourceKey": "arrow-down",
+      "name": "arrow-down",
+      "componentName": "ArrowDownIcon"
+    },
+    {
+      "id": "uicon_94cb0619-b6c5-4f20-981e-7f074861594a",
+      "sourceKey": "arrow-left",
+      "name": "arrow-left",
+      "componentName": "ArrowLeftIcon"
+    },
+    {
+      "id": "uicon_8d968324-5252-4636-947f-faec0903e652",
+      "sourceKey": "arrow-right",
+      "name": "arrow-right",
+      "componentName": "ArrowRightIcon"
+    },
+    {
+      "id": "uicon_c9a2c8f4-dd2e-4f73-aa9a-ab4e6c23f70a",
+      "sourceKey": "arrow-top-left",
+      "name": "arrow-top-left",
+      "componentName": "ArrowTopLeftIcon"
+    },
+    {
+      "id": "uicon_abea798f-d18c-4e0f-b215-92994a2b9f72",
+      "sourceKey": "arrow-top-right",
+      "name": "arrow-top-right",
+      "componentName": "ArrowTopRightIcon"
+    },
+    {
+      "id": "uicon_7cca8d35-3bf2-42ce-bfd4-0a56c2751cf1",
+      "sourceKey": "arrow-up",
+      "name": "arrow-up",
+      "componentName": "ArrowUpIcon"
+    },
+    {
+      "id": "uicon_92ed99f2-c5a8-4a72-8ba1-5a56c1d0ea1f",
+      "sourceKey": "artboard",
+      "name": "artboard",
+      "componentName": "ArtboardIcon"
+    },
+    {
+      "id": "uicon_5de6e330-266c-470d-bfce-7817c4b00699",
+      "sourceKey": "at-sign",
+      "name": "at-sign",
+      "componentName": "AtSignIcon"
+    },
+    {
+      "id": "uicon_5d4fded9-e9db-45fb-b2b4-03f33a0a0add",
+      "sourceKey": "badge",
+      "name": "medal",
+      "componentName": "MedalIcon"
+    },
+    {
+      "id": "uicon_43ad983c-a01c-4d8c-8ab2-448116f0f6c5",
+      "sourceKey": "barcode",
+      "name": "barcode",
+      "componentName": "BarcodeIcon"
+    },
+    {
+      "id": "uicon_afb7d87a-c15c-4154-9c0b-f3a8f4c018da",
+      "sourceKey": "basketball",
+      "name": "basketball",
+      "componentName": "BasketballIcon"
+    },
+    {
+      "id": "uicon_d17ae126-8be0-4f66-870a-077931b2432a",
+      "sourceKey": "battery-horizon",
+      "name": "battery-horizon",
+      "componentName": "BatteryHorizonIcon"
+    },
+    {
+      "id": "uicon_21f926e8-e933-4ac2-af5b-4279c899d6bc",
+      "sourceKey": "battery-vertical",
+      "name": "battery-vertical",
+      "componentName": "BatteryVerticalIcon"
+    },
+    {
+      "id": "uicon_6c6366b9-614c-4201-97e4-622fdeb8f484",
+      "sourceKey": "bell",
+      "name": "bell",
+      "componentName": "BellIcon"
+    },
+    {
+      "id": "uicon_7413b818-0bcd-4f23-9e85-a5af95e609a8",
+      "sourceKey": "bell-off",
+      "name": "bell-off",
+      "componentName": "BellOffIcon"
+    },
+    {
+      "id": "uicon_ffc512a3-68d3-4f42-a7fb-e36c1c0ea58f",
+      "sourceKey": "bluetooth",
+      "name": "bluetooth",
+      "componentName": "BluetoothIcon"
+    },
+    {
+      "id": "uicon_97ad3250-a2ca-4c86-9e64-d1e496aed298",
+      "sourceKey": "bluetooth-off",
+      "name": "bluetooth-off",
+      "componentName": "BluetoothOffIcon"
+    },
+    {
+      "id": "uicon_ad0513b4-3d0e-425e-9808-cce70e9e0610",
+      "sourceKey": "bold",
+      "name": "bold",
+      "componentName": "BoldIcon"
+    },
+    {
+      "id": "uicon_66fa2c90-5257-4bec-b0cf-8d6d4ed8770c",
+      "sourceKey": "book",
+      "name": "book",
+      "componentName": "BookIcon"
+    },
+    {
+      "id": "uicon_4c90278e-b9ed-4003-a138-0aac1c995f6c",
+      "sourceKey": "bookmark",
+      "name": "bookmark",
+      "componentName": "BookmarkIcon"
+    },
+    {
+      "id": "uicon_9eca509b-b26c-4de1-b9ee-f632cc1ebdbf",
+      "sourceKey": "braces",
+      "name": "braces",
+      "componentName": "BracesIcon"
+    },
+    {
+      "id": "uicon_6bac3872-865c-43f5-848d-c00d1f532f8a",
+      "sourceKey": "briefcase",
+      "name": "briefcase",
+      "componentName": "BriefcaseIcon"
+    },
+    {
+      "id": "uicon_2760f007-0150-4445-b82c-db6a2fadd680",
+      "sourceKey": "broadcast",
+      "name": "broadcast",
+      "componentName": "BroadcastIcon"
+    },
+    {
+      "id": "uicon_e51aca20-264c-4612-9273-345e1aaf17ed",
+      "sourceKey": "bug",
+      "name": "bug",
+      "componentName": "BugIcon"
+    },
+    {
+      "id": "uicon_7809b09c-a00f-48e9-963e-eec4118cca22",
+      "sourceKey": "calculator",
+      "name": "calculator",
+      "componentName": "CalculatorIcon"
+    },
+    {
+      "id": "uicon_7905ef1d-d7ff-4aab-bb5c-e4abd5bd6e51",
+      "sourceKey": "calendar",
+      "name": "calendar",
+      "componentName": "CalendarIcon"
+    },
+    {
+      "id": "uicon_6196629f-1d4d-46e4-bea7-cdb01bace839",
+      "sourceKey": "camera",
+      "name": "camera",
+      "componentName": "CameraIcon"
+    },
+    {
+      "id": "uicon_550c8768-5852-4b8b-a4a4-0f9f73f1c5f6",
+      "sourceKey": "card",
+      "name": "card",
+      "componentName": "CardIcon"
+    },
+    {
+      "id": "uicon_b9e03eaf-1af3-4b97-8d6a-93f88761abc2",
+      "sourceKey": "cast",
+      "name": "cast",
+      "componentName": "CastIcon"
+    },
+    {
+      "id": "uicon_db7015c2-80f5-43d7-8f88-adcf8c1bd935",
+      "sourceKey": "charge",
+      "name": "charge",
+      "componentName": "ChargeIcon"
+    },
+    {
+      "id": "uicon_205b5d76-372a-4985-831e-ee760b752892",
+      "sourceKey": "chart-column",
+      "name": "chart-column",
+      "componentName": "ChartColumnIcon"
+    },
+    {
+      "id": "uicon_ef9cbb19-2452-4a78-963b-1f1625e226f8",
+      "sourceKey": "chart-column-up",
+      "name": "chart-column-up",
+      "componentName": "ChartColumnUpIcon"
+    },
+    {
+      "id": "uicon_83302029-55cd-47a7-b3dc-e64c9ac7ccb8",
+      "sourceKey": "check",
+      "name": "check",
+      "componentName": "CheckIcon"
+    },
+    {
+      "id": "uicon_25dd1a92-69fd-45ef-aaa2-9ff3a895b968",
+      "sourceKey": "checkbox",
+      "name": "checkbox",
+      "componentName": "CheckboxIcon"
+    },
+    {
+      "id": "uicon_1a19cc00-7528-45fe-800c-b7d86297aee4",
+      "sourceKey": "chevron-down",
+      "name": "chevron-down",
+      "componentName": "ChevronDownIcon"
+    },
+    {
+      "id": "uicon_fd901456-5a82-4059-963d-0815fb2b5278",
+      "sourceKey": "chevron-left",
+      "name": "chevron-left",
+      "componentName": "ChevronLeftIcon"
+    },
+    {
+      "id": "uicon_279b70a3-418b-421d-be6a-54a13d7a4fe8",
+      "sourceKey": "chevron-right",
+      "name": "chevron-right",
+      "componentName": "ChevronRightIcon"
+    },
+    {
+      "id": "uicon_ff77f96c-9188-4bc2-85be-3dc669f6f099",
+      "sourceKey": "chevron-up",
+      "name": "chevron-up",
+      "componentName": "ChevronUpIcon"
+    },
+    {
+      "id": "uicon_761e8fe5-8eae-4101-97dd-462458cb2489",
+      "sourceKey": "chevrons-down",
+      "name": "chevrons-down",
+      "componentName": "ChevronsDownIcon"
+    },
+    {
+      "id": "uicon_f70540eb-b76d-4278-ba11-c91d29a1af30",
+      "sourceKey": "chevrons-left",
+      "name": "chevrons-left",
+      "componentName": "ChevronsLeftIcon"
+    },
+    {
+      "id": "uicon_051e1876-76c2-4bdb-a76c-de9000291e42",
+      "sourceKey": "chevrons-right",
+      "name": "chevrons-right",
+      "componentName": "ChevronsRightIcon"
+    },
+    {
+      "id": "uicon_8c6b348e-2f30-47de-9ed6-90c12e534b77",
+      "sourceKey": "chevrons-up",
+      "name": "chevrons-up",
+      "componentName": "ChevronsUpIcon"
+    },
+    {
+      "id": "uicon_7a9693fe-4b79-4be8-bd72-9e7a21efe85a",
+      "sourceKey": "chip",
+      "name": "chip",
+      "componentName": "ChipIcon"
+    },
+    {
+      "id": "uicon_42a485b6-ce72-439e-86ae-fd11d1b7bfac",
+      "sourceKey": "clarity",
+      "name": "clarity",
+      "componentName": "ClarityIcon"
+    },
+    {
+      "id": "uicon_16f10119-da2a-43dd-868b-d35959e0e857",
+      "sourceKey": "clipboard",
+      "name": "clipboard",
+      "componentName": "ClipboardIcon"
+    },
+    {
+      "id": "uicon_4d87ec3b-69b3-43dc-ba79-2914cfd193ee",
+      "sourceKey": "clock",
+      "name": "clock",
+      "componentName": "ClockIcon"
+    },
+    {
+      "id": "uicon_23b269f5-28d4-4f18-acc1-be0073bdaacb",
+      "sourceKey": "close",
+      "name": "close",
+      "componentName": "CloseIcon"
+    },
+    {
+      "id": "uicon_ca420352-aed6-4e5b-9b3d-d0e17cf1194d",
+      "sourceKey": "cloud",
+      "name": "cloud",
+      "componentName": "CloudIcon"
+    },
+    {
+      "id": "uicon_43b759d4-6cc6-430e-af53-7491d98e9f83",
+      "sourceKey": "cloud-download",
+      "name": "cloud-download",
+      "componentName": "CloudDownloadIcon"
+    },
+    {
+      "id": "uicon_c3f18292-2382-4644-9419-0e54a15c501f",
+      "sourceKey": "cloud-upload",
+      "name": "cloud-upload",
+      "componentName": "CloudUploadIcon"
+    },
+    {
+      "id": "uicon_9d794c2a-b016-4645-bb58-fdff80595f37",
+      "sourceKey": "code-block",
+      "name": "code-block",
+      "componentName": "CodeBlockIcon"
+    },
+    {
+      "id": "uicon_eb896b6b-6559-4ec0-a932-5575f61192ff",
+      "sourceKey": "color",
+      "name": "color",
+      "componentName": "ColorIcon"
+    },
+    {
+      "id": "uicon_2292d78c-ad2f-48d6-aef3-3af079574370",
+      "sourceKey": "color-wheel",
+      "name": "color-wheel",
+      "componentName": "ColorWheelIcon"
+    },
+    {
+      "id": "uicon_534025ee-5b91-4b6b-8656-a9af9efd4572",
+      "sourceKey": "comment",
+      "name": "comment",
+      "componentName": "CommentIcon"
+    },
+    {
+      "id": "uicon_6d43be0f-a5cb-4baa-a6ae-06fd58579d0e",
+      "sourceKey": "compass",
+      "name": "compass",
+      "componentName": "CompassIcon"
+    },
+    {
+      "id": "uicon_ce43cecb-a01b-4cc4-afad-8d3d88f2cf72",
+      "sourceKey": "computer",
+      "name": "computer",
+      "componentName": "ComputerIcon"
+    },
+    {
+      "id": "uicon_e4ebcc4d-ff81-404d-afa1-2293999198d1",
+      "sourceKey": "control-horizon",
+      "name": "control-horizon",
+      "componentName": "ControlHorizonIcon"
+    },
+    {
+      "id": "uicon_9a255cbc-e047-4543-a896-dd04587a8d17",
+      "sourceKey": "control-vertical",
+      "name": "control-vertical",
+      "componentName": "ControlVerticalIcon"
+    },
+    {
+      "id": "uicon_8bcd9fed-b70d-4ebe-8cb1-80f156349560",
+      "sourceKey": "copy",
+      "name": "copy",
+      "componentName": "CopyIcon"
+    },
+    {
+      "id": "uicon_95976ec6-4335-47af-8655-60a724b93374",
+      "sourceKey": "coupon",
+      "name": "coupon",
+      "componentName": "CouponIcon"
+    },
+    {
+      "id": "uicon_c85bca95-66a3-42e0-b1b5-f478b46f055f",
+      "sourceKey": "credit-card",
+      "name": "credit-card",
+      "componentName": "CreditCardIcon"
+    },
+    {
+      "id": "uicon_aae1132c-7bfa-4446-8eeb-9fcd735f8af2",
+      "sourceKey": "crop",
+      "name": "crop",
+      "componentName": "CropIcon"
+    },
+    {
+      "id": "uicon_d3e3c75a-8292-4b15-a5bc-ddc386f1a7c4",
+      "sourceKey": "cube",
+      "name": "cube",
+      "componentName": "CubeIcon"
+    },
+    {
+      "id": "uicon_b1c7f317-b1c3-4c3d-858f-8f6ec3a03f0e",
+      "sourceKey": "cup",
+      "name": "cup",
+      "componentName": "CupIcon"
+    },
+    {
+      "id": "uicon_362ce0b7-2cf4-4fc2-8452-2fa0537b2d5b",
+      "sourceKey": "currency",
+      "name": "currency",
+      "componentName": "CurrencyIcon"
+    },
+    {
+      "id": "uicon_2179ee63-1664-43e5-9565-e077a8c3a5f7",
+      "sourceKey": "currency-dollar",
+      "name": "currency-dollar",
+      "componentName": "CurrencyDollarIcon"
+    },
+    {
+      "id": "uicon_3bd4d302-dbad-457a-8795-56e3cf0c0f5e",
+      "sourceKey": "currency-euro",
+      "name": "currency-euro",
+      "componentName": "CurrencyEuroIcon"
+    },
+    {
+      "id": "uicon_6590fa6d-7f41-439d-9bf2-7889c7121741",
+      "sourceKey": "currency-yen",
+      "name": "currency-yen",
+      "componentName": "CurrencyYenIcon"
+    },
+    {
+      "id": "uicon_421c5cfa-1385-4fd1-8f1a-670be62322f0",
+      "sourceKey": "currency-yuan",
+      "name": "currency-yuan",
+      "componentName": "CurrencyYuanIcon"
+    },
+    {
+      "id": "uicon_3c3db73c-c27b-4887-a94f-b23db8da6ee5",
+      "sourceKey": "cursor",
+      "name": "cursor",
+      "componentName": "CursorIcon"
+    },
+    {
+      "id": "uicon_2552ea94-736f-4ec1-86c2-d32d4874d4b5",
+      "sourceKey": "cut",
+      "name": "cut",
+      "componentName": "CutIcon"
+    },
+    {
+      "id": "uicon_5c802a67-b6c7-4a30-89fd-e2a27bb77a15",
+      "sourceKey": "danger",
+      "name": "danger",
+      "componentName": "DangerIcon"
+    },
+    {
+      "id": "uicon_4b01f614-7995-4111-886f-b78e4ae135b4",
+      "sourceKey": "database",
+      "name": "database",
+      "componentName": "DatabaseIcon"
+    },
+    {
+      "id": "uicon_a677e903-a35b-4eec-8fb4-cc95020b3fd2",
+      "sourceKey": "dial",
+      "name": "dial",
+      "componentName": "DialIcon"
+    },
+    {
+      "id": "uicon_c59da850-1cbc-46c5-a8fb-0c972d31396a",
+      "sourceKey": "diamond",
+      "name": "diamond",
+      "componentName": "DiamondIcon"
+    },
+    {
+      "id": "uicon_e911aedd-5c8b-409b-8341-be0e4f1233b2",
+      "sourceKey": "download",
+      "name": "download",
+      "componentName": "DownloadIcon"
+    },
+    {
+      "id": "uicon_7cde70f7-baa7-4547-871a-725479dd1f27",
+      "sourceKey": "drag",
+      "name": "drag",
+      "componentName": "DragIcon"
+    },
+    {
+      "id": "uicon_a565a056-ce8d-4014-a927-03fc4e472e78",
+      "sourceKey": "drag-alt",
+      "name": "drag-alt",
+      "componentName": "DragAltIcon"
+    },
+    {
+      "id": "uicon_18985d16-ca1e-4f91-ab3d-5418dc71b979",
+      "sourceKey": "duplicate",
+      "name": "duplicate",
+      "componentName": "DuplicateIcon"
+    },
+    {
+      "id": "uicon_38b71163-d01f-4a2c-bef0-bf344d3bf958",
+      "sourceKey": "earth",
+      "name": "earth",
+      "componentName": "EarthIcon"
+    },
+    {
+      "id": "uicon_408ca218-62f6-47d6-ad8d-f7210e5da5d7",
+      "sourceKey": "edit",
+      "name": "edit",
+      "componentName": "EditIcon"
+    },
+    {
+      "id": "uicon_8db52fc8-fb4a-4698-9141-3570453efcf7",
+      "sourceKey": "eraser",
+      "name": "eraser",
+      "componentName": "EraserIcon"
+    },
+    {
+      "id": "uicon_2309bb23-43c5-4579-aa56-6977d3417d7e",
+      "sourceKey": "exclude",
+      "name": "exclude",
+      "componentName": "ExcludeIcon"
+    },
+    {
+      "id": "uicon_f5ddf73e-7166-49bf-b07b-c25d7debc506",
+      "sourceKey": "exit",
+      "name": "exit",
+      "componentName": "ExitIcon"
+    },
+    {
+      "id": "uicon_0e372c46-1c59-42a2-86be-b10667f33d85",
+      "sourceKey": "expand-collapse",
+      "name": "expand-collapse",
+      "componentName": "ExpandCollapseIcon"
+    },
+    {
+      "id": "uicon_1c77112d-2c56-4693-b0ff-67515aa4ee3f",
+      "sourceKey": "export",
+      "name": "export",
+      "componentName": "ExportIcon"
+    },
+    {
+      "id": "uicon_e2319d5d-3a29-4748-8566-a1106a5d306f",
+      "sourceKey": "external-link",
+      "name": "external-link",
+      "componentName": "ExternalLinkIcon"
+    },
+    {
+      "id": "uicon_627a8ea1-aa39-409c-94fc-66cdc22c720e",
+      "sourceKey": "eye",
+      "name": "eye",
+      "componentName": "EyeIcon"
+    },
+    {
+      "id": "uicon_f96873e7-a422-432f-ab8f-61285fe47d0d",
+      "sourceKey": "eye-off",
+      "name": "eye-off",
+      "componentName": "EyeOffIcon"
+    },
+    {
+      "id": "uicon_56e67a0d-3f6b-481f-9924-bdef2f3990ac",
+      "sourceKey": "eyedropper",
+      "name": "eyedropper",
+      "componentName": "EyedropperIcon"
+    },
+    {
+      "id": "uicon_2317a36b-ecbf-4fc8-9eea-026ca74a9d99",
+      "sourceKey": "fast-forward",
+      "name": "fast-forward",
+      "componentName": "FastForwardIcon"
+    },
+    {
+      "id": "uicon_b61f2721-d377-4a55-b171-3e47be6a3952",
+      "sourceKey": "file",
+      "name": "file",
+      "componentName": "FileIcon"
+    },
+    {
+      "id": "uicon_34b950cb-c1f6-4e1e-9f2b-c5b3b8c41952",
+      "sourceKey": "filter",
+      "name": "filter",
+      "componentName": "FilterIcon"
+    },
+    {
+      "id": "uicon_b3f90275-e510-4c34-aa62-f0704556f6d3",
+      "sourceKey": "fingerprint",
+      "name": "fingerprint",
+      "componentName": "FingerprintIcon"
+    },
+    {
+      "id": "uicon_cf459383-ceae-4555-babd-c267028f1e66",
+      "sourceKey": "flag",
+      "name": "flag",
+      "componentName": "FlagIcon"
+    },
+    {
+      "id": "uicon_9eecfc89-cb2a-44dd-a93c-edb4372e24b5",
+      "sourceKey": "flash",
+      "name": "flash",
+      "componentName": "FlashIcon"
+    },
+    {
+      "id": "uicon_2e0002fd-a99f-4912-b10a-7a1ea87b87c4",
+      "sourceKey": "flashlight",
+      "name": "flashlight",
+      "componentName": "FlashlightIcon"
+    },
+    {
+      "id": "uicon_1ab9e966-688e-45db-9ff4-6120b50b6770",
+      "sourceKey": "flip-horizontal",
+      "name": "flip-horizontal",
+      "componentName": "FlipHorizontalIcon"
+    },
+    {
+      "id": "uicon_429b91f1-5b74-4a0e-bf45-e913968b1be3",
+      "sourceKey": "flip-vertical",
+      "name": "flip-vertical",
+      "componentName": "FlipVerticalIcon"
+    },
+    {
+      "id": "uicon_1b704497-8b3e-4aa8-a55b-3e3ea3bc9b19",
+      "sourceKey": "floppy-disk",
+      "name": "floppy-disk",
+      "componentName": "FloppyDiskIcon"
+    },
+    {
+      "id": "uicon_6c1aeb50-948f-4f6a-b097-0ad2a6f78235",
+      "sourceKey": "folder",
+      "name": "folder",
+      "componentName": "FolderIcon"
+    },
+    {
+      "id": "uicon_dde352b8-3758-4f52-b810-5c9591a0afdc",
+      "sourceKey": "folder-open",
+      "name": "folder-open",
+      "componentName": "FolderOpenIcon"
+    },
+    {
+      "id": "uicon_622f5c60-d087-4952-b7a4-2bc436445882",
+      "sourceKey": "folder-plus",
+      "name": "folder-plus",
+      "componentName": "FolderPlusIcon"
+    },
+    {
+      "id": "uicon_b717cfab-6333-4667-a054-a52bcd6d6fd2",
+      "sourceKey": "football",
+      "name": "football",
+      "componentName": "FootballIcon"
+    },
+    {
+      "id": "uicon_3d40242e-a92f-4995-a9c0-83c8086c9ad3",
+      "sourceKey": "game-handle",
+      "name": "game-handle",
+      "componentName": "GameHandleIcon"
+    },
+    {
+      "id": "uicon_1765232c-aaa1-4f82-8ac3-9cf2a4708666",
+      "sourceKey": "gauge",
+      "name": "gauge",
+      "componentName": "GaugeIcon"
+    },
+    {
+      "id": "uicon_364ea249-cb3e-4703-a22f-ec3ed15eb3aa",
+      "sourceKey": "gender-female",
+      "name": "gender-female",
+      "componentName": "GenderFemaleIcon"
+    },
+    {
+      "id": "uicon_a9a813a5-47f4-4d5b-a8cd-3458dc3e9bbe",
+      "sourceKey": "gender-male",
+      "name": "gender-male",
+      "componentName": "GenderMaleIcon"
+    },
+    {
+      "id": "uicon_38fa5777-cbd4-40dd-9a18-f6af562c0497",
+      "sourceKey": "gender-neutral",
+      "name": "gender-neutral",
+      "componentName": "GenderNeutralIcon"
+    },
+    {
+      "id": "uicon_bb7abf64-2705-4fca-aa8b-c8ee01bac19e",
+      "sourceKey": "gender-transgender",
+      "name": "gender-transgender",
+      "componentName": "GenderTransgenderIcon"
+    },
+    {
+      "id": "uicon_3b0113cd-9b94-4066-b437-4434254c6f83",
+      "sourceKey": "gift",
+      "name": "gift",
+      "componentName": "GiftIcon"
+    },
+    {
+      "id": "uicon_301ae31f-d063-456e-8110-ef1480756b93",
+      "sourceKey": "git",
+      "name": "git",
+      "componentName": "GitIcon"
+    },
+    {
+      "id": "uicon_29278065-561d-4867-991b-3447543c394e",
+      "sourceKey": "glasses",
+      "name": "glasses",
+      "componentName": "GlassesIcon"
+    },
+    {
+      "id": "uicon_d8a61303-32d2-4eaf-8c51-88916c3438b5",
+      "sourceKey": "global",
+      "name": "global",
+      "componentName": "GlobalIcon"
+    },
+    {
+      "id": "uicon_6cb874e8-a9a3-4bb4-8d66-a94e2cb50bbc",
+      "sourceKey": "grid",
+      "name": "grid",
+      "componentName": "GridIcon"
+    },
+    {
+      "id": "uicon_9f1b2a92-66cb-481d-b304-6f52956683e4",
+      "sourceKey": "grid-alt",
+      "name": "grid-alt",
+      "componentName": "GridAltIcon"
+    },
+    {
+      "id": "uicon_378834f5-c4d7-441d-8523-2c4669117b37",
+      "sourceKey": "hand",
+      "name": "hand",
+      "componentName": "HandIcon"
+    },
+    {
+      "id": "uicon_7c0cc71e-47ab-420f-a8e2-9ef12fe88006",
+      "sourceKey": "hard-drive",
+      "name": "hard-drive",
+      "componentName": "HardDriveIcon"
+    },
+    {
+      "id": "uicon_8eea28f2-5f96-454d-9c6e-d0dc4394f4f3",
+      "sourceKey": "hashtag",
+      "name": "hashtag",
+      "componentName": "HashtagIcon"
+    },
+    {
+      "id": "uicon_5bfac2a8-6af7-496b-80cc-70264b71f166",
+      "sourceKey": "heading",
+      "name": "heading",
+      "componentName": "HeadingIcon"
+    },
+    {
+      "id": "uicon_47e3925f-db8e-4e86-b6cd-d331e51e6d9c",
+      "sourceKey": "headset",
+      "name": "headset",
+      "componentName": "HeadsetIcon"
+    },
+    {
+      "id": "uicon_fa465401-c365-41ea-a8db-4a02e1ce65cc",
+      "sourceKey": "heart",
+      "name": "heart",
+      "componentName": "HeartIcon"
+    },
+    {
+      "id": "uicon_29f301cd-e494-46f9-8e6f-e43e41921d68",
+      "sourceKey": "help",
+      "name": "help",
+      "componentName": "HelpIcon"
+    },
+    {
+      "id": "uicon_2df4fd7a-2bbb-44b5-bc47-754602835be9",
+      "sourceKey": "home",
+      "name": "home",
+      "componentName": "HomeIcon"
+    },
+    {
+      "id": "uicon_1fd821a6-dd10-473c-a999-f266eb864548",
+      "sourceKey": "hourglass",
+      "name": "hourglass",
+      "componentName": "HourglassIcon"
+    },
+    {
+      "id": "uicon_f3df7474-ec6f-46ae-b646-3ae60937a2ea",
+      "sourceKey": "image",
+      "name": "image",
+      "componentName": "ImageIcon"
+    },
+    {
+      "id": "uicon_3cde7e32-310c-4e77-81ef-b10385143740",
+      "sourceKey": "inbox",
+      "name": "inbox",
+      "componentName": "InboxIcon"
+    },
+    {
+      "id": "uicon_f43c3171-38ca-4a9b-b8a7-bb97b44c9d3c",
+      "sourceKey": "info",
+      "name": "info",
+      "componentName": "InfoIcon"
+    },
+    {
+      "id": "uicon_6d37289d-5e5e-42a0-b0c2-16fabf8dd3de",
+      "sourceKey": "intersect",
+      "name": "intersect",
+      "componentName": "IntersectIcon"
+    },
+    {
+      "id": "uicon_48c5e14c-1af3-41e1-a503-d1beac56136a",
+      "sourceKey": "italic",
+      "name": "italic",
+      "componentName": "ItalicIcon"
+    },
+    {
+      "id": "uicon_59ba61d9-3aa2-4bf6-8d39-bb5536fba7fb",
+      "sourceKey": "jeep",
+      "name": "jeep",
+      "componentName": "JeepIcon"
+    },
+    {
+      "id": "uicon_8624b8eb-6b85-4d5c-8159-4b0d46dee82c",
+      "sourceKey": "key",
+      "name": "key",
+      "componentName": "KeyIcon"
+    },
+    {
+      "id": "uicon_a792f3b9-8ad6-46e7-9dfb-34fb2b70e639",
+      "sourceKey": "keyboard",
+      "name": "keyboard",
+      "componentName": "KeyboardIcon"
+    },
+    {
+      "id": "uicon_0a75ac35-d5ab-427f-9387-220ca972ff18",
+      "sourceKey": "lab",
+      "name": "lab",
+      "componentName": "LabIcon"
+    },
+    {
+      "id": "uicon_5e611147-d30e-4e7e-a831-d5479f484379",
+      "sourceKey": "lamp",
+      "name": "lamp",
+      "componentName": "LampIcon"
+    },
+    {
+      "id": "uicon_9f6371d3-63c1-4158-897a-22d333933ad1",
+      "sourceKey": "laptop",
+      "name": "laptop",
+      "componentName": "LaptopIcon"
+    },
+    {
+      "id": "uicon_baa4ccd4-afe9-4714-bcaf-a015b1b46ef7",
+      "sourceKey": "laurel",
+      "name": "laurel",
+      "componentName": "LaurelIcon"
+    },
+    {
+      "id": "uicon_9a6e030e-47db-4e90-b76e-75631760f2f3",
+      "sourceKey": "layers",
+      "name": "layers",
+      "componentName": "LayersIcon"
+    },
+    {
+      "id": "uicon_78fd4213-af3d-428a-a734-226f02d8b0c2",
+      "sourceKey": "leaf",
+      "name": "leaf",
+      "componentName": "LeafIcon"
+    },
+    {
+      "id": "uicon_eb84f881-7de9-498d-8205-9838cd3996f9",
+      "sourceKey": "lightbulb",
+      "name": "lightbulb",
+      "componentName": "LightbulbIcon"
+    },
+    {
+      "id": "uicon_3c0f62b5-61a2-4ce2-a472-17e4327786bc",
+      "sourceKey": "link",
+      "name": "link",
+      "componentName": "LinkIcon"
+    },
+    {
+      "id": "uicon_05b23427-5349-4fc6-945a-6aa5ffb2df92",
+      "sourceKey": "link-off",
+      "name": "link-off",
+      "componentName": "LinkOffIcon"
+    },
+    {
+      "id": "uicon_edf52ef9-f3ad-4172-b2b5-3c4b219801a4",
+      "sourceKey": "list",
+      "name": "list",
+      "componentName": "ListIcon"
+    },
+    {
+      "id": "uicon_1e2f6f68-c627-4076-881e-02d9a020fdb5",
+      "sourceKey": "list-ordered",
+      "name": "list-ordered",
+      "componentName": "ListOrderedIcon"
+    },
+    {
+      "id": "uicon_b3e60803-584f-480c-81e8-7cd21b097ad3",
+      "sourceKey": "loading",
+      "name": "loading",
+      "componentName": "LoadingIcon"
+    },
+    {
+      "id": "uicon_2a214b0a-e86d-4025-8553-583b3a9568c9",
+      "sourceKey": "location",
+      "name": "location",
+      "componentName": "LocationIcon"
+    },
+    {
+      "id": "uicon_9e8ff4c0-913f-4318-b0db-c6ad7e056372",
+      "sourceKey": "lock",
+      "name": "lock",
+      "componentName": "LockIcon"
+    },
+    {
+      "id": "uicon_8605381a-3751-4dad-bfae-e49dd21de91c",
+      "sourceKey": "login",
+      "name": "login",
+      "componentName": "LoginIcon"
+    },
+    {
+      "id": "uicon_a2ea7fef-e500-4bd3-8dcb-314f163a1eaa",
+      "sourceKey": "logout",
+      "name": "logout",
+      "componentName": "LogoutIcon"
+    },
+    {
+      "id": "uicon_792a4959-4691-4c3e-8326-ec0ef8686d4a",
+      "sourceKey": "mail",
+      "name": "mail",
+      "componentName": "MailIcon"
+    },
+    {
+      "id": "uicon_bd951669-ec54-461c-be08-66552d36b764",
+      "sourceKey": "map",
+      "name": "map",
+      "componentName": "MapIcon"
+    },
+    {
+      "id": "uicon_46b2037c-97a3-478b-9686-2cfe314a4cf3",
+      "sourceKey": "marquee",
+      "name": "marquee",
+      "componentName": "MarqueeIcon"
+    },
+    {
+      "id": "uicon_e073e6e7-e9ec-4758-86d3-d80c38eff259",
+      "sourceKey": "mask",
+      "name": "mask",
+      "componentName": "MaskIcon"
+    },
+    {
+      "id": "uicon_38c30905-d617-4eeb-a2ff-a1d74a9e168d",
+      "sourceKey": "masonry",
+      "name": "masonry",
+      "componentName": "MasonryIcon"
+    },
+    {
+      "id": "uicon_64d4eb8a-b861-4622-9858-e5184425ecbd",
+      "sourceKey": "masonry-alt",
+      "name": "masonry-alt",
+      "componentName": "MasonryAltIcon"
+    },
+    {
+      "id": "uicon_573b7576-f87a-4905-96a4-6666fe4e3d56",
+      "sourceKey": "maximize",
+      "name": "maximize",
+      "componentName": "MaximizeIcon"
+    },
+    {
+      "id": "uicon_83d9832d-463e-4526-a555-b2c0c4f8e9f9",
+      "sourceKey": "maximize-alt",
+      "name": "maximize-alt",
+      "componentName": "MaximizeAltIcon"
+    },
+    {
+      "id": "uicon_79264618-f299-467e-8c70-831161d8d873",
+      "sourceKey": "megaphone",
+      "name": "megaphone",
+      "componentName": "MegaphoneIcon"
+    },
+    {
+      "id": "uicon_bc7b5144-6b42-4777-bd04-2f78bdeca6fe",
+      "sourceKey": "menu",
+      "name": "menu",
+      "componentName": "MenuIcon"
+    },
+    {
+      "id": "uicon_5b163ae9-424a-4bb8-9ce5-c3ce9c87381a",
+      "sourceKey": "microphone",
+      "name": "microphone",
+      "componentName": "MicrophoneIcon"
+    },
+    {
+      "id": "uicon_8d2b5c8b-1651-4380-9495-9d4487de625a",
+      "sourceKey": "minimize",
+      "name": "minimize",
+      "componentName": "MinimizeIcon"
+    },
+    {
+      "id": "uicon_c7e86444-2c88-4746-83d4-5344aca956e6",
+      "sourceKey": "minimize-alt",
+      "name": "minimize-alt",
+      "componentName": "MinimizeAltIcon"
+    },
+    {
+      "id": "uicon_3c5f469c-852c-4a61-9080-8539aa0fc5eb",
+      "sourceKey": "minus",
+      "name": "minus",
+      "componentName": "MinusIcon"
+    },
+    {
+      "id": "uicon_f3c3b323-9968-4524-9d09-64696fcb6681",
+      "sourceKey": "mistake",
+      "name": "mistake",
+      "componentName": "MistakeIcon"
+    },
+    {
+      "id": "uicon_280e1f1e-064a-45c9-bd38-35bb332a39fe",
+      "sourceKey": "monitor",
+      "name": "monitor",
+      "componentName": "MonitorIcon"
+    },
+    {
+      "id": "uicon_30514dc1-c863-4b78-a6ed-b8d6bf1d8b87",
+      "sourceKey": "moon",
+      "name": "moon",
+      "componentName": "MoonIcon"
+    },
+    {
+      "id": "uicon_c587b5d0-6c37-445f-a1ed-a01c7ffcbfa6",
+      "sourceKey": "more-horizon",
+      "name": "more-horizon",
+      "componentName": "MoreHorizonIcon"
+    },
+    {
+      "id": "uicon_4ea36894-0a23-4d22-a732-51841148e698",
+      "sourceKey": "more-vertical",
+      "name": "more-vertical",
+      "componentName": "MoreVerticalIcon"
+    },
+    {
+      "id": "uicon_723c7043-d0c1-4f22-933a-4c174959ff72",
+      "sourceKey": "mountain",
+      "name": "mountain",
+      "componentName": "MountainIcon"
+    },
+    {
+      "id": "uicon_fbee0fb7-5a1e-4bff-8544-fb075aee63bc",
+      "sourceKey": "mouse",
+      "name": "mouse",
+      "componentName": "MouseIcon"
+    },
+    {
+      "id": "uicon_75266fa7-298d-421d-a0ba-351d577c25a1",
+      "sourceKey": "mouse-alt",
+      "name": "mouse-alt",
+      "componentName": "MouseAltIcon"
+    },
+    {
+      "id": "uicon_7c9bbd63-7105-4576-92aa-f1597772a149",
+      "sourceKey": "music",
+      "name": "music",
+      "componentName": "MusicIcon"
+    },
+    {
+      "id": "uicon_82eec36d-2510-4464-8d19-c9c26238c214",
+      "sourceKey": "notebook",
+      "name": "notebook",
+      "componentName": "NotebookIcon"
+    },
+    {
+      "id": "uicon_6b826939-b0c7-4313-96fd-c5e419847233",
+      "sourceKey": "object-align-center",
+      "name": "object-align-center",
+      "componentName": "ObjectAlignCenterIcon"
+    },
+    {
+      "id": "uicon_c19ca119-656f-4c2e-91d4-5935b7816f7e",
+      "sourceKey": "object-align-justify",
+      "name": "object-align-justify",
+      "componentName": "ObjectAlignJustifyIcon"
+    },
+    {
+      "id": "uicon_5a7ff927-b3be-4f00-a48c-a194509e2683",
+      "sourceKey": "object-align-justify-alt",
+      "name": "object-align-justify-alt",
+      "componentName": "ObjectAlignJustifyAltIcon"
+    },
+    {
+      "id": "uicon_2da3aa63-768c-4b13-ac00-917a23bd6bf5",
+      "sourceKey": "object-align-left",
+      "name": "object-align-left",
+      "componentName": "ObjectAlignLeftIcon"
+    },
+    {
+      "id": "uicon_7141474c-7bb2-4a7f-8dfd-50304e1b2f08",
+      "sourceKey": "object-align-right",
+      "name": "object-align-right",
+      "componentName": "ObjectAlignRightIcon"
+    },
+    {
+      "id": "uicon_9644f195-d0da-4b40-ad99-b09e9af8cbe5",
+      "sourceKey": "panel-left",
+      "name": "panel-left",
+      "componentName": "PanelLeftIcon"
+    },
+    {
+      "id": "uicon_d012cd4b-636d-434c-86b7-3f590bdf6f0d",
+      "sourceKey": "panel-right",
+      "name": "panel-right",
+      "componentName": "PanelRightIcon"
+    },
+    {
+      "id": "uicon_9f68ae75-6282-4f16-b1d3-a413da3a2175",
+      "sourceKey": "paperclip",
+      "name": "paperclip",
+      "componentName": "PaperclipIcon"
+    },
+    {
+      "id": "uicon_fe58fe9f-ecab-4b71-a209-3d9f218c09bc",
+      "sourceKey": "paste",
+      "name": "paste",
+      "componentName": "PasteIcon"
+    },
+    {
+      "id": "uicon_c30e4df8-bba4-493d-a24a-1256d2b9fe93",
+      "sourceKey": "pause",
+      "name": "pause",
+      "componentName": "PauseIcon"
+    },
+    {
+      "id": "uicon_8fe96bc0-5f0b-477d-8920-168c67ab4cf9",
+      "sourceKey": "pen",
+      "name": "pen",
+      "componentName": "PenIcon"
+    },
+    {
+      "id": "uicon_f6f71607-6775-4b09-9b2e-534be6bd4bbc",
+      "sourceKey": "pencil",
+      "name": "pencil",
+      "componentName": "PencilIcon"
+    },
+    {
+      "id": "uicon_a875f1e5-30b5-4f48-a027-5bb014f9b14b",
+      "sourceKey": "percent",
+      "name": "percent",
+      "componentName": "PercentIcon"
+    },
+    {
+      "id": "uicon_eadd14c0-0e0e-4f62-b959-d00b72148e97",
+      "sourceKey": "pet",
+      "name": "pet",
+      "componentName": "PetIcon"
+    },
+    {
+      "id": "uicon_b38d6e7c-a398-4124-b80b-d4bb090409ec",
+      "sourceKey": "phone",
+      "name": "phone",
+      "componentName": "PhoneIcon"
+    },
+    {
+      "id": "uicon_eea91df8-1c2d-4d0f-9815-c644f6455258",
+      "sourceKey": "pie-chart",
+      "name": "pie-chart",
+      "componentName": "PieChartIcon"
+    },
+    {
+      "id": "uicon_483bdd02-1ece-44cc-b89e-c54e076385c0",
+      "sourceKey": "pin",
+      "name": "pin",
+      "componentName": "PinIcon"
+    },
+    {
+      "id": "uicon_62161f52-66cc-44ee-a1e7-a6f0236682be",
+      "sourceKey": "pin-off",
+      "name": "pin-off",
+      "componentName": "PinOffIcon"
+    },
+    {
+      "id": "uicon_472adc64-18db-48f4-9ffd-8ba80665aa9a",
+      "sourceKey": "plane",
+      "name": "plane",
+      "componentName": "PlaneIcon"
+    },
+    {
+      "id": "uicon_f3701a37-e1be-42ec-a0de-add7061325b1",
+      "sourceKey": "planet",
+      "name": "planet",
+      "componentName": "PlanetIcon"
+    },
+    {
+      "id": "uicon_13d9afe6-a8a7-4e5a-b71c-564813b48c00",
+      "sourceKey": "play",
+      "name": "play",
+      "componentName": "PlayIcon"
+    },
+    {
+      "id": "uicon_67bf02c3-e5d7-4ab0-948a-b1ebbe0ffc27",
+      "sourceKey": "plus",
+      "name": "plus",
+      "componentName": "PlusIcon"
+    },
+    {
+      "id": "uicon_ac0a3c13-d67d-40d8-a5f2-ab655597e031",
+      "sourceKey": "power",
+      "name": "power",
+      "componentName": "PowerIcon"
+    },
+    {
+      "id": "uicon_43d07978-179e-432e-a7ca-505cde72f8e6",
+      "sourceKey": "print",
+      "name": "print",
+      "componentName": "PrintIcon"
+    },
+    {
+      "id": "uicon_7e3d101d-b954-468a-8d27-8f666c7a799a",
+      "sourceKey": "qr-code",
+      "name": "qr-code",
+      "componentName": "QrCodeIcon"
+    },
+    {
+      "id": "uicon_edc9b7c4-38c0-47b9-9734-14114a04fb6b",
+      "sourceKey": "quote",
+      "name": "quote",
+      "componentName": "QuoteIcon"
+    },
+    {
+      "id": "uicon_29a66196-c9d4-4417-b551-48197a7bc01a",
+      "sourceKey": "radio",
+      "name": "radio",
+      "componentName": "RadioIcon"
+    },
+    {
+      "id": "uicon_09cdbdfe-d41f-429a-bca2-01cca084e586",
+      "sourceKey": "receipt",
+      "name": "receipt",
+      "componentName": "ReceiptIcon"
+    },
+    {
+      "id": "uicon_2ed9c2d9-bef9-4129-8e92-3f0467df9378",
+      "sourceKey": "record",
+      "name": "record",
+      "componentName": "RecordIcon"
+    },
+    {
+      "id": "uicon_663c8891-bdd6-45a4-bef4-61ee5024a5d3",
+      "sourceKey": "redo",
+      "name": "redo",
+      "componentName": "RedoIcon"
+    },
+    {
+      "id": "uicon_81256b9e-ebc9-4774-ae88-b30a7ba5ab0d",
+      "sourceKey": "refresh",
+      "name": "refresh",
+      "componentName": "RefreshIcon"
+    },
+    {
+      "id": "uicon_ef0b773e-8c12-42e2-9b96-d42e2fd59ca0",
+      "sourceKey": "repeat",
+      "name": "repeat",
+      "componentName": "RepeatIcon"
+    },
+    {
+      "id": "uicon_7141cb9a-696e-45a2-a8e1-a842c83b68cf",
+      "sourceKey": "reply",
+      "name": "reply",
+      "componentName": "ReplyIcon"
+    },
+    {
+      "id": "uicon_ed6299e7-4633-4280-94cc-02448fe29b9c",
+      "sourceKey": "rewind",
+      "name": "rewind",
+      "componentName": "RewindIcon"
+    },
+    {
+      "id": "uicon_61a07d02-7b85-41a1-ae4c-f6ae68505752",
+      "sourceKey": "robot",
+      "name": "robot",
+      "componentName": "RobotIcon"
+    },
+    {
+      "id": "uicon_6981c54e-8cf3-4ee4-9a97-91021adf085a",
+      "sourceKey": "rocket",
+      "name": "rocket",
+      "componentName": "RocketIcon"
+    },
+    {
+      "id": "uicon_188f648b-b02f-4085-adb4-2eca8c86f363",
+      "sourceKey": "rotate-left",
+      "name": "rotate-left",
+      "componentName": "RotateLeftIcon"
+    },
+    {
+      "id": "uicon_c5339a5d-37ea-43c7-b7b7-eb66f2847223",
+      "sourceKey": "rotate-right",
+      "name": "rotate-right",
+      "componentName": "RotateRightIcon"
+    },
+    {
+      "id": "uicon_176f3de4-041a-4883-950e-86c967a35675",
+      "sourceKey": "ruler",
+      "name": "ruler",
+      "componentName": "RulerIcon"
+    },
+    {
+      "id": "uicon_b29db72f-1fa9-4689-80b1-5fb691410172",
+      "sourceKey": "save",
+      "name": "save",
+      "componentName": "SaveIcon"
+    },
+    {
+      "id": "uicon_5fb17900-8672-4c13-8fb6-d1f5a2fdf7d5",
+      "sourceKey": "scan",
+      "name": "scan",
+      "componentName": "ScanIcon"
+    },
+    {
+      "id": "uicon_86aa84d8-7b0d-46c8-a381-ff3703235b3c",
+      "sourceKey": "screenshot",
+      "name": "screenshot",
+      "componentName": "ScreenshotIcon"
+    },
+    {
+      "id": "uicon_68d449ba-66e3-421c-b4ef-8519176eab0d",
+      "sourceKey": "search",
+      "name": "search",
+      "componentName": "SearchIcon"
+    },
+    {
+      "id": "uicon_7c2ebbc7-74cc-4fdf-9c6c-ca7c6df6bed9",
+      "sourceKey": "send",
+      "name": "send",
+      "componentName": "SendIcon"
+    },
+    {
+      "id": "uicon_b45e35a7-e1ec-4c73-880a-6d718b3ef784",
+      "sourceKey": "separator",
+      "name": "separator",
+      "componentName": "SeparatorIcon"
+    },
+    {
+      "id": "uicon_3c7997ec-f801-418a-9a1c-d1a5f6140704",
+      "sourceKey": "server",
+      "name": "server",
+      "componentName": "ServerIcon"
+    },
+    {
+      "id": "uicon_3880eb44-e6e5-4dd6-8c88-b90f4848ffb2",
+      "sourceKey": "set-bottom",
+      "name": "set-bottom",
+      "componentName": "SetBottomIcon"
+    },
+    {
+      "id": "uicon_ef5abcc2-74d5-44c1-ae7b-17f05ad7cd21",
+      "sourceKey": "set-medium",
+      "name": "set-medium",
+      "componentName": "SetMediumIcon"
+    },
+    {
+      "id": "uicon_e6bb9bc0-cabb-4b10-99c8-a2e13cc118a6",
+      "sourceKey": "set-top",
+      "name": "set-top",
+      "componentName": "SetTopIcon"
+    },
+    {
+      "id": "uicon_96418930-ca36-4477-9de4-9709531bbbbb",
+      "sourceKey": "setting",
+      "name": "setting",
+      "componentName": "SettingIcon"
+    },
+    {
+      "id": "uicon_5ce47618-5aca-4904-80a4-49d3ef6ac2dc",
+      "sourceKey": "setting-alt",
+      "name": "setting-alt",
+      "componentName": "SettingAltIcon"
+    },
+    {
+      "id": "uicon_d0de3691-5cd0-4d06-ba8b-dedc78996e5a",
+      "sourceKey": "share",
+      "name": "share",
+      "componentName": "ShareIcon"
+    },
+    {
+      "id": "uicon_c4ddb117-0fc4-46d7-9fd8-bfe0b77611da",
+      "sourceKey": "shield",
+      "name": "shield",
+      "componentName": "ShieldIcon"
+    },
+    {
+      "id": "uicon_a0bc37fd-ce38-49a8-b57f-770b6533251a",
+      "sourceKey": "shield-check",
+      "name": "shield-check",
+      "componentName": "ShieldCheckIcon"
+    },
+    {
+      "id": "uicon_90db5e58-d143-4cde-88b5-5b110672b41d",
+      "sourceKey": "ship-rudder",
+      "name": "ship-rudder",
+      "componentName": "ShipRudderIcon"
+    },
+    {
+      "id": "uicon_f049b930-95bb-4621-86e8-7d287c5aa363",
+      "sourceKey": "shopping-bag",
+      "name": "shopping-bag",
+      "componentName": "ShoppingBagIcon"
+    },
+    {
+      "id": "uicon_21932498-6638-4adf-8293-d38f31d04f4f",
+      "sourceKey": "shopping-cart",
+      "name": "shopping-cart",
+      "componentName": "ShoppingCartIcon"
+    },
+    {
+      "id": "uicon_5d3c04d2-74c3-4281-b521-6f767039065d",
+      "sourceKey": "shuffle",
+      "name": "shuffle",
+      "componentName": "ShuffleIcon"
+    },
+    {
+      "id": "uicon_bfdeffc9-8ad8-44c3-a57c-fd8b91277f24",
+      "sourceKey": "sidebar-left",
+      "name": "sidebar-left",
+      "componentName": "SidebarLeftIcon"
+    },
+    {
+      "id": "uicon_3e97c4ba-72f7-4863-8a3a-f92d585b2150",
+      "sourceKey": "sidebar-right",
+      "name": "sidebar-right",
+      "componentName": "SidebarRightIcon"
+    },
+    {
+      "id": "uicon_0425a2a2-8f47-4920-bef1-a7cdb6fbe6a2",
+      "sourceKey": "skip-back",
+      "name": "skip-back",
+      "componentName": "SkipBackIcon"
+    },
+    {
+      "id": "uicon_fe4a2791-9300-4990-9269-f1b379e24caf",
+      "sourceKey": "skip-forward",
+      "name": "skip-forward",
+      "componentName": "SkipForwardIcon"
+    },
+    {
+      "id": "uicon_22076ee6-c3bc-4438-8d1e-cef42f60f707",
+      "sourceKey": "skyscraper",
+      "name": "skyscraper",
+      "componentName": "SkyscraperIcon"
+    },
+    {
+      "id": "uicon_922ea1e7-d0d6-4a3f-a8bc-a77d1937cf79",
+      "sourceKey": "smartphone",
+      "name": "smartphone",
+      "componentName": "SmartphoneIcon"
+    },
+    {
+      "id": "uicon_5b653dd2-89fd-494b-86d5-003840b9f046",
+      "sourceKey": "smile",
+      "name": "smile",
+      "componentName": "SmileIcon"
+    },
+    {
+      "id": "uicon_bea25487-a26d-4758-a6db-f77f5f6459a1",
+      "sourceKey": "sort",
+      "name": "sort",
+      "componentName": "SortIcon"
+    },
+    {
+      "id": "uicon_21ff8aeb-37a8-4d68-b71b-6075de60098c",
+      "sourceKey": "space-shuttle",
+      "name": "space-shuttle",
+      "componentName": "SpaceShuttleIcon"
+    },
+    {
+      "id": "uicon_aa17bd01-421c-42ff-a66c-80e8040e3f0a",
+      "sourceKey": "sparkle",
+      "name": "sparkle",
+      "componentName": "SparkleIcon"
+    },
+    {
+      "id": "uicon_c9a6d0e9-0faa-4271-8d64-7b9866bb1df3",
+      "sourceKey": "split-screen",
+      "name": "split-screen",
+      "componentName": "SplitScreenIcon"
+    },
+    {
+      "id": "uicon_884f9a81-d4fc-4b2e-8a9f-611edc796d55",
+      "sourceKey": "star",
+      "name": "star",
+      "componentName": "StarIcon"
+    },
+    {
+      "id": "uicon_871c9b22-c49c-4d19-a874-ef1ca2a36671",
+      "sourceKey": "stop",
+      "name": "stop",
+      "componentName": "StopIcon"
+    },
+    {
+      "id": "uicon_a5fa9b12-2444-430d-96ab-584906d8696f",
+      "sourceKey": "store",
+      "name": "store",
+      "componentName": "StoreIcon"
+    },
+    {
+      "id": "uicon_91107ad7-1703-4458-8ca3-13e02bad0f2b",
+      "sourceKey": "strikethrough",
+      "name": "strikethrough",
+      "componentName": "StrikethroughIcon"
+    },
+    {
+      "id": "uicon_28d75621-9524-4348-a3ff-d630e8068ac5",
+      "sourceKey": "student",
+      "name": "student",
+      "componentName": "StudentIcon"
+    },
+    {
+      "id": "uicon_dfdf27e3-a016-45fe-a9ec-95e4aea1a02a",
+      "sourceKey": "subscription",
+      "name": "subscription",
+      "componentName": "SubscriptionIcon"
+    },
+    {
+      "id": "uicon_8839fffd-3f3b-4a47-814b-c371085b64c2",
+      "sourceKey": "subtract",
+      "name": "subtract",
+      "componentName": "SubtractIcon"
+    },
+    {
+      "id": "uicon_a70976d4-1419-4943-bde7-7fc4dcadc8a4",
+      "sourceKey": "success",
+      "name": "success",
+      "componentName": "SuccessIcon"
+    },
+    {
+      "id": "uicon_5564941b-cb95-40aa-9e1c-d0d44330bc89",
+      "sourceKey": "sun",
+      "name": "sun",
+      "componentName": "SunIcon"
+    },
+    {
+      "id": "uicon_1aadae8b-1c6a-49c1-a3f5-fda60742f322",
+      "sourceKey": "sync",
+      "name": "sync",
+      "componentName": "SyncIcon"
+    },
+    {
+      "id": "uicon_9d5b1416-d03b-448b-8f7d-de4ca3793326",
+      "sourceKey": "table",
+      "name": "table",
+      "componentName": "TableIcon"
+    },
+    {
+      "id": "uicon_4aeaa94c-9171-44e5-a73a-dd949d1fdd10",
+      "sourceKey": "tablet",
+      "name": "tablet",
+      "componentName": "TabletIcon"
+    },
+    {
+      "id": "uicon_dc484f04-4eb5-4a20-be51-ee8c616b28da",
+      "sourceKey": "tabs",
+      "name": "tabs",
+      "componentName": "TabsIcon"
+    },
+    {
+      "id": "uicon_6778ebdd-9480-40ab-b765-cdb8172b634b",
+      "sourceKey": "tag",
+      "name": "tag",
+      "componentName": "TagIcon"
+    },
+    {
+      "id": "uicon_b65f4db6-55da-44c0-b3d7-1b77496accdf",
+      "sourceKey": "target",
+      "name": "target",
+      "componentName": "TargetIcon"
+    },
+    {
+      "id": "uicon_01e64e49-201c-4cdb-9777-a3be4ee9069e",
+      "sourceKey": "target-alt",
+      "name": "target-alt",
+      "componentName": "TargetAltIcon"
+    },
+    {
+      "id": "uicon_2e3e6817-17ba-4198-8930-bf19100aae67",
+      "sourceKey": "task",
+      "name": "task",
+      "componentName": "TaskIcon"
+    },
+    {
+      "id": "uicon_4cbb46fb-5010-4ee0-9483-1ee287e2e773",
+      "sourceKey": "terminal",
+      "name": "terminal",
+      "componentName": "TerminalIcon"
+    },
+    {
+      "id": "uicon_e5b5db03-93ee-4192-b19f-df1bf3e70151",
+      "sourceKey": "text",
+      "name": "text",
+      "componentName": "TextIcon"
+    },
+    {
+      "id": "uicon_4c8e6260-a168-47e5-bac3-cb35ff57a85c",
+      "sourceKey": "text-align-center",
+      "name": "text-align-center",
+      "componentName": "TextAlignCenterIcon"
+    },
+    {
+      "id": "uicon_c8c3d951-c43f-431a-96f2-77999180463e",
+      "sourceKey": "text-align-justify",
+      "name": "text-align-justify",
+      "componentName": "TextAlignJustifyIcon"
+    },
+    {
+      "id": "uicon_fed01cb6-0b2b-46ee-a8a5-658be34549ff",
+      "sourceKey": "text-align-justify-alt",
+      "name": "text-align-justify-alt",
+      "componentName": "TextAlignJustifyAltIcon"
+    },
+    {
+      "id": "uicon_26ae9782-a1e8-47f1-845c-d4cd245f52e0",
+      "sourceKey": "text-align-left",
+      "name": "text-align-left",
+      "componentName": "TextAlignLeftIcon"
+    },
+    {
+      "id": "uicon_9ae05ac3-34d7-4f9b-b241-cb83f5515763",
+      "sourceKey": "text-align-right",
+      "name": "text-align-right",
+      "componentName": "TextAlignRightIcon"
+    },
+    {
+      "id": "uicon_f3936a97-f377-4b7f-81ef-9d161b3d10a9",
+      "sourceKey": "text-alt",
+      "name": "text-alt",
+      "componentName": "TextAltIcon"
+    },
+    {
+      "id": "uicon_4c3b4259-e74d-4715-9ef9-c32fc6e7c7ca",
+      "sourceKey": "textarea",
+      "name": "textarea",
+      "componentName": "TextareaIcon"
+    },
+    {
+      "id": "uicon_b694c7ca-49c2-4019-b36b-b8e8c4de09d5",
+      "sourceKey": "thumbs-down",
+      "name": "thumbs-down",
+      "componentName": "ThumbsDownIcon"
+    },
+    {
+      "id": "uicon_a1d5e00b-7baf-434e-9822-35cf0f0f23f1",
+      "sourceKey": "thumbs-up",
+      "name": "thumbs-up",
+      "componentName": "ThumbsUpIcon"
+    },
+    {
+      "id": "uicon_63ecc9bb-636b-43a8-9fad-38e6eb4874e5",
+      "sourceKey": "ticket",
+      "name": "ticket",
+      "componentName": "TicketIcon"
+    },
+    {
+      "id": "uicon_da6dd711-28e3-4bf1-96ab-f9b7cde83f89",
+      "sourceKey": "ticket-alt",
+      "name": "ticket-alt",
+      "componentName": "TicketAltIcon"
+    },
+    {
+      "id": "uicon_a5fd8722-4ff8-431b-9730-60b7bb36a23e",
+      "sourceKey": "timer",
+      "name": "timer",
+      "componentName": "TimerIcon"
+    },
+    {
+      "id": "uicon_ef08b765-a065-4a05-91ab-59e5780a48a9",
+      "sourceKey": "toggle",
+      "name": "toggle",
+      "componentName": "ToggleIcon"
+    },
+    {
+      "id": "uicon_b3f4a5f4-7857-401e-b9f1-a95b3f6b1723",
+      "sourceKey": "touchpad",
+      "name": "touchpad",
+      "componentName": "TouchpadIcon"
+    },
+    {
+      "id": "uicon_487d96dc-ceef-4b0f-8516-ee4bd8064f76",
+      "sourceKey": "transfer",
+      "name": "transfer",
+      "componentName": "TransferIcon"
+    },
+    {
+      "id": "uicon_842c0517-55ba-4203-8fe4-0f63bd8211ef",
+      "sourceKey": "transform",
+      "name": "transform",
+      "componentName": "TransformIcon"
+    },
+    {
+      "id": "uicon_d34b21ef-24f7-481f-8d6f-c242e69d9107",
+      "sourceKey": "translate",
+      "name": "translate",
+      "componentName": "TranslateIcon"
+    },
+    {
+      "id": "uicon_a3bf6e10-9917-4ea3-a98b-f9102aee797e",
+      "sourceKey": "trash",
+      "name": "trash",
+      "componentName": "TrashIcon"
+    },
+    {
+      "id": "uicon_e48a5062-a70c-4e41-b3d0-f1d60b5e7b29",
+      "sourceKey": "trending-down",
+      "name": "trending-down",
+      "componentName": "TrendingDownIcon"
+    },
+    {
+      "id": "uicon_41b8bd62-bf63-4267-873a-d7cc1ee5f8ca",
+      "sourceKey": "trending-up",
+      "name": "trending-up",
+      "componentName": "TrendingUpIcon"
+    },
+    {
+      "id": "uicon_28f48cd2-0a64-4247-8951-7265109d5d4b",
+      "sourceKey": "trophy",
+      "name": "trophy",
+      "componentName": "TrophyIcon"
+    },
+    {
+      "id": "uicon_c039765c-3e17-4b76-9036-bf5ecd90e17c",
+      "sourceKey": "truck",
+      "name": "truck",
+      "componentName": "TruckIcon"
+    },
+    {
+      "id": "uicon_8c123770-ddb5-41d9-8ea8-72fd2233f3ac",
+      "sourceKey": "underline",
+      "name": "underline",
+      "componentName": "UnderlineIcon"
+    },
+    {
+      "id": "uicon_a24af0de-06dd-44be-8009-0ff3577a458d",
+      "sourceKey": "undo",
+      "name": "undo",
+      "componentName": "UndoIcon"
+    },
+    {
+      "id": "uicon_175df87c-1d53-4186-b2fe-0fb7162b4323",
+      "sourceKey": "uninteresting",
+      "name": "uninteresting",
+      "componentName": "UninterestingIcon"
+    },
+    {
+      "id": "uicon_cdf0cfa9-9ba2-493e-b942-1eff844f3195",
+      "sourceKey": "union",
+      "name": "union",
+      "componentName": "UnionIcon"
+    },
+    {
+      "id": "uicon_987c7756-ab87-452e-b1e8-6b33ba7a26af",
+      "sourceKey": "unlock",
+      "name": "unlock",
+      "componentName": "UnlockIcon"
+    },
+    {
+      "id": "uicon_f278c34d-e3ae-407d-b9ed-6554625b5664",
+      "sourceKey": "unsafe",
+      "name": "unsafe",
+      "componentName": "UnsafeIcon"
+    },
+    {
+      "id": "uicon_ae9efc84-40c8-4b58-ac79-e281487235fb",
+      "sourceKey": "upload",
+      "name": "upload",
+      "componentName": "UploadIcon"
+    },
+    {
+      "id": "uicon_125085cf-dbdc-4cbe-8bfb-0bb637929b57",
+      "sourceKey": "url",
+      "name": "url",
+      "componentName": "UrlIcon"
+    },
+    {
+      "id": "uicon_6142ff3b-3da2-4fd1-8d0c-f3687c2bdf8e",
+      "sourceKey": "user",
+      "name": "user",
+      "componentName": "UserIcon"
+    },
+    {
+      "id": "uicon_3b33fd85-f4b2-4b1b-b4d7-7fac9d791643",
+      "sourceKey": "users",
+      "name": "users",
+      "componentName": "UsersIcon"
+    },
+    {
+      "id": "uicon_d4c58805-6902-43a1-826c-d8c2da3f232f",
+      "sourceKey": "video",
+      "name": "video",
+      "componentName": "VideoIcon"
+    },
+    {
+      "id": "uicon_644c3668-9508-4514-a8a5-524479a1cbbb",
+      "sourceKey": "visualization",
+      "name": "visualization",
+      "componentName": "VisualizationIcon"
+    },
+    {
+      "id": "uicon_1d92a9fc-9c5b-4bfa-9464-0618766b80ca",
+      "sourceKey": "volume",
+      "name": "volume",
+      "componentName": "VolumeIcon"
+    },
+    {
+      "id": "uicon_ac17ce7b-ee11-4322-ad3e-e3460aef5c3f",
+      "sourceKey": "volume-down",
+      "name": "volume-down",
+      "componentName": "VolumeDownIcon"
+    },
+    {
+      "id": "uicon_74f25f7e-4fed-4196-8690-0ceeffe23613",
+      "sourceKey": "volume-high",
+      "name": "volume-high",
+      "componentName": "VolumeHighIcon"
+    },
+    {
+      "id": "uicon_a6fc094d-ec22-425b-be82-dc437bd6b48c",
+      "sourceKey": "volume-low",
+      "name": "volume-low",
+      "componentName": "VolumeLowIcon"
+    },
+    {
+      "id": "uicon_d1c54ea8-909a-48c5-b272-b5ead0227ce4",
+      "sourceKey": "volume-off",
+      "name": "volume-off",
+      "componentName": "VolumeOffIcon"
+    },
+    {
+      "id": "uicon_a694c013-39ce-45e5-ace8-6f73730e1bd9",
+      "sourceKey": "volume-up",
+      "name": "volume-up",
+      "componentName": "VolumeUpIcon"
+    },
+    {
+      "id": "uicon_072c1f18-048d-4cd2-9fc2-6ac9c0c88bdc",
+      "sourceKey": "vr",
+      "name": "vr",
+      "componentName": "VrIcon"
+    },
+    {
+      "id": "uicon_bc0fdf89-de7a-4471-87e6-73cdc73d5659",
+      "sourceKey": "wallet",
+      "name": "wallet",
+      "componentName": "WalletIcon"
+    },
+    {
+      "id": "uicon_36b6027d-0d64-4413-a8a9-ea5a3f4d642f",
+      "sourceKey": "warning",
+      "name": "warning",
+      "componentName": "WarningIcon"
+    },
+    {
+      "id": "uicon_3ede140e-f9ea-4738-a229-aa6b90f06595",
+      "sourceKey": "waveform",
+      "name": "waveform",
+      "componentName": "WaveformIcon"
+    },
+    {
+      "id": "uicon_648b2a4b-72a2-44a5-943f-f9dc767ae36b",
+      "sourceKey": "wifi",
+      "name": "wifi",
+      "componentName": "WifiIcon"
+    },
+    {
+      "id": "uicon_7741193e-7dec-46ce-bec6-6e87d4957506",
+      "sourceKey": "wifi-off",
+      "name": "wifi-off",
+      "componentName": "WifiOffIcon"
+    },
+    {
+      "id": "uicon_844dd45b-5136-43ac-9242-506012ae3e43",
+      "sourceKey": "zoom-in",
+      "name": "zoom-in",
+      "componentName": "ZoomInIcon"
+    },
+    {
+      "id": "uicon_18c440c6-fca7-44da-bf4c-c97721853cff",
+      "sourceKey": "zoom-out",
+      "name": "zoom-out",
+      "componentName": "ZoomOutIcon"
+    }
+  ]
+}

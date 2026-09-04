@@ -1867,5 +1867,35 @@ export const iconDefinitions: readonly IconDefinition[] = [
     "name": "zoom-out",
     "viewBox": "0 0 24 24",
     "body": "\n<path d=\"M15.182 4.78243C17.9156 7.5161 17.9156 11.9483 15.182 14.6819C12.4483 17.4156 8.01613 17.4156 5.28246 14.6819C2.54879 11.9483 2.54879 7.5161 5.28246 4.78243C8.01613 2.04876 12.4483 2.04876 15.182 4.78243Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n<path d=\"M15.1819 14.6819L18.7175 18.2175\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M7.5 9.5H12.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
+  },
+  {
+    "id": "uicon_f5ddf73e-7166-49bf-b07b-c25d7debc506",
+    "name": "exit",
+    "viewBox": "0 0 24 24",
+    "body": "\n<path d=\"M12 8V6C12 4.89543 11.1046 4 10 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H10C11.1046 20 12 19.1046 12 18V16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M19.7929 12L8 12\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M16 8L19.6465 11.6464C19.8417 11.8417 19.8417 12.1583 19.6465 12.3536L16 16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
+  },
+  {
+    "id": "uicon_78fd4213-af3d-428a-a734-226f02d8b0c2",
+    "name": "leaf",
+    "viewBox": "0 0 24 24",
+    "body": "\n<path d=\"M5 21C5 15.5 10.104 11.6391 15 9\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M6.99999 6.99999C3.65721 9.97135 4.97516 14.4952 5.67356 16.2593C5.86534 16.7437 6.27645 17.0933 6.78301 17.2151C8.53824 17.6372 12.8782 18.3413 16 16C18.8423 13.8683 19.9174 9.21189 20.3016 6.69517C20.4502 5.72203 19.7937 4.8485 18.8173 4.72263C15.9948 4.35872 10.2927 4.07313 6.99999 6.99999Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"
+  },
+  {
+    "id": "uicon_46b2037c-97a3-478b-9686-2cfe314a4cf3",
+    "name": "marquee",
+    "viewBox": "0 0 24 24",
+    "body": "\n<path d=\"M13.75 19H10.25M13.75 5H10.25M7.5 5H7C5.89543 5 5 5.89543 5 7V7.5M16.5 5H17C18.1046 5 19 5.89543 19 7V7.5M19 10.25V13.75M19 16.5V17C19 18.1046 18.1046 19 17 19H16.5M5 16.5V17C5 18.1046 5.89543 19 7 19H7.5M5 13.75V10.25\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n"
+  },
+  {
+    "id": "uicon_fe58fe9f-ecab-4b71-a209-3d9f218c09bc",
+    "name": "paste",
+    "viewBox": "0 0 24 24",
+    "body": "\n<path d=\"M8 5C8 3.89543 8.89543 3 10 3H10.5M15 3H13M20 14.5V16C20 17.1046 19.1046 18 18 18H17.5M20 6.5V5C20 3.89543 19.1046 3 18 3H17.5M20 9V12\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M4 8C4 6.89543 4.89543 6 6 6H14C15.1046 6 16 6.89543 16 8V19C16 20.1046 15.1046 21 14 21H6C4.89543 21 4 20.1046 4 19V8Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"
+  },
+  {
+    "id": "uicon_86aa84d8-7b0d-46c8-a381-ff3703235b3c",
+    "name": "screenshot",
+    "viewBox": "0 0 24 24",
+    "body": "\n<path d=\"M20 8V6C20 4.89543 19.1046 4 18 4H16M20 16V18C20 19.1046 19.1046 20 18 20H16M8 20H6C4.89543 20 4 19.1046 4 18V16M4 8V6C4 4.89543 4.89543 4 6 4H8\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n<path d=\"M9 10C9 9.44772 9.44772 9 10 9H14C14.5523 9 15 9.44772 15 10V14C15 14.5523 14.5523 15 14 15H10C9.44772 15 9 14.5523 9 14V10Z\" stroke=\"currentColor\" stroke-width=\"2\"/>\n"
   }
 ]

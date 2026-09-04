@@ -915,7 +915,9 @@
       "time",
       "时间"
     ],
-    "aliases": [],
+    "aliases": [
+      "history"
+    ],
     "subgroup": "time",
     "id": "uicon_4d87ec3b-69b3-43dc-ba79-2914cfd193ee",
     "name": "clock"
@@ -5447,5 +5449,90 @@
     "subgroup": "view",
     "id": "uicon_18c440c6-fca7-44da-bf4c-c97721853cff",
     "name": "zoom-out"
+  },
+  "exit": {
+    "title": "Exit",
+    "titleZh": "出口",
+    "categories": [
+      "navigation"
+    ],
+    "subgroup": "destination",
+    "tags": [
+      "navigation",
+      "导航",
+      "destination",
+      "目的地"
+    ],
+    "aliases": [],
+    "id": "uicon_f5ddf73e-7166-49bf-b07b-c25d7debc506",
+    "name": "exit"
+  },
+  "leaf": {
+    "title": "Leaf",
+    "titleZh": "叶子",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "life",
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [],
+    "id": "uicon_78fd4213-af3d-428a-a734-226f02d8b0c2",
+    "name": "leaf"
+  },
+  "marquee": {
+    "title": "Marquee",
+    "titleZh": "框选",
+    "categories": [
+      "actions"
+    ],
+    "subgroup": "editing",
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "id": "uicon_46b2037c-97a3-478b-9686-2cfe314a4cf3",
+    "name": "marquee"
+  },
+  "paste": {
+    "title": "Paste",
+    "titleZh": "粘贴",
+    "categories": [
+      "actions"
+    ],
+    "subgroup": "editing",
+    "tags": [
+      "actions",
+      "操作",
+      "editing",
+      "编辑"
+    ],
+    "aliases": [],
+    "id": "uicon_fe58fe9f-ecab-4b71-a209-3d9f218c09bc",
+    "name": "paste"
+  },
+  "screenshot": {
+    "title": "Screenshot",
+    "titleZh": "截图",
+    "categories": [
+      "actions"
+    ],
+    "subgroup": "view",
+    "tags": [
+      "actions",
+      "操作",
+      "view",
+      "视图"
+    ],
+    "aliases": [],
+    "id": "uicon_86aa84d8-7b0d-46c8-a381-ff3703235b3c",
+    "name": "screenshot"
   }
 }
