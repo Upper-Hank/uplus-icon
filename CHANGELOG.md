@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.0-beta.3] - 2026-09-04
+
+### Added
+
+- Five icons: `paste`, `marquee`, `screenshot`, `leaf`, and `exit`.
+- `history` search alias for `clock`.
+
+### Changed
+
+- Catalog now includes 316 icons.
+
 ## [0.1.0-beta.2] - 2026-09-04
 
 ### Added
