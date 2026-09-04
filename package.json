@@ -24,6 +24,6 @@
     "check": "npm run generate && npm run check:generated && npm run check:raw && npm run test:docs && npm run test:plugin && npm run typecheck:all && npm run test:preview-svg -w uplus-icon-site && npm run build -w uplus-icon-site && npm run test:production -w uplus-icon-site && npm run test:package -w @uplus-icon/source && npm run test:runtime -w @uplus-icon/source && npm run test:motion -w @uplus-icon/source && npm run test:svg-source -w @uplus-icon/source && npm run test:metadata -w @uplus-icon/source && npm run test:identity -w @uplus-icon/source && npm run test:rename-fixture -w @uplus-icon/source && npm run check:identity -w @uplus-icon/source && npm run test:fidelity -w @uplus-icon/source && npm run test:weight-audit -w @uplus-icon/source && npm run test:size -w @uplus-icon/source && npm run test:consumer -w @uplus-icon/source"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.0"
+    "@changesets/cli": "^3.0.1"
   }
 }
