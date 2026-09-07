@@ -21,6 +21,7 @@ locale: zh-CN
 - **必须**验证 React 具名、逐图标和动态入口。
 - **必须**检查发布包所需文档，并验证声明支持的最低 React Peer 版本。
 - **必须**验证站点路由元数据、Sitemap 覆盖、SPA 回退和生产 JavaScript 预算。
+- **必须**验证站点发布 SVG 压缩包与公开图标名称和 Core 定义一致。
 - **必须**在 plugin 资产或搜索行为变化时验证面向使用者的 Codex plugin（`npm run test:plugin`）。
 
 ## 视觉矩阵

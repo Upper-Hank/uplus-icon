@@ -38,7 +38,7 @@ Metadata defines names, titles, categories, tags, aliases, deprecation, and vers
 
 ### Generated output
 
-`packages/*/src/generated` and `dist` are reproducible results, not authoring surfaces.
+`packages/*/src/generated`, `dist`, and the site downloadable published SVG pack are reproducible results, not authoring surfaces.
 
 - **MUST** change a source or generator to change generated output.
 - **MUST NOT** patch generated or dist files merely to satisfy a test.

@@ -5,6 +5,7 @@
 ### 新增
 
 - 四个图标：`signpost`、`lifebuoy`、`fire`、`droplet`。
+- 文档网站提供由发布定义生成的 24×24 `currentColor` SVG 压缩包下载。
 
 ### 变更
 

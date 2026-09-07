@@ -13,6 +13,7 @@ locale: zh-CN
 approved raw SVG + metadata
           ↓ read-only generation
 core definitions ──→ React ──→ site
+                 └── published SVG pack
 ```
 
 `@uplus-icon/source` 私有维护资产和生成器；`core` 提供无框架 definition、名称注册表、类型和元数据；`react` 提供静态与显式名称组件；站点只消费公共输出。
@@ -32,4 +33,4 @@ core definitions ──→ React ──→ site
 
 ## 依赖方向
 
-Core 不依赖框架；React 只依赖 Core；站点依赖公开包。生成器只读 Raw SVG 和 metadata 并单向写入生成目录，任何反向写入均为架构违规。
+Core 不依赖框架；React 只依赖 Core；站点依赖公开包。生成器只读 Raw SVG 和 metadata 并单向写入生成目录和站点下载用的发布 SVG 压缩包，任何反向写入均为架构违规。

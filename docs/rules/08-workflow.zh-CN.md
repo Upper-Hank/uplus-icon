@@ -39,6 +39,7 @@ locale: zh-CN
 ```text
 @uplus-icon/core
 @uplus-icon/react
+site published SVG pack
 ```
 
 - **必须**让所有包共享同一 Core Definition。
@@ -46,8 +47,9 @@ locale: zh-CN
 - **必须**让颜色适配可复现并通过保真测试证明未改变其他内容。
 - **必须**保证生成结果稳定、可重复且不依赖手工补丁。
 - **必须**让所有包消费同一份 Canonical Definition。
+- **可以**从适配后的 Canonical Definition 生成站点下载用的发布 SVG 压缩包；该压缩包使用公开名称、24×24 画布、`currentColor` 和默认线宽，不是设计真源。
 - **禁止**从框架包反向生成或修改 SVG 真源。
-- **禁止**由生成器合成其他正式资产。
+- **禁止**由生成器合成其他正式真源资产。
 - **禁止**创建第二份人工维护的发布 SVG。
 
 ## 包体与兼容性

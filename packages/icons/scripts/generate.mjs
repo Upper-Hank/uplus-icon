@@ -11,6 +11,8 @@ import { validateMetadataReferences } from './validate-metadata.mjs'
 import { compileRuntimeSvgBody } from './svg-adapter.mjs'
 import { buildCatalogOrderBySourceKey } from './catalog-order.mjs'
 import { parseDesignSource, sourceKeyPattern } from './svg-source.mjs'
+import { createPublishedSvg, createSvgPackReadme } from './published-svg.mjs'
+import { createZip } from './zip.mjs'
 
 const sourceRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const releaseFeatures = { motion: false }
@@ -254,4 +256,21 @@ for (const [name, path] of Object.entries(outputRoots)) {
   await rename(temporaryRoots[name], path)
 }
 
-console.log(`Generated ${icons.length} icons for Core and React without altering SVG sources`)
+const reactPackage = JSON.parse(await readFile(join(workspaceRoot, 'packages', 'react', 'package.json'), 'utf8'))
+const license = await readFile(join(workspaceRoot, 'LICENSE'))
+const svgPackEntries = [
+  { name: 'LICENSE', data: license },
+  { name: 'README.txt', data: createSvgPackReadme(reactPackage.version) },
+  ...icons
+    .slice()
+    .sort((left, right) => left.name.localeCompare(right.name) || left.id.localeCompare(right.id))
+    .map((icon) => ({
+      name: `${icon.name}.svg`,
+      data: createPublishedSvg(icon),
+    })),
+]
+const downloadsDir = join(workspaceRoot, 'apps', 'site', 'public', 'downloads')
+await mkdir(downloadsDir, { recursive: true })
+await writeFile(join(downloadsDir, 'uplus-icons.svg.zip'), createZip(svgPackEntries))
+
+console.log(`Generated ${icons.length} icons for Core, React, and the published SVG pack without altering SVG sources`)

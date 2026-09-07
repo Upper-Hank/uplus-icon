@@ -38,6 +38,10 @@ for (const path of ['/docs/motion-api', '/docs/motion-authoring']) {
 const sourceSitemap = await readFile(join(publicRoot, 'sitemap.xml'), 'utf8')
 assert.equal(sitemap, sourceSitemap, 'Built sitemap differs from its generated source')
 
+const svgPack = join(distRoot, 'downloads', 'uplus-icons.svg.zip')
+const svgPackSize = (await stat(svgPack)).size
+assert(svgPackSize > 8_000, `Published SVG pack is ${svgPackSize} bytes and looks too small`)
+
 const assets = await readdir(join(distRoot, 'assets'))
 const javascriptFiles = assets.filter((file) => file.endsWith('.js'))
 assert(javascriptFiles.length >= 4, 'Site routes should produce separate JavaScript chunks')

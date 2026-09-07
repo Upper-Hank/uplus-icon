@@ -21,6 +21,7 @@ The supported baseline is a `24×24` master, default stroke `2`, and recommended
 - **MUST** test named, per-icon, and dynamic React entries.
 - **MUST** inspect packed artifacts for required documentation and validate the lowest supported React peer version.
 - **MUST** enforce route-level metadata, sitemap coverage, SPA fallback, and production JavaScript budgets for the site.
+- **MUST** prove the site published SVG pack matches public icon names and Core definitions.
 - **MUST** validate the consumer-side Codex plugin (`npm run test:plugin`) whenever plugin assets or search behavior change.
 
 ## Visual matrix

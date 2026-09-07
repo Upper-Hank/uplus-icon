@@ -13,6 +13,7 @@ locale: en
 approved raw SVG + metadata
           ↓ read-only generation
 core definitions ──→ React ──→ site
+                 └── published SVG pack
 ```
 
 `@uplus-icon/source` privately owns assets and generation. `core` exposes framework-free definitions, the name registry, types, and metadata. `react` provides static and explicit name-based components. The site consumes public outputs.
@@ -32,4 +33,4 @@ core definitions ──→ React ──→ site
 
 ## Dependency direction
 
-Core is framework-free. React depends only on Core, and the site consumes the public packages. Generation reads raw SVG and metadata and writes generated directories in one direction. Any reverse write is an architectural violation.
+Core is framework-free. React depends only on Core, and the site consumes the public packages. Generation reads raw SVG and metadata and writes generated directories and the site downloadable published SVG pack in one direction. Any reverse write is an architectural violation.

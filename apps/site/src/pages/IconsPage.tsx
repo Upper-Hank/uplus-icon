@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Icon, type IconName } from '@uplus-icon/react/dynamic'
 import { iconCategories, iconMeta, iconSubgroups } from '@uplus-icon/core/metadata'
 import { useI18n } from '../i18n'
+import { svgPackDownloadName, svgPackHref } from '../app/svgPack'
 import { IconCollection, type IconViewMode } from '../components/IconCollection'
 import { SegmentedControl } from '../components/LibraryControls'
 import { UiIconSlot } from '../components/UiIconSlot'
@@ -123,6 +124,10 @@ export function IconsPage({ navigate, selectedIcon }: IconsPageProps) {
         />
       </div>
       <div className="library-toolbar-actions">
+        <a className="library-download" href={svgPackHref} download={svgPackDownloadName} aria-label={t('downloadAllSvgs')}>
+          <Icon name="download" size={18} />
+          <span>{t('downloadSvgPack')}</span>
+        </a>
         <SelectMenu
           ariaLabel={language === 'zh' ? '图标排序' : 'Sort icons'}
           options={sortOptions}

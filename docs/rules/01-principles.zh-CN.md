@@ -38,7 +38,7 @@ Uplus Icon 是一套面向产品界面的线性图标系统。它需要同时保
 
 ### 生成产物
 
-`packages/*/src/generated` 和 `dist` 都是可重复生成的结果，不是人工维护入口。
+`packages/*/src/generated`、`dist` 和站点下载用的发布 SVG 压缩包都是可重复生成的结果，不是人工维护入口。
 
 - **必须**通过修改真源或生成器改变生成结果。
 - **禁止**为了通过测试而直接修补 generated 或 dist。

@@ -5,6 +5,7 @@
 ### Added
 
 - Four icons: `signpost`, `lifebuoy`, `fire`, and `droplet`.
+- Documentation site download for a generated pack of published 24×24 `currentColor` SVGs.
 
 ### Changed
 

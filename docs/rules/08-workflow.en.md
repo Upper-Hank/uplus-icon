@@ -39,6 +39,7 @@ The generator reads approved sources and produces:
 ```text
 @uplus-icon/core
 @uplus-icon/react
+site published SVG pack
 ```
 
 - **MUST** make every package share the same Core Definition.
@@ -46,8 +47,9 @@ The generator reads approved sources and produces:
 - **MUST** keep color adaptation reproducible and prove through fidelity tests that it changes no other content.
 - **MUST** keep output stable, reproducible, and free of manual patches.
 - **MUST** make every package consume the same canonical definition.
+- **MAY** generate a site downloadable published SVG pack from adapted canonical definitions. The pack uses public names, a 24×24 canvas, `currentColor`, and the default weight; it is not the design source.
 - **MUST NOT** generate or modify source SVG files from a framework package.
-- **MUST NOT** synthesize additional approved assets.
+- **MUST NOT** synthesize additional approved source assets.
 - **MUST NOT** create a second manually maintained release SVG set.
 
 ## Bundles and compatibility

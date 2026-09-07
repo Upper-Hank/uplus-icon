@@ -4,6 +4,7 @@ import { iconMeta } from '@uplus-icon/core/metadata'
 import { I18nProvider, messages, useI18n, type Language } from './i18n'
 import { copyText } from './app/copyText'
 import { currentVersionLabel } from './app/releaseInfo'
+import { svgPackDownloadName, svgPackHref } from './app/svgPack'
 import { useRoute } from './app/router'
 import { useDocumentMetadata } from './app/useDocumentMetadata'
 import { useInteractiveMotion } from './app/useInteractiveMotion'
@@ -166,6 +167,10 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
               {t('explore')} <Icon name="arrow-right" size={17} />
             </AppLink>
           </div>
+          <a className="home-svg-download" href={svgPackHref} download={svgPackDownloadName} data-reveal>
+            <Icon name="download" size={16} />
+            {t('downloadSvgPack')}
+          </a>
         </div>
 
         <div className="home-visual" data-reveal>

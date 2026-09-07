@@ -13,6 +13,7 @@
     "test:fidelity": "node scripts/test-fidelity.mjs",
     "test:weight-audit": "node scripts/audit-weight.mjs",
     "test:metadata": "node --test scripts/test-metadata.mjs",
+    "test:svg-pack": "node --test scripts/test-svg-pack.mjs",
     "test:svg-source": "node --test scripts/test-svg-source.mjs",
     "test:identity": "node --test scripts/test-identity.mjs",
     "test:rename-fixture": "node --test scripts/test-rename-fixture.mjs",
