@@ -1,10 +1,9 @@
-import { Children, isValidElement, useEffect, useRef, useState, type ComponentPropsWithoutRef, type MouseEvent, type ReactNode } from 'react'
+import { Children, isValidElement, useEffect, useState, type ComponentPropsWithoutRef, type MouseEvent, type ReactNode } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { Icon } from '@uplus-icon/react/dynamic'
 import { getDocGroupLabels, getDocument, headingId, type DocDocument, type DocSlug } from '../content/docs'
 import { useI18n } from '../i18n'
-import { copyText } from '../app/copyText'
+import { CodeBlock } from '../components/CodeBlock'
 import { PageHeading } from '../components/PageHeading'
 
 interface DocsContentProps {
@@ -135,39 +134,16 @@ function MarkdownArticle({ document, navigate }: { document: DocDocument; naviga
     return <Tag id={headingId(label)} {...props}>{children}</Tag>
   }
 
-  function CodeBlock({ children, ...props }: ComponentPropsWithoutRef<'pre'>) {
+  function MarkdownCodeBlock({ children, ...props }: ComponentPropsWithoutRef<'pre'>) {
     const code = Children.toArray(children).find((child): child is React.ReactElement => isValidElement(child))
     const codeProps = code?.props as { className?: string; children?: ReactNode } | undefined
     const language = codeProps?.className?.match(/language-([\w-]+)/)?.[1]
     const label = language ? (codeLanguageLabels[language] ?? language.toUpperCase()) : (document.locale === 'zh-CN' ? '代码' : 'Code')
     const value = String(codeProps?.children ?? '')
-    const [copied, setCopied] = useState(false)
-    const [copyFailed, setCopyFailed] = useState(false)
-    const copyTimerRef = useRef<number | undefined>(undefined)
-
-    useEffect(() => () => window.clearTimeout(copyTimerRef.current), [])
-
-    const copy = async () => {
-      const success = await copyText(value)
-      setCopied(success)
-      setCopyFailed(!success)
-      window.clearTimeout(copyTimerRef.current)
-      copyTimerRef.current = window.setTimeout(() => {
-        setCopied(false)
-        setCopyFailed(false)
-      }, 1600)
-    }
-
     return (
-      <div className="markdown-code-block">
-        <div className="markdown-code-head">
-          <span>{label}</span>
-          <button className="markdown-code-copy" type="button" onClick={copy} aria-label={copyFailed ? (document.locale === 'zh-CN' ? '复制失败' : 'Copy failed') : copied ? (document.locale === 'zh-CN' ? '已复制' : 'Copied') : (document.locale === 'zh-CN' ? '复制代码' : 'Copy code')}>
-            <Icon name={copied ? 'save' : 'copy'} size={14} />
-          </button>
-        </div>
+      <CodeBlock code={value} label={label} locale={document.locale === 'zh-CN' ? 'zh' : 'en'}>
         <pre {...props}>{children}</pre>
-      </div>
+      </CodeBlock>
     )
   }
 
@@ -178,7 +154,7 @@ function MarkdownArticle({ document, navigate }: { document: DocDocument; naviga
         components={{
           h2: heading('h2'),
           h3: heading('h3'),
-          pre: CodeBlock,
+          pre: MarkdownCodeBlock,
           a: ({ href, children, ...props }) => (
             <a href={href} onClick={(event) => onLink(event, href)} {...props}>{children}</a>
           ),

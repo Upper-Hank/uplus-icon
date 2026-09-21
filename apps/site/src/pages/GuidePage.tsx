@@ -1,5 +1,6 @@
 import { PageHeading } from '../components/PageHeading'
 import { AppLink } from '../components/AppLink'
+import { CodeBlock } from '../components/CodeBlock'
 import { useI18n } from '../i18n'
 
 export function GuideContent({ navigate }: { navigate: (path: string) => void }) {
@@ -22,7 +23,7 @@ export function GuideContent({ navigate }: { navigate: (path: string) => void })
           <section id="install">
             <h2>{zh ? '安装' : 'Install'}</h2>
             <p>{zh ? '安装 React 图标包。' : 'Install the React icon package.'}</p>
-            <CodeBlock>npm install @uplus-icon/react</CodeBlock>
+            <GuideCodeBlock locale={language}>npm install @uplus-icon/react</GuideCodeBlock>
           </section>
 
           <section id="named-components">
@@ -30,11 +31,11 @@ export function GuideContent({ navigate }: { navigate: (path: string) => void })
             <p>{zh
               ? '已知图标名称时，优先使用具名导入，以获得清晰的类型和最小的打包结果。'
               : 'Prefer a named import when the icon is known ahead of time for clear types and the smallest bundle.'}</p>
-            <CodeBlock>{`import { PlusIcon } from '@uplus-icon/react'
+            <GuideCodeBlock locale={language}>{`import { PlusIcon } from '@uplus-icon/react'
 
 export function AddAction() {
   return <PlusIcon size={20} aria-label="${zh ? '添加' : 'Add'}" />
-}`}</CodeBlock>
+}`}</GuideCodeBlock>
           </section>
 
           <section id="per-icon-imports">
@@ -42,9 +43,9 @@ export function AddAction() {
             <p>{zh
               ? '需要最明确的静态依赖边界时，使用单图标路径。'
               : 'Use a per-icon path when you want the most explicit static dependency boundary.'}</p>
-            <CodeBlock>{`import PlusIcon from '@uplus-icon/react/icons/plus'
+            <GuideCodeBlock locale={language}>{`import PlusIcon from '@uplus-icon/react/icons/plus'
 
-<PlusIcon size={20} />`}</CodeBlock>
+<PlusIcon size={20} />`}</GuideCodeBlock>
           </section>
 
           <section id="next">
@@ -85,12 +86,11 @@ export function AddAction() {
   )
 }
 
-function CodeBlock({ children }: { children: string }) {
+function GuideCodeBlock({ children, locale }: { children: string; locale: 'en' | 'zh' }) {
   return (
-    <div className="markdown-code-block">
-      <div className="markdown-code-head"><span>Code</span></div>
+    <CodeBlock code={children} label={locale === 'zh' ? '代码' : 'Code'} locale={locale}>
       <pre><code>{children}</code></pre>
-    </div>
+    </CodeBlock>
   )
 }
 

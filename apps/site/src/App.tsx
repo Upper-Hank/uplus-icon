@@ -130,12 +130,29 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
     <section className="home-hero">
       <div className="home-hero-layout">
         <div className="home-hero-content">
-          <h1 data-reveal>{t('heroTitle')}</h1>
-          <p className="home-intro" data-reveal>{t('heroIntro')}</p>
           <AppLink className="home-release" to="/changelog" navigate={navigate} data-reveal>
             <span>{t('publicBeta')}</span>
             <strong>{currentVersionLabel}</strong>
           </AppLink>
+          <h1 data-reveal>{t('heroTitle')}</h1>
+          <p className="home-intro" data-reveal>{t('heroIntro')}</p>
+          <div className="home-actions" data-reveal>
+            <AppLink
+              className="explore-link"
+              to="/icons"
+              navigate={navigate}
+              onPointerEnter={(event) => moveExploreArrow(event.currentTarget, 3)}
+              onPointerLeave={(event) => moveExploreArrow(event.currentTarget, 0)}
+              onFocus={(event) => moveExploreArrow(event.currentTarget, 3)}
+              onBlur={(event) => moveExploreArrow(event.currentTarget, 0)}
+            >
+              {t('explore')} <Icon name="arrow-right" size={17} />
+            </AppLink>
+            <a className="home-svg-download" href={svgPackHref} download={svgPackDownloadName}>
+              <Icon name="download" size={16} />
+              {t('downloadSvgPack')}
+            </a>
+          </div>
           <div className="home-install" data-reveal>
             <div className="install-command">
               <span>npm</span>
@@ -155,22 +172,7 @@ function Home({ navigate }: { navigate: (path: string) => void }) {
             <span className="sr-only" role="status" aria-live="polite">
               {copyFailed ? t('copyFailed') : copied ? t('installCopied') : ''}
             </span>
-            <AppLink
-              className="explore-link"
-              to="/icons"
-              navigate={navigate}
-              onPointerEnter={(event) => moveExploreArrow(event.currentTarget, 3)}
-              onPointerLeave={(event) => moveExploreArrow(event.currentTarget, 0)}
-              onFocus={(event) => moveExploreArrow(event.currentTarget, 3)}
-              onBlur={(event) => moveExploreArrow(event.currentTarget, 0)}
-            >
-              {t('explore')} <Icon name="arrow-right" size={17} />
-            </AppLink>
           </div>
-          <a className="home-svg-download" href={svgPackHref} download={svgPackDownloadName} data-reveal>
-            <Icon name="download" size={16} />
-            {t('downloadSvgPack')}
-          </a>
         </div>
 
         <div className="home-visual" data-reveal>
