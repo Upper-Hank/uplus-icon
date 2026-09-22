@@ -5602,5 +5602,141 @@
     "aliases": [],
     "id": "uicon_6c9263fa-89c3-4dd4-9c8b-08ab2619b3e0",
     "name": "droplet"
+  },
+  "font": {
+    "title": "Font",
+    "titleZh": "字体",
+    "categories": [
+      "interface"
+    ],
+    "subgroup": "design",
+    "tags": [
+      "interface",
+      "界面",
+      "design",
+      "设计"
+    ],
+    "aliases": [],
+    "name": "font",
+    "id": "uicon_8e2be16d-9059-4c10-8820-6652ad65b4d4"
+  },
+  "watch": {
+    "title": "Watch",
+    "titleZh": "手表",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "time",
+    "tags": [
+      "objects",
+      "对象",
+      "time",
+      "时间"
+    ],
+    "aliases": [],
+    "name": "watch",
+    "id": "uicon_8f6ad8a9-b49c-4cf0-93c5-97019e1daf58"
+  },
+  "watch-circle": {
+    "title": "Watch Circle",
+    "titleZh": "圆形手表",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "time",
+    "tags": [
+      "objects",
+      "对象",
+      "time",
+      "时间"
+    ],
+    "aliases": [],
+    "name": "watch-circle",
+    "id": "uicon_167140dd-1a54-4ac1-ac5b-7f3bdf6086ee"
+  },
+  "route": {
+    "title": "Route",
+    "titleZh": "路线",
+    "categories": [
+      "navigation"
+    ],
+    "subgroup": "destination",
+    "tags": [
+      "navigation",
+      "导航",
+      "destination",
+      "目的地"
+    ],
+    "aliases": [],
+    "name": "route",
+    "id": "uicon_be5cab2e-63d9-48b0-af7b-92d4981bb44d"
+  },
+  "webcam": {
+    "title": "Webcam",
+    "titleZh": "摄像头",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "technology",
+    "tags": [
+      "objects",
+      "对象",
+      "technology",
+      "技术"
+    ],
+    "aliases": [],
+    "name": "webcam",
+    "id": "uicon_3cbb80b2-9d77-4b24-87ac-d1aa4466ba92"
+  },
+  "tree": {
+    "title": "Tree",
+    "titleZh": "树",
+    "categories": [
+      "objects"
+    ],
+    "subgroup": "life",
+    "tags": [
+      "objects",
+      "对象",
+      "life",
+      "生活"
+    ],
+    "aliases": [],
+    "name": "tree",
+    "id": "uicon_e7ce455b-446d-4b9a-aa66-aced71602c94"
+  },
+  "captions": {
+    "title": "Captions",
+    "titleZh": "字幕",
+    "categories": [
+      "media"
+    ],
+    "subgroup": "visual",
+    "tags": [
+      "media",
+      "媒体",
+      "visual",
+      "视觉"
+    ],
+    "aliases": [],
+    "name": "captions",
+    "id": "uicon_bca9569e-dd24-4a32-8227-a9b19b581907"
+  },
+  "joystick": {
+    "title": "Joystick",
+    "titleZh": "摇杆",
+    "categories": [
+      "media"
+    ],
+    "subgroup": "gaming",
+    "tags": [
+      "media",
+      "媒体",
+      "gaming",
+      "游戏"
+    ],
+    "aliases": [],
+    "name": "joystick",
+    "id": "uicon_cc885d4d-c47f-4a3a-9ad9-8d38bc482135"
   }
 }

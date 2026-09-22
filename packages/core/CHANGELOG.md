@@ -1,5 +1,11 @@
 # @uplus-icon/core
 
+## 0.1.0-beta.5
+
+### Minor Changes
+
+- Release eight icons: `font`, `watch`, `watch-circle`, `route`, `webcam`, `tree`, `captions`, and `joystick`.
+
 ## 0.1.0-beta.4
 
 ### Patch Changes

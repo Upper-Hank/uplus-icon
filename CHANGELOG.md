@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.0-beta.5] - 2026-09-22
+
+### Added
+
+- Eight icons: `font`, `watch`, `watch-circle`, `route`, `webcam`, `tree`, `captions`, and `joystick`.
+
+### Changed
+
+- Catalog now includes 328 icons.
+
 ## [0.1.0-beta.4] - 2026-09-04
 
 ### Added

@@ -15,6 +15,8 @@ const SCRIPT_FILES = [
   'icon-identity.mjs',
   'svg-adapter.mjs',
   'svg-source.mjs',
+  'published-svg.mjs',
+  'zip.mjs',
   'validate-metadata.mjs',
   'check-icon-identity.mjs',
   'create-identity-manifest.mjs',
@@ -134,6 +136,7 @@ export const categoryRegistry = [
     private: true,
     workspaces: ['packages/*'],
   }, null, 2)}\n`)
+  await cp(join(workspaceRoot, 'LICENSE'), join(fixtureWorkspace, 'LICENSE'))
 
   const fixtureNodeModules = join(fixtureWorkspace, 'node_modules')
   await mkdir(join(fixtureNodeModules, '@uplus-icon'), { recursive: true })

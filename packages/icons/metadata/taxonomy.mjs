@@ -12,7 +12,7 @@ export const figmaTaxonomy = {
     management: ['smartphone', 'refresh', 'search', 'pin', 'pin-off', 'filter', 'sort', 'archive'],
   },
   navigation: {
-    destination: ['home', 'compass', 'exit', 'signpost'],
+    destination: ['home', 'compass', 'exit', 'signpost', 'route'],
     chevron: ['chevron-up', 'chevron-down', 'chevron-left', 'chevron-right'],
     chevrons: ['chevrons-up', 'chevrons-down', 'chevrons-left', 'chevrons-right'],
     arrow: ['arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-top-left', 'arrow-top-right', 'arrow-bottom-left', 'arrow-bottom-right'],
@@ -24,7 +24,7 @@ export const figmaTaxonomy = {
       'text', 'underline', 'text-alt', 'strikethrough', 'bold', 'italic', 'heading', 'quote', 'code-block', 'artboard',
       'pen', 'pencil', 'ruler', 'eyedropper', 'anchor-curve', 'anchor-point', 'crop',
       'rotate-left', 'rotate-right', 'flip-horizontal', 'flip-vertical',
-      'duplicate', 'transform', 'union', 'intersect', 'exclude', 'subtract', 'mask', 'eraser', 'textarea',
+      'duplicate', 'transform', 'union', 'intersect', 'exclude', 'subtract', 'mask', 'eraser', 'textarea', 'font',
     ],
     interaction: ['mouse', 'mouse-alt', 'monitor', 'touchpad', 'keyboard', 'hand', 'cursor', 'target', 'target-alt', 'drag-alt', 'drag'],
     data: ['pie-chart', 'chart-column', 'chart-column-up', 'gauge', 'dial', 'trending-up', 'trending-down', 'percent'],
@@ -37,8 +37,8 @@ export const figmaTaxonomy = {
   media: {
     playback: ['play', 'stop', 'pause', 'skip-forward', 'skip-back', 'fast-forward', 'rewind', 'repeat', 'shuffle', 'record', 'cast'],
     audio: ['microphone', 'volume-up', 'volume-down', 'volume-high', 'volume-low', 'volume-off', 'volume', 'waveform', 'music'],
-    visual: ['camera', 'video', 'image'],
-    gaming: ['game-handle'],
+    visual: ['camera', 'video', 'image', 'captions'],
+    gaming: ['game-handle', 'joystick'],
   },
   objects: {
     content: ['file', 'folder', 'folder-open', 'folder-plus', 'clipboard', 'task', 'braces', 'book', 'hashtag', 'bookmark', 'tag', 'mail', 'notebook'],
@@ -46,9 +46,9 @@ export const figmaTaxonomy = {
     technology: [
       'tablet', 'laptop', 'computer', 'robot', 'print', 'server', 'qr-code', 'barcode', 'battery-horizon', 'chip', 'cube',
       'database', 'charge', 'git', 'floppy-disk', 'hard-drive', 'terminal', 'bug', 'wifi', 'wifi-off', 'bluetooth',
-      'bluetooth-off', 'cloud', 'broadcast', 'vr',
+      'bluetooth-off', 'cloud', 'broadcast', 'vr', 'webcam',
     ],
-    time: ['clock', 'alarm-clock', 'timer', 'calendar'],
+    time: ['clock', 'alarm-clock', 'timer', 'calendar', 'watch', 'watch-circle'],
     place: ['location', 'earth', 'global', 'planet', 'skyscraper', 'flag', 'map', 'mountain'],
     identity: ['user', 'users', 'gender-male', 'gender-transgender', 'gender-neutral', 'gender-female'],
     commerce: [
@@ -57,7 +57,7 @@ export const figmaTaxonomy = {
     ],
     security: ['key', 'fingerprint'],
     mineral: ['diamond'],
-    life: ['cup', 'lamp', 'flashlight', 'glasses', 'lightbulb', 'pet', 'leaf', 'lifebuoy', 'droplet'],
+    life: ['cup', 'lamp', 'flashlight', 'glasses', 'lightbulb', 'pet', 'leaf', 'lifebuoy', 'droplet', 'tree'],
     sport: ['basketball', 'football'],
     professional: ['student', 'lab', 'briefcase'],
     mobility: ['ship-rudder', 'truck', 'jeep', 'plane', 'rocket', 'space-shuttle'],

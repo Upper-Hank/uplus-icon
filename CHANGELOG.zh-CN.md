@@ -1,5 +1,15 @@
 # 更新日志
 
+## [0.1.0-beta.5] - 2026-09-22
+
+### 新增
+
+- 八个图标：`font`、`watch`、`watch-circle`、`route`、`webcam`、`tree`、`captions`、`joystick`。
+
+### 变更
+
+- 目录现为 328 个图标。
+
 ## [0.1.0-beta.4] - 2026-09-04
 
 ### 新增
