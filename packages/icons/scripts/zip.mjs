@@ -1,4 +1,4 @@
-import { deflateRawSync, inflateRawSync } from 'node:zlib'
+import { inflateRawSync } from 'node:zlib'
 
 const CRC_TABLE = new Uint32Array(256)
 for (let index = 0; index < 256; index += 1) {
@@ -11,7 +11,6 @@ const LOCAL_SIGNATURE = 0x04034b50
 const CENTRAL_SIGNATURE = 0x02014b50
 const EOCD_SIGNATURE = 0x06054b50
 const UTF8_FLAG = 0x0800
-const DEFLATE = 8
 const DOS_TIME = 0
 const DOS_DATE = 0x21
 
@@ -41,13 +40,15 @@ export function createZip(entries) {
   for (const { name, data } of entries) {
     const nameBuffer = Buffer.from(name, 'utf8')
     const uncompressed = Buffer.isBuffer(data) ? data : Buffer.from(data)
-    const compressed = deflateRawSync(uncompressed, { level: 9 })
+    // Stored entries keep archives identical across OS and zlib versions.
+    const compressed = uncompressed
+    const method = 0
     const checksum = crc32(uncompressed)
     const local = Buffer.concat([
       u32(LOCAL_SIGNATURE),
       u16(20),
       u16(UTF8_FLAG),
-      u16(DEFLATE),
+      u16(method),
       u16(DOS_TIME),
       u16(DOS_DATE),
       u32(checksum),
@@ -63,7 +64,7 @@ export function createZip(entries) {
       u16(20),
       u16(20),
       u16(UTF8_FLAG),
-      u16(DEFLATE),
+      u16(method),
       u16(DOS_TIME),
       u16(DOS_DATE),
       u32(checksum),
