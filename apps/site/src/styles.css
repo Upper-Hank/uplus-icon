@@ -125,10 +125,10 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1
 .collection-subheading { margin: 0 0 16px; display: flex; align-items: baseline; gap: 12px; }
 .collection-subheading h3 { margin: 0; color: #4a4a4a; font-size: 18px; font-weight: 450; line-height: 18px; }
 .collection-subheading > span { color: #a3a3a3; font-size: 14px; font-weight: 450; line-height: 14px; }
-.collection-grid { display: grid; grid-template-columns: repeat(auto-fill, 48px); justify-content: flex-start; gap: 16px; width: 100%; }
+.collection-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(48px, 1fr)); gap: 16px; width: 100%; }
 /* The library renders the full catalog at once; containment lets the browser
    skip layout and paint for tiles that are outside the viewport. */
-.icon-grid-tile { width: 48px; height: 48px; display: grid; place-items: center; padding: 8px; border: 0; border-radius: 10px; background: transparent; color: #000; cursor: pointer; text-decoration: none; content-visibility: auto; contain-intrinsic-size: 48px 48px; }
+.icon-grid-tile { width: 48px; height: 48px; justify-self: center; display: grid; place-items: center; padding: 8px; border: 0; border-radius: 10px; background: transparent; color: #000; cursor: pointer; text-decoration: none; content-visibility: auto; contain-intrinsic-size: 48px 48px; }
 .icon-grid-tile:hover, .icon-grid-tile:focus-visible { background: var(--ui-hover); }
 .empty { text-align: center; padding: 120px 20px; color: var(--muted); }
 .empty h2 { color: #11110f; margin: 20px 0 8px; font-weight: 450; }
