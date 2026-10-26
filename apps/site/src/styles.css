@@ -2,7 +2,7 @@
 
 :root { font-family: Inter, 'Noto Sans SC', sans-serif; font-weight: 350; color: #11110f; background: #fff; font-synthesis: none; --header-height: 64px; --content-max-width: 1920px; --line: #deded9; --muted: #6e6e67; --ui-bg: #fff; --ui-text: #000; --ui-muted: #8e8e8e; --ui-surface: #f1f1f1; --ui-hover: #f0f0f0; --ui-selected: #e8e8e8; --ui-selected-hover: #dcdcdc; --ui-subtle: #f7f7f7; --ui-line: #f1f1f1; --preview-grid: #b2b2ac; --guide-safe: #568819; --guide-wide: #6657d5; --guide-circle: #d24950; --guide-core: #c13baa; }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-x: clip; }
+html { color-scheme: light; scroll-behavior: smooth; overflow-x: clip; scrollbar-gutter: stable; scrollbar-color: var(--ui-muted) var(--ui-bg); }
 body { margin: 0; min-width: 320px; overflow-x: clip; }
 button, input, select { font: inherit; }
 button { color: inherit; }

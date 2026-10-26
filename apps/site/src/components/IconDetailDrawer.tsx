@@ -200,7 +200,7 @@ export function IconDetailDrawer({ name, onClose }: IconDetailDrawerProps) {
       document.body.style.position = position
       document.body.style.top = top
       document.body.style.width = width
-      window.scrollTo(0, scrollY)
+      window.scrollTo({ top: scrollY, behavior: 'instant' })
       window.removeEventListener('keydown', handleDialogKeys)
       window.clearTimeout(copyTimerRef.current)
       previousFocus?.focus({ preventScroll: true })
