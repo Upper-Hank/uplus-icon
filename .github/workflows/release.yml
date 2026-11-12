@@ -30,7 +30,7 @@ jobs:
         run: npm install -g npm@latest
       - run: npm ci
       - run: npm run build:icons
-      - uses: changesets/action@v1
+      - uses: changesets/action@v2
         with:
           publish: npm run release
         env:
